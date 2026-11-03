@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap oficial de Orchata Media House
+Sitemap: https://www.orchatahouse.com/sitemap.xml
+

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orchata Originals — Series Documentales & Cine Independiente</title>
+  <meta name="description"
+    content="Orchata Originals: Cine documental de alto impacto, historias humanas profundas y desarrollo de propiedad intelectual con estándares cinematográficos internacionales. Rodaje en ARRI Alexa 4K RAW." />
+  <meta name="keywords" content="Orchata Originals, documentales mexicanos, cine documental independiente, series originales streaming, ARRI Alexa 4K, producción cinematográfica Querétaro" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.orchatahouse.com/pages/originales.html" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="video.movie" />
+  <meta property="og:url" content="https://www.orchatahouse.com/pages/originales.html" />
+  <meta property="og:site_name" content="Orchata Originals" />
+  <meta property="og:title" content="Orchata Originals — Documentales y Series Cinematográficas" />
+  <meta property="og:description" content="Historias reales filmadas con óptica de cine, Dolby Atmos y distribución en festivales y plataformas OTT." />
+  <meta property="og:image" content="https://www.orchatahouse.com/assets/images/10.png" />
+  <meta property="og:image:secure_url" content="https://www.orchatahouse.com/assets/images/10.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Orchata Originals — Cine Documental" />
+  <meta property="og:locale" content="es_MX" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Orchata Originals — Cine Documental y Series Originales" />
+  <meta name="twitter:description" content="Propiedad intelectual y documentales con factura cinematográfica de clase mundial." />
+  <meta name="twitter:image" content="https://www.orchatahouse.com/assets/images/10.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .col-filter-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--clr-white-60);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .col-filter-pill:hover {
+      background: rgba(255, 49, 49, 0.12);
+      border-color: rgba(255, 49, 49, 0.35);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .col-filter-pill.active {
+      background: var(--clr-gold);
+      border-color: var(--clr-gold);
+      color: #000000;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(255, 49, 49, 0.35);
+    }
+
+    .doc-item-filterable {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    @media (max-width: 1024px) {
+      .docs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .docs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* Proceso Cinematográfico Layout */
+    .proceso-cine-section {
+      padding: 120px 80px;
+      background: var(--clr-bg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .proceso-cine-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--clr-card-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      background: #000;
+    }
+
+    .proceso-cine-img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .proceso-cine-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 45%, transparent 75%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+      box-sizing: border-box;
+    }
+
+    .proceso-cine-tag {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .proceso-cine-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin: 0;
+      word-break: break-word;
+    }
+
+    @media (max-width: 1024px) {
+      .proceso-cine-section {
+        grid-template-columns: 1fr;
+        padding: 80px 40px;
+        gap: 50px;
+      }
+      .proceso-cine-img {
+        height: 440px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .proceso-cine-section {
+        padding: 60px 24px;
+        gap: 40px;
+      }
+      .proceso-cine-img {
+        height: 380px;
+      }
+      .proceso-cine-overlay {
+        padding: 24px 20px;
+      }
+      .proceso-cine-title {
+        font-size: 17px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .proceso-cine-section {
+        padding: 50px 16px;
+      }
+      .proceso-cine-img {
+        height: 320px;
+      }
+      .proceso-cine-overlay {
+        padding: 20px 16px;
+      }
+      .proceso-cine-title {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <a href="../index.html" class="nav-logo" id="nav-logo" aria-label="Orchata Media House">
+      <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House" class="nav-logo-img" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="marca-blanca.html">Marca Blanca</a></li>
+      <li><a href="originales.html" style="color:var(--clr-white)">Originales</a></li>
+      <li><a href="records.html">Orchata Récords</a></li>
+      <li><a href="comerciales.html">Producciones</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/524424280465?text=Quiero%20conocer%20m%C3%A1s%20sobre%20las%20producciones%20y%20documentales%20de%20Orchata%20Originals"
+      target="_blank" rel="noopener" class="btn-pill btn-pill-gold nav-cta" id="nav-cta">Contactar Originals</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="marca-blanca.html">Marca Blanca</a>
+    <a href="originales.html">Originales</a>
+    <a href="records.html">Orchata Récords</a>
+    <a href="comerciales.html">Producciones</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="https://wa.me/524424280465?text=Quiero%20conocer%20m%C3%A1s%20sobre%20las%20producciones%20y%20documentales%20de%20Orchata%20Originals"
+      target="_blank" rel="noopener" class="btn-pill btn-pill-gold" style="width:fit-content">Contactar Originals
+      (WhatsApp)</a>
+  </div>
+
+
+  <!-- HERO 1 — DOCUMENTALES ORIGINALES (IMAGEN 10) -->
+  <section class="page-hero" id="hero-originales" aria-label="Orchata Originals — Slate Documental">
+    <div class="page-hero-bg" style="background-image:url('../assets/images/10.png')"></div>
+    <div class="page-hero-overlay"
+      style="background:linear-gradient(to bottom,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.3) 40%,rgba(0,0,0,0.88) 85%,rgba(10,10,11,1) 100%)">
+    </div>
+
+    <!-- Film grain overlay -->
+    <div
+      style="position:absolute;inset:0;opacity:0.04;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 stitchTiles=%22stitch%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>');pointer-events:none;z-index:1;">
+    </div>
+
+    <div class="page-hero-content">
+      <!-- Rating pill -->
+      <div
+        style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;background:rgba(255,49,49,0.15);border:1px solid rgba(255,49,49,0.35);margin-bottom:20px">
+        <span style="font-size:13px;">🎬</span>
+        <span
+          style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clr-gold)">Orchata
+          Originals · Slate 2025–2026</span>
+      </div>
+
+      <h1 class="hero-title" style="font-size:clamp(44px,8.5vw,110px);letter-spacing:-0.03em;line-height:1.05;">
+        Documentales<br><span class="text-gold">Originales.</span>
+      </h1>
+      <p class="hero-subtitle" style="max-width:680px;">
+        Cine documental de alta factura, biografías legendarias y relatos culturales de impacto internacional. Un slate
+        concebido para festivales, plataformas OTT y audiencias globales.
+      </p>
+      <div class="hero-ctas">
+        <a href="#catalogo" class="btn-pill btn-pill-gold" id="btn-ver-catalogo">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          Explorar las 4 Colecciones (18 Títulos)
+        </a>
+        <a href="https://wa.me/524424280465?text=Quiero%20conocer%20m%C3%A1s%20sobre%20las%20producciones%20y%20documentales%20de%20Orchata%20Originals"
+          target="_blank" rel="noopener" class="btn-pill btn-pill-outline" id="hero-btn-dossier">
+          Coproducción & Licenciamiento IP (WhatsApp) →
+        </a>
+      </div>
+    </div>
+
+    <!-- Film strip decoration -->
+    <div
+      style="position:absolute;bottom:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--clr-gold) 0,var(--clr-gold) 40px,transparent 40px,transparent 60px);opacity:0.4;z-index:2;">
+    </div>
+  </section>
+
+
+  <!-- CATÁLOGO COMPLETO — COLECCIONES INTERACTIVAS -->
+  <section style="padding:100px 80px;background:var(--clr-bg-2);" id="catalogo" aria-label="Catálogo de Documentales">
+    <div style="max-width:1300px;margin:0 auto;">
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:20px;">
+        <div>
+          <span class="section-eyebrow reveal">Slate Oficial · 4 Universos Documentales</span>
+          <h2 class="section-title reveal reveal-delay-1">Catálogo de Series & Documentales</h2>
+          <p class="section-subtitle reveal reveal-delay-2" style="margin-bottom:0">
+            Explora por colección o haz clic en cualquier póster para abrir la ficha técnica, sinopsis y acuerdos de distribución.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-3" style="display:flex;gap:12px;align-items:center;">
+          <span style="font-size:12px;color:var(--clr-white-40);border:1px solid rgba(255,255,255,0.1);padding:8px 16px;border-radius:999px;">
+            Dirección General: <strong style="color:var(--clr-gold);">Humberto Carosilva</strong>
+          </span>
+        </div>
+      </div>
+
+      <!-- SELECTOR DE COLECCIONES (INTERACTIVO) -->
+      <div class="reveal reveal-delay-2" style="display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap;align-items:center;">
+        <button class="col-filter-pill active" onclick="filterCollection('all', this)">
+          ✨ Ver Todos (18 Títulos)
+        </button>
+        <button class="col-filter-pill" onclick="filterCollection('legion-azteca', this)">
+          🇲🇽 Legión Azteca (Mexicanos Ejemplares)
+        </button>
+        <button class="col-filter-pill" onclick="filterCollection('true-crime', this)">
+          🔪 Expedientes Negros (True Crime & Asesinos)
+        </button>
+        <button class="col-filter-pill" onclick="filterCollection('cine', this)">
+          🎬 Pantalla de Culto (Historia del Cine)
+        </button>
+        <button class="col-filter-pill" onclick="filterCollection('visionarios', this)">
+          ⚡ Visionarios & Trending (Éxito & Cultura)
+        </button>
+      </div>
+
+      <!-- GRID DOCUMENTALES CON TODAS LAS COLECCIONES -->
+      <div class="docs-grid" id="docs-grid-container">
+
+        <!-- ═══════════════════════════════════
+             COLECCIÓN 1: LEGIÓN AZTECA
+        ═══════════════════════════════════ -->
+        <!-- 1. CANELO ÁLVAREZ -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-1" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(1)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/1.png" alt="Canelo Álvarez — La Caída del Último Guerrero Azteca" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Deporte · Biográfico</div>
+            <div class="carousel-item-title">Canelo Álvarez</div>
+            <div class="carousel-item-sub">La caída del último guerrero azteca. La pelea más dura ocurre cuando se apagan las luces.</div>
+          </div>
+        </article>
+
+        <!-- 2. HUGO SÁNCHEZ -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-2" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(2)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/2.png" alt="Hugo Sánchez — Macho" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Fútbol · Historia</div>
+            <div class="carousel-item-title">Hugo Sánchez · Macho</div>
+            <div class="carousel-item-sub">El más grande de la historia que México decidió ignorar. Rendirse nunca fue opción.</div>
+          </div>
+        </article>
+
+        <!-- 3. FRIDA KAHLO -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-3" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(3)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/3.png" alt="Frida Kahlo — La Fractura" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Arte · Drama Histórico</div>
+            <div class="carousel-item-title">Frida Kahlo · La Fractura</div>
+            <div class="carousel-item-sub">El dolor que el mundo convirtió en moda. Desmitificando el ícono cultural.</div>
+          </div>
+        </article>
+
+        <!-- 4. TIN TAN -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-1" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(4)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/4.png" alt="Tin Tan — Siempre Pachuco" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Época de Oro · Cultura</div>
+            <div class="carousel-item-title">Tin Tan · Siempre Pachuco</div>
+            <div class="carousel-item-sub">El rebelde que desafió el sistema. Humor, elegancia y contracultura urbana.</div>
+          </div>
+        </article>
+
+        <!-- 5. EUGENIO DERBEZ -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-2" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(5)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/5.png" alt="Eugenio vs Derbez" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Comedia & Cine · Retrospectiva</div>
+            <div class="carousel-item-title">Eugenio vs Derbez</div>
+            <div class="carousel-item-sub">La obsesión detrás del personaje. El precio de hacer reír a un país que no perdona el éxito.</div>
+          </div>
+        </article>
+
+        <!-- 6. CHECO PÉREZ -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-3" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(6)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/6.png" alt="Checo Pérez — Viejo Sabroso" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Fórmula 1 · Resiliencia</div>
+            <div class="carousel-item-title">Checo Pérez · Viejo Sabroso</div>
+            <div class="carousel-item-sub">El intruso en la élite mundial. El sacrificio que pocos aguantan, la gloria que todos quieren.</div>
+          </div>
+        </article>
+
+        <!-- 7. JULIO CÉSAR CHÁVEZ -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-1" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(7)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/7.png" alt="Julio César Chávez — César del Pueblo" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Boxeo · Leyenda Viva</div>
+            <div class="carousel-item-title">Chávez · César del Pueblo</div>
+            <div class="carousel-item-sub">El campeón invicto que paralizaba México. La gloria deportiva y la lucha contra sí mismo.</div>
+          </div>
+        </article>
+
+        <!-- 8. PEDRO INFANTE -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-2" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(8)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/8.png" alt="Pedro Infante — Si Me Muero Quién Te Besa" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Música & Cine · Mito</div>
+            <div class="carousel-item-title">Pedro Infante</div>
+            <div class="carousel-item-sub">El vuelo sin retorno del hombre que cantaba su despedida. Convertirse en leyenda antes de envejecer.</div>
+          </div>
+        </article>
+
+        <!-- 9. GLORIA TREVI -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-3" data-collection="legion-azteca" style="width:100%;cursor:pointer;" onclick="openDocModal(9)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/9.png" alt="Gloria Trevi — El Precio de la Libertad" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge">Legión Azteca</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag">Pop Latino · Controversia</div>
+            <div class="carousel-item-title">Gloria Trevi · La Trevi</div>
+            <div class="carousel-item-sub">El precio de la libertad. La voz más rebelde del pop latinoamericano frente al juicio de la historia.</div>
+          </div>
+        </article>
+
+        <!-- ═══════════════════════════════════
+             COLECCIÓN 2: EXPEDIENTES NEGROS (TRUE CRIME & ASESINOS SERIALES)
+        ═══════════════════════════════════ -->
+        <!-- 101. EL MONSTRUO DE ECATEPEC -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-1" data-collection="true-crime" style="width:100%;cursor:pointer;" onclick="openDocModal(101)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="El Monstruo de Ecatepec" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#cc1f1f;color:#fff;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#ff5c5c;">True Crime · Crónica Forense</div>
+            <div class="carousel-item-title">El Monstruo de Ecatepec</div>
+            <div class="carousel-item-sub">Cacería en la niebla. Peritajes psiquiátricos y expedientes de la impunidad en la periferia.</div>
+          </div>
+        </article>
+
+        <!-- 102. LA MATAVIEJITAS -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-2" data-collection="true-crime" style="width:100%;cursor:pointer;" onclick="openDocModal(102)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="La Mataviejitas — Juana Barraza" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#cc1f1f;color:#fff;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#ff5c5c;">True Crime · Perfil Criminal</div>
+            <div class="carousel-item-title">La Mataviejitas · Juana Barraza</div>
+            <div class="carousel-item-sub">Doble vida entre el cuadrilátero de lucha libre y el pánico que paralizó a la capital.</div>
+          </div>
+        </article>
+
+        <!-- 103. EL CANÍBAL DE LA GUERRERO -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-3" data-collection="true-crime" style="width:100%;cursor:pointer;" onclick="openDocModal(103)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="El Caníbal de la Guerrero" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#cc1f1f;color:#fff;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#ff5c5c;">True Crime · Peritaje Psiquiátrico</div>
+            <div class="carousel-item-title">El Caníbal de la Guerrero</div>
+            <div class="carousel-item-sub">Los manuscritos del poeta caníbal. El delirio literario que escondía un matadero clandestino.</div>
+          </div>
+        </article>
+
+        <!-- ═══════════════════════════════════
+             COLECCIÓN 3: PANTALLA DE CULTO (HISTORIA DEL CINE)
+        ═══════════════════════════════════ -->
+        <!-- 201. MACARIO -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-1" data-collection="cine" style="width:100%;cursor:pointer;" onclick="openDocModal(201)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="Macario — La Muerte en Blanco y Negro" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#8B5CF6;color:#fff;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#a78bfa;">Cine Clásico · Retrospectiva</div>
+            <div class="carousel-item-title">Macario · Muerte en Blanco y Negro</div>
+            <div class="carousel-item-sub">El pacto con el destino cinematográfico. La alquimia visual de Gabriel Figueroa y Gavaldón.</div>
+          </div>
+        </article>
+
+        <!-- 202. CINE DE ORO DESCLASIFICADO -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-2" data-collection="cine" style="width:100%;cursor:pointer;" onclick="openDocModal(202)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="Cine de Oro Desclasificado" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#8B5CF6;color:#fff;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#a78bfa;">Historia · Backstage Secreto</div>
+            <div class="carousel-item-title">Cine de Oro Desclasificado</div>
+            <div class="carousel-item-sub">Luces, censura y traición. Lo que nunca se reveló en los foros de los estudios Churubusco.</div>
+          </div>
+        </article>
+
+        <!-- 203. EL NUEVO HOLLYWOOD LATINO -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-3" data-collection="cine" style="width:100%;cursor:pointer;" onclick="openDocModal(203)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="El Nuevo Hollywood Latino" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#8B5CF6;color:#fff;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#a78bfa;">Directores de Élite · Maestría</div>
+            <div class="carousel-item-title">El Nuevo Hollywood Latino</div>
+            <div class="carousel-item-sub">De los foros universitarios a conquistar la noche de la Academia mundial.</div>
+          </div>
+        </article>
+
+        <!-- ═══════════════════════════════════
+             COLECCIÓN 4: VISIONARIOS & TRENDING
+        ═══════════════════════════════════ -->
+        <!-- 301. EL IMPERIO UNICORNIO -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-1" data-collection="visionarios" style="width:100%;cursor:pointer;" onclick="openDocModal(301)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="El Imperio Unicornio" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#3ECFCF;color:#000;font-weight:800;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#3ECFCF;">Business · Trending Tech</div>
+            <div class="carousel-item-title">El Imperio Unicornio</div>
+            <div class="carousel-item-sub">El algoritmo del hype: cómo fundar monopolios de millones desde un smartphone.</div>
+          </div>
+        </article>
+
+        <!-- 302. OSKAVA · RESURRECCIÓN CALLEJERA -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-2" data-collection="visionarios" style="width:100%;cursor:pointer;" onclick="openDocModal(302)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Oskava 2.0.jpeg" alt="Oskava · Resurrección Callejera" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#fcf200;color:#000;font-weight:800;">Estreno 2027</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#fcf200;">Música & Cultura Urbana</div>
+            <div class="carousel-item-title">Oskava · Resurrección Callejera</div>
+            <div class="carousel-item-sub">De los callejones al estudio más avanzado. El fenómeno del rap que transforma dolor en arte.</div>
+          </div>
+        </article>
+
+        <!-- 303. MAESTROS DEL CAOS -->
+        <article class="carousel-item carousel-item-cinema doc-item-filterable reveal reveal-delay-3" data-collection="visionarios" style="width:100%;cursor:pointer;" onclick="openDocModal(303)">
+          <div class="cinema-poster-wrap">
+            <img src="../assets/images/Orange Prox.png" alt="Maestros del Caos" class="cinema-poster" loading="lazy" />
+            <span class="cinema-badge" style="background:#3ECFCF;color:#000;font-weight:800;">Próximamente</span>
+          </div>
+          <div class="carousel-item-body">
+            <div class="carousel-item-tag" style="color:#3ECFCF;">Fenómeno Digital · Masas</div>
+            <div class="carousel-item-title">Maestros del Caos</div>
+            <div class="carousel-item-sub">Los creadores que hackearon la atención. Quién domina la atención domina el mercado moderno.</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROCESO CINEMATOGRÁFICO -->
+  <section class="proceso-cine-section" id="proceso-cinematografico"
+    aria-label="Proceso Cinematográfico">
+    <div>
+      <span class="section-eyebrow reveal">Behind The Scenes</span>
+      <h2 class="section-title reveal reveal-delay-1">El Proceso<br><span class="text-gold">Cinematográfico.</span></h2>
+      <p class="section-subtitle reveal reveal-delay-2" style="margin-bottom:40px">
+        Cada documental de Orchata Originals es fruto de una rigurosa labor de investigación periodística, acceso
+        exclusivo a fuentes primarias y producción técnica del más alto calibre internacional.
+      </p>
+
+      <!-- Timeline proceso -->
+      <div class="reveal reveal-delay-3" style="display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative">
+          <div style="position:absolute;left:19px;top:38px;bottom:0;width:1px;background:var(--clr-card-border)"></div>
+          <div
+            style="width:38px;height:38px;border-radius:50%;border:2px solid var(--clr-gold);background:rgba(255,49,49,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;color:var(--clr-gold)">
+            1</div>
+          <div style="padding-top:8px">
+            <div style="font-size:14px;font-weight:600;color:var(--clr-white);margin-bottom:4px">Investigación de
+              Archivo & Guión</div>
+            <div style="font-size:13px;color:var(--clr-white-40)">Búsqueda de material inédito, entrevistas y
+              construcción de arco dramático.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative">
+          <div style="position:absolute;left:19px;top:38px;bottom:0;width:1px;background:var(--clr-card-border)"></div>
+          <div
+            style="width:38px;height:38px;border-radius:50%;border:2px solid var(--clr-gold);background:rgba(255,49,49,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;color:var(--clr-gold)">
+            2</div>
+          <div style="padding-top:8px">
+            <div style="font-size:14px;font-weight:600;color:var(--clr-white);margin-bottom:4px">Rodaje Cinematográfico
+            </div>
+            <div style="font-size:13px;color:var(--clr-white-40)">Cámaras ARRI Alexa y RED en 4K RAW, ópticas
+              anamórficas de grado cine.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative">
+          <div style="position:absolute;left:19px;top:38px;bottom:0;width:1px;background:var(--clr-card-border)"></div>
+          <div
+            style="width:38px;height:38px;border-radius:50%;border:2px solid var(--clr-gold);background:rgba(255,49,49,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;color:var(--clr-gold)">
+            3</div>
+          <div style="padding-top:8px">
+            <div style="font-size:14px;font-weight:600;color:var(--clr-white);margin-bottom:4px">Colorimetría & Diseño
+              Sonoro</div>
+            <div style="font-size:13px;color:var(--clr-white-40)">DaVinci Resolve Studio y banda sonora original
+              compuesta por Orchata Récords.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:20px;align-items:flex-start">
+          <div
+            style="width:38px;height:38px;border-radius:50%;border:2px solid var(--clr-gold);background:rgba(255,49,49,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:700;color:var(--clr-gold)">
+            4</div>
+          <div style="padding-top:8px">
+            <div style="font-size:14px;font-weight:600;color:var(--clr-white);margin-bottom:4px">Ruta de Festivales &
+              Distribución OTT</div>
+            <div style="font-size:13px;color:var(--clr-white-40)">Circuitos de festivales de clase A y acuerdos con
+              plataformas de streaming.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="proceso-cine-card">
+        <img src="../assets/images/10.png" alt="Proceso Cinematográfico Orchata Originals"
+          class="proceso-cine-img" />
+        <div class="proceso-cine-overlay">
+          <span class="proceso-cine-tag">PRODUCCIÓN BESPOKE</span>
+          <h4 class="proceso-cine-title">Cámara ARRI Alexa · DaVinci Resolve · Dolby Atmos</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FICHA TÉCNICA Y COPRODUCCIÓN -->
+  <section class="cards-section" id="dossier" aria-label="Ficha técnica del slate y oportunidades">
+    <div class="cards-grid">
+      <!-- Ficha Técnica -->
+      <article class="card reveal reveal-delay-1" id="card-ficha">
+        <img src="../assets/images/10.png" alt="Ficha Técnica Orchata Originals" class="card-img" loading="lazy"
+          style="height:220px;object-fit:cover;" />
+        <div class="card-body">
+          <div class="card-eyebrow">📋 Slate Overview</div>
+          <h3 class="card-title">Orchata Originals.</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+            <div>
+              <div
+                style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--clr-gold);margin-bottom:4px">
+                Género</div>
+              <div style="font-size:14px;color:var(--clr-white-60)">Cine Documental & Biopics</div>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--clr-gold);margin-bottom:4px">
+                Títulos</div>
+              <div style="font-size:14px;color:var(--clr-white-60)">9 Producciones en Slate</div>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--clr-gold);margin-bottom:4px">
+                Dirección</div>
+              <div style="font-size:14px;color:var(--clr-white-60)">Humberto Carosilva</div>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--clr-gold);margin-bottom:4px">
+                Formato</div>
+              <div style="font-size:14px;color:var(--clr-white-60)">4K HDR RAW · Cinema</div>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--clr-gold);margin-bottom:4px">
+                Banda Sonora</div>
+              <div style="font-size:14px;color:var(--clr-white-60)">Orchata Récords (Original)</div>
+            </div>
+            <div>
+              <div
+                style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--clr-gold);margin-bottom:4px">
+                Estado</div>
+              <div style="font-size:14px;color:var(--clr-gold)">● En Preproducción / Rodaje</div>
+            </div>
+          </div>
+          <a href="contacto.html" class="card-link" id="link-ficha">Descargar Dossier Completo de IP <svg width="14"
+              height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></a>
+        </div>
+      </article>
+
+      <!-- Coproducción -->
+      <article class="card card-cta reveal reveal-delay-2" id="card-coprod">
+        <div
+          style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-gold);border-radius:var(--radius-xl) var(--radius-xl) 0 0;">
+        </div>
+        <div class="card-eyebrow">🤝 Oportunidades Comerciales</div>
+        <h3 class="card-title">Coproducción &<br>Licenciamiento de IP.</h3>
+        <p class="card-text">
+          El slate de Orchata Originals está abierto a alianzas estratégicas con distribuidoras OTT, fondos de
+          coproducción internacional y marcas que busquen integración orgánica y de alto prestigio.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px">
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--clr-white-60)"><span
+              style="color:var(--clr-gold)">→</span> Adquisición de derechos por ventanas y territorios</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--clr-white-60)"><span
+              style="color:var(--clr-gold)">→</span> Coproducción ejecutiva y creativa internacional</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--clr-white-60)"><span
+              style="color:var(--clr-gold)">→</span> Licenciamiento de IP para adaptaciones transmedia</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--clr-white-60)"><span
+              style="color:var(--clr-gold)">→</span> Brand Integration y patrocinio de alto perfil</div>
+        </div>
+        <div class="card-cta-actions">
+          <a href="https://wa.me/524424280465?text=Quiero%20conocer%20m%C3%A1s%20sobre%20las%20alianzas%20de%20coproducci%C3%B3n%20y%20licenciamiento%20de%20Orchata%20Originals"
+            target="_blank" rel="noopener" class="btn-pill btn-pill-gold" id="btn-coprod">Hablar por WhatsApp (+52 442
+            428 0465)</a>
+          <a href="https://wa.me/524424280465?text=Quiero%20solicitar%20el%20Dossier%20de%20IP%20en%20PDF%20de%20Orchata%20Originals"
+            target="_blank" rel="noopener" class="btn-pill btn-pill-outline" id="btn-dossier-pdf">Solicitar Dossier IP
+            (PDF)</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- MODAL DE DETALLES DEL DOCUMENTAL -->
+  <div id="doc-modal" class="doc-modal-overlay" role="dialog" aria-modal="true" aria-label="Detalles del Documental">
+    <div class="doc-modal-card">
+      <button class="doc-modal-close" onclick="closeDocModal()" aria-label="Cerrar">✕</button>
+      <div style="position:relative;">
+        <img id="modal-img" src="" alt="Portada Documental" class="doc-modal-img" />
+        <div
+          style="position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to top, #111113, transparent);">
+        </div>
+      </div>
+      <div class="doc-modal-body">
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+          <span id="modal-tag"
+            style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clr-gold);">ORCHATA
+            ORIGINALS</span>
+          <span
+            style="font-size:11px;padding:4px 10px;border-radius:999px;background:rgba(255,49,49,0.15);border:1px solid rgba(255,49,49,0.3);color:var(--clr-gold);font-weight:600;">Dirección:
+            Humberto Carosilva</span>
+        </div>
+        <h2 id="modal-title"
+          style="font-size:clamp(22px,3.5vw,32px);font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-0.02em;">
+          Título</h2>
+        <p id="modal-quote"
+          style="font-size:15px;color:rgba(255,255,255,0.85);font-style:italic;margin-bottom:14px;border-left:2px solid var(--clr-gold);padding-left:12px;">
+          "Cita o subtítulo del documental"</p>
+        <p id="modal-desc" style="font-size:14px;color:var(--clr-white-60);line-height:1.6;margin-bottom:24px;">Sinopsis
+          y descripción de la producción cinematográfica.</p>
+
+        <div
+          style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;flex-wrap:wrap;gap:14px;">
+          <div style="font-size:12px;color:var(--clr-white-40);">
+            <span>Formato: <strong style="color:#fff;">4K HDR RAW</strong></span> ·
+            <span>Audio: <strong style="color:#fff;">Orchata Récords</strong></span>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <a href="contacto.html" class="btn-pill btn-pill-gold" style="font-size:13px;padding:10px 22px;">Solicitar
+              Dossier de IP</a>
+            <button onclick="closeDocModal()" class="btn-pill btn-pill-outline"
+              style="font-size:13px;padding:10px 20px;">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-links-zone">
+      <div
+        style="text-align:center;padding-bottom:32px;border-bottom:1px solid var(--clr-card-border);margin-bottom:32px">
+        <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House"
+          style="height:32px;width:auto;margin:0 auto 12px;display:block;" />
+        <span class="footer-brand-sub" style="margin-bottom:8px">ORCHATA ORIGINALS · DOCUMENTALES & SERIES</span>
+        <p style="font-size:13px;color:var(--clr-gray);margin-top:8px">Narrativa documental con factura cinematográfica
+          de nivel internacional.</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">Copyright © 2025 Orchata Media House. Orchata Originals™ es una marca registrada.
+          Todos los derechos reservados.</p>
+      <!-- Créditos Desarrolladores Web -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0;">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600;">Desarrollado por</span>
+        <div style="display:inline-flex;align-items:center;gap:16px;">
+          <a href="https://madmonkey.agency" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;opacity:0.85;transition:opacity 0.2s;text-decoration:none;" title="MadMonkey Studios">
+            <img src="../assets/images/MMW.png" alt="MadMonkey Studios" style="height:22px;width:auto;object-fit:contain;filter:brightness(0) invert(1);" />
+          </a>
+          <span style="color:rgba(255,255,255,0.2);font-size:12px;">×</span>
+          <a href="https://usainsomnia.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;opacity:0.85;transition:opacity 0.2s;text-decoration:none;" title="INSOMNIA IA STUDIO">
+            <img src="../assets/images/Logo INSOMNIA.png" alt="INSOMNIA IA STUDIO" style="height:20px;width:auto;object-fit:contain;filter:brightness(0) invert(1);" />
+          </a>
+        </div>
+      </div>
+        <div class="footer-legal">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-visual-banner" aria-hidden="true">
+      <img src="../assets/images/Orchata Pie.png" alt="Orchata Media House Visual" class="footer-visual-img"
+        loading="lazy" />
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+<!-- BOTÓN FLOTANTE DE WHATSAPP CON NUBE DE DIÁLOGO -->
+<a href="https://wa.me/524424280465?text=Hola%20Orchata,%20tengo%20una%20pregunta%20sobre%20sus%20servicios" class="whatsapp-float-wrap" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <div class="whatsapp-bubble">¿Tienes alguna duda? ¡Pregúntanos!</div>
+  <div class="whatsapp-float-btn">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.13.11-3.28-.78-2.58-1.07-4.24-3.71-4.37-3.88-.13-.18-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.38-.06.59.45.22.53.75 1.83.82 1.97.07.13.11.3.02.48-.09.18-.13.3-.26.45-.13.16-.27.35-.39.47-.13.13-.26.27-.11.53.15.26.68 1.12 1.45 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.06.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.54.73 1.81.86.26.13.44.2.5.31.07.11.07.66-.17 1.34z"/></svg>
+  </div>
+</a>
+</body>
+
+</html>

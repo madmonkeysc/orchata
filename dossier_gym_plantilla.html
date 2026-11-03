@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossier Comercial Gimnasios & Redes DOOH — Orchata Media House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0A0A0B;
+      color: #FFFFFF;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 210mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      background: #0A0A0B;
+      padding: 20mm 24mm;
+    }
+
+    /* HEADER & FOOTER */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 4mm;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 6mm;
+    }
+    .header-logo {
+      height: 24px;
+      width: auto;
+    }
+    .header-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ff3131;
+    }
+    .page-footer {
+      position: absolute;
+      bottom: 8mm;
+      left: 24mm;
+      right: 24mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 3mm;
+    }
+
+    /* TYPOGRAPHY */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ff3131;
+      margin-bottom: 2mm;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .title-large {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 3mm;
+    }
+    .title-large span {
+      background: linear-gradient(135deg, #ff3131 0%, #ff6b6b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+      max-width: 820px;
+      margin-bottom: 5mm;
+    }
+
+    /* COVER PAGE */
+    .page-cover {
+      padding: 0;
+      background: radial-gradient(circle at 75% 30%, rgba(255, 49, 49, 0.15) 0%, rgba(10, 10, 11, 0.95) 70%, #0A0A0B 100%);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .cover-left {
+      width: 58%;
+      height: 100%;
+      padding: 24mm 24mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 2;
+    }
+    .cover-right {
+      width: 42%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      filter: contrast(1.1);
+    }
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #0A0A0B 0%, rgba(10,10,11,0.2) 60%, rgba(10,10,11,0.8) 100%);
+    }
+
+    /* GRIDS & CARDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+    }
+    .card {
+      background: #141416;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 4.5mm 5mm;
+      position: relative;
+    }
+    .card-highlight {
+      border-color: rgba(255, 49, 49, 0.4);
+      background: linear-gradient(180deg, rgba(255, 49, 49, 0.08) 0%, #141416 100%);
+    }
+    .card-gold {
+      border-color: rgba(252, 242, 0, 0.35);
+      background: linear-gradient(180deg, rgba(252, 242, 0, 0.06) 0%, #141416 100%);
+    }
+
+    /* STATS CALLOUTS */
+    .stat-box {
+      background: rgba(255, 49, 49, 0.08);
+      border: 1px solid rgba(255, 49, 49, 0.25);
+      border-radius: 10px;
+      padding: 3.5mm;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 26px;
+      font-weight: 900;
+      color: #ff3131;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1px;
+    }
+
+    /* LISTS */
+    .clean-list {
+      list-style: none;
+      margin-top: 2.5mm;
+    }
+    .clean-list li {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 2mm;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+    .clean-list li strong {
+      color: #ffffff;
+    }
+    .clean-list li::before {
+      content: "✓";
+      color: #ff3131;
+      font-weight: bold;
+    }
+
+    /* TIMELINE */
+    .timeline-step {
+      display: flex;
+      gap: 4mm;
+      align-items: flex-start;
+      margin-bottom: 4mm;
+      position: relative;
+    }
+    .step-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #ff3131;
+      color: #000;
+      font-weight: 800;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 1: PORTADA ESPECIALIZADA PARA GIMNASIOS
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page page-cover">
+    <div class="cover-left">
+      <div>
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" style="height:34px;width:auto;margin-bottom:6mm;">
+        <div class="eyebrow">Dossier de Negocio & Alianza Comercial · Fitness & Gimnasios</div>
+        <h1 style="font-size:44px;font-weight:900;letter-spacing:-0.03em;line-height:1.06;margin-bottom:4mm;">
+          Pantallas que<br>
+          <span style="background:linear-gradient(135deg, #ff3131 0%, #ff6b6b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Venden, Retienen</span><br>
+          y Generan Utilidades.
+        </h1>
+        <p style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6;max-width:520px;">
+          Ecosistema Marca Blanca DOOH llave en mano para gimnasios en Querétaro y México. Venta única sin mensualidades forzosas y convenio publicitario con reparto de utilidades en efectivo a partir del Año 2.
+        </p>
+      </div>
+
+      <div>
+        <div style="display:flex;gap:14mm;padding-top:5mm;border-top:1px solid rgba(255,255,255,0.12);">
+          <div>
+            <div style="font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Modelo de Inversión</div>
+            <div style="font-size:12.5px;font-weight:700;color:#fff;margin-top:2px;">Venta Única (-20% Alianza)</div>
+          </div>
+          <div>
+            <div style="font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Retorno Proyectado</div>
+            <div style="font-size:12.5px;font-weight:700;color:#25D366;margin-top:2px;">$1,500 – $3,200 USD/mes</div>
+          </div>
+          <div>
+            <div style="font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">WhatsApp Comercial</div>
+            <div style="font-size:12.5px;font-weight:700;color:#ff3131;margin-top:2px;">+52 442 428 0465</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-right">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Rutina.png" class="cover-bg-img">
+      <div class="cover-overlay"></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 2: EL PROBLEMA ACTUAL VS. EL ECOSISTEMA ORCHATA
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">01 · Diagnóstico & Oportunidad</span>
+    </div>
+
+    <div class="eyebrow">¿Qué pasa hoy en tu gimnasio?</div>
+    <h2 class="title-large">El 90% de los gimnasios <span>desperdician sus pantallas.</span></h2>
+    <p class="subtitle">Canales de televisión abierta, noticias deprimentes o videos musicales repetitivos que no generan ni un solo peso para el club y saturan visualmente al socio.</p>
+
+    <div class="grid-2" style="margin-top:2mm;gap:7mm;">
+      <!-- Antes vs Después -->
+      <div class="card" style="border-color:rgba(255,255,255,0.15);">
+        <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3mm;">❌ Como está tu pantalla hoy:</div>
+        <ul class="clean-list" style="margin-top:0;">
+          <li style="color:rgba(255,255,255,0.5);"><strong style="color:rgba(255,255,255,0.7);">Cero ingresos:</strong> La pantalla solo consume luz sin vender membresías ni productos.</li>
+          <li style="color:rgba(255,255,255,0.5);"><strong style="color:rgba(255,255,255,0.7);">Distracción pasiva:</strong> Socios mirando el celular o canales que no tienen relación con el fitness.</li>
+          <li style="color:rgba(255,255,255,0.5);"><strong style="color:rgba(255,255,255,0.7);">Sobrecarga de staff:</strong> Entrenadores respondiendo 20 veces al día cómo se hace el mismo ejercicio.</li>
+          <li style="color:rgba(255,255,255,0.5);"><strong style="color:rgba(255,255,255,0.7);">Fuga en barra de batidos:</strong> Los socios no saben qué proteína tomar y se van sin consumir.</li>
+        </ul>
+      </div>
+
+      <div class="card card-highlight">
+        <div style="font-size:12px;font-weight:700;color:#ff3131;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3mm;">⚡ Con el Ecosistema Orchata:</div>
+        <ul class="clean-list" style="margin-top:0;">
+          <li><strong>Venta Cruzada en Pantalla:</strong> Promoción activa de batidos, creatina y pases anuales con QR de compra inmediata.</li>
+          <li><strong>Rutinas & Biomecánica Guiada:</strong> Videos profesionales en bucle que enseñan la ejecución correcta del ejercicio.</li>
+          <li><strong>Consultas con Nutriólogo / Fisio:</strong> Escaneo directo para agendar citas de servicios complementarios del gym.</li>
+          <li><strong>Modelo de Venta Única:</strong> El software y el contenido son tuyos para siempre; sin mensualidades obligatorias.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 datos de retención -->
+    <div class="grid-3" style="margin-top:5mm;">
+      <div class="stat-box">
+        <div class="stat-number">+80%</div>
+        <div class="stat-label">Retención visual en sala de pesas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">74%</div>
+        <div class="stat-label">Acción inmediata vía código QR</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">400%</div>
+        <div class="stat-label">Mayor impacto que carteles estáticos</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Diagnóstico DOOH</span>
+      <span>Página 02</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 3: QUÉ HACEMOS Y CÓMO FUNCIONA
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">02 · Funcionamiento & Contenido</span>
+    </div>
+
+    <div class="eyebrow">La Experiencia del Socio</div>
+    <h2 class="title-large">¿Qué ven tus socios y <span>cómo compran?</span></h2>
+    <p class="subtitle">El sistema corre de forma 100% automatizada durante todo el horario de apertura del gimnasio, dividiendo la programación en módulos de alta retención visual.</p>
+
+    <!-- Grid de los 3 tipos de contenido visual con fotos reales -->
+    <div class="grid-3" style="margin-top:2mm;">
+      <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#141416;">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Prote.png" style="width:100%;height:44mm;object-fit:cover;">
+        <div style="padding:3.5mm;">
+          <div style="font-size:9.5px;color:#ff3131;font-weight:700;text-transform:uppercase;">01 · VENTA DIRECTA CON QR</div>
+          <div style="font-size:13px;font-weight:800;color:#fff;margin-top:1px;">Barra de Suplementos & Batidos</div>
+          <p style="font-size:10.5px;color:rgba(255,255,255,0.6);margin-top:2px;line-height:1.4;">
+            El socio escanea el QR desde su caminadora o rack y compra su scoop de proteína o shaker antes de salir del club.
+          </p>
+        </div>
+      </div>
+
+      <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#141416;">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Rutina%20Hombro.png" style="width:100%;height:44mm;object-fit:cover;">
+        <div style="padding:3.5mm;">
+          <div style="font-size:9.5px;color:#ff3131;font-weight:700;text-transform:uppercase;">02 · RETENCIÓN TÉCNICA</div>
+          <div style="font-size:13px;font-weight:800;color:#fff;margin-top:1px;">Rutinas Guiadas en Pantalla</div>
+          <p style="font-size:10.5px;color:rgba(255,255,255,0.6);margin-top:2px;line-height:1.4;">
+            Clips cinematográficos con postura correcta, series recomendadas y técnica biomecánica para elevar la percepción del club.
+          </p>
+        </div>
+      </div>
+
+      <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#141416;">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Hombro%20mujer.png" style="width:100%;height:44mm;object-fit:cover;">
+        <div style="padding:3.5mm;">
+          <div style="font-size:9.5px;color:#ff3131;font-weight:700;text-transform:uppercase;">03 · SERVICIOS INTERNOS</div>
+          <div style="font-size:13px;font-weight:800;color:#fff;margin-top:1px;">Clases, Nutrición & Eventos</div>
+          <p style="font-size:10.5px;color:rgba(255,255,255,0.6);margin-top:2px;line-height:1.4;">
+            Promoción de retos de transformación, agenda con el nutriólogo y reserva de cupos en clases grupales de alta demanda.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner tecnológico -->
+    <div class="card card-highlight" style="margin-top:5mm;display:flex;justify-content:space-between;align-items:center;padding:3.5mm 6mm;">
+      <div>
+        <div style="font-size:11px;font-weight:800;color:#fff;">Hardware & Software Incluido Llave en Mano</div>
+        <div style="font-size:10.5px;color:rgba(255,255,255,0.6);">Dispositivo reproductor plug & play preconfigurado para encendido automático diario y actualización remota.</div>
+      </div>
+      <div style="font-size:11px;color:#25D366;font-weight:800;border:1px solid rgba(37,211,102,0.4);padding:4px 12px;border-radius:999px;">
+        100% Plug & Play
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Ecosistema Operativo</span>
+      <span>Página 03</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 4: LOS 3 PAQUETES LLAVE EN MANO
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">03 · Paquetes & Precios</span>
+    </div>
+
+    <div class="eyebrow">Sin mensualidades obligatorias</div>
+    <h2 class="title-large">Elige tu Paquete de <span>Venta Única.</span></h2>
+    <p class="subtitle">Pagas una sola vez y el sistema completo es propiedad de tu gimnasio. Precios preferenciales con el <strong>20% de descuento inmediato</strong> al ingresar al convenio de Alianza Comercial.</p>
+
+    <div class="grid-3" style="margin-top:2mm;">
+      <!-- Paquete 1 -->
+      <div class="card">
+        <div style="font-size:11px;font-weight:700;color:#ff3131;text-transform:uppercase;">PAQUETE INICIAL</div>
+        <h3 style="font-size:18px;font-weight:900;color:#fff;margin-top:1px;">Core 30™</h3>
+        <div style="margin:3mm 0;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$490 USD</span>
+          <span style="font-size:26px;font-weight:900;color:#fff;margin-left:4px;">$390</span>
+          <span style="font-size:10px;color:#ff3131;font-weight:700;">USD Pago Único</span>
+        </div>
+        <ul class="clean-list">
+          <li><strong>30 Clips Profesionales:</strong> Biblioteca base de ejercicios biomecánicos.</li>
+          <li><strong>3 Promociones QR:</strong> Venta de suplementos y membresías.</li>
+          <li><strong>Dispositivo Reproductor:</strong> Plug & Play listo para conectar a tu TV.</li>
+          <li><strong>Ahorro inmediato de $100 USD</strong> con Alianza Comercial.</li>
+        </ul>
+      </div>
+
+      <!-- Paquete 2 (Destacado) -->
+      <div class="card card-highlight">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;font-weight:700;color:#ff3131;text-transform:uppercase;">MÁS POPULAR</span>
+          <span style="font-size:8.5px;background:#ff3131;color:#000;font-weight:800;padding:2px 6px;border-radius:999px;">RECOMENDADO</span>
+        </div>
+        <h3 style="font-size:18px;font-weight:900;color:#fff;margin-top:1px;">Pro Brand™</h3>
+        <div style="margin:3mm 0;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$990 USD</span>
+          <span style="font-size:26px;font-weight:900;color:#fff;margin-left:4px;">$790</span>
+          <span style="font-size:10px;color:#ff3131;font-weight:700;">USD Pago Único</span>
+        </div>
+        <ul class="clean-list">
+          <li><strong>60 Clips Personalizados:</strong> Con el logotipo y paleta de colores de tu gym.</li>
+          <li><strong>8 Promociones QR Dinámicas:</strong> Batidos, retos, clases y nutriólogo.</li>
+          <li><strong>Manual Comercial Staff:</strong> Guía para recepcionistas y coaches.</li>
+          <li><strong>Ahorro inmediato de $200 USD</strong> con Alianza Comercial.</li>
+        </ul>
+      </div>
+
+      <!-- Paquete 3 -->
+      <div class="card">
+        <div style="font-size:11px;font-weight:700;color:#ff3131;text-transform:uppercase;">EXPERIENCIA TOTAL</div>
+        <h3 style="font-size:18px;font-weight:900;color:#fff;margin-top:1px;">Maximus Bespoke™</h3>
+        <div style="margin:3mm 0;">
+          <span style="font-size:12px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$1,990 USD</span>
+          <span style="font-size:26px;font-weight:900;color:#fff;margin-left:4px;">$1,590</span>
+          <span style="font-size:10px;color:#ff3131;font-weight:700;">USD Pago Único</span>
+        </div>
+        <ul class="clean-list">
+          <li><strong>Rodaje en tu Gimnasio:</strong> Grabamos con tus entrenadores e instalaciones.</li>
+          <li><strong>Biblioteca Ilimitada de Clips:</strong> Fuerza, cardio, yoga, box y nutrición.</li>
+          <li><strong>Campaña Publicitaria Lanzamiento:</strong> Video cinematográfico institucional.</li>
+          <li><strong>Ahorro inmediato de $400 USD</strong> con Alianza Comercial.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Paquetes Llave en Mano</span>
+      <span>Página 04</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 5: EL CONVENIO DE PUBLICIDAD & REPARTO DE UTILIDADES
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">04 · Convenio de Publicidad & ROI</span>
+    </div>
+
+    <div class="eyebrow">Alianza Comercial Orchata</div>
+    <h2 class="title-large">¿Cómo gana tu gimnasio <span>a partir del Año 2?</span></h2>
+    <p class="subtitle">Diseñamos una alianza ganar-ganar donde tu inversión inicial se reduce y tus pantallas se convierten en un activo financiero recurrente sin esfuerzo operativo para ti.</p>
+
+    <div class="grid-2" style="margin-top:2mm;gap:8mm;">
+      <!-- Timeline explicativa -->
+      <div>
+        <div class="timeline-step">
+          <div class="step-badge">1</div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#fff;">Año 1: Descuento Inmediato + Tus Ventas Internas</div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;margin-top:1px;">
+              Recibes el <strong>20% de descuento directo</strong> en la compra de tu paquete. El 80% de la pantalla se dedica exclusivamente a vender tus membresías y batidos, y cedes un 20% de tiempo para consolidar la red.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="step-badge" style="background:#25D366;">2</div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#25D366;">Año 2 en adelante: Reparto de Ganancias en Efectivo</div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;margin-top:1px;">
+              Orchata comercializa pautas con marcas patrocinadoras (restaurantes saludables, marcas de ropa, suplementos premium) en tu zona de Querétaro y <strong>tu gimnasio recibe un reparto de utilidades en efectivo</strong> mensual o trimestral.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="step-badge" style="background:#fff;color:#000;">3</div>
+          <div>
+            <div style="font-size:13px;font-weight:800;color:#fff;">Cero Trabajo para tu Personal</div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;margin-top:1px;">
+              Nosotros prospectamos a los anunciantes, producimos los spots comerciales y actualizamos la nube. Tú solo cobras tu porcentaje de utilidades.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuadro de simulación de ganancias -->
+      <div class="card card-gold" style="padding:5mm 6mm;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="font-size:11px;font-weight:800;color:#fcf200;text-transform:uppercase;letter-spacing:0.1em;">PROYECCIÓN DE BENEFICIO ANUAL</div>
+          <h3 style="font-size:18px;font-weight:900;color:#fff;margin:2mm 0 3mm;">Retorno Total Estimado para el Club</h3>
+          
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:3.5mm;margin-bottom:3mm;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.7);margin-bottom:1.5mm;">
+              <span>Ventas adicionales vía QR (Año 1):</span>
+              <strong style="color:#fff;">$1,500 – $3,200 USD/mes</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.7);margin-bottom:1.5mm;">
+              <span>Ahorro en compra de paquete:</span>
+              <strong style="color:#ff3131;">Hasta -$400 USD OFF</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.7);padding-top:1.5mm;border-top:1px solid rgba(255,255,255,0.08);">
+              <span>Reparto publicitario en efectivo (Año 2+):</span>
+              <strong style="color:#25D366;">Ingreso pasivo garantizado</strong>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:10px;color:rgba(255,255,255,0.5);line-height:1.4;">
+          * Solo admitimos <strong>5 gimnasios por zona en Querétaro</strong> para garantizar exclusividad y alta demanda publicitaria para los anunciantes.
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Alianza Publicitaria & Retorno</span>
+      <span>Página 05</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 6: CÓMO EMPEZAR & AGENDAR VISITA TÉCNICA
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">05 · Implementación & Contacto</span>
+    </div>
+
+    <div class="grid-2" style="gap:8mm;">
+      <!-- Pasos de implementación -->
+      <div>
+        <div class="eyebrow">Proceso Rápido en 3 Pasos</div>
+        <h2 class="title-large" style="font-size:26px;">Instalado en tu Gym en <span>menos de 5 días.</span></h2>
+        
+        <div style="margin-top:4mm;">
+          <div style="margin-bottom:3.5mm;">
+            <div style="font-size:12.5px;font-weight:800;color:#fff;">1. Visita Técnica o Demostración Virtual</div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:1px;">
+              Visitamos tus instalaciones en Querétaro para evaluar tus pantallas existentes o enviarte el kit configurado.
+            </p>
+          </div>
+
+          <div style="margin-bottom:3.5mm;">
+            <div style="font-size:12.5px;font-weight:800;color:#fff;">2. Personalización de Marca & QRs</div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:1px;">
+              Configuramos tus precios, productos de barra, logotipo y enlaces de WhatsApp/pago para tu recepción.
+            </p>
+          </div>
+
+          <div>
+            <div style="font-size:12.5px;font-weight:800;color:#fff;">3. Encendido & Activación de Ventas</div>
+            <p style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:1px;">
+              Conectas el reproductor HDMI, entregamos el manual a tus entrenadores y tus pantallas empiezan a monetizar desde el día 1.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta de contacto y cierre -->
+      <div class="card card-highlight" style="display:flex;flex-direction:column;justify-content:space-between;padding:6mm 7mm;">
+        <div>
+          <div class="eyebrow" style="color:#ff3131;">Agenda tu Demostración Hoy</div>
+          <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:3mm;">Quiero que Orchata visite mi Gym</h3>
+          <p style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.5;margin-bottom:5mm;">
+            Envíanos un mensaje directo para agendar una visita técnica en tus instalaciones en Querétaro o recibir la cotización exacta de tus pantallas.
+          </p>
+
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:4mm;margin-bottom:4mm;">
+            <div style="font-size:10px;text-transform:uppercase;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">Respuesta Prioritaria por WhatsApp</div>
+            <div style="font-size:20px;font-weight:800;color:#25D366;margin-top:2px;">
+              +52 442 428 0465
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;">hola@orchatahouse.com · www.orchatahouse.com</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:4mm;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;color:rgba(255,255,255,0.5);">Querétaro, México · Edición Gimnasios 2026/2027</span>
+          <span style="font-size:11px;font-weight:700;color:#ff3131;">Orchata Media House</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Marca Blanca para Gimnasios</span>
+      <span>Página 06</span>
+    </div>
+  </div>
+
+</body>
+</html>
+

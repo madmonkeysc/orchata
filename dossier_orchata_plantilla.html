@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dossier Comercial & Slate 2026-2027 — Orchata Media House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0A0A0B;
+      color: #FFFFFF;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 210mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      background: #0A0A0B;
+      padding: 22mm 24mm;
+    }
+
+    /* HEADER & FOOTER ON PAGES */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5mm;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 8mm;
+    }
+    .header-logo {
+      height: 24px;
+      width: auto;
+    }
+    .header-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ff3131;
+    }
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 24mm;
+      right: 24mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 3mm;
+    }
+
+    /* TYPOGRAPHY */
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ff3131;
+      margin-bottom: 3mm;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .title-large {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 4mm;
+    }
+    .title-large span {
+      background: linear-gradient(135deg, #ff3131 0%, #ff6b6b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+      max-width: 780px;
+      margin-bottom: 6mm;
+    }
+
+    /* COVER PAGE */
+    .page-cover {
+      padding: 0;
+      background: radial-gradient(circle at 75% 30%, rgba(255, 49, 49, 0.15) 0%, rgba(10, 10, 11, 0.95) 70%, #0A0A0B 100%);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .cover-left {
+      width: 58%;
+      height: 100%;
+      padding: 26mm 24mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 2;
+    }
+    .cover-right {
+      width: 42%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      filter: contrast(1.15);
+    }
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #0A0A0B 0%, rgba(10,10,11,0.2) 60%, rgba(10,10,11,0.8) 100%);
+    }
+
+    /* CARDS & GRIDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4.5mm;
+    }
+    .card {
+      background: #141416;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 5mm 5.5mm;
+      position: relative;
+    }
+    .card-highlight {
+      border-color: rgba(255, 49, 49, 0.4);
+      background: linear-gradient(180deg, rgba(255, 49, 49, 0.08) 0%, #141416 100%);
+    }
+
+    /* STATS CALLOUTS */
+    .stat-box {
+      background: rgba(255, 49, 49, 0.08);
+      border: 1px solid rgba(255, 49, 49, 0.25);
+      border-radius: 10px;
+      padding: 4mm;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 28px;
+      font-weight: 900;
+      color: #ff3131;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* LISTS */
+    .clean-list {
+      list-style: none;
+      margin-top: 3mm;
+    }
+    .clean-list li {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 2mm;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+    .clean-list li strong {
+      color: #ffffff;
+    }
+    .clean-list li::before {
+      content: "•";
+      color: #ff3131;
+      font-weight: bold;
+    }
+
+    /* POSTER MINI GRID */
+    .poster-card {
+      background: #111113;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .poster-img {
+      width: 100%;
+      height: 48mm;
+      object-fit: cover;
+      display: block;
+    }
+    .poster-info {
+      padding: 3mm;
+    }
+    .poster-tag {
+      font-size: 8.5px;
+      font-weight: 700;
+      color: #ff3131;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .poster-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 1px;
+    }
+    .poster-sub {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 1: PORTADA & MANIFIESTO
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page page-cover">
+    <div class="cover-left">
+      <div>
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" style="height:36px;width:auto;margin-bottom:8mm;">
+        <div class="eyebrow">Dossier Institucional & Slate Comercial 2026 / 2027</div>
+        <h1 style="font-size:46px;font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:5mm;">
+          El Motor de Contenido<br>
+          <span style="background:linear-gradient(135deg, #ff3131 0%, #ff6b6b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Visual & Sonoro 360°.</span>
+        </h1>
+        <p style="font-size:14.5px;color:rgba(255,255,255,0.7);line-height:1.6;max-width:540px;">
+          Convergencia estratégica entre propiedad intelectual cinematográfica, redes DOOH de alta conversión y producción musical libre de reclamos de derechos.
+        </p>
+      </div>
+
+      <div>
+        <div style="display:flex;gap:18mm;padding-top:6mm;border-top:1px solid rgba(255,255,255,0.12);">
+          <div>
+            <div style="font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Dirección General</div>
+            <div style="font-size:12.5px;font-weight:700;color:#fff;margin-top:2px;">Humberto Carosilva</div>
+          </div>
+          <div>
+            <div style="font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Base Operativa</div>
+            <div style="font-size:12.5px;font-weight:700;color:#fff;margin-top:2px;">Querétaro · Cobertura Internacional</div>
+          </div>
+          <div>
+            <div style="font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);">Contacto Directo</div>
+            <div style="font-size:12.5px;font-weight:700;color:#ff3131;margin-top:2px;">+52 442 428 0465</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-right">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Wall%20Orange.png" class="cover-bg-img">
+      <div class="cover-overlay"></div>
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Isotipo%20Orchata.png" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:210px;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.8));">
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 2: EL ECOSISTEMA ORCHATA 360°
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">01 · Arquitectura de Negocio</span>
+    </div>
+
+    <div class="eyebrow">Solución Integral</div>
+    <h2 class="title-large">Todo lo que tu marca necesita <span>bajo un mismo techo.</span></h2>
+    <p class="subtitle">Eliminamos la fragmentación de contratar agencias, casas productoras y sellos por separado. Integramos producción cinematográfica, difusión cautiva y monetización directa.</p>
+
+    <div class="grid-4" style="margin-top:2mm;">
+      <!-- Unidad 1 -->
+      <div class="card card-highlight">
+        <div style="font-size:26px;margin-bottom:3mm;">📺</div>
+        <div class="eyebrow" style="font-size:9.5px;">Redes DOOH</div>
+        <h3 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:2mm;">Marca Blanca</h3>
+        <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;">
+          Redes de pantallas llave en mano para gimnasios y comercios con contenido automatizado y conversión QR directa.
+        </p>
+      </div>
+
+      <!-- Unidad 2 -->
+      <div class="card">
+        <div style="font-size:26px;margin-bottom:3mm;">🎥</div>
+        <div class="eyebrow" style="font-size:9.5px;">Comerciales</div>
+        <h3 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:2mm;">A tu Medida</h3>
+        <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;">
+          Creación y edición de podcasts con estrategia de monetización, cortos para pymes y pauta en nuestro ecosistema.
+        </p>
+      </div>
+
+      <!-- Unidad 3 -->
+      <div class="card">
+        <div style="font-size:26px;margin-bottom:3mm;">🎬</div>
+        <div class="eyebrow" style="font-size:9.5px;">Propiedad Intelectual</div>
+        <h3 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:2mm;">Orchata Originals</h3>
+        <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;">
+          Cine documental y biopics de alto calibre con narrativa cinematográfica diseñadas para festivales y plataformas OTT.
+        </p>
+      </div>
+
+      <!-- Unidad 4 -->
+      <div class="card">
+        <div style="font-size:26px;margin-bottom:3mm;">🎵</div>
+        <div class="eyebrow" style="font-size:9.5px;">Audio B2B & Sello</div>
+        <h3 style="font-size:15px;font-weight:800;color:#fff;margin-bottom:2mm;">Orchata Récords</h3>
+        <p style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.45;">
+          Sello discográfico híbrido y licenciamiento de audio 100% libre de reclamos de derechos para spots publicitarios y cine.
+        </p>
+      </div>
+    </div>
+
+    <!-- Banner inferior imagen -->
+    <div style="margin-top:6mm;height:46mm;border-radius:12px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.08);">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Portadas%20Facebook%20Orchata%201.png" style="width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(10,10,11,0.95) 0%, rgba(10,10,11,0.3) 100%);display:flex;align-items:center;padding:0 8mm;">
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#ff3131;">Métrica de Impacto</div>
+          <div style="font-size:16px;font-weight:800;color:#fff;margin-top:2px;">Producción Ágil, Retención Visual Garantizada y Conversión Medible.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Dossier Comercial Confidencial</span>
+      <span>Página 02</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 3: MARCA BLANCA DOOH (PANTALLAS EN GIMNASIOS)
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">02 · Marca Blanca DOOH</span>
+    </div>
+
+    <div class="eyebrow">Redes de Pantallas Inteligentes</div>
+    <h2 class="title-large">Transformamos pantallas pasivas en <span>máquinas de venta.</span></h2>
+
+    <div class="grid-2" style="margin-top:3mm;">
+      <div>
+        <p style="font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.55;margin-bottom:4mm;">
+          La mayoría de gimnasios transmiten televisión genérica o videos musicales que no aportan valor. Orchata instala un ecosistema llave en mano de <strong>venta única</strong> (sin mensualidades forzosas) para vender suplementos, rutinas y consultas con QR dinámico.
+        </p>
+
+        <div class="grid-3" style="margin-bottom:4mm;">
+          <div class="stat-box">
+            <div class="stat-number">+80%</div>
+            <div class="stat-label">Retención Visual</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">74%</div>
+            <div class="stat-label">Acción vía QR</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">4x</div>
+            <div class="stat-label">vs Impreso</div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:4mm;">
+          <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:2mm;">Los 3 Paquetes Llave en Mano:</div>
+          <ul class="clean-list">
+            <li><strong>Core 30:</strong> Pantalla inicial con clips de técnica biomecánica y barra de batidos.</li>
+            <li><strong>Pro Brand:</strong> Identidad personalizada del gimnasio + promociones mensuales.</li>
+            <li><strong>Maximus Bespoke:</strong> Integración total multicámara y pauta con marcas aliadas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mockups reales -->
+      <div class="grid-2" style="gap:4mm;">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);">
+          <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Prote.png" style="width:100%;height:52mm;object-fit:cover;">
+          <div style="padding:3mm;background:#141416;">
+            <div style="font-size:9px;color:#ff3131;font-weight:700;">VENTA DIRECTA</div>
+            <div style="font-size:11px;font-weight:700;color:#fff;">Proteína & Batidos</div>
+          </div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);">
+          <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Rutina%20Hombro.png" style="width:100%;height:52mm;object-fit:cover;">
+          <div style="padding:3mm;background:#141416;">
+            <div style="font-size:9px;color:#ff3131;font-weight:700;">BIOMECÁNICA</div>
+            <div style="font-size:11px;font-weight:700;color:#fff;">Rutina Guiada en Sala</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Marca Blanca & DOOH</span>
+      <span>Página 03</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 4: PRODUCCIONES A TU MEDIDA (PODCASTS & COMERCIALES)
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">03 · Soluciones Comerciales</span>
+    </div>
+
+    <div class="eyebrow">Agilidad & Conversión</div>
+    <h2 class="title-large">Producciones diseñadas para <span>vender y monetizar.</span></h2>
+    <p class="subtitle">Desarrolladas para marcas, emprendedores y creadores que necesitan piezas audiovisuales impecables sin presupuestos exorbitantes ni plazos interminables.</p>
+
+    <div class="grid-3" style="margin-top:2mm;">
+      <!-- Podcast -->
+      <div class="card card-highlight">
+        <div style="font-size:28px;margin-bottom:2mm;">🎙️</div>
+        <div class="eyebrow" style="font-size:9px;">Creadores & Marcas</div>
+        <h3 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:2mm;">Creación de Podcasts</h3>
+        <ul class="clean-list">
+          <li><strong>Multicámara 4K:</strong> Set con iluminación cinematográfica y audio broadcast.</li>
+          <li><strong>Cortes Verticales:</strong> Clips dinámicos optimizados para TikTok y Reels.</li>
+          <li><strong>Monetización:</strong> Inserción de marcas y posicionamiento en Spotify/YouTube.</li>
+        </ul>
+      </div>
+
+      <!-- Cortos comerciales -->
+      <div class="card">
+        <div style="font-size:28px;margin-bottom:2mm;">📱</div>
+        <div class="eyebrow" style="font-size:9px;">Emprendedores & Pymes</div>
+        <h3 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:2mm;">Cortos Comerciales</h3>
+        <ul class="clean-list">
+          <li><strong>Hook en 3 seg:</strong> Estructura Hook-Story-Offer para Meta y TikTok Ads.</li>
+          <li><strong>Formatos 9:16 y 16:9:</strong> Listos para pauta y catálogo digital.</li>
+          <li><strong>Producción Llave en Mano:</strong> Locación, actores, rodaje, color y música legal.</li>
+        </ul>
+      </div>
+
+      <!-- Pauta DOOH -->
+      <div class="card">
+        <div style="font-size:28px;margin-bottom:2mm;">⚡</div>
+        <div class="eyebrow" style="font-size:9px;">Difusión Estratégica</div>
+        <h3 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:2mm;">Anuncios en Ecosistema</h3>
+        <ul class="clean-list">
+          <li><strong>Audiencia Cautiva:</strong> Presencia en pantallas de gimnasios y comercios de alto flujo.</li>
+          <li><strong>Retorno Medible:</strong> Escaneo de QR exclusivo para medir ventas directas.</li>
+          <li><strong>Rotación Continua:</strong> Spots de 10 a 20 segundos durante todo el día.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Caso de éxito Bumsy -->
+    <div style="margin-top:6mm;background:#141416;border-radius:12px;border:1px solid rgba(255,255,255,0.08);padding:4mm 6mm;display:flex;align-items:center;gap:6mm;">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/bumsy-go.jpg" style="height:32mm;width:55mm;object-fit:cover;border-radius:8px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#ff3131;text-transform:uppercase;">Caso Destacado · Bumsy Go</div>
+        <div style="font-size:14px;font-weight:800;color:#fff;margin-top:1px;">Campaña de Lanzamiento Multiplataforma</div>
+        <p style="font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:2px;line-height:1.4;">
+          De la concepción del producto a comerciales verticales y horizontales de alta conversión visual para canales masivos.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Producciones a la Medida</span>
+      <span>Página 04</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 5: ORCHATA ORIGINALS (SLATE DE DOCUMENTALES)
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">04 · Slate de Propiedad Intelectual</span>
+    </div>
+
+    <div class="eyebrow">Cine Documental & Series</div>
+    <h2 class="title-large">Historias legendarias con <span>factura cinematográfica.</span></h2>
+    <p class="subtitle">4 universos concebidos para festivales de cine, plataformas OTT (Netflix, Prime Video, HBO Max) y acuerdos de coproducción internacional en 4K HDR RAW.</p>
+
+    <!-- Mini grid de 4 posters representativos -->
+    <div class="grid-4" style="margin-top:2mm;">
+      <div class="poster-card">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/1.png" class="poster-img">
+        <div class="poster-info">
+          <div class="poster-tag">LEGIÓN AZTECA</div>
+          <div class="poster-title">Canelo Álvarez</div>
+          <div class="poster-sub">La caída del último guerrero</div>
+        </div>
+      </div>
+
+      <div class="poster-card">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/6.png" class="poster-img">
+        <div class="poster-info">
+          <div class="poster-tag">LEGIÓN AZTECA</div>
+          <div class="poster-title">Checo Pérez · F1</div>
+          <div class="poster-sub">Viejo Sabroso · El intruso</div>
+        </div>
+      </div>
+
+      <div class="poster-card">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Orange%20Prox.png" class="poster-img">
+        <div class="poster-info">
+          <div class="poster-tag" style="color:#ff5c5c;">TRUE CRIME</div>
+          <div class="poster-title">El Monstruo de Ecatepec</div>
+          <div class="poster-sub">Cacería en la niebla</div>
+        </div>
+      </div>
+
+      <div class="poster-card">
+        <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Oskava%202.0.jpeg" class="poster-img">
+        <div class="poster-info">
+          <div class="poster-tag" style="color:#fcf200;">TRENDING & CULTURA</div>
+          <div class="poster-title">Oskava 2.0</div>
+          <div class="poster-sub">Resurrección callejera</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Especificaciones de producción -->
+    <div class="grid-3" style="margin-top:6mm;">
+      <div class="card" style="padding:3.5mm 4mm;">
+        <div style="font-size:10px;font-weight:700;color:#ff3131;">CÁMARAS & ÓPTICAS</div>
+        <div style="font-size:12px;font-weight:800;color:#fff;margin-top:1px;">ARRI Alexa & RED 4K RAW</div>
+      </div>
+      <div class="card" style="padding:3.5mm 4mm;">
+        <div style="font-size:10px;font-weight:700;color:#ff3131;">AUDIO INMERSIVO</div>
+        <div style="font-size:12px;font-weight:800;color:#fff;margin-top:1px;">Dolby Atmos · Orchata Récords</div>
+      </div>
+      <div class="card" style="padding:3.5mm 4mm;">
+        <div style="font-size:10px;font-weight:700;color:#ff3131;">DISTRIBUCIÓN</div>
+        <div style="font-size:12px;font-weight:800;color:#fff;margin-top:1px;">Ventanas OTT & Brand Integration</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Orchata Originals</span>
+      <span>Página 05</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       PÁGINA 6: ORCHATA RÉCORDS & CONTACTO DIRECTO
+  ══════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <div class="page-header">
+      <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Logo%20Orchata.png" class="header-logo">
+      <span class="header-tag">05 · Sello & Alianzas Comerciales</span>
+    </div>
+
+    <div class="grid-2" style="gap:8mm;">
+      <!-- Columna izquierda: Records -->
+      <div>
+        <div class="eyebrow">Sello & Audio B2B</div>
+        <h2 class="title-large" style="font-size:26px;">Orchata Récords: <span>Sonido sin límites.</span></h2>
+        <p style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5;margin-bottom:4mm;">
+          Sello híbrido enfocado en desarrollo de artistas y catálogo de audio comercial 100% libre de reclamos para marcas.
+        </p>
+
+        <div style="display:flex;gap:4mm;align-items:center;background:#141416;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:3.5mm;margin-bottom:4mm;">
+          <img src="file:///Users/macbookpro/Orchata%20web/assets/images/Portada%20de%20disco%20provisional.png" style="width:24mm;height:24mm;object-fit:cover;border-radius:6px;border:1px solid #fcf200;">
+          <div>
+            <div style="font-size:9px;background:rgba(252,242,0,0.15);color:#fcf200;display:inline-block;padding:2px 6px;border-radius:4px;font-weight:800;">LANZAMIENTO OFICIAL</div>
+            <div style="font-size:13px;font-weight:800;color:#fff;margin-top:2px;">Oskava 2.0 (Rap Mexicano)</div>
+            <div style="font-size:10.5px;color:rgba(255,255,255,0.5);">Producción, Mastering y Dirección 360°</div>
+          </div>
+        </div>
+
+        <ul class="clean-list">
+          <li><strong>Licenciamiento B2B:</strong> Música original para spots y campañas publicitarias.</li>
+          <li><strong>Distribución Global:</strong> Presencia en Spotify, Apple Music, YouTube y Tidal.</li>
+        </ul>
+      </div>
+
+      <!-- Columna derecha: Call to action directo -->
+      <div class="card card-highlight" style="display:flex;flex-direction:column;justify-content:space-between;padding:6mm 7mm;">
+        <div>
+          <div class="eyebrow" style="color:#ff3131;">Toma de Acción Inmediata</div>
+          <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:3mm;">¿Listo para impulsar tu proyecto?</h3>
+          <p style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.55;margin-bottom:5mm;">
+            Agenda una visita directa a tu gimnasio, cotiza una producción audiovisual a tu medida o solicita acuerdos de coproducción de IP.
+          </p>
+
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:3.5mm;margin-bottom:4mm;">
+            <div style="font-size:10px;text-transform:uppercase;color:rgba(255,255,255,0.4);letter-spacing:0.1em;">Canal de Respuesta Rápida (< 15 min)</div>
+            <div style="font-size:18px;font-weight:800;color:#25D366;margin-top:2px;display:flex;align-items:center;gap:6px;">
+              WhatsApp: +52 442 428 0465
+            </div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;">hola@orchatahouse.com · www.orchatahouse.com</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:4mm;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;color:rgba(255,255,255,0.5);">Querétaro, México · 2026/2027</span>
+          <span style="font-size:11px;font-weight:700;color:#ff3131;">Orchata Media House</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Orchata Media House — Ecosistema 360°</span>
+      <span>Página 06</span>
+    </div>
+  </div>
+
+</body>
+</html>
+

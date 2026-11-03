@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Producciones Audiovisuales & Comerciales 4K — Orchata Media House</title>
+  <meta name="description" content="Producción de comerciales de alto impacto, shows de YouTube, podcasts multicámara 4K y cursos digitales. Edición cinematográfica con DaVinci Resolve y Dolby Atmos en Querétaro." />
+  <meta name="keywords" content="producción audiovisual Querétaro, comerciales para marcas, producción de podcasts 4K, cursos digitales, edición de video cinematográfica, Orchata Media House" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.orchatahouse.com/pages/comerciales.html" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.orchatahouse.com/pages/comerciales.html" />
+  <meta property="og:site_name" content="Orchata Media House" />
+  <meta property="og:title" content="Producciones Audiovisuales a la Medida — Orchata Media House" />
+  <meta property="og:description" content="Rodaje en 4K RAW con cámaras de cine, podcasts multicámara, shows de YouTube y cortos publicitarios que convierten." />
+  <meta property="og:image" content="https://www.orchatahouse.com/assets/images/Anuncios%20Pop%20Up/20.png" />
+  <meta property="og:image:secure_url" content="https://www.orchatahouse.com/assets/images/Anuncios%20Pop%20Up/20.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Producciones Audiovisuales y Comerciales — Orchata Media House" />
+  <meta property="og:locale" content="es_MX" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Producción de Video y Comerciales 4K — Orchata" />
+  <meta name="twitter:description" content="Producciones a la medida, podcasts profesionales y comerciales con estética de cine." />
+  <meta name="twitter:image" content="https://www.orchatahouse.com/assets/images/Anuncios%20Pop%20Up/20.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .prod-solution-card {
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      border-radius: var(--radius-xl);
+      background: var(--clr-card);
+      border: 1px solid var(--clr-card-border);
+      box-sizing: border-box;
+      transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-in-out);
+    }
+    .prod-solution-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,49,49,0.18);
+      border-color: rgba(255,49,49,0.25);
+    }
+    .prod-card-featured {
+      position: relative;
+      border: 1px solid rgba(255,49,49,0.45);
+      background: linear-gradient(180deg, rgba(255,49,49,0.08) 0%, rgba(20,20,22,0.95) 100%);
+    }
+    .prod-badge-featured {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--clr-gold);
+      color: #000;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+    .prod-solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1240px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    @media (max-width: 1024px) {
+      .prod-solution-grid {
+        grid-template-columns: 1fr;
+        max-width: 580px;
+      }
+    }
+    .client-case-card {
+      background: var(--clr-card);
+      border: 1px solid var(--clr-card-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-in-out);
+    }
+    .client-case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.6), 0 0 25px rgba(255,49,49,0.2);
+      border-color: rgba(255,49,49,0.35);
+    }
+    .client-case-thumb {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.4s ease;
+    }
+    .client-case-card:hover .client-case-thumb {
+      transform: scale(1.04);
+    }
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--clr-white-60);
+      line-height: 1.5;
+    }
+    .feature-list li strong {
+      color: #fff;
+    }
+    .feature-list li svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--clr-gold);
+    }
+    .step-number {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--grad-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    /* Badges de entregables */
+    .case-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    /* Estilos Acordeón FAQ */
+    .faq-item {
+      background: var(--clr-card);
+      border: 1px solid var(--clr-card-border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: border-color var(--dur-fast);
+    }
+    .faq-item:hover, .faq-item[open] {
+      border-color: rgba(255,49,49,0.4);
+    }
+    .faq-summary {
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      list-style: none;
+    }
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--clr-gold);
+      transition: transform 0.25s ease;
+    }
+    .faq-item[open] .faq-summary::after {
+      transform: rotate(45deg);
+      color: #ff3131;
+    }
+    .faq-content {
+      padding: 0 24px 22px 24px;
+      font-size: 14.5px;
+      color: var(--clr-white-60);
+      line-height: 1.65;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 4px;
+      padding-top: 16px;
+    }
+    /* Specs bar */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 520px) {
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: #ffffff;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37,211,102,0.6);
+    }
+    .whatsapp-btn-gold {
+      background: var(--clr-gold);
+      border-color: var(--clr-gold);
+      color: #000000;
+      font-weight: 700;
+    }
+    .whatsapp-btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,49,49,0.35);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation">
+  <a href="../index.html" class="nav-logo" id="nav-logo" aria-label="Orchata Media House">
+    <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House" class="nav-logo-img" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="marca-blanca.html">Marca Blanca</a></li>
+    <li><a href="originales.html">Originales</a></li>
+    <li><a href="records.html">Orchata Récords</a></li>
+    <li><a href="comerciales.html" style="color:var(--clr-white)">Producciones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/524424280465?text=Quiero%20cotizar%20una%20producci%C3%B3n%20comercial%20a%20mi%20medida%20con%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-gold nav-cta" id="nav-cta">Cotizar por WhatsApp</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="marca-blanca.html">Marca Blanca</a>
+  <a href="originales.html">Originales</a>
+  <a href="records.html">Orchata Récords</a>
+  <a href="comerciales.html">Producciones</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="https://wa.me/524424280465?text=Quiero%20cotizar%20una%20producci%C3%B3n%20comercial%20a%20mi%20medida%20con%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" style="width:fit-content">Cotizar por WhatsApp</a>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     HERO — PRODUCCIONES A TU MEDIDA
+═══════════════════════════════════ -->
+<section class="page-hero" id="hero-producciones" aria-label="Producciones a tu Medida">
+  <div class="page-hero-bg" style="background-image:url('../assets/images/Anuncios%20Pop%20Up/20.png'); background-position:center 40%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;background:rgba(255,49,49,0.18);border:1px solid rgba(255,49,49,0.38);margin-bottom:20px">
+      <span style="font-size:14px;">🎥</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clr-gold)">Soluciones Comerciales & Contenido</span>
+    </div>
+
+    <h1 class="hero-title" style="font-size:clamp(38px,6.8vw,88px);line-height:1.06;">
+      Producciones a<br><span class="highlight">tu Medida.</span>
+    </h1>
+    <p class="hero-subtitle" style="max-width:680px;">
+      Diseñadas para emprendedores, creadores y empresas que necesitan resultados reales. Desde la creación de tu podcast con estrategia de monetización hasta anuncios y spots dinámicos con difusión en nuestro ecosistema.
+    </p>
+
+    <!-- CTAS CON WHATSAPP DIRECTO -->
+    <div class="hero-ctas" style="margin-top:28px;">
+      <a href="https://wa.me/524424280465?text=Quiero%20cotizar%20una%20producci%C3%B3n%20comercial%20a%20mi%20medida%20con%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" id="hero-btn-cotizar" style="box-shadow:0 8px 24px rgba(255,49,49,0.35);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        Cotizar mi Proyecto (WhatsApp)
+      </a>
+      <a href="#soluciones" class="btn-pill btn-pill-outline" id="hero-btn-soluciones">
+        Explorar Soluciones ↓
+      </a>
+    </div>
+
+    <!-- Scarcity pill -->
+    <div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,0.7);">
+      <span style="color:#25D366;font-weight:700;">● Respuesta inmediata:</span> Asesoría y cotización en menos de 15 minutos por WhatsApp.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     3 SOLUCIONES COMERCIALES PRINCIPALES
+═══════════════════════════════════ -->
+<section class="cards-section" id="soluciones" aria-label="Soluciones Comerciales Orchata" style="padding:100px 48px;background:var(--clr-bg);">
+  <div class="text-center reveal" style="max-width:760px;margin:0 auto 64px;">
+    <span class="section-eyebrow">Nuestro Portafolio Comercial</span>
+    <h2 class="section-title">Elige la Solución que<br>Impulsará tu Negocio.</h2>
+    <p class="section-subtitle" style="margin:16px auto 0;">
+      Precios transparentes, entregables sin complicaciones y un enfoque 100% orientado a que recuperes tu inversión.
+    </p>
+  </div>
+
+  <div class="prod-solution-grid">
+    
+    <!-- 1. PODCASTS -->
+    <article class="prod-solution-card reveal reveal-delay-1" id="card-podcast">
+      <div>
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,49,49,0.12);border:1px solid rgba(255,49,49,0.25);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;">
+          🎙️
+        </div>
+        <div class="card-eyebrow">Marca Personal & Creadores</div>
+        <h3 class="card-title" style="font-size:22px;margin-bottom:12px;">Creación y Edición de Podcasts</h3>
+        <p class="card-text" style="font-size:14px;margin-bottom:20px;">
+          Lleva tu voz al siguiente nivel con calidad broadcast profesional y una estrategia clara para monetizar cada episodio.
+        </p>
+
+        <ul class="feature-list" style="margin:16px 0 24px;">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Grabación multicámara 4K:</strong> Iluminación cinematográfica y microfonía de estudio.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Edición & Cortes Dinámicos:</strong> Capítulos completos + clips verticales para TikTok/Reels.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Estrategia de Monetización:</strong> Inserción de patrocinadores y distribución en Spotify/YouTube.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--clr-card-border);">
+        <a href="https://wa.me/524424280465?text=Quiero%20crear%20y%20editar%20mi%20podcast%20con%20estrategias%20de%20monetizaci%C3%B3n%20con%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-outline" style="width:100%;justify-content:center;padding:13px 18px;font-size:13.5px;">
+          Cotizar mi Podcast (WhatsApp) →
+        </a>
+      </div>
+    </article>
+
+    <!-- 2. CORTOS COMERCIALES (DESTACADO) -->
+    <article class="prod-solution-card prod-card-featured reveal reveal-delay-2" id="card-cortos">
+      <span class="prod-badge-featured">Más Solicitado</span>
+      <div>
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,49,49,0.22);border:1px solid rgba(255,49,49,0.5);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;">
+          📱
+        </div>
+        <div class="card-eyebrow" style="color:var(--clr-gold);">Emprendedores & Empresas</div>
+        <h3 class="card-title" style="font-size:22px;margin-bottom:12px;">Cortos Comerciales de Alto Impacto</h3>
+        <p class="card-text" style="font-size:14px;margin-bottom:20px;">
+          Piezas audiovisuales ágiles y cinematográficas diseñadas para captar atención en los primeros 3 segundos y disparar conversiones.
+        </p>
+
+        <ul class="feature-list" style="margin:16px 0 24px;">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Guiones persuasivos:</strong> Diseñados bajo estructuras de venta directa (Hook - Story - Offer).</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Formato Multiplataforma (9:16 y 16:9):</strong> Listos para Meta Ads, TikTok Ads y YouTube.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Producción Llave en Mano:</strong> Locación, rodaje, actores/modelos, edición y música original.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,49,49,0.25);">
+        <a href="https://wa.me/524424280465?text=Quiero%20cortos%20comerciales%20de%20alto%20impacto%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" style="width:100%;justify-content:center;padding:13px 18px;font-size:13.5px;font-weight:700;">
+          Cotizar Cortos Comerciales (WhatsApp) →
+        </a>
+      </div>
+    </article>
+
+    <!-- 3. ANUNCIOS EN NUESTRO ECOSISTEMA -->
+    <article class="prod-solution-card reveal reveal-delay-3" id="card-ecosistema">
+      <div>
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,49,49,0.12);border:1px solid rgba(255,49,49,0.25);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;">
+          📺
+        </div>
+        <div class="card-eyebrow">Difusión DOOH · Audiencia Cautiva</div>
+        <h3 class="card-title" style="font-size:22px;margin-bottom:12px;">Anuncios en Nuestro Ecosistema</h3>
+        <p class="card-text" style="font-size:14px;margin-bottom:20px;">
+          Coloca tu marca frente a miles de consumidores activos cada día a través de nuestra red de pantallas en gimnasios y espacios comerciales.
+        </p>
+
+        <ul class="feature-list" style="margin:16px 0 24px;">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Audiencia Premium en Pantallas:</strong> Clientes de alto valor en momentos de máxima atención visual.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Medición Real vía QR Dinámico:</strong> Rastreo exacto de clics, promociones y conversiones.</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Spots de 10 a 20 segundos:</strong> Rotación garantizada continua durante todo el horario comercial.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--clr-card-border);">
+        <a href="https://wa.me/524424280465?text=Quiero%20anunciarme%20en%20el%20ecosistema%20de%20pantallas%20de%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-outline" style="width:100%;justify-content:center;padding:13px 18px;font-size:13.5px;">
+          Anunciarme en Pantallas (WhatsApp) →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PROYECTOS EN DESARROLLO & CLIENTES
+═══════════════════════════════════ -->
+<section id="casos-clientes" style="padding:100px 48px;background:var(--clr-bg-2);" aria-label="Clientes y Proyectos en Desarrollo">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="text-center reveal" style="max-width:780px;margin:0 auto 60px;">
+      <span class="section-eyebrow">Proyectos en Desarrollo & Clientes</span>
+      <h2 class="section-title">Marcas y Creadores que<br>Desarrollamos.</h2>
+      <p class="section-subtitle" style="margin:16px auto 0;">
+        Desde la producción integral de video para cursos digitales hasta canales de entretenimiento en YouTube, identidad de marca y presencia web 360°.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:28px;">
+      
+      <!-- 1. BLEIDY YURAY -->
+      <article class="client-case-card reveal reveal-delay-1" id="case-bleidy" style="border-radius:18px;overflow:hidden;background:var(--clr-card-bg);border:1px solid var(--clr-card-border);display:flex;flex-direction:column;">
+        <div style="overflow:hidden;position:relative;background:#000;">
+          <img src="../assets/images/Bleydi wall.png" alt="Bleidy Yuray - Producción de Cursos" class="client-case-thumb" loading="lazy" />
+          <span style="position:absolute;top:14px;left:14px;background:rgba(10,10,11,0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,49,49,0.4);color:var(--clr-gold);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;">
+            Info-Productos & Cursos
+          </span>
+        </div>
+        <div style="padding:28px 24px;display:flex;flex-direction:column;flex:1;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+            <span class="case-pill">📹 Grabación 4K Cinema</span>
+            <span class="case-pill">🎓 E-Learning</span>
+            <span class="case-pill">⚡ Entrega por Módulos</span>
+          </div>
+          <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.25;">
+            Bleidy Yuray
+          </h3>
+          <p style="font-size:14px;color:var(--clr-white-60);line-height:1.6;margin-bottom:18px;">
+            Desarrollo integral de video producción para su catálogo formativo y cursos digitales de alto valor. Diseñamos un flujo audiovisual con iluminación cinematográfica y edición dinámica para maximizar la retención de los estudiantes.
+          </p>
+          <ul class="feature-list" style="margin:0 0 24px;">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Video Producción Educativa:</strong> Módulos y lecciones en resolución 4K.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Edición & Motion Graphics:</strong> Soporte visual didáctico y títulos animados.</span>
+            </li>
+          </ul>
+          <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--clr-card-border);">
+            <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20vi%20el%20caso%20de%20Bleidy%20Yuray%20y%20quiero%20desarrollar%20la%20producci%C3%B3n%20audiovisual%20de%20mis%20cursos%20digitales" target="_blank" rel="noopener" class="btn-pill btn-pill-outline" style="width:100%;justify-content:center;padding:12px 16px;font-size:13px;">
+              Quiero Producir Mis Cursos →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. SIN MIEDO A MORIR MAMADO -->
+      <article class="client-case-card reveal reveal-delay-2" id="case-sinmiedo" style="border-radius:18px;overflow:hidden;background:var(--clr-card-bg);border:1px solid rgba(255,49,49,0.3);box-shadow:0 12px 30px rgba(255,49,49,0.1);display:flex;flex-direction:column;">
+        <div style="overflow:hidden;position:relative;background:#000;">
+          <img src="../assets/images/Sin miedo wall.png" alt="Sin Miedo a Morir Mamado - YouTube Show" class="client-case-thumb" loading="lazy" />
+          <span style="position:absolute;top:14px;left:14px;background:rgba(255,49,49,0.9);color:#ffffff;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;box-shadow:0 4px 12px rgba(255,49,49,0.4);">
+            Canal YouTube & Entretenimiento
+          </span>
+        </div>
+        <div style="padding:28px 24px;display:flex;flex-direction:column;flex:1;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+            <span class="case-pill" style="border-color:rgba(255,49,49,0.35);color:#ff7575;">🎙️ Set Multicámara</span>
+            <span class="case-pill">🔥 Shorts & Reels Virales</span>
+            <span class="case-pill">🍿 Formato Show</span>
+          </div>
+          <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.25;">
+            Sin Miedo a Morir Mamado
+          </h3>
+          <p style="font-size:14px;color:var(--clr-white-60);line-height:1.6;margin-bottom:18px;">
+            Desarrollo y producción completa del canal oficial de YouTube: rutinas de entrenamiento intensivas, hábitos de salud, entrevistas exclusivas a atletas y un formato dinámico cargado de humor y entretenimiento.
+          </p>
+          <ul class="feature-list" style="margin:0 0 24px;">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Formato Show Multicámara:</strong> Rutinas, entrevistas en set y rodajes en gimnasio.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Estrategia de Crecimiento:</strong> Retención de audiencia, miniaturas y shorts virales.</span>
+            </li>
+          </ul>
+          <div style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,49,49,0.25);">
+            <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20vi%20el%20canal%20Sin%20Miedo%20a%20Morir%20Mamado%20y%20quiero%20desarrollar%20mi%20show%20o%20canal%20de%20YouTube" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" style="width:100%;justify-content:center;padding:12px 16px;font-size:13px;font-weight:700;">
+              Lanzar Mi Canal de YouTube →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. DOJO RYUJIN -->
+      <article class="client-case-card reveal reveal-delay-3" id="case-ryujin" style="border-radius:18px;overflow:hidden;background:var(--clr-card-bg);border:1px solid var(--clr-card-border);display:flex;flex-direction:column;">
+        <div style="overflow:hidden;position:relative;background:#000;">
+          <img src="../assets/images/Ryujin.png" alt="Dojo Ryujin - Branding y Web" class="client-case-thumb" loading="lazy" />
+          <span style="position:absolute;top:14px;left:14px;background:rgba(10,10,11,0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,49,49,0.4);color:var(--clr-gold);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;">
+            Branding, Web & Presencia 360°
+          </span>
+        </div>
+        <div style="padding:28px 24px;display:flex;flex-direction:column;flex:1;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+            <span class="case-pill">🥋 Registro & Identidad</span>
+            <span class="case-pill">🌐 Plataforma Web</span>
+            <span class="case-pill">🎬 Spot Cinematográfico</span>
+          </div>
+          <h3 style="font-size:22px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.25;">
+            Dojo Ryujin
+          </h3>
+          <p style="font-size:14px;color:var(--clr-white-60);line-height:1.6;margin-bottom:18px;">
+            Desarrollo integral de identidad de marca, presencia digital, desarrollo de sitio web oficial y producción de videos profesionales cinemáticos que reflejan la disciplina marcial y captan nuevos alumnos de alto nivel.
+          </p>
+          <ul class="feature-list" style="margin:0 0 24px;">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Identidad & Plataforma Web:</strong> Arquitectura de marca y web de alto rendimiento.</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Producción Audiovisual Marcial:</strong> Spots dinámicos para captación de alumnos.</span>
+            </li>
+          </ul>
+          <div style="margin-top:auto;padding-top:16px;border-top:1px solid var(--clr-card-border);">
+            <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20vi%20el%20proyecto%20de%20Dojo%20Ryujin%20y%20quiero%20desarrollar%20mi%20marca,%20sitio%20web%20y%20videos%20profesionales" target="_blank" rel="noopener" class="btn-pill btn-pill-outline" style="width:100%;justify-content:center;padding:12px 16px;font-size:13px;">
+              Desarrollar Mi Marca & Web →
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     CÓMO TRABAJAMOS: 3 PASOS CLAROS
+═══════════════════════════════════ -->
+<section style="padding:100px 48px;background:var(--clr-bg);" aria-label="Proceso de trabajo">
+  <div class="container" style="max-width:1100px;margin:0 auto;">
+    <div class="text-center reveal" style="max-width:700px;margin:0 auto 64px;">
+      <span class="section-eyebrow">Sin Complicaciones</span>
+      <h2 class="section-title">De la Idea a los Resultados<br>en 3 Pasos.</h2>
+      <p class="section-subtitle" style="margin:16px auto 0;">Sabemos que tu tiempo vale. Eliminamos burocracia para que tu contenido esté al aire rápido.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+      <div class="card reveal reveal-delay-1" style="padding:32px;position:relative;">
+        <div class="step-number">01</div>
+        <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">Briefing Exprés por WhatsApp</h4>
+        <p style="font-size:14px;color:var(--clr-white-60);line-height:1.6;">
+          Nos cuentas qué producto, servicio o podcast quieres impulsar. Te asesoramos sobre el formato y estilo visual que mejor convierte para tu rubro en menos de 15 minutos.
+        </p>
+      </div>
+
+      <div class="card reveal reveal-delay-2" style="padding:32px;position:relative;">
+        <div class="step-number">02</div>
+        <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">Producción & Rodaje Ágil</h4>
+        <p style="font-size:14px;color:var(--clr-white-60);line-height:1.6;">
+          Grabamos en estudio o en tus instalaciones con equipo profesional. Nos encargamos de iluminación, audio broadcast, dirección y edición dinámica.
+        </p>
+      </div>
+
+      <div class="card reveal reveal-delay-3" style="padding:32px;position:relative;">
+        <div class="step-number">03</div>
+        <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">Entrega & Difusión</h4>
+        <p style="font-size:14px;color:var(--clr-white-60);line-height:1.6;">
+          Recibes tus piezas optimizadas para tus canales digitales o programamos tus anuncios directamente en nuestra red de pantallas para captar clientes de inmediato.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     ESPECIFICACIONES TÉCNICAS & ESTÁNDARES
+═══════════════════════════════════ -->
+<section style="padding:70px 48px;background:var(--clr-bg-2);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);" aria-label="Estándares Técnicos">
+  <div class="container" style="max-width:1160px;margin:0 auto;">
+    <div class="specs-grid">
+      <div style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:26px;margin-bottom:8px;">🎥</div>
+        <h5 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">Sensores Full Frame 4K / 6K</h5>
+        <p style="font-size:12.5px;color:var(--clr-white-60);line-height:1.4;">Colorimetría y textura de cine en cada toma.</p>
+      </div>
+
+      <div style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:26px;margin-bottom:8px;">🎙️</div>
+        <h5 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">Audio Broadcast & Microfonía Pro</h5>
+        <p style="font-size:12.5px;color:var(--clr-white-60);line-height:1.4;">Cápsulas dinámicas y cancelación acústica.</p>
+      </div>
+
+      <div style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:26px;margin-bottom:8px;">⚡</div>
+        <h5 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">Flujo de Entrega Rápido</h5>
+        <p style="font-size:12.5px;color:var(--clr-white-60);line-height:1.4;">Primer corte para revisión en tiempos récord.</p>
+      </div>
+
+      <div style="padding:20px;border-radius:14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);text-align:center;">
+        <div style="font-size:26px;margin-bottom:8px;">🎯</div>
+        <h5 style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">Licencias Musicales Comerciales</h5>
+        <p style="font-size:12.5px;color:var(--clr-white-60);line-height:1.4;">Zero reclamos de copyright en YouTube y Meta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     PREGUNTAS FRECUENTES (FAQ)
+═══════════════════════════════════ -->
+<section id="faq-producciones" style="padding:100px 48px;background:var(--clr-bg);" aria-label="Preguntas Frecuentes">
+  <div class="container" style="max-width:860px;margin:0 auto;">
+    <div class="text-center reveal" style="margin-bottom:54px;">
+      <span class="section-eyebrow">Resolvemos tus Dudas</span>
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p class="section-subtitle" style="margin:16px auto 0;">Todo lo que necesitas saber antes de iniciar tu producción con Orchata.</p>
+    </div>
+
+    <div class="faq-accordion">
+      
+      <!-- FAQ 1 -->
+      <details class="faq-item" open>
+        <summary class="faq-summary">¿Dónde se realizan las grabaciones?</summary>
+        <div class="faq-content">
+          Nos adaptamos 100% a tus necesidades: contamos con set de grabación para podcasts y entrevistas, o nos trasladamos con todo nuestro equipo de iluminación, cámaras y audio a tus oficinas, sucursal, gimnasio o locación seleccionada en Querétaro y alrededores.
+        </div>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="faq-item">
+        <summary class="faq-summary">¿Ustedes nos ayudan con las ideas y el guion?</summary>
+        <div class="faq-content">
+          Totalmente. No solo operamos las cámaras; desarrollamos la estructura narrativa, ganchos de retención (Hooks de 3 segundos), llamadas a la acción (CTAs) y escaletas de podcast diseñadas específicamente para retener audiencia y generar ventas.
+        </div>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="faq-item">
+        <summary class="faq-summary">¿Cómo funciona la pauta en las pantallas de gimnasios (DOOH)?</summary>
+        <div class="faq-content">
+          Tu spot comercial entra en rotación programada continua en nuestra red de pantallas instaladas en zonas de alto tráfico de gimnasios y centros deportivos. Cada anuncio cuenta con llamadas dinámicas a la acción (códigos QR rastreables) para medir exactamente cuántas personas escanean y convierten.
+        </div>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="faq-item">
+        <summary class="faq-summary">¿En qué formatos y resoluciones entregan el material?</summary>
+        <div class="faq-content">
+          Entregamos masters en resolución 4K UHD optimizados con codificación para cada plataforma: formatos verticales 9:16 para TikTok, Instagram Reels y YouTube Shorts, y horizontales 16:9 para YouTube, sitios web y pauta institucional, listos para publicar sin pérdida de calidad.
+        </div>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="faq-item">
+        <summary class="faq-summary">¿Cómo solicito una cotización personalizada?</summary>
+        <div class="faq-content">
+          Es inmediato: haz clic en cualquier botón de WhatsApp de esta página y platícanos sobre tu proyecto. En menos de 15 minutos un productor de nuestro equipo evaluará tus requerimientos y te enviará una propuesta adaptada a tu presupuesto.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     CTA DIRECTO FINAL (ALTA CONVERSIÓN)
+═══════════════════════════════════ -->
+<section style="padding:100px 48px;background:var(--clr-bg);text-align:center;" aria-label="Llamado a la acción final">
+  <div class="container" style="max-width:800px;margin:0 auto;">
+    <div class="card reveal" style="padding:56px 36px;border:1px solid rgba(255,49,49,0.3);background:linear-gradient(180deg, rgba(255,49,49,0.12) 0%, rgba(20,20,22,0.98) 100%);border-radius:var(--radius-xl);">
+      <span class="section-eyebrow" style="color:var(--clr-gold);">¿Listo para Empezar?</span>
+      <h2 style="font-size:clamp(32px,5vw,52px);font-weight:800;color:#fff;margin:16px 0 20px;line-height:1.15;">
+        Hablemos Directo de tu Proyecto Hoy Mismo.
+      </h2>
+      <p style="font-size:16px;color:var(--clr-white-60);max-width:580px;margin:0 auto 36px;line-height:1.6;">
+        Escríbenos directamente a nuestro WhatsApp oficial y recibe una propuesta a la medida de tu presupuesto sin rodeos ni costos ocultos.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center;">
+        <a href="https://wa.me/524424280465?text=Hola%20Orchata%2C%20quiero%20cotizar%20un%20proyecto%20a%20mi%20medida" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" style="padding:16px 36px;font-size:16px;gap:10px;box-shadow:0 8px 30px rgba(255,49,49,0.4);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.13.11-3.28-.78-2.58-1.07-4.24-3.71-4.37-3.88-.13-.18-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.38-.06.59.45.22.53.75 1.83.82 1.97.07.13.11.3.02.48-.09.18-.13.3-.26.45-.13.16-.27.35-.39.47-.13.13-.26.27-.11.53.15.26.68 1.12 1.45 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.06.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.54.73 1.81.86.26.13.44.2.5.31.07.11.07.66-.17 1.34z"/></svg>
+          Abrir Chat de WhatsApp (+52 442 428 0465)
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-links-zone">
+    <div style="text-align:center;padding-bottom:32px;border-bottom:1px solid var(--clr-card-border);margin-bottom:32px">
+      <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House" style="height:32px;width:auto;margin:0 auto 12px;display:block;" />
+      <span class="footer-brand-sub" style="margin-bottom:8px">PRODUCCIONES A TU MEDIDA</span>
+      <p style="font-size:13px;color:var(--clr-gray);margin-top:8px">Podcasts monetizables, cortos comerciales y pauta publicitaria en Querétaro y México.</p>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">Copyright © 2026 Orchata Media House. Todos los derechos reservados.</p>
+      <!-- Créditos Desarrolladores Web -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0;">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600;">Desarrollado por</span>
+        <div style="display:inline-flex;align-items:center;gap:16px;">
+          <a href="https://madmonkey.agency" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;opacity:0.85;transition:opacity 0.2s;text-decoration:none;" title="MadMonkey Studios">
+            <img src="../assets/images/MMW.png" alt="MadMonkey Studios" style="height:22px;width:auto;object-fit:contain;filter:brightness(0) invert(1);" />
+          </a>
+          <span style="color:rgba(255,255,255,0.2);font-size:12px;">×</span>
+          <a href="https://usainsomnia.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;opacity:0.85;transition:opacity 0.2s;text-decoration:none;" title="INSOMNIA IA STUDIO">
+            <img src="../assets/images/Logo INSOMNIA.png" alt="INSOMNIA IA STUDIO" style="height:20px;width:auto;object-fit:contain;filter:brightness(0) invert(1);" />
+          </a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <a href="https://wa.me/524424280465?text=Hola%20Orchata%2C%20quiero%20hablar%20con%20un%20asesor" target="_blank" rel="noopener">WhatsApp Directo: +52 442 428 0465</a>
+        <a href="terminos-producciones.html" style="color:var(--clr-gold);font-weight:700;">Términos Producciones</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-visual-banner" aria-hidden="true">
+    <img src="../assets/images/Orchata Pie.png" alt="Orchata Media House Visual" class="footer-visual-img" loading="lazy" />
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<!-- BOTÓN FLOTANTE DE WHATSAPP CON NUBE DE DIÁLOGO -->
+<a href="https://wa.me/524424280465?text=Hola%20Orchata,%20tengo%20una%20pregunta%20sobre%20sus%20servicios" class="whatsapp-float-wrap" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <div class="whatsapp-bubble">¿Tienes alguna duda? ¡Pregúntanos!</div>
+  <div class="whatsapp-float-btn">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.13.11-3.28-.78-2.58-1.07-4.24-3.71-4.37-3.88-.13-.18-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.38-.06.59.45.22.53.75 1.83.82 1.97.07.13.11.3.02.48-.09.18-.13.3-.26.45-.13.16-.27.35-.39.47-.13.13-.26.27-.11.53.15.26.68 1.12 1.45 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.06.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.54.73 1.81.86.26.13.44.2.5.31.07.11.07.66-.17 1.34z"/></svg>
+  </div>
+</a>
+</body>
+</html>

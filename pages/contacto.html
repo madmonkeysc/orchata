@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto & Cotizaciones Directas — Orchata Media House</title>
+  <meta name="description" content="Inicia tu proyecto con Orchata Media House. Cotizaciones vía WhatsApp oficial (+52 442 428 0465) o agenda tu asesoría de 15 minutos para Marca Blanca DOOH, producción audiovisual o Orchata Récords." />
+  <meta name="keywords" content="contacto Orchata Media House, cotizar produccion audiovisual, cotizar pantallas gimnasios, WhatsApp Orchata, Querétaro productora" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.orchatahouse.com/pages/contacto.html" />
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.orchatahouse.com/pages/contacto.html" />
+  <meta property="og:site_name" content="Orchata Media House" />
+  <meta property="og:title" content="Contacto Directo — Orchata Media House (+52 442 428 0465)" />
+  <meta property="og:description" content="Hablemos de tu próximo proyecto. Asesoría y cotización inmediata en menos de 15 minutos." />
+  <meta property="og:image" content="https://www.orchatahouse.com/assets/images/Wallpaper%20F1.png" />
+  <meta property="og:image:secure_url" content="https://www.orchatahouse.com/assets/images/Wallpaper%20F1.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Contacto Orchata Media House" />
+  <meta property="og:locale" content="es_MX" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto y Cotizaciones — Orchata Media House" />
+  <meta name="twitter:description" content="Atención segmentada: Redes DOOH, Producciones 4K, Sello Discográfico y Registro de Marca." />
+  <meta name="twitter:image" content="https://www.orchatahouse.com/assets/images/Wallpaper%20F1.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: #ffffff;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37,211,102,0.6);
+    }
+    .quick-channel-card {
+      padding: 30px 24px;
+      border-radius: var(--radius-xl);
+      background: var(--clr-card);
+      border: 1px solid var(--clr-card-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-in-out);
+      text-decoration: none;
+      color: inherit;
+    }
+    .quick-channel-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,49,49,0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(255,49,49,0.15);
+    }
+    .quick-channel-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ══════════════════════════════════════
+       OPTIMIZACIONES CONTACTO & MÓVIL
+    ══════════════════════════════════════ */
+    .contact-channels-section {
+      padding: 60px 48px 80px;
+      background: var(--clr-bg-2);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-form-section {
+      padding: 100px 48px;
+      background: var(--clr-bg);
+    }
+
+    .contact-form-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info-section {
+      padding: 80px 48px;
+      background: var(--clr-bg-2);
+    }
+
+    .contact-info-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .contact-info-icon-box {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 20px;
+      border-radius: 16px;
+      background: rgba(255, 49, 49, 0.12);
+      border: 1px solid rgba(255, 49, 49, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff3131;
+    }
+
+    .contact-form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Íconos visibles y estilización del selector */
+    .profile-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .profile-option {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      width: 100%;
+    }
+
+    .profile-option-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-gold);
+    }
+
+    .profile-option-icon svg {
+      stroke: var(--clr-gold) !important;
+      color: var(--clr-gold) !important;
+    }
+
+    .profile-option-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .profile-option:hover {
+      background: rgba(255, 49, 49, 0.08);
+      border-color: var(--clr-gold);
+      transform: translateY(-2px);
+    }
+
+    .profile-option.selected {
+      background: rgba(255, 49, 49, 0.16);
+      border-color: var(--clr-gold);
+      box-shadow: 0 0 16px rgba(252, 242, 0, 0.2);
+    }
+
+    .profile-option.selected .profile-option-label {
+      color: var(--clr-gold);
+      font-weight: 700;
+    }
+
+    @media (max-width: 992px) {
+      .contact-form-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-channels-section {
+        padding: 50px 20px 60px;
+      }
+      .contact-form-section {
+        padding: 60px 20px;
+      }
+      .contact-info-section {
+        padding: 50px 20px;
+      }
+      .contact-form-row-2col {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .profile-selector {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .profile-option {
+        padding: 14px 10px;
+      }
+      .profile-option-label {
+        font-size: 12px;
+      }
+      #agendador, #dossier {
+        padding: 24px 18px !important;
+      }
+      .contact-info-grid .card {
+        padding: 24px 18px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .profile-selector {
+        grid-template-columns: 1fr;
+      }
+      .profile-option {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        gap: 14px;
+      }
+      .contact-channels-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation">
+  <a href="../index.html" class="nav-logo" id="nav-logo" aria-label="Orchata Media House">
+    <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House" class="nav-logo-img" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="marca-blanca.html">Marca Blanca</a></li>
+    <li><a href="originales.html">Originales</a></li>
+    <li><a href="records.html">Orchata Récords</a></li>
+    <li><a href="comerciales.html">Producciones</a></li>
+    <li><a href="contacto.html" style="color:var(--clr-white)">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20quiero%20cotizar%20un%20proyecto%20a%20mi%20medida" target="_blank" rel="noopener" class="btn-pill btn-pill-gold nav-cta" id="nav-cta">WhatsApp Directo</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="marca-blanca.html">Marca Blanca</a>
+  <a href="originales.html">Originales</a>
+  <a href="records.html">Orchata Récords</a>
+  <a href="comerciales.html">Producciones</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20quiero%20cotizar%20un%20proyecto%20a%20mi%20medida" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" style="width:fit-content">WhatsApp Directo</a>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     HERO CONTACTO — HUB 360°
+═══════════════════════════════════ -->
+<section class="page-hero" id="hero-contact" aria-label="Contacto Orchata Media House">
+  <div class="page-hero-bg" style="background-image:url('../assets/images/Wallpaper F1.png')"></div>
+  <div class="page-hero-overlay" style="background:linear-gradient(135deg,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.55) 60%,rgba(0,0,0,0.85) 100%)"></div>
+
+  <div class="page-hero-content" style="max-width:760px">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;background:rgba(255,49,49,0.18);border:1px solid rgba(255,49,49,0.38);margin-bottom:20px">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--clr-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--clr-gold)">Hub de Enlace Directo & Cotizaciones</span>
+    </div>
+
+    <h1 class="hero-title" style="font-size:clamp(36px,6vw,76px);line-height:1.08;">
+      Hablemos Directo<br>de tu <span class="highlight">Próximo Nivel.</span>
+    </h1>
+    <p class="hero-subtitle" style="max-width:680px;">
+      Sin intermediarios ni burocracia. Ya sea que busques transformar tu gimnasio con Marca Blanca DOOH, producir tu canal de YouTube o podcast, registrar tu marca ante el IMPI/INDAUTOR o firmar con Orchata Récords.
+    </p>
+    
+    <div class="hero-ctas" style="margin-top:28px;">
+      <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20quiero%20atenci%C3%B3n%20inmediata%20por%20WhatsApp%20para%20un%20proyecto" target="_blank" rel="noopener" class="btn-pill btn-pill-gold" id="hero-btn-wa" style="box-shadow:0 8px 24px rgba(255,49,49,0.35);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.13.11-3.28-.78-2.58-1.07-4.24-3.71-4.37-3.88-.13-.18-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.38-.06.59.45.22.53.75 1.83.82 1.97.07.13.11.3.02.48-.09.18-.13.3-.26.45-.13.16-.27.35-.39.47-.13.13-.26.27-.11.53.15.26.68 1.12 1.45 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.06.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.54.73 1.81.86.26.13.44.2.5.31.07.11.07.66-.17 1.34z"/></svg>
+        WhatsApp Oficial (+52 442 428 0465)
+      </a>
+      <a href="#formulario" class="btn-pill btn-pill-outline" id="hero-btn-form">
+        Formulario de Cotización ↓
+      </a>
+    </div>
+
+    <!-- Scarcity pill -->
+    <div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,0.7);">
+      <span style="color:#25D366;font-weight:700;">● Respuesta inmediata:</span> Asesoría y cotización en menos de 15 minutos en horario hábil.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     CANALES DIRECTOS POR LÍNEA DE NEGOCIO
+═══════════════════════════════════ -->
+<section class="contact-channels-section" aria-label="Canales directos">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="text-center reveal" style="max-width:700px;margin:0 auto 40px;">
+      <span class="section-eyebrow">Atención Segmentada</span>
+      <h2 style="font-size:28px;font-weight:800;color:#fff;">¿En qué área podemos ayudarte hoy?</h2>
+    </div>
+
+    <div class="contact-channels-grid">
+      
+      <!-- 1. Gimnasios & Pantallas -->
+      <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20quiero%20visita%20para%20mi%20gimnasio%20o%20anunciarme%20en%20sus%20pantallas%20DOOH" target="_blank" rel="noopener" class="quick-channel-card reveal reveal-delay-1">
+        <div>
+          <div class="quick-channel-icon" style="background:rgba(255,49,49,0.1);color:#ff3131;border-color:rgba(255,49,49,0.3);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg>
+          </div>
+          <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Gimnasios & DOOH</h4>
+          <p style="font-size:13px;color:var(--clr-white-60);line-height:1.5;">Circuito de pantallas Marca Blanca y publicidad exterior inteligente con QR dinámico.</p>
+        </div>
+        <div style="margin-top:20px;font-size:13px;font-weight:700;color:var(--clr-gold);">Cotizar Red de Pantallas →</div>
+      </a>
+
+      <!-- 2. Producciones Audiovisuales -->
+      <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20quiero%20cotizar%20la%20producci%C3%B3n%20de%20mi%20podcast,%20cursos%20o%20cortos%20comerciales" target="_blank" rel="noopener" class="quick-channel-card reveal reveal-delay-2">
+        <div>
+          <div class="quick-channel-icon" style="background:rgba(255,49,49,0.1);color:#ff3131;border-color:rgba(255,49,49,0.3);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+          </div>
+          <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Producciones & Video</h4>
+          <p style="font-size:13px;color:var(--clr-white-60);line-height:1.5;">Grabación multicámara 4K para podcasts, shows de YouTube, cursos y spots dinámicos.</p>
+        </div>
+        <div style="margin-top:20px;font-size:13px;font-weight:700;color:var(--clr-gold);">Cotizar Producción 4K →</div>
+      </a>
+
+      <!-- 3. Orchata Récords & Demos -->
+      <a href="https://wa.me/524424280465?text=Hola%20Orchata%20R%C3%A9cords,%20quiero%20enviar%20mi%20demo%20o%20conocer%20el%20ecosistema%20musical" target="_blank" rel="noopener" class="quick-channel-card reveal reveal-delay-3">
+        <div>
+          <div class="quick-channel-icon" style="background:rgba(255,49,49,0.1);color:#ff3131;border-color:rgba(255,49,49,0.3);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Orchata Récords</h4>
+          <p style="font-size:13px;color:var(--clr-white-60);line-height:1.5;">Envío de demos, distribución editorial 360°, sync y gestión integral para artistas.</p>
+        </div>
+        <div style="margin-top:20px;font-size:13px;font-weight:700;color:var(--clr-gold);">Enviar Demo a Récords →</div>
+      </a>
+
+      <!-- 4. Registro de Marca & Legal -->
+      <a href="https://wa.me/524424280465?text=Hola%20Orchata,%20quiero%20asesor%C3%ADa%20para%20el%20registro%20de%20mi%20marca%20ante%20el%20IMPI%20o%20obras%20ante%20INDAUTOR" target="_blank" rel="noopener" class="quick-channel-card reveal">
+        <div>
+          <div class="quick-channel-icon" style="background:rgba(255,49,49,0.1);color:#ff3131;border-color:rgba(255,49,49,0.3);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Registro de Marca & Legal</h4>
+          <p style="font-size:13px;color:var(--clr-white-60);line-height:1.5;">Blindaje de propiedad intelectual IMPI (Clase 41), registro INDAUTOR y Split Sheets.</p>
+        </div>
+        <div style="margin-top:20px;font-size:13px;font-weight:700;color:#ff3131;">Registrar Mi Marca / Obra →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     FORMULARIO SMART + AGENDADOR
+═══════════════════════════════════ -->
+<section id="formulario" class="contact-form-section" aria-label="Formulario de contacto">
+  <div class="contact-form-layout">
+
+    <!-- IZQUIERDA: Selector de perfil + formulario -->
+    <div class="reveal">
+      <span class="section-eyebrow">Paso 1 · Cuéntanos tu Proyecto</span>
+      <h2 class="section-title" style="font-size:36px;margin-bottom:28px">Formulario Directo</h2>
+
+      <!-- Profile selector con opciones en líneas -->
+      <div class="profile-selector" id="profile-selector" style="margin-bottom:28px">
+        <button class="profile-option selected" data-profile="gimnasio" id="profile-gym" type="button">
+          <span class="profile-option-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12"/></svg>
+          </span>
+          <span class="profile-option-label">Gimnasio / DOOH</span>
+        </button>
+        <button class="profile-option" data-profile="comercial" id="profile-brand" type="button">
+          <span class="profile-option-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </span>
+          <span class="profile-option-label">Producción / Video</span>
+        </button>
+        <button class="profile-option" data-profile="sello" id="profile-label" type="button">
+          <span class="profile-option-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </span>
+          <span class="profile-option-label">Artista / Demo</span>
+        </button>
+        <button class="profile-option" data-profile="marca" id="profile-brand-reg" type="button">
+          <span class="profile-option-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <span class="profile-option-label">Marca / Legal</span>
+        </button>
+      </div>
+
+      <!-- Dynamic message -->
+      <div id="profile-message" style="padding:16px 20px;border-radius:var(--radius-md);background:rgba(255,49,49,0.08);border:1px solid rgba(255,49,49,0.2);margin-bottom:28px;transition:all 0.3s">
+        <div style="font-size:13px;font-weight:600;color:var(--clr-gold);margin-bottom:4px">Para Gimnasios & Comercios</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5;">Te explicamos cómo nuestras redes DOOH con QR pueden aumentar tus ventas recurrentes y fidelización en menos de 30 días.</div>
+      </div>
+
+      <!-- Form con enrutamiento inteligente -->
+      <form id="contact-form" onsubmit="submitForm(event)" novalidate>
+        <div class="contact-form-row-2col">
+          <div class="form-group">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-input" placeholder="Tu nombre" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="telefono">WhatsApp / Teléfono</label>
+            <input type="tel" id="telefono" class="form-input" placeholder="+52 ..." required autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Correo Electrónico</label>
+          <input type="email" id="email" class="form-input" placeholder="tu@empresa.com" required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="servicio">Servicio Principal Requerido</label>
+          <select id="servicio" class="form-select" required>
+            <option value="">Selecciona una opción...</option>
+            <option value="Redes Marca Blanca DOOH para Gimnasios">Redes Marca Blanca DOOH (Gimnasios)</option>
+            <option value="Anunciarme en Pantallas DOOH de Gyms">Pauta Publicitaria en Pantallas de Gyms</option>
+            <option value="Producción de Podcast Multicámara 4K">Producción de Podcast Multicámara 4K</option>
+            <option value="Cortos Comerciales / Reels Dinámicos">Cortos Comerciales de Alto Impacto / Reels</option>
+            <option value="Producción Audiovisual de Cursos Digitales">Video Producción para Cursos Digitales</option>
+            <option value="Desarrollo de Canal de YouTube / Show">Desarrollo de Canal de YouTube / Show</option>
+            <option value="Firma y Distribución Orchata Récords">Envío de Demo / Orchata Récords</option>
+            <option value="Registro de Marca IMPI e INDAUTOR">Registro de Marca IMPI & Obras INDAUTOR</option>
+            <option value="Ecosistema Completo 360">Ecosistema Completo 360°</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mensaje">Cuéntanos sobre tu Proyecto o Enlace a Demo</label>
+          <textarea id="mensaje" class="form-textarea" placeholder="Platícanos tu objetivo, giro comercial, o si eres artista pega el enlace a tu demo (Drive, Soundcloud, YouTube)..." rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn-pill btn-pill-gold" id="btn-submit" style="width:100%;justify-content:center;padding:16px 24px;font-size:15px;gap:10px;font-weight:700;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.13.11-3.28-.78-2.58-1.07-4.24-3.71-4.37-3.88-.13-.18-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.38-.06.59.45.22.53.75 1.83.82 1.97.07.13.11.3.02.48-.09.18-.13.3-.26.45-.13.16-.27.35-.39.47-.13.13-.26.27-.11.53.15.26.68 1.12 1.45 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.06.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.54.73 1.81.86.26.13.44.2.5.31.07.11.07.66-.17 1.34z"/></svg>
+          Enviar y Abrir WhatsApp Oficial
+        </button>
+
+        <div id="form-success" style="display:none;margin-top:16px;padding:20px;border-radius:var(--radius-md);background:rgba(255,49,49,0.08);border:1px solid rgba(255,49,49,0.3);text-align:center">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,49,49,0.15);border:1px solid rgba(255,49,49,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:#ff3131;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">¡Información lista!</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.7)">Te redirigimos al WhatsApp oficial para asignarte un productor o asesor de inmediato.</div>
+        </div>
+      </form>
+    </div>
+
+
+    <!-- DERECHA: Agendador + Dossier -->
+    <div>
+      <!-- Agendador widget -->
+      <div class="card reveal" style="padding:36px;margin-bottom:24px" id="agendador">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-gold);border-radius:var(--radius-xl) var(--radius-xl) 0 0;"></div>
+        <div class="card-eyebrow" style="display:inline-flex;align-items:center;gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Agenda Directa
+        </div>
+        <h3 class="card-title" style="font-size:24px;margin-bottom:8px">Llamada de Asesoría (15 Min)</h3>
+        <p style="font-size:14px;color:var(--clr-white-60);margin-bottom:24px;line-height:1.6">Selecciona el día y hora que mejor te acomode para revisar la viabilidad y cotización exacta de tu proyecto.</p>
+
+        <!-- Day selector -->
+        <div style="margin-bottom:18px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-white-60);margin-bottom:10px">Día de la semana</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" id="day-selector">
+            <!-- days generated by JS -->
+          </div>
+        </div>
+
+        <!-- Time slots -->
+        <div id="time-slots" style="margin-bottom:24px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-white-60);margin-bottom:10px">Horarios disponibles</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px" id="slots-grid">
+            <!-- slots generated by JS -->
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label" for="agenda-name">Tu Nombre</label>
+          <input type="text" id="agenda-name" class="form-input" placeholder="Para confirmar tu cita" autocomplete="name" />
+        </div>
+        <div class="form-group" style="margin-bottom:22px">
+          <label class="form-label" for="agenda-email">Tu WhatsApp o Email</label>
+          <input type="text" id="agenda-email" class="form-input" placeholder="Para enviarte el enlace de llamada" />
+        </div>
+
+        <button onclick="confirmAgenda()" class="btn-pill btn-pill-gold" id="btn-confirmar" style="width:100%;justify-content:center;padding:14px 24px;font-size:14px;font-weight:700;">
+          Confirmar Espacio de Asesoría →
+        </button>
+
+        <div id="agenda-success" style="display:none;margin-top:16px;padding:16px;border-radius:var(--radius-md);background:rgba(62,207,127,0.1);border:1px solid rgba(62,207,127,0.3);text-align:center">
+          <div style="font-size:13px;font-weight:600;color:#3ECF7F">✓ ¡Cita registrada! Nos comunicaremos puntualmente por WhatsApp.</div>
+        </div>
+      </div>
+
+      <!-- Dossier download -->
+      <div class="card reveal reveal-delay-1" id="dossier" style="padding:36px">
+        <div class="card-eyebrow" style="margin-bottom:14px;display:inline-flex;align-items:center;gap:6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Documentación Oficial
+        </div>
+        <h3 class="card-title" style="font-size:22px;margin-bottom:10px">Dossier Ejecutivo & Términos</h3>
+        <p style="font-size:14px;color:var(--clr-white-60);margin-bottom:22px;line-height:1.6">Consulta el dossier de soluciones Marca Blanca para gimnasios y especificaciones técnicas de nuestro ecosistema.</p>
+
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.7)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ff3131" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            Dossier Oficial Gimnasios (PDF)
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.7)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ff3131" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+            Términos y Condiciones Marca Blanca
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.7)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ff3131" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Descarga directa sin intermediarios
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a href="../assets/docs/Dossier_Orchata_Media_House_Visual.pdf" download="Dossier_Orchata_Media_House_Visual.pdf" class="btn-pill btn-pill-gold" id="btn-dossier-gen" style="width:100%;justify-content:center;padding:14px 20px;font-size:13.5px;gap:10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            Descargar Dossier General (PDF)
+          </a>
+          <a href="../assets/docs/Dossier_Gimnasio_Orchata.pdf" download="Dossier_Gimnasios_Orchata.pdf" class="btn-pill btn-pill-outline" id="btn-dossier" style="width:100%;justify-content:center;padding:14px 20px;font-size:13.5px;gap:10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            Descargar Dossier Gimnasios (PDF)
+          </a>
+          <a href="terminos-marca-blanca.html" class="btn-pill btn-pill-outline" style="width:100%;justify-content:center;padding:12px 20px;font-size:13px;border-color:rgba(255,255,255,0.15);color:var(--clr-white-60);">
+            Ver Términos y Condiciones Marca Blanca →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     INFO DIRECTA & COBERTURA
+═══════════════════════════════════ -->
+<section class="contact-info-section" aria-label="Información de contacto directo">
+  <div class="contact-info-grid">
+    <div class="card reveal reveal-delay-1" style="padding:36px;text-align:center">
+      <div class="contact-info-icon-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:var(--clr-white);margin-bottom:8px">WhatsApp Oficial</h3>
+      <a href="https://wa.me/524424280465?text=Hola%20Orchata%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" id="link-whatsapp" style="font-size:15px;color:var(--clr-gold);font-weight:700;text-decoration:none">+52 442 428 0465</a>
+      <p style="font-size:12px;color:var(--clr-white-60);margin-top:6px;">Canal principal de cotizaciones y soporte</p>
+    </div>
+
+    <div class="card reveal reveal-delay-2" style="padding:36px;text-align:center">
+      <div class="contact-info-icon-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:var(--clr-white);margin-bottom:8px">Email Corporativo</h3>
+      <a href="mailto:hola@orchatahouse.com" id="link-email" style="font-size:15px;color:var(--clr-gold);font-weight:700;text-decoration:none">hola@orchatahouse.com</a>
+      <p style="font-size:12px;color:var(--clr-white-60);margin-top:6px;">Propuestas B2B y requerimientos legales</p>
+    </div>
+
+    <div class="card reveal reveal-delay-3" style="padding:36px;text-align:center">
+      <div class="contact-info-icon-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </div>
+      <h3 style="font-size:16px;font-weight:700;color:var(--clr-white);margin-bottom:8px">Sede & Cobertura</h3>
+      <p style="font-size:14px;color:#fff;font-weight:600;margin-bottom:4px;">Querétaro, México</p>
+      <p style="font-size:12px;color:var(--clr-white-60)">Producción y despliegue nacional e internacional</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-links-zone">
+    <div style="text-align:center;padding-bottom:32px;border-bottom:1px solid var(--clr-card-border);margin-bottom:32px">
+      <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House" style="height:32px;width:auto;margin:0 auto 12px;display:block;" />
+      <span class="footer-brand-sub" style="margin-bottom:8px">MEDIA HOUSE</span>
+      <p style="font-size:13px;color:var(--clr-gray);margin-top:8px">El motor de contenido visual, publicitario y sonoro 360° de nueva generación.</p>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">Copyright © 2026 Orchata Media House. Todos los derechos reservados.</p>
+      
+      <!-- Créditos Desarrolladores Web -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin:12px 0;">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600;">Desarrollado por</span>
+        <div style="display:inline-flex;align-items:center;gap:16px;">
+          <a href="https://madmonkey.agency" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;opacity:0.85;transition:opacity 0.2s;text-decoration:none;" title="MadMonkey Studios">
+            <img src="../assets/images/MMW.png" alt="MadMonkey Studios" style="height:22px;width:auto;object-fit:contain;filter:brightness(0) invert(1);" />
+          </a>
+          <span style="color:rgba(255,255,255,0.2);font-size:12px;">×</span>
+          <a href="https://usainsomnia.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;opacity:0.85;transition:opacity 0.2s;text-decoration:none;" title="INSOMNIA IA STUDIO">
+            <img src="../assets/images/Logo INSOMNIA.png" alt="INSOMNIA IA STUDIO" style="height:20px;width:auto;object-fit:contain;filter:brightness(0) invert(1);" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <a href="https://wa.me/524424280465?text=Hola%20Orchata%2C%20quiero%20hablar%20con%20un%20asesor" target="_blank" rel="noopener">WhatsApp Directo: +52 442 428 0465</a>
+        <a href="terminos-marca-blanca.html">Términos Marca Blanca</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-visual-banner" aria-hidden="true">
+    <img src="../assets/images/Orchata Pie.png" alt="Orchata Media House Visual" class="footer-visual-img" loading="lazy" />
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+/* ─── PROFILE MESSAGES ACTUALIZADOS ─────────────────── */
+const profileMessages = {
+  gimnasio: {
+    title: 'Para Gimnasios & Redes DOOH',
+    text: 'Te explicamos cómo implementar pantallas Marca Blanca con QR dinámico para multiplicar tus ventas de membresías y suplementos.',
+    serviceVal: 'Redes Marca Blanca DOOH para Gimnasios'
+  },
+  comercial: {
+    title: 'Para Podcasts, YouTube & Cursos',
+    text: 'Diseñamos tu producción audiovisual multicámara en 4K, con iluminación de cine y edición para retener audiencia y clientes.',
+    serviceVal: 'Producción de Podcast Multicámara 4K'
+  },
+  sello: {
+    title: 'Para Artistas & Orchata Récords',
+    text: 'Envíanos tu demo. Te asesoramos sobre cómo llevamos tu música a plataformas, sync publicitario y nuestra red de pantallas.',
+    serviceVal: 'Firma y Distribución Orchata Récords'
+  },
+  marca: {
+    title: 'Para Registro de Marca & Legal',
+    text: 'Blindaje completo de tu nombre comercial o artístico ante el IMPI (Clase 41), obras ante INDAUTOR y contratos de Split Sheets.',
+    serviceVal: 'Registro de Marca IMPI e INDAUTOR'
+  },
+};
+
+document.querySelectorAll('.profile-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.profile-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    const profile = opt.dataset.profile;
+    const msg = profileMessages[profile];
+    const msgEl = document.getElementById('profile-message');
+    msgEl.style.opacity = '0';
+    setTimeout(() => {
+      msgEl.querySelector('div:first-child').textContent = msg.title;
+      msgEl.querySelector('div:last-child').textContent = msg.text;
+      msgEl.style.opacity = '1';
+      if (msg.serviceVal) {
+        document.getElementById('servicio').value = msg.serviceVal;
+      }
+    }, 200);
+  });
+});
+
+/* ─── FORM SUBMIT: ENVÍO DIRECTO A WHATSAPP ─────────── */
+function submitForm(e) {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value.trim();
+  const telefono = document.getElementById('telefono').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const servicio = document.getElementById('servicio').value;
+  const mensaje = document.getElementById('mensaje').value.trim();
+
+  if (!nombre || !email) {
+    alert('Por favor completa al menos tu nombre y correo.');
+    return;
+  }
+
+  const btn = document.getElementById('btn-submit');
+  btn.textContent = 'Procesando mensaje...';
+  btn.disabled = true;
+
+  // Construir mensaje estructurado para WhatsApp
+  let textWa = `Hola Orchata! Vengo del formulario web.%0A%0A`;
+  textWa += `*Nombre:* ${encodeURIComponent(nombre)}%0A`;
+  textWa += `*Teléfono/WhatsApp:* ${encodeURIComponent(telefono || 'No proporcionado')}%0A`;
+  textWa += `*Email:* ${encodeURIComponent(email)}%0A`;
+  textWa += `*Servicio de Interés:* ${encodeURIComponent(servicio || 'General')}%0A`;
+  if (mensaje) {
+    textWa += `*Detalles/Demo:* ${encodeURIComponent(mensaje)}%0A`;
+  }
+
+  const waUrl = `https://wa.me/524424280465?text=${textWa}`;
+
+  setTimeout(() => {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    // Abrir WhatsApp en nueva pestaña
+    window.open(waUrl, '_blank');
+  }, 900);
+}
+
+/* ─── AGENDADOR ─────────────────────────────────────── */
+const days = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie'];
+const dates = Array.from({length: 5}, (_, i) => {
+  const d = new Date();
+  d.setDate(d.getDate() + i + 1);
+  while ([0,6].includes(d.getDay())) d.setDate(d.getDate() + 1);
+  return d;
+});
+
+const dayGrid = document.getElementById('day-selector');
+let selectedDay = 0;
+
+dates.forEach((d, i) => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.style.cssText = `padding:10px 14px;border-radius:var(--radius-sm);border:1px solid ${i===0?'rgba(255,49,49,0.5)':'var(--clr-card-border)'};background:${i===0?'rgba(255,49,49,0.1)':'transparent'};color:${i===0?'var(--clr-gold)':'var(--clr-white-60)'};font-family:inherit;font-size:13px;cursor:pointer;transition:all 0.2s;text-align:center;`;
+  btn.innerHTML = `<div style="font-weight:600">${days[i]}</div><div style="font-size:11px">${d.getDate()}/${d.getMonth()+1}</div>`;
+  btn.addEventListener('click', () => {
+    dayGrid.querySelectorAll('button').forEach(b => {
+      b.style.border = '1px solid var(--clr-card-border)';
+      b.style.background = 'transparent';
+      b.style.color = 'var(--clr-white-60)';
+    });
+    btn.style.border = '1px solid rgba(255,49,49,0.5)';
+    btn.style.background = 'rgba(255,49,49,0.1)';
+    btn.style.color = 'var(--clr-gold)';
+    selectedDay = i;
+  });
+  dayGrid.appendChild(btn);
+});
+
+const times = ['10:00 AM','11:00 AM','12:00 PM','1:00 PM','4:00 PM','5:00 PM','6:00 PM'];
+const slotsGrid = document.getElementById('slots-grid');
+let selectedTime = null;
+
+times.forEach((t) => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.style.cssText = `padding:9px 4px;border-radius:var(--radius-sm);border:1px solid var(--clr-card-border);background:transparent;color:var(--clr-white-60);font-family:inherit;font-size:12px;cursor:pointer;transition:all 0.2s;`;
+  btn.textContent = t;
+  btn.addEventListener('click', () => {
+    slotsGrid.querySelectorAll('button').forEach(b => {
+      b.style.border = '1px solid var(--clr-card-border)';
+      b.style.background = 'transparent';
+      b.style.color = 'var(--clr-white-60)';
+    });
+    btn.style.border = '1px solid rgba(255,49,49,0.5)';
+    btn.style.background = 'rgba(255,49,49,0.1)';
+    btn.style.color = 'var(--clr-gold)';
+    selectedTime = t;
+  });
+  slotsGrid.appendChild(btn);
+});
+
+function confirmAgenda() {
+  const name = document.getElementById('agenda-name').value.trim();
+  const contact = document.getElementById('agenda-email').value.trim();
+  if (!name || !contact || !selectedTime) {
+    alert('Por favor selecciona un horario e ingresa tu nombre y contacto.');
+    return;
+  }
+  const btn = document.getElementById('btn-confirmar');
+  btn.textContent = 'Confirmando espacio...';
+  btn.disabled = true;
+
+  const d = dates[selectedDay];
+  const dayName = days[selectedDay];
+  const dateStr = `${dayName} ${d.getDate()}/${d.getMonth()+1}`;
+
+  const msgWa = `Hola Orchata! Quiero confirmar mi llamada de asesoría de 15 minutos:%0A%0A*Nombre:* ${encodeURIComponent(name)}%0A*Contacto:* ${encodeURIComponent(contact)}%0A*Horario elegido:* ${encodeURIComponent(dateStr)} a las ${encodeURIComponent(selectedTime)}`;
+  const waUrl = `https://wa.me/524424280465?text=${msgWa}`;
+
+  setTimeout(() => {
+    document.getElementById('agenda-success').style.display = 'block';
+    btn.style.display = 'none';
+    window.open(waUrl, '_blank');
+  }, 1000);
+}
+</script>
+<!-- BOTÓN FLOTANTE DE WHATSAPP CON NUBE DE DIÁLOGO -->
+<a href="https://wa.me/524424280465?text=Hola%20Orchata,%20tengo%20una%20pregunta%20sobre%20sus%20servicios" class="whatsapp-float-wrap" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <div class="whatsapp-bubble">¿Tienes alguna duda? ¡Pregúntanos!</div>
+  <div class="whatsapp-float-btn">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm5.78 14.15c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.13.11-3.28-.78-2.58-1.07-4.24-3.71-4.37-3.88-.13-.18-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.38-.06.59.45.22.53.75 1.83.82 1.97.07.13.11.3.02.48-.09.18-.13.3-.26.45-.13.16-.27.35-.39.47-.13.13-.26.27-.11.53.15.26.68 1.12 1.45 1.81 1 .89 1.84 1.16 2.1 1.29.26.13.41.11.56-.06.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.54.73 1.81.86.26.13.44.2.5.31.07.11.07.66-.17 1.34z"/></svg>
+  </div>
+</a>
+</body>
+</html>

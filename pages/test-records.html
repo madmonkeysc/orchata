@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico Artístico & Test de Plan — Orchata Récords</title>
+  <meta name="description" content="Descubre en 7 preguntas qué ecosistema de desarrollo artístico y distribución musical se adapta al momento actual de tu carrera. Recomendación inmediata." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .quiz-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 50px 24px 100px;
+    }
+    .quiz-card {
+      background: var(--clr-card);
+      border: 1px solid var(--clr-card-border);
+      border-radius: var(--radius-2xl);
+      padding: 44px 38px;
+      box-shadow: 0 24px 60px -15px rgba(0,0,0,0.7);
+      position: relative;
+    }
+    @media (max-width: 640px) {
+      .quiz-card {
+        padding: 30px 20px;
+      }
+    }
+    .quiz-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      width: 14%;
+      background: var(--grad-gold);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .quiz-step-indicator {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: var(--clr-white-40);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+    .quiz-step-indicator span.highlight-step {
+      color: var(--clr-gold);
+    }
+    .quiz-question-title {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .quiz-question-desc {
+      font-size: 14px;
+      color: var(--clr-white-60);
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .quiz-option {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+    .quiz-option:hover {
+      background: rgba(255, 49, 49, 0.06);
+      border-color: rgba(255, 49, 49, 0.4);
+      transform: translateX(4px);
+    }
+    .quiz-option.selected {
+      background: rgba(255, 49, 49, 0.12);
+      border-color: var(--clr-gold);
+      box-shadow: 0 4px 18px rgba(255, 49, 49, 0.18);
+    }
+    .quiz-opt-radio {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: all 0.2s ease;
+    }
+    .quiz-option.selected .quiz-opt-radio {
+      border-color: var(--clr-gold);
+      background: var(--clr-gold);
+    }
+    .quiz-option.selected .quiz-opt-radio::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0A0A0B;
+    }
+    .quiz-opt-text strong {
+      display: block;
+      color: #ffffff;
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .quiz-opt-text span {
+      font-size: 13px;
+      color: var(--clr-white-60);
+      line-height: 1.45;
+      display: block;
+    }
+    .quiz-nav-btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+    }
+    /* RESULT CARD */
+    #quiz-result {
+      display: none;
+    }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 49, 49, 0.16);
+      border: 1px solid rgba(255, 49, 49, 0.35);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      margin-bottom: 16px;
+    }
+    .result-plan-title {
+      font-size: clamp(26px, 4.5vw, 38px);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .result-box-highlight {
+      background: linear-gradient(180deg, rgba(255, 49, 49, 0.12) 0%, rgba(20, 20, 24, 0.95) 100%);
+      border: 1px solid rgba(255, 49, 49, 0.35);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      margin: 24px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation">
+  <a href="../index.html" class="nav-logo" id="nav-logo" aria-label="Orchata Media House">
+    <img src="../assets/images/Logo Orchata.png" alt="Orchata Media House" class="nav-logo-img" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="marca-blanca.html">Marca Blanca</a></li>
+    <li><a href="originales.html">Originales</a></li>
+    <li><a href="records.html" style="color:var(--clr-white)">Orchata Récords</a></li>
+    <li><a href="comerciales.html">Producciones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <a href="records.html#planes" class="btn-pill btn-pill-gold nav-cta" id="nav-cta">Ver Planes</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="marca-blanca.html">Marca Blanca</a>
+  <a href="originales.html">Originales</a>
+  <a href="records.html">Orchata Récords</a>
+  <a href="comerciales.html">Producciones</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="records.html#planes" class="btn-pill btn-pill-gold" style="width:fit-content">Ver Planes</a>
+</div>
+
+<main class="quiz-container">
+  
+  <!-- CONTENEDOR DEL TEST -->
+  <div class="quiz-card reveal" id="quiz-wrapper">
+    
+    <!-- BARRA DE PROGRESO -->
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" id="progress-fill"></div>
+    </div>
+
+    <!-- INDICADOR NUMÉRICO -->
+    <div class="quiz-step-indicator">
+      <span>DIAGNÓSTICO ARTÍSTICO ORCHATA RÉCORDS</span>
+      <span class="highlight-step" id="step-number">Pregunta 1 de 7</span>
+    </div>
+
+    <!-- PREGUNTA 1 -->
+    <div class="quiz-step" id="q1">
+      <h1 class="quiz-question-title">1. ¿Cuál es el estado actual de tu catálogo musical?</h1>
+      <p class="quiz-question-desc">Selecciona la opción que mejor describa la cantidad y frecuencia de tus lanzamientos hoy en día.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(1, 'A', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Tengo entre 1 y 3 canciones listas o maquetas en grabación</strong>
+            <span>Busco publicar mi primer material con calidad profesional y presencia global.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(1, 'B', 3)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Cuento con un calendario de lanzamientos periódicos (singles/EP)</strong>
+            <span>Lanzando cada 4 a 8 semanas de manera constante y necesito dirección estratégica y pitch editorial.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(1, 'C', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Tengo un proyecto integral que busca consolidar álbum, marca y representación</strong>
+            <span>Tengo un concepto sólido y quiero un equipo de management que desarrolle mi carrera a largo plazo.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 2 -->
+    <div class="quiz-step" id="q2" style="display:none;">
+      <h2 class="quiz-question-title">2. ¿Cómo gestionas actualmente la imagen visual y el contenido para redes de tus lanzamientos?</h2>
+      <p class="quiz-question-desc">El impacto visual (portadas, canvas de Spotify y micro-videos) define el 70% de la conversión inicial del oyente.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(2, 'A', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Hago mis propias portadas o contrato freelancers eventuales</strong>
+            <span>Solo necesito que el sello me entregue una portada limpia y profesional por cada single.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(2, 'B', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Pierdo demasiado tiempo diseñando y editando videos para TikTok / Reels</strong>
+            <span>Necesito un diseñador gráfico dedicado y un equipo que me edite clips promocionales para redes.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(2, 'C', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Necesito construir mi identidad visual completa y mi Sitio Web Oficial</strong>
+            <span>Quiero una presencia estética impecable: web de artista, branding oficial, banners y videoclips de alto nivel.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 3 -->
+    <div class="quiz-step" id="q3" style="display:none;">
+      <h2 class="quiz-question-title">3. ¿Qué experiencia has tenido con distribuidoras automáticas (DistroKid, TuneCore, etc.)?</h2>
+      <p class="quiz-question-desc">Analizamos el nivel de soporte y asesoramiento que requieres para escalar tus números.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(3, 'A', 2)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>He subido música por mi cuenta, pero me siento totalmente solo</strong>
+            <span>Nadie me orienta con los lanzamientos ni me ayuda a redactar los pitches a curadores de playlists.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(3, 'B', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Nunca he distribuido formalmente en plataformas digitales</strong>
+            <span>Es mi primera vez y busco una distribución seria sin intermediarios pirata.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(3, 'C', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Subir canciones no es suficiente: busco un Manager y Producción Ejecutiva</strong>
+            <span>Quiero un aliado que se siente a planear mi carrera por videollamada y me conecte con oportunidades reales.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 4 -->
+    <div class="quiz-step" id="q4" style="display:none;">
+      <h2 class="quiz-question-title">4. ¿Te interesa que tu música se sincronice en marcas comerciales, pantallas físicas y documentales?</h2>
+      <p class="quiz-question-desc">Orchata Media House opera una red DOOH en gimnasios y produce series y documentales originales.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(4, 'A', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Por ahora me enfoco solo en streaming (Spotify, Apple Music, YouTube)</strong>
+            <span>Primero quiero que mi música esté disponible globalmente en todas las plataformas de audio.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(4, 'B', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>¡Me parece clave! Quiero que mi música suene en comercios, marcas y producciones</strong>
+            <span>La sincronización B2B es una de las mayores fuentes de ingresos y exposición para artistas independientes hoy.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(4, 'C', 3)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Me interesa a mediano plazo cuando mi catálogo tenga más tracción</strong>
+            <span>Quiero dejar la puerta abierta para licencias comerciales en el momento que esté listo.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 5 -->
+    <div class="quiz-step" id="q5" style="display:none;">
+      <h2 class="quiz-question-title">5. ¿Cuál es tu visión sobre el compromiso y la permanencia de tu proyecto?</h2>
+      <p class="quiz-question-desc">La diferencia entre un servicio de distribución técnica y una verdadera agencia de representación.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(5, 'A', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Prefiero libertad mes a mes sin plazos forzosos</strong>
+            <span>Quiero probar el servicio, lanzar mis canciones y no tener contratos de permanencia a largo plazo.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(5, 'B', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Entiendo que una carrera profesional se construye en 2 o 3 años de trabajo continuo</strong>
+            <span>Prefiero un convenio formal de representación a 3 años donde el sello invierta en mi web, diseño y carrera con una comisión mínima.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(5, 'C', 2)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Busco iniciar sin compromisos largos y evaluar según resultados</strong>
+            <span>Empezar ligero y si el equipo demuestra resultados dar el salto a un convenio de representación.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 6 -->
+    <div class="quiz-step" id="q6" style="display:none;">
+      <h2 class="quiz-question-title">6. ¿Qué porcentaje de regalías y modelo de comisión se alinea mejor contigo?</h2>
+      <p class="quiz-question-desc">Comparamos la comisión estándar de distribución vs. la comisión reducida de management.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(6, 'A', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>75% - 80% neto para mí (25% comisión del sello) con suscripción accesible</strong>
+            <span>Pagar una cuota mensual básica ($1,190 MXN) y mantener el control total sin ataduras.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(6, 'B', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>90% neto para mí (solo 10% de comisión de management)</strong>
+            <span>Invertir en el plan PRO ($2,390 MXN) para tener desarrollo 360, web propia y quedarme con casi la totalidad de mis regalías.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(6, 'C', 2)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Lo que más me importa es conservar el 100% de la propiedad de mis masters</strong>
+            <span>Cualquiera de los dos esquemas me funciona mientras yo sea el dueño legal indiscutible de mis canciones.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREGUNTA 7 -->
+    <div class="quiz-step" id="q7" style="display:none;">
+      <h2 class="quiz-question-title">7. ¿Cuál es tu presupuesto mensual estimado de inversión para el desarrollo de tu carrera?</h2>
+      <p class="quiz-question-desc">Una carrera musical profesional requiere herramientas operativas reales para no estancarse.</p>
+      
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="selectOption(7, 'A', 1)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Entre $1,000 y $1,500 MXN mensuales (~$55 - $75 USD)</strong>
+            <span>Presupuesto óptimo para cubrir distribución, A&R y portada sin descapitalizarme.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(7, 'B', 4)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Más de $2,000 MXN mensuales (~$120 - $200 USD)</strong>
+            <span>Presupuesto enfocado en tener diseñador gráfico dedicado, web oficial, clips de redes y management activo.</span>
+          </div>
+        </div>
+        <div class="quiz-option" onclick="selectOption(7, 'C', 2)">
+          <div class="quiz-opt-radio"></div>
+          <div class="quiz-opt-text">
+            <strong>Quiero comenzar con lo esencial y escalar conforme genere ingresos</strong>
+            <span>Inversión progresiva vinculada a los resultados comerciales de mis canciones.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTONES DE NAVEGACIÓN -->
+    <div class="quiz-nav-btns" id="quiz-nav">
+      <button class="btn-pill btn-pill-outline" id="btn-prev" onclick="prevStep()" style="visibility:hidden;">
+        ← Anterior
+      </button>
+      <div style="font-size:12px;color:var(--clr-white-40);">
+        Selecciona una respuesta para continuar
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         PANTALLA DE RESULTADO FINAL (CALCULADA)
+    ═══════════════════════════════════════════════ -->
+    <div id="quiz-result">
+      <div class="text-center">
+        <span class="result-badge" id="res-badge">Recomendación Oficial A&R</span>
+        <h2 class="result-plan-title" id="res-title">Plan PRO · Management & Desarrollo 360°</h2>
+        <p style="font-size:15px;color:var(--clr-white-60);max-width:640px;margin:0 auto 24px;line-height:1.6;" id="res-desc">
+          Basado en tus respuestas, tu proyecto no solo necesita subir música: requiere un equipo humano de producción que desarrolle tu marca, diseñe tus assets y te represente a largo plazo.
+        </p>
+      </div>
+
+      <div class="result-box-highlight" id="res-box">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:18px;margin-bottom:18px;">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--clr-gold);text-transform:uppercase;letter-spacing:0.1em;" id="res-plan-eyebrow">Ecosistema Recomendado</div>
+            <div style="font-size:24px;font-weight:800;color:#fff;" id="res-plan-name">Plan PRO · $2,390 MXN /mes</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:11px;color:var(--clr-white-40);text-transform:uppercase;">Comisión de Royalties</div>
+            <div style="font-size:20px;font-weight:800;color:#10b981;" id="res-plan-royalty">90% Neto para ti (10% sello)</div>
+          </div>
+        </div>
+
+        <div style="font-size:13.5px;color:rgba(255,255,255,0.85);line-height:1.6;" id="res-plan-benefits">
+          <!-- Beneficios inyectados por JS -->
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px;">
+        <a href="" id="res-cta-whatsapp" target="_blank" rel="noopener" class="btn-pill" style="background:#25D366;border-color:#25D366;color:#ffffff;font-weight:700;padding:14px 28px;font-size:14px;box-shadow:0 8px 24px rgba(37,211,102,0.35);">
+          💬 Postular por WhatsApp con mi Resultado
+        </a>
+        <a href="records.html#planes" class="btn-pill btn-pill-outline" style="padding:14px 24px;">
+          Ver Comparativa de Todos los Planes
+        </a>
+        <button onclick="restartQuiz()" class="btn-pill btn-pill-gold" style="padding:14px 20px;">
+          Repetir Test ↻
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo" style="background:#0a0a0b; padding-top:60px;">
+  <div class="container" style="max-width:820px;margin:0 auto;text-align:center;">
+    <img src="../assets/images/Orchata%20records.png" alt="Orchata Récords" style="height:32px; width:auto; margin:0 auto 14px; object-fit:contain; display:block;" />
+    <div style="font-size:13px; color:var(--clr-white-60); margin-bottom:18px;">
+      Orchata Récords · División Musical de Orchata Media House · Querétaro, México.
+    </div>
+    <div style="font-size:11px; color:var(--clr-white-40);">
+      © 2026 Orchata Media House. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  let currentStep = 1;
+  const totalSteps = 7;
+  let answers = {};
+  let totalScore = 0;
+
+  function selectOption(step, optId, scoreWeight) {
+    answers[step] = { option: optId, score: scoreWeight };
+    
+    // UI highlight
+    const stepEl = document.getElementById('q' + step);
+    const options = stepEl.querySelectorAll('.quiz-option');
+    options.forEach(o => o.classList.remove('selected'));
+    
+    // Find clicked option
+    const clickedIdx = optId === 'A' ? 0 : (optId === 'B' ? 1 : 2);
+    if (options[clickedIdx]) {
+      options[clickedIdx].classList.add('selected');
+    }
+
+    // Auto next after 280ms
+    setTimeout(() => {
+      if (currentStep < totalSteps) {
+        goToStep(currentStep + 1);
+      } else {
+        showResults();
+      }
+    }, 280);
+  }
+
+  function goToStep(step) {
+    document.getElementById('q' + currentStep).style.display = 'none';
+    currentStep = step;
+    document.getElementById('q' + currentStep).style.display = 'block';
+
+    // Update Progress
+    const pct = Math.round((currentStep / totalSteps) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('step-number').textContent = `Pregunta ${currentStep} de ${totalSteps}`;
+
+    // Prev btn visibility
+    const prevBtn = document.getElementById('btn-prev');
+    if (currentStep > 1) {
+      prevBtn.style.visibility = 'visible';
+    } else {
+      prevBtn.style.visibility = 'hidden';
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      goToStep(currentStep - 1);
+    }
+  }
+
+  function showResults() {
+    // Hide all questions and nav
+    for (let i = 1; i <= totalSteps; i++) {
+      document.getElementById('q' + i).style.display = 'none';
+    }
+    document.getElementById('quiz-nav').style.display = 'none';
+    document.getElementById('progress-fill').style.width = '100%';
+    document.getElementById('step-number').textContent = 'DIAGNÓSTICO COMPLETADO';
+
+    // Calculate score
+    totalScore = Object.values(answers).reduce((acc, curr) => acc + curr.score, 0);
+
+    const resultBox = document.getElementById('quiz-result');
+    resultBox.style.display = 'block';
+
+    // Logic: Score >= 18 -> Plan PRO / Management 360
+    // Score < 18 -> Plan Basic / Distribución abierta
+    if (totalScore >= 18) {
+      document.getElementById('res-badge').textContent = 'Perfil Seleccionado · Candidato para Management 360°';
+      document.getElementById('res-title').textContent = 'Tu Plan Ideal: Plan PRO · Management & Desarrollo';
+      document.getElementById('res-desc').textContent = 
+        'Tu proyecto ha superado la etapa inicial y requiere un equipo multidisciplinario. Cumples con el perfil para ingresar al Convenio de Desarrollo y Representación a 3 Años con solo el 10% de comisión.';
+      
+      document.getElementById('res-plan-eyebrow').textContent = 'Ecosistema de Crecimiento Acelerado';
+      document.getElementById('res-plan-name').textContent = 'Plan PRO · $2,390 MXN /mes (~$130 USD)';
+      document.getElementById('res-plan-royalty').textContent = '90% Neto para ti (10% Management)';
+      
+      document.getElementById('res-plan-benefits').innerHTML = `
+        <div style="margin-bottom:8px;">★ <strong>Sitio Web Oficial de Artista:</strong> Desarrollado, personalizado y alojado por Orchata Media House.</div>
+        <div style="margin-bottom:8px;">★ <strong>Diseño Gráfico Dedicado:</strong> Portadas, canvas Spotify, banners y assets ilimitados.</div>
+        <div style="margin-bottom:8px;">★ <strong>Micro-videos de TikTok / Reels:</strong> Edición de clips dinámicos por cada single lanzado.</div>
+        <div style="margin-bottom:8px;">★ <strong>Sincronización Preferencial:</strong> Red DOOH en gimnasios y documentales de Orchata Originals.</div>
+        <div>★ <strong>Convenio de Desarrollo a 3 Años:</strong> Evaluación periódica de metas e hitos de crecimiento.</div>
+      `;
+
+      const msg = encodeURIComponent(`Hola Orchata Récords, completé el Test de Diagnóstico Artístico (Puntaje: ${totalScore}/28) y mi recomendación fue el Plan PRO (Convenio de Management a 3 Años). Quiero postular mi proyecto.`);
+      document.getElementById('res-cta-whatsapp').href = `https://wa.me/524424280465?text=${msg}`;
+      document.getElementById('res-cta-whatsapp').textContent = '💬 Postular al Plan PRO por WhatsApp →';
+    } else {
+      document.getElementById('res-badge').textContent = 'Perfil Recomendado · Lanzamientos Ágiles';
+      document.getElementById('res-title').textContent = 'Tu Plan Ideal: Plan Basic · Distribución Oficial';
+      document.getElementById('res-desc').textContent = 
+        'Tu prioridad en este momento es poner tu música en el mapa global con calidad profesional, conservando el 100% de tus masters y sin plazos forzosos ni compromisos de representación.';
+      
+      document.getElementById('res-plan-eyebrow').textContent = 'Distribución Global & A&R Directo';
+      document.getElementById('res-plan-name').textContent = 'Plan Basic · $1,190 MXN /mes (~$65 USD)';
+      document.getElementById('res-plan-royalty').textContent = '75% a 80% Neto para ti';
+      
+      document.getElementById('res-plan-benefits').innerHTML = `
+        <div style="margin-bottom:8px;">★ <strong>Distribución Global en +200 Plataformas:</strong> Conectado directamente a The Orchard / Sony.</div>
+        <div style="margin-bottom:8px;">★ <strong>Manager y A&R Personal Dedicado:</strong> Acompañamiento y seguimiento mensual de tus lanzamientos.</div>
+        <div style="margin-bottom:8px;">★ <strong>Pitch Editorial Oficial:</strong> Redacción y envío formal para curadores de Spotify y Apple Music.</div>
+        <div style="margin-bottom:8px;">★ <strong>1 Portada Profesional por Single:</strong> Entrega en alta resolución lista para tiendas.</div>
+        <div>★ <strong>Libertad Absoluta:</strong> Sin contratos forzosos ni exclusividad de representación.</div>
+      `;
+
+      const msg = encodeURIComponent(`Hola Orchata Récords, completé el Test de Diagnóstico Artístico (Puntaje: ${totalScore}/28) y mi recomendación fue el Plan Basic (Distribución Oficial). Quiero activar mi proyecto.`);
+      document.getElementById('res-cta-whatsapp').href = `https://wa.me/524424280465?text=${msg}`;
+      document.getElementById('res-cta-whatsapp').textContent = '💬 Activar Plan Basic por WhatsApp →';
+    }
+  }
+
+  function restartQuiz() {
+    answers = {};
+    totalScore = 0;
+    currentStep = 1;
+    document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('quiz-nav').style.display = 'flex';
+    goToStep(1);
+  }
+</script>
+
+</body>
+</html>
