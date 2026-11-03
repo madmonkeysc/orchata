@@ -4161,8 +4161,9 @@ ul { list-style: none; }
    HOME PAGE - FIXES DE BOTONES Y SECCIONES MÓVIL
 ══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Evitar desborde en botones pills largos */
-  .btn-pill {
+  /* Evitar desborde en botones pills largos solo cuando no tienen padding específico o dentro de cards */
+  .card-cta .btn-pill,
+  #contacto-directo .btn-pill {
     white-space: normal !important;
     text-align: center;
     max-width: 100%;
@@ -4238,6 +4239,356 @@ ul { list-style: none; }
   #contacto-directo .section-subtitle {
     font-size: 13.5px !important;
     margin-bottom: 24px !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   ORCHATA RECORDS (records.html) - RESPONSIVE MOBILE FIXES
+══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Secciones con espaciado móvil limpio sin desbordar viewport */
+  .page-records section[style*="padding:100px"],
+  .page-records section[style*="padding: 100px"],
+  .page-records section[style*="padding:120px"],
+  .page-records section[style*="padding: 120px"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .page-records .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 1. Hero Oskava 2.0 y Disco de Vinilo */
+  .rec-artist-hero {
+    padding: 110px 16px 60px !important;
+    min-height: auto !important;
+  }
+
+  .rec-artist-grid {
+    gap: 36px !important;
+  }
+
+  .rec-artist-title {
+    font-size: 34px !important;
+    line-height: 1.12 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .rec-artist-sub {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .rec-artist-player {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .rec-artist-player .rec-artist-play-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+
+  /* Contenedor de Botones CTA en Hero Oskava */
+  .rec-artist-grid div[style*="display:flex"][style*="gap:14px"] {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .rec-artist-grid div[style*="display:flex"][style*="gap:14px"] .btn-pill {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 13px 18px !important;
+    font-size: 13px !important;
+  }
+
+  /* Disco 3D y Portada Oskava: proporcionado y sin desbordar */
+  .rec-album-showcase {
+    max-width: 280px !important;
+    padding-right: 32px !important;
+    margin: 0 auto !important;
+  }
+
+  .rec-cover-wrap {
+    max-width: 220px !important;
+    border-radius: 14px !important;
+  }
+
+  .rec-cover-img {
+    border-radius: 14px !important;
+  }
+
+  .rec-vinyl-slot {
+    width: 200px !important;
+    height: 200px !important;
+    right: -10px !important;
+  }
+
+  .rec-cover-wrap:hover + .rec-vinyl-slot,
+  .rec-album-showcase:hover .rec-vinyl-slot,
+  .rec-vinyl-slot.playing {
+    transform: translateY(-50%) translateX(25px) !important;
+  }
+
+  /* 2. Chat Interactivo de WhatsApp con Manager */
+  .rec-chat-container {
+    gap: 36px !important;
+    margin-top: 36px !important;
+  }
+
+  .rec-phone-frame {
+    max-width: 100% !important;
+    border-radius: 24px !important;
+    padding: 12px !important;
+  }
+
+  .rec-chat-body {
+    padding: 16px 8px !important;
+    gap: 12px !important;
+  }
+
+  .rec-bubble {
+    max-width: 88% !important;
+    font-size: 13px !important;
+    padding: 10px 14px !important;
+  }
+
+  .rec-bubble-voice {
+    max-width: 90% !important;
+    padding: 8px 12px !important;
+  }
+
+  /* 3. Reproductor Oficial Interactivo & Waveform */
+  .page-records #catalogo .reveal[style*="border-radius:var(--radius-xl)"] {
+    padding: 24px 16px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .waveform {
+    height: 40px !important;
+    gap: 3px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .waveform-bar {
+    width: 3px !important;
+  }
+
+  /* 4. Tracklist de Canciones Bumsy y Catálogo */
+  .bumsy-section {
+    padding: 60px 16px !important;
+  }
+
+  .bumsy-showcase-box {
+    padding: 20px 16px !important;
+    gap: 20px !important;
+  }
+
+  .bumsy-showcase-content div[style*="display:flex"][style*="gap:12px"] {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .bumsy-showcase-content .btn-pill {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    font-size: 13px !important;
+  }
+
+  .bumsy-section div[style*="margin-top:40px"][style*="padding:32px"] {
+    padding: 20px 14px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .bumsy-section div[style*="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* 5. Planes de Precios y Toggle */
+  .rec-pricing-toggle {
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 4px !important;
+  }
+
+  .rec-toggle-btn {
+    padding: 8px 14px !important;
+    font-size: 12.5px !important;
+  }
+
+  .rec-price-card {
+    padding: 30px 20px !important;
+  }
+
+  .rec-price-badge-top {
+    font-size: 9.5px !important;
+    padding: 4px 10px !important;
+    white-space: normal !important;
+    width: 90% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .rec-price-name {
+    font-size: 20px !important;
+  }
+
+  .rec-price-amount {
+    font-size: 38px !important;
+  }
+
+  .rec-price-savings {
+    padding: 12px !important;
+  }
+
+  .rec-savings-row {
+    font-size: 12px !important;
+    gap: 8px !important;
+  }
+
+  .rec-price-card .btn-pill {
+    font-size: 13.5px !important;
+    padding: 13px 16px !important;
+  }
+
+  /* 6. Recuadro Test de Diagnóstico Artístico */
+  .page-records div[style*="Test de Diagnóstico Artístico"],
+  .page-records div[style*="border-radius:var(--radius-xl)"][style*="max-width:760px"] {
+    padding: 28px 18px !important;
+    margin-top: 36px !important;
+  }
+
+  .page-records div[style*="border-radius:var(--radius-xl)"][style*="max-width:760px"] h4 {
+    font-size: 18px !important;
+  }
+
+  .page-records div[style*="border-radius:var(--radius-xl)"][style*="max-width:760px"] p {
+    font-size: 13px !important;
+  }
+
+  .page-records div[style*="border-radius:var(--radius-xl)"][style*="max-width:760px"] .btn-pill {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    font-size: 13px !important;
+    padding: 12px 16px !important;
+    white-space: normal !important;
+  }
+
+  /* 7. Sección 'No somos una distribuidora automática' y Manifiesto */
+  .page-records div[style*="La Tubería vs. El Equipo Humano"] {
+    padding: 24px 16px !important;
+    border-radius: var(--radius-lg) !important;
+    margin-bottom: 32px !important;
+  }
+
+  .page-records div[style*="La Tubería vs. El Equipo Humano"] h3 {
+    font-size: 19px !important;
+  }
+
+  .page-records div[style*="La Tubería vs. El Equipo Humano"] p {
+    font-size: 13px !important;
+  }
+
+  /* 8. Tabla Comparativa */
+  .rec-table-wrap {
+    margin-top: 36px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .rec-table th,
+  .rec-table td {
+    padding: 12px 14px !important;
+    font-size: 12px !important;
+  }
+
+  /* 9. Deja que tu música hable por ti (Envío de Demos) */
+  .rec-demo-box {
+    padding: 28px 18px !important;
+    gap: 32px !important;
+    margin-top: 36px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .rec-demo-box h2 {
+    font-size: 26px !important;
+  }
+
+  .rec-demo-box form {
+    padding: 20px 16px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .rec-input {
+    padding: 12px 14px !important;
+    font-size: 13px !important;
+  }
+
+  .rec-demo-box form .btn-pill {
+    font-size: 13px !important;
+    padding: 12px 16px !important;
+    white-space: normal !important;
+  }
+
+  /* 10. Preguntas Frecuentes (FAQ) */
+  .rec-faq-list {
+    margin-top: 28px !important;
+    gap: 12px !important;
+  }
+
+  .rec-faq-q {
+    padding: 16px 18px !important;
+    font-size: 14px !important;
+    gap: 12px !important;
+  }
+
+  .rec-faq-a {
+    padding: 0 18px 18px !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  .rec-faq-icon {
+    min-width: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Newsletter Box y Footer en móvil */
+  .rec-newsletter-box {
+    padding: 32px 18px !important;
+    gap: 32px !important;
+    margin-top: 40px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .rec-newsletter-box form {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .rec-newsletter-box .btn-pill {
+    width: 100% !important;
+    justify-content: center !important;
   }
 }
 
