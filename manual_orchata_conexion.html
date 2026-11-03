@@ -2,426 +2,875 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Manual Maestro: El Método Orchata Conexión — Orchata Media House</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Maestro: Sistema Orchata Conexión 360°</title>
   <style>
     @page {
       size: A4 portrait;
-      margin: 15mm 16mm 15mm 16mm;
+      margin: 10mm 12mm 12mm 12mm;
     }
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
+
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0A0A0B;
-      color: #E2E2E6;
-      line-height: 1.55;
-      font-size: 10.5pt;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
+      background: #08080A;
+      color: #E2E8F0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.45;
+      font-size: 11pt;
     }
 
-    .doc-container {
-      max-width: 190mm;
+    .page {
+      width: 100%;
+      max-width: 210mm;
+      min-height: 297mm;
       margin: 0 auto;
-      padding: 0;
+      padding: 18mm 16mm;
+      background: #0A0A0C;
+      position: relative;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* HEADER */
-    .doc-header {
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* HEADER CORPORATIVO */
+    .header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 5mm;
-      border-bottom: 2px solid rgba(252, 242, 0, 0.4);
-      margin-bottom: 7mm;
-    }
-    .header-logo {
-      height: 26px;
-      width: auto;
-    }
-    .header-tag {
-      font-size: 8.5pt;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #fcf200;
-      background: rgba(252, 242, 0, 0.1);
-      border: 1px solid rgba(252, 242, 0, 0.35);
-      padding: 3px 10px;
-      border-radius: 999px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(252, 242, 0, 0.25);
+      margin-bottom: 20px;
     }
 
-    /* TITULAR */
-    .title-area {
-      margin-bottom: 8mm;
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .eyebrow {
-      font-size: 9.5pt;
+
+    .header-logo img {
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .header-title-text {
+      font-size: 9pt;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #ff3131;
-      margin-bottom: 2mm;
+      color: #FCF200;
+    }
+
+    .header-meta {
+      font-size: 7.5pt;
+      color: #94A3B8;
+      text-align: right;
+      letter-spacing: 0.5px;
+    }
+
+    /* FOOTER */
+    .footer-bar {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.5pt;
+      color: #64748B;
+    }
+
+    .footer-bar .confidential {
+      color: #FF3131;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* PORTADA / HERO TITLE */
+    .hero-badge {
+      display: inline-block;
+      background: rgba(252, 242, 0, 0.12);
+      border: 1px solid rgba(252, 242, 0, 0.35);
+      color: #FCF200;
+      font-size: 7.5pt;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .main-title {
+      font-size: 22pt;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #FFFFFF;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    .main-title span {
+      color: #FCF200;
+    }
+
+    .subtitle {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #CBD5E1;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .executive-summary {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid #FCF200;
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 9.5pt;
+      color: #CBD5E1;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .executive-summary strong {
+      color: #FFFFFF;
+    }
+
+    /* KPI STATS ROW */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .kpi-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(252, 242, 0, 0.2);
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+
+    .kpi-num {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #FCF200;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .kpi-label {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #94A3B8;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    /* MÓDULOS & SECCIONES */
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(252, 242, 0, 0.08);
+      border-left: 4px solid #FCF200;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .module-num {
+      font-size: 8pt;
+      font-weight: 900;
+      color: #0A0A0C;
+      background: #FCF200;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .module-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* FASES DE 1 A 100 */
+    .phase-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+
+    .phase-badge {
+      display: inline-block;
+      font-size: 8pt;
+      font-weight: 800;
+      color: #FCF200;
+      background: rgba(252, 242, 0, 0.1);
+      border: 1px solid rgba(252, 242, 0, 0.25);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 8.8pt;
+      line-height: 1.4;
+      color: #CBD5E1;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-bullet {
+      color: #FCF200;
+      font-weight: 900;
+      font-size: 9pt;
+      line-height: 1.3;
+    }
+
+    .step-name {
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* TABLA TRIBU */
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px 0;
+      font-size: 8.5pt;
+    }
+
+    .custom-table th {
+      background: rgba(252, 242, 0, 0.15);
+      color: #FCF200;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid rgba(252, 242, 0, 0.3);
+    }
+
+    .custom-table td {
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      color: #CBD5E1;
+      vertical-align: middle;
+    }
+
+    .custom-table tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .custom-table .tag {
+      font-weight: 800;
+      color: #FFFFFF;
+      background: rgba(255, 49, 49, 0.2);
+      border: 1px solid rgba(255, 49, 49, 0.4);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* SCRIPTS Y CAJAS DE PITCH */
+    .pitch-box {
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 3px solid #FCF200;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 8.8pt;
+      color: #E2E8F0;
+      line-height: 1.45;
+    }
+
+    .pitch-tag {
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: #FCF200;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .quote-text {
+      font-style: italic;
+      color: #F8FAFC;
+    }
+
+    /* MATRIZ OBJECIONES */
+    .objection-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+    }
+
+    .objection-q {
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: #FF3131;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    .doc-title {
-      font-size: 24pt;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      color: #FFFFFF;
-      margin-bottom: 3mm;
-    }
-    .doc-title span {
-      background: linear-gradient(135deg, #fcf200 0%, #ff8800 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .doc-subtitle {
-      font-size: 11pt;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.5;
+
+    .objection-a {
+      font-size: 8.5pt;
+      color: #CBD5E1;
+      line-height: 1.35;
     }
 
-    /* SECCIONES */
-    .sec-card {
-      background: rgba(20, 20, 24, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 10px;
-      padding: 5mm 6mm;
-      margin-bottom: 5mm;
-      page-break-inside: avoid;
-    }
-    .sec-title {
-      font-size: 13pt;
-      font-weight: 800;
-      color: #fcf200;
-      margin-bottom: 3mm;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 2mm;
-    }
-    .sec-title span.num {
-      background: rgba(252, 242, 0, 0.15);
-      color: #fcf200;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 9pt;
-      font-weight: 900;
+    .objection-a strong {
+      color: #FCF200;
     }
 
-    p {
-      margin-bottom: 3mm;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 9.8pt;
-    }
-    p strong {
-      color: #FFFFFF;
-    }
-
-    ul {
-      list-style: none;
-      margin-bottom: 3mm;
-    }
-    ul li {
-      position: relative;
-      padding-left: 5mm;
-      margin-bottom: 2mm;
-      font-size: 9.5pt;
-      color: rgba(255, 255, 255, 0.8);
-    }
-    ul li::before {
-      content: '■';
-      position: absolute;
-      left: 0;
-      color: #ff3131;
-      font-size: 6pt;
-      top: 1.5mm;
-    }
-    ul li strong {
-      color: #FFFFFF;
-    }
-
-    /* CALLOUT BOXES */
-    .callout {
-      background: rgba(255, 49, 49, 0.06);
-      border-left: 3.5px solid #ff3131;
-      padding: 3mm 4mm;
-      border-radius: 0 8px 8px 0;
-      margin: 3mm 0;
-      font-size: 9.2pt;
-      line-height: 1.45;
-    }
-    .callout.gold {
-      background: rgba(252, 242, 0, 0.06);
-      border-left-color: #fcf200;
-    }
-
-    /* DIAGRAM BOX */
-    .diagram-box {
-      background: #101014;
-      border: 1px dashed rgba(252, 242, 0, 0.35);
+    /* PROMPT BOX */
+    .code-container {
+      background: #050507;
+      border: 1px solid rgba(252, 242, 0, 0.3);
       border-radius: 8px;
-      padding: 4mm;
-      text-align: center;
-      margin: 4mm 0;
-      font-size: 9.5pt;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      color: #fff;
-    }
-    .diagram-box span.arrow {
-      color: #fcf200;
-      margin: 0 6px;
+      padding: 14px;
+      font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", Courier, monospace;
+      font-size: 7.8pt;
+      line-height: 1.45;
+      color: #A7F3D0;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      margin-top: 10px;
     }
 
-    /* TABLA */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 3mm 0;
-      font-size: 9pt;
-    }
-    th, td {
-      padding: 3mm 3.5mm;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: left;
-    }
-    th {
-      background: rgba(252, 242, 0, 0.12);
-      color: #fcf200;
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 8pt;
-      letter-spacing: 0.08em;
-    }
-    td {
-      background: rgba(255, 255, 255, 0.02);
-      color: rgba(255, 255, 255, 0.85);
-    }
-    td strong {
-      color: #fff;
-    }
-
-    /* FOOTER */
-    .doc-footer {
-      margin-top: 8mm;
-      padding-top: 4mm;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    .code-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 8pt;
-      color: rgba(255, 255, 255, 0.5);
-    }
-    .doc-footer strong {
-      color: #FFFFFF;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: #FCF200;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .btn-print {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #fcf200;
-      color: #000;
+    /* EMAIL CARDS */
+    .email-flow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .email-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    .email-day {
+      font-size: 7.5pt;
       font-weight: 800;
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      text-decoration: none;
-      box-shadow: 0 4px 18px rgba(252, 242, 0, 0.35);
+      color: #FCF200;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .email-subject {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .email-desc {
+      font-size: 7.8pt;
+      color: #94A3B8;
+      line-height: 1.35;
+    }
+
+    /* BOTÓN FLOTANTE PARA IMPRIMIR DIRECTO */
+    .print-float-btn {
       position: fixed;
       bottom: 24px;
       right: 24px;
+      background: #FCF200;
+      color: #0A0A0C;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(252,242,0,0.4);
+      cursor: pointer;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       z-index: 9999;
     }
-
     @media print {
-      body {
-        background: #0A0A0B !important;
-      }
-      .btn-print {
-        display: none !important;
-      }
+      .print-float-btn { display: none !important; }
     }
   </style>
 </head>
 <body>
 
-<button class="btn-print" onclick="window.print()">
-  🖨️ Guardar o Imprimir en PDF
-</button>
+  <button class="print-float-btn" onclick="window.print()">
+    🖨️ Descargar en PDF / Imprimir
+  </button>
 
-<div class="doc-container">
-  <!-- HEADER -->
-  <header class="doc-header">
-    <img src="assets/images/Logo Orchata.png" alt="Orchata Media House" class="header-logo">
-    <div class="header-tag">Documento Confidencial · Protocolo Comercial 2026/27</div>
-  </header>
+  <!-- ==========================================
+       PÁGINA 1: PORTADA & MÓDULO 1 (SETUP 1-20)
+       ========================================== -->
+  <section class="page">
+    <div class="header-bar">
+      <div class="header-logo">
+        <img src="assets/images/Isotipo Orchata.png" alt="Orchata">
+        <span class="header-title-text">Orchata Media House</span>
+      </div>
+      <div class="header-meta">
+        <div>DOC REF: OM-CONEXION-2026-V3</div>
+        <div style="color:#FCF200;font-weight:700;">DOCUMENTO CONFIDENCIAL B2B</div>
+      </div>
+    </div>
 
-  <!-- TITLE -->
-  <div class="title-area">
-    <div class="eyebrow">⚡ Metodología Operativa & Comercial B2B</div>
-    <h1 class="doc-title">Manual Maestro: El Método <span>"Orchata Conexión"</span></h1>
-    <p class="doc-subtitle">
-      Protocolo táctico para transformar pantallas pasivas en canales de venta automatizada, fidelización de socios y reparto de utilidades en centros deportivos y gimnasios.
+    <div>
+      <span class="hero-badge">Manual Operativo & Comercial Maestro</span>
+      <h1 class="main-title">SISTEMA <span>ORCHATA CONEXIÓN</span></h1>
+      <div class="subtitle">Implementación Llave en Mano 360° · Señalización DOOH Marca Blanca</div>
+    </div>
+
+    <div class="executive-summary">
+      <strong>Presentación Ejecutiva:</strong> El <strong>Sistema Orchata Conexión</strong> es una arquitectura transaccional creada por <strong>Orchata Media House</strong> para transformar pantallas pasivas de gimnasios en su propio <strong>canal privado de televisión de alto rendimiento</strong>. Resuelve la deserción visual de socios (+80% retención), incrementa ventas en la barra de suplementos (+32% a +35% en ticket promedio) y conecta pantallas con WhatsApp Business e Inteligencia Artificial en menos de 3 segundos vía códigos QR.
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-num">+80%</div>
+        <div class="kpi-label">Retención Visual de Socios</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">+400%</div>
+        <div class="kpi-label">Atención vs Estáticos</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">74%</div>
+        <div class="kpi-label">Acción Móvil vía QR</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">100%</div>
+        <div class="kpi-label">Música & Video Blindados</div>
+      </div>
+    </div>
+
+    <div class="module-header">
+      <span class="module-num">MÓDULO 1</span>
+      <span class="module-title">Estructura Operativa de 1 a 100 (Sistema Llave en Mano)</span>
+    </div>
+
+    <!-- FASE 1 -->
+    <div class="phase-card">
+      <span class="phase-badge">Fase 1: Infraestructura & Setup Plug & Play (Pasos 1 a 20)</span>
+      
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 1-5 · Auditar Pantallas y Hardware:</span>
+          Levantamiento y censo de pantallas por zonas clave (Peso Libre, Cardio, Recepción, Salones). Verificación de resolución Full HD/4K, puertos HDMI/USB funcionales y configuración de encendido programado automático diario.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 6-10 · Carga en Memoria USB/SD Plug & Play:</span>
+          Entrega de memoria física preconfigurada con el loop maestro de videos codificados en alta tasa de bits, renderizados con la identidad visual, colores y logotipo del gimnasio. <strong>Cero dependencia de red local o Wi-Fi el Día 1.</strong>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 11-15 · Configuración de WhatsApp Business:</span>
+          Habilitación de línea exclusiva institucional para el gimnasio. Parametrización de perfil verificado, catálogo completo de suplementación (fotos, precios, existencias) y geolocalización.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 16-20 · Sincronización de API con Inteligencia Artificial:</span>
+          Integración del agente de IA que responde de forma inmediata (&lt; 3 segundos) a los socios que escanean los códigos QR proyectados en pantalla, emitiendo comandas y confirmaciones.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
+      <span>Página 1 de 4</span>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PÁGINA 2: MÓDULO 1 (FASES 2 Y 3) + MÓDULO 2 (LA TRIBU)
+       ========================================== -->
+  <section class="page">
+    <div class="header-bar">
+      <div class="header-logo">
+        <img src="assets/images/Isotipo Orchata.png" alt="Orchata">
+        <span class="header-title-text">Orchata Media House</span>
+      </div>
+      <div class="header-meta">
+        <div>Contacto Comercial: +52 442 428 0465</div>
+        <div style="color:#FCF200;">hola@orchata.media</div>
+      </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="phase-card" style="margin-bottom:12px;">
+      <span class="phase-badge">Fase 2: Inventario Activo & Matriz Transaccional (Pasos 21 a 60)</span>
+      
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 21-35 · Barra de Suplementos & Scoops Fríos:</span>
+          Carga de stock físico en el software de recepción (Proteína Whey/Isolatada, Creatina Creapure, Pre-entrenos, BCAA, Bebidas isotónicas). Activación del sistema de preparación al momento: el socio pide desde la máquina y recoge su batido frío al terminar su serie.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 36-50 · Agenda Digital de Personal Trainers & Nutrición:</span>
+          Sincronización de calendarios de los entrenadores de piso y del consultorio nutricional. La pantalla proyecta fichas de entrenadores y valoraciones gratuitas vía QR, eliminando la barrera del abordaje frío.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 51-60 · Control de Aforos & Clases Grupales:</span>
+          Alineación de cupos en tiempo real para salones de alta demanda (Spinning, Zumba, Box, GAP, Cross & Yoga). Reservas instantáneas en WhatsApp con recordatorio automático 1 hora antes de la sesión.
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="phase-card" style="margin-bottom:18px;">
+      <span class="phase-badge">Fase 3: Operación, Retención & Monetización (Pasos 61 a 100)</span>
+      
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 61-75 · Biomecánica Anti-Deserción (Cinematografía Moody Gym):</span>
+          Proyección de clips HD con iluminación cenital 5600K que enseñan la ejecución perfecta sin intimidar. El socio novato aprende sin la pena de preguntar y se siente protegido frente a lesiones.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 76-85 · Ventas Flash de Impulso (Temporizador 180s):</span>
+          Cortinillas dinámicas que aparecen sorpresivamente durante horarios pico con ofertas de 3 minutos (ej. <em>"Batido Post-Entreno 2x1 siguientes 3 min escaneando aquí"</em>). Dispara compras inmediatas no planificadas.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 86-90 · Gamificación de la Tribu:</span>
+          Sistema automatizado de puntos (+50 pts check-in, +100 pts compras en barra, +200 pts renovación semestral). Clasificación en rangos de atletas: <em>Bronce, Plata, Oro y Leyenda</em>.
+        </div>
+      </div>
+
+      <div class="step-item">
+        <span class="step-bullet">▪</span>
+        <div>
+          <span class="step-name">Pasos 91-100 · Transición a Red Publicitaria (Alianza Año 2):</span>
+          Migración de memoria USB a CMS en la nube. Orchata comercializa espacios en pantalla a marcas aliadas locales/nacionales y <strong>reparte utilidades en efectivo directamente con el dueño del gimnasio</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2 -->
+    <div class="module-header">
+      <span class="module-num">MÓDULO 2</span>
+      <span class="module-title">Propuesta Disruptiva — "La Tribu Conexión"</span>
+    </div>
+
+    <p style="font-size:8.8pt;color:#CBD5E1;margin-bottom:8px;">
+      A diferencia de los grupos masivos de WhatsApp que se llenan de spam, <strong>La Tribu Conexión</strong> fragmenta la comunidad en micro-comunidades verticales gestionadas por Inteligencia Artificial:
     </p>
-  </div>
 
-  <!-- SECCIÓN 1: FILOSOFÍA -->
-  <div class="sec-card">
-    <div class="sec-title">
-      <span class="num">1</span>
-      Filosofía del Producto: ¿Por qué Venta Única Llave en Mano?
-    </div>
-    <p>
-      El mayor obstáculo en la venta de publicidad en pantallas (<em>digital signage</em>) es el temor del dueño del gimnasio a pagar un software recurrente ($30 a $60 USD al mes por televisor). Ese esquema genera una tasa de cancelación superior al 65% antes del cuarto mes.
-    </p>
-    <p>
-      <strong>Orchata Conexión rompe esa fricción de raíz:</strong>
-    </p>
-    <ul>
-      <li><strong>Inversión Única de Producción en 4K:</strong> El gimnasio paga la realización audiovisual de su canal propio una sola vez. No existen mensualidades forzosas ni licencias de software que expiren.</li>
-      <li><strong>Operación 100% Autónoma y Offline:</strong> El contenido corre en bucle continuo (*loop*) directo desde memorias USB de alta velocidad o Smart TVs. No depende del ancho de banda del gimnasio ni satura el Wi-Fi de los socios.</li>
-      <li><strong>Retorno Matemático Amortizable:</strong> No compite contra el presupuesto de mantenimiento; se autofinancia desde el primer mes mediante el incremento directo en consumo de suplementos y citas con coaches.</li>
-    </ul>
-  </div>
-
-  <!-- SECCIÓN 2: LA TRÍADA -->
-  <div class="sec-card">
-    <div class="sec-title">
-      <span class="num">2</span>
-      La Tríada Estratégica de Conversión
-    </div>
-    <p>
-      El método conecta tres puntos que históricamente han estado desconectados en los centros deportivos:
-    </p>
-    <div class="diagram-box">
-      [ ATENCIÓN CAUTIVA EN SALA ] <span class="arrow">──►</span> [ CÓDIGO QR DINÁMICO (3 seg) ] <span class="arrow">──►</span> [ CAJA DEL GYM (+$62,250 MXN) ]
-    </div>
-    <ul>
-      <li><strong>El Ojo del Socio (Atención):</strong> Durante series de pesas o cardio, el socio mira al frente entre 45 y 90 minutos. Las rutinas biomecánicas capturan su atención con estética cinematográfica sin interrumpirlo.</li>
-      <li><strong>El Teléfono Inteligente (Acción):</strong> En lugar de esperar a que el socio pregunte en recepción qué proteínas venden, el código QR en pantalla permite ordenar su batido o agendar con el nutriólogo en 3 clics.</li>
-      <li><strong>La Caja del Gimnasio (Monetización):</strong> Convierte un gasto de electricidad pasivo en un centro de venta con márgenes superiores al 60% por producto.</li>
-    </ul>
-  </div>
-
-  <!-- SECCIÓN 3: LA REGLA 50/30/20 -->
-  <div class="sec-card">
-    <div class="sec-title">
-      <span class="num">3</span>
-      Calibración Psicológica de Contenido: La Regla 50 / 30 / 20
-    </div>
-    <p>
-      Para que la pantalla no parezca un canal de ventas saturado ni un comercial invasivo, la parrilla de programación sigue una proporción balanceada:
-    </p>
-    <ul>
-      <li><strong>50% — Valor Técnico Biomecánico:</strong> Videos en 4K con atletas reales demostrando la técnica correcta en sentadillas, poleas, press de banca y estiramientos. Protege la salud del socio, asiste a los instructores y posiciona al gimnasio como un club de élite.</li>
-      <li><strong>30% — Estímulo Comercial Directo con QR:</strong> Batidos de proteína preparados en cámara lenta, creatina, promociones del mes, pases anuales y agenda directa de citas con nutriólogos.</li>
-      <li><strong>20% — Identidad de Marca & Sentido de Pertenencia:</strong> Logotipo del club animado en 3D, horarios de clases grupales (indoor cycling, yoga, box) y reconocimientos de la comunidad.</li>
-    </ul>
-  </div>
-
-  <!-- SECCIÓN 4: PROCESO DE CIERRE -->
-  <div class="sec-card">
-    <div class="sec-title">
-      <span class="num">4</span>
-      El Proceso de Cierre en 4 Fases Tácticas
-    </div>
-    
-    <div class="callout gold">
-      <strong>Fase 1: Diagnóstico Visual In Situ (Sin Hablar de Precios)</strong><br>
-      Nunca envíes una cotización por WhatsApp sin pisar el gimnasio. Llega al lugar, cuenta las pantallas y detecta la fuga: <em>"Tienes 8 pantallas prendidas. 5 están en noticias y 3 tienen comerciales de YouTube de tu competencia directa. Cada pantalla te cuesta aproximadamente $300 pesos de luz al mes. Te están quitando dinero en lugar de darte."</em>
-    </div>
-
-    <div class="callout">
-      <strong>Fase 2: La Demostración Sensorial en Vivo</strong><br>
-      Lleva en una memoria USB de prueba un clip de 45 segundos con la calidad visual de Orchata. Pídele al gerente permiso para conectarlo 2 minutos en una de sus pantallas principales: <em>"Mira cómo cambia la sala de pesas en este instante. Esto es lo que perciben tus socios cuando entran."</em>
-    </div>
-
-    <div class="callout gold">
-      <strong>Fase 3: La Ecuación Financiera de Amortización</strong><br>
-      Muestra los números del simulador de ROI: <em>"Con 150 socios diarios, si solo 18 compran un batido de $50 MXN con el QR, generas $27,000 MXN extras al mes. En dos meses recuperaste el 100% de la producción del paquete Core 30™. A partir del mes 3, es utilidad pura para tu negocio."</em>
-    </div>
-
-    <div class="callout">
-      <strong>Fase 4: El Candado de Exclusividad Territorial</strong><br>
-      Aplica escasez estricta: <em>"En Querétaro únicamente integramos a 5 gimnasios por zona comercial (Juriquilla, Álamos, Centro, Corregidora, Bernardo Quintana). Al cerrar esta semana, bloqueamos tu zona frente a otras cadenas para que mantengas la exclusividad."</em>
-    </div>
-  </div>
-
-  <!-- SECCIÓN 5: OBJECIONES -->
-  <div class="sec-card">
-    <div class="sec-title">
-      <span class="num">5</span>
-      Manejo Táctico de Objeciones Frecuentes
-    </div>
-    <table>
+    <table class="custom-table">
       <thead>
         <tr>
-          <th style="width:38%;">Objeción del Dueño / Gerente</th>
-          <th>Respuesta de Cierre Método Orchata</th>
+          <th style="width:25%;">Subgrupo Oficial</th>
+          <th style="width:40%;">Enfoque & Dinámica de Contenido</th>
+          <th style="width:35%;">Incentivo / Recompensa Gamificada</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>"Ya pongo canales de televisión o YouTube gratis."</strong></td>
-          <td><em>"Gratis te cuesta carísimo: YouTube le muestra a tus socios publicidad de gimnasios rivales y tiendas de suplementos que te comen ventas. Si se traba el internet, la pantalla queda negra. En Orchata el canal es 100% tuyo y nunca se cae."</em></td>
+          <td><span class="tag">#Tribu-Spinning</span></td>
+          <td>Retos de kilometraje mensual, playlists de clase y cadencia.</td>
+          <td>Sesión de descarga muscular / Suplemento isotónico gratis.</td>
         </tr>
         <tr>
-          <td><strong>"No tengo presupuesto para software o mensualidades."</strong></td>
-          <td><em>"Precisamente por eso nuestro modelo no tiene mensualidades. Pagas la producción una sola vez, el material en 4K es tuyo y corre en bucle sin cobros sorpresa."</em></td>
+          <td><span class="tag">#Tribu-Zumba</span></td>
+          <td>Votación de canciones, coreografías y eventos temáticos.</td>
+          <td>Pases VIP de fin de semana para amigas / invitadas.</td>
         </tr>
         <tr>
-          <td><strong>"No tengo buena señal de Wi-Fi en el área de pesas."</strong></td>
-          <td><em>"El sistema opera 100% offline. Los videos corren directamente desde una memoria USB de alta velocidad conectada a tus pantallas. No consume ancho de banda."</em></td>
+          <td><span class="tag">#Tribu-GAP-Iron</span></td>
+          <td>Píldoras de técnica en sentadilla, postura y fuerza máxima.</td>
+          <td>Reserva prioritaria de racks y accesorios en horas pico.</td>
+        </tr>
+        <tr>
+          <td><span class="tag">#Tribu-Nutrición</span></td>
+          <td>Recetas fitness, mitos de suplementos y cálculo de macros.</td>
+          <td>Descuentos escalonados en botes de creatina y 2x1 en barra.</td>
         </tr>
       </tbody>
     </table>
-  </div>
 
-  <!-- SECCIÓN 6: AÑO 2 -->
-  <div class="sec-card">
-    <div class="sec-title">
-      <span class="num">6</span>
-      La Alianza Publicitaria del Año 2 (Ingresos Pasivos)
+    <div class="footer-bar">
+      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
+      <span>Página 2 de 4</span>
     </div>
-    <p>
-      A partir del mes 12, los gimnasios con paquetes <strong>Pro Brand™</strong> y <strong>Maximus Bespoke™</strong> tienen la opción de activar el módulo de Red DOOH de Orchata:
+  </section>
+
+  <!-- ==========================================
+       PÁGINA 3: MÓDULO 3 (VENTAS & OBJECIONES) + MÓDULO 4 (EMAILS)
+       ========================================== -->
+  <section class="page">
+    <div class="header-bar">
+      <div class="header-logo">
+        <img src="assets/images/Isotipo Orchata.png" alt="Orchata">
+        <span class="header-title-text">Orchata Media House</span>
+      </div>
+      <div class="header-meta">
+        <div>DOC REF: OM-CONEXION-2026-V3</div>
+        <div style="color:#FCF200;">GUÍA PARA ASESORES COMERCIALES</div>
+      </div>
+    </div>
+
+    <div class="module-header">
+      <span class="module-num">MÓDULO 3</span>
+      <span class="module-title">Manual de Ventas B2B & Manejo Maestro de Objeciones</span>
+    </div>
+
+    <!-- SCRIPTS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+      <div class="pitch-box">
+        <div class="pitch-tag">🎙️ Script de Abordaje Presencial (En Sitio)</div>
+        <div class="quote-text">
+          "Hola [Nombre Gerente]. Noté que tienen pantallas excelentes instaladas, pero tenerlas apagadas o en televisión abierta es un costo muerto que proyecta comerciales de su competencia.<br><br>
+          En <strong>Orchata Media House</strong> transformamos esas pantallas en su canal privado con su propio logo: enseña técnica biomecánica para que los novatos no deserten y vende suplementos con códigos QR hacia su WhatsApp.<br><br>
+          <strong>¿Me permites mostrarte un demo de 15 segundos personalizado con el logo de tu gimnasio sin costo?</strong>"
+        </div>
+      </div>
+
+      <div class="pitch-box">
+        <div class="pitch-tag">📱 Script Digital (DM Instagram / LinkedIn / WhatsApp)</div>
+        <div class="quote-text">
+          "Hola equipo de [Gimnasio]. En Querétaro los gimnasios pierden hasta el 30% de sus socios nuevos en el primer mes simplemente por pena a no saber usar las máquinas.<br><br>
+          Desarrollamos el <strong>Sistema Orchata Conexión</strong> para proyectar rutinas cinematográficas con su propia marca y automatizar pedidos de barra.<br><br>
+          Ya les preparé un render de muestra de 15 segundos con su logotipo institucional. <strong>¿A qué número de WhatsApp se los comparto?</strong>"
+        </div>
+      </div>
+    </div>
+
+    <!-- OBJECIONES -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:9pt;font-weight:800;color:#FCF200;text-transform:uppercase;margin-bottom:6px;letter-spacing:0.5px;">
+        🛡️ Matriz de Manejo de Objeciones B2B
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-q">
+          <span>❌</span> <em>"Ya tengo mis pantallas con canales de televisión por cable o YouTube."</em>
+        </div>
+        <div class="objection-a">
+          <strong>Respuesta:</strong> Transmitir canales tradicionales expone anuncios de marcas rivales en tu propio local. Además, reproducir YouTube o plataformas de streaming personales en recintos comerciales viola la Ley Federal de Derechos de Autor (con multas de hasta $150,000 USD). Orchata incluye <strong>música B2B 100% blindada</strong> y proyecta exclusivamente la identidad de tu negocio.
+        </div>
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-q">
+          <span>❌</span> <em>"Es un gasto que no tenemos contemplado en este momento."</em>
+        </div>
+        <div class="objection-a">
+          <strong>Respuesta:</strong> No representa un gasto porque se autofinancia desde las primeras semanas. Con solo evitar que <strong>4 socios cancelen al mes</strong> ($700 MXN c/u = $2,800) y vender <strong>10 botes de proteína o 18 batidos extra al día</strong> con el QR, el sistema amortiza la producción y genera utilidad neta libre de mensualidades de software obligatorias.
+        </div>
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-q">
+          <span>❌</span> <em>"No tenemos buena conexión a internet ni personal técnico para programar pantallas."</em>
+        </div>
+        <div class="objection-a">
+          <strong>Respuesta:</strong> El modelo inicial es <strong>100% Plug & Play</strong>. Te entregamos una memoria USB preconfigurada en alta definición; tu recepcionista solo la conecta a la pantalla y empieza a funcionar inmediatamente sin configuraciones complejas.
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4 -->
+    <div class="module-header">
+      <span class="module-num">MÓDULO 4</span>
+      <span class="module-title">Secuencia de Email Marketing & Nutrición B2B</span>
+    </div>
+
+    <div class="email-flow">
+      <div class="email-item">
+        <div class="email-day">Email 1 · Día 1 (El Dolor)</div>
+        <div class="email-subject">"Las pantallas de [Gimnasio] te están costando dinero"</div>
+        <div class="email-desc">Diagnóstico de costos ocultos de pantallas apagadas, 30% de deserción por falta de guía y oferta del demo gratuito de 15s.</div>
+      </div>
+
+      <div class="email-item">
+        <div class="email-day">Email 2 · Día 3 (Prueba Social)</div>
+        <div class="email-subject">"+80% de retención y +35% en ventas de barra"</div>
+        <div class="email-desc">Métricas de la industria: 83% de recordación visual, 74% de intención de compra en pantallas DOOH dinámicas.</div>
+      </div>
+
+      <div class="email-item">
+        <div class="email-day">Email 3 · Día 5 (Autofinanciamiento)</div>
+        <div class="email-subject">"¿Cómo se paga solo el Sistema Orchata Conexión?"</div>
+        <div class="email-desc">Corrida financiera matemática: 4 socios retenidos + incremento de consumo en barra = Amortización en 60 días.</div>
+      </div>
+
+      <div class="email-item">
+        <div class="email-day">Email 4 · Día 7 (Urgencia & Cierre)</div>
+        <div class="email-subject">"Exclusividad de zona para 5 gimnasios en Querétaro"</div>
+        <div class="email-desc">Cierre de cupos por zona geográfica para evitar que gimnasios competidores de la misma cuadra compartan identidad visual.</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
+      <span>Página 3 de 4</span>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PÁGINA 4: MÓDULO 5 (SYSTEM PROMPT DE IA WHATSAPP)
+       ========================================== -->
+  <section class="page">
+    <div class="header-bar">
+      <div class="header-logo">
+        <img src="assets/images/Isotipo Orchata.png" alt="Orchata">
+        <span class="header-title-text">Orchata Media House</span>
+      </div>
+      <div class="header-meta">
+        <div>DOC REF: OM-CONEXION-2026-V3</div>
+        <div style="color:#FCF200;">AUTOMATIZACIÓN & AGENTES DE IA</div>
+      </div>
+    </div>
+
+    <div class="module-header">
+      <span class="module-num">MÓDULO 5</span>
+      <span class="module-title">System Prompt Maestro para IA en WhatsApp Business</span>
+    </div>
+
+    <p style="font-size:8.8pt;color:#CBD5E1;margin-bottom:8px;">
+      Copia e implementa esta instrucción maestra en tu agente inteligente (OpenAI Assistants, Claude, ManyChat o API oficial de WhatsApp) para procesar pedidos de barra, reservas y gamificación en tiempo real:
     </p>
-    <ul>
-      <li>Orchata comercializa pauta con marcas no competidoras (seguros médicos, indumentaria deportiva, bebidas electrolíticas, automotriz).</li>
-      <li>Se integran spots cinematográficos de 10 segundos intercalados dentro de las rutinas del gimnasio.</li>
-      <li>El gimnasio recibe hasta el <strong>50% de las utilidades publicitarias netas</strong>, convirtiendo sus televisores en un generador de renta pasiva sin esfuerzo operativo.</li>
-    </ul>
-  </div>
 
-  <!-- FOOTER -->
-  <footer class="doc-footer">
-    <div>
-      <strong>Orchata Media House</strong> · Dirección Comercial Querétaro · WhatsApp: +52 442 428 0465
+    <div class="code-container">
+      <div class="code-header">
+        <span>🤖 PROMPT MAESTRO PARA AGENTE DE IA (WHATSAPP BUSINESS)</span>
+        <span style="color:#94A3B8;">COPY-PASTE READY</span>
+      </div>
+SYSTEM PROMPT / INSTRUCCIÓN MAESTRA DE SISTEMA
+NOMBRE DE LA IA: "Asistente Virtual Orchata Conexión"
+ROL: Agente Inteligente de Atención, Ventas en Barra, Reservas y Comunidad Gamificada.
+MARCA BASE: Orchata Media House (Sistema Marca Blanca Orchata Conexión para Gimnasios).
+
+1. OBJETIVO PRINCIPAL:
+Gestionar de manera 100% automatizada el WhatsApp Business del gimnasio cliente. Responder
+instantáneamente (&lt;3s) a los socios que escanean los Códigos QR proyectados en las pantallas DOOH.
+- Registrar e identificar al socio (Creación de Ficha de Atleta).
+- Procesar pedidos de la barra de suplementos (batidos, scoops, creatina) enviando comandas a la recepción.
+- Gestionar reservas de clases grupales (Spinning, Zumba, Box, GAP) con control estricto de aforos.
+- Integrar al socio a la 'Tribu Conexión' (Subgrupos por disciplina: #Tribu-Spinning, #Tribu-Nutrición, etc.).
+- Administrar el sistema de gamificación (+50 pts check-in, +100 pts compras) para evitar la deserción.
+
+2. DETECCIÓN DE CÓDIGOS QR & FLUJOS AUTOMÁTICOS:
+- CASO A (Nutrición / Barra):
+  Al recibir código QR de barra, responder con el menú interactivo de batidos. Una vez confirmado el pedido,
+  generar formato de comanda interna para recepción (Nombre + Producto + Hora de recolección) y sumar +100 pts.
+- CASO B (Reserva de Clases Grupales):
+  Validar cupo disponible en base de datos. Confirmar reserva al socio, enviar link de acceso al subgrupo de la
+  clase y enviar recordatorio 60 minutos antes.
+- CASO C (Comunidad / La Tribu):
+  Saludar con tono enérgico y motivador. Desplegar los 4 subgrupos oficiales y asignar accesos directos.
+- CASO D (Ventas Flash de 180 Segundos):
+  Validar la vigencia del temporizador proyectado en pantalla. Si está activo, aplicar cupón del 20% en barra.
+
+3. PROTOCOLO ANTI-DESERCIÓN & SEGUIMIENTO:
+Si un socio registrado acumula 5 DÍAS CONSECUTIVOS sin registrar check-in o escaneos, activar automáticamente
+alerta de rescate empática:
+"¡Hola [Nombre]! Tus entrenamientos te extrañan. Te dejamos un pase 2x1 en tu batido favorito para tu sesión de hoy. ¿A qué hora nos vemos?"
+
+4. TONO Y REGLAS DE RESPUESTA:
+- Tono: Enérgico, profesional, fitness, motivador y conciso.
+- Nunca mencionar precios o promociones que no estén en la base de datos oficial.
+- Ante dudas médicas o lesiones complejas, transferir de inmediato con el Head Coach de turno.
     </div>
-    <div>
-      www.orchatahouse.com · <strong>Uso Exclusivo para Fuerza de Ventas</strong>
+
+    <!-- FIRMA Y SELLO CORPORATIVO -->
+    <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px 18px;">
+      <div>
+        <div style="font-size:8.5pt;font-weight:800;color:#FCF200;text-transform:uppercase;">Orchata Media House · DOOH Marca Blanca</div>
+        <div style="font-size:7.5pt;color:#94A3B8;margin-top:2px;">Querétaro, Qro. · Tel: +52 442 428 0465 · hola@orchata.media · www.orchatahouse.com</div>
+      </div>
+      <div style="text-align:right;">
+        <span style="display:inline-block;border:1px dashed #FCF200;padding:4px 10px;border-radius:4px;font-size:7pt;font-weight:800;color:#FCF200;text-transform:uppercase;">
+          CERTIFICACIÓN LLAVE EN MANO
+        </span>
+      </div>
     </div>
-  </footer>
-</div>
+
+    <div class="footer-bar">
+      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
+      <span>Página 4 de 4</span>
+    </div>
+  </section>
 
 </body>
 </html>
