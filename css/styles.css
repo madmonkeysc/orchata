@@ -3256,6 +3256,35 @@ ul { list-style: none; }
   box-shadow: 0 6px 20px rgba(255, 49, 49, 0.6);
 }
 
+.rec-hero-platforms {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  opacity: 0.85;
+  flex-wrap: wrap;
+}
+
+.rec-hero-platforms-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.rec-hero-platforms-list {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rec-hero-plat-img {
+  height: 15px;
+  width: auto;
+  object-fit: contain;
+}
+
 .rec-scroll-to-360 {
   display: inline-flex;
   align-items: center;
@@ -4317,6 +4346,42 @@ ul { list-style: none; }
     font-size: 13px !important;
   }
 
+  /* Barra de Plataformas Musicales en Hero: Distribución compacta en una sola fila horizontal */
+  .rec-hero-platforms {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .rec-hero-platforms-label {
+    font-size: 10px !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    white-space: nowrap !important;
+  }
+
+  .rec-hero-platforms-list {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .rec-hero-plat-img {
+    height: 12px !important;
+    max-width: 42px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    opacity: 0.85 !important;
+  }
+
   /* Disco 3D y Portada Oskava: proporcionado y sin desbordar */
   .rec-album-showcase {
     max-width: 280px !important;
@@ -4422,6 +4487,19 @@ ul { list-style: none; }
     gap: 8px !important;
   }
 
+  /* Barra/Botón Licenciamiento & Sincronización B2B Bumsy Go sin desbordes */
+  .bumsy-licencia-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+    padding: 13px 16px !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
   /* 5. Planes de Precios y Toggle */
   .rec-pricing-toggle {
     max-width: 100% !important;
@@ -4468,6 +4546,19 @@ ul { list-style: none; }
   .rec-price-card .btn-pill {
     font-size: 13.5px !important;
     padding: 13px 16px !important;
+  }
+
+  /* Items de características dentro de los planes: diseño compacto y sin saltos bruscos */
+  .rec-feature-item {
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    gap: 8px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .rec-feature-check {
+    font-size: 13px !important;
+    min-width: 16px !important;
   }
 
   /* 6. Recuadro Test de Diagnóstico Artístico */

@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css?v=2.2" />
+  <link rel="stylesheet" href="../css/styles.css?v=2.3" />
 </head>
 
 <body class="page-records">
@@ -146,19 +146,15 @@
           </div>
 
           <!-- Mini platform icons bar -->
-          <div style="display:flex; align-items:center; gap:14px; margin-top:14px; opacity:0.85; flex-wrap:wrap;">
-            <span
-              style="font-size:11px; color:rgba(255,255,255,0.6); font-weight:600; text-transform:uppercase; letter-spacing:0.06em;">Disponible
-              en:</span>
-            <img src="../assets/images/Spotify.png" alt="Spotify"
-              style="height:15px; width:auto; object-fit:contain;" />
-            <img src="../assets/images/Appel%20Music.png" alt="Apple Music"
-              style="height:15px; width:auto; object-fit:contain;" />
-            <img src="../assets/images/Amazon%20Music.png" alt="Amazon Music"
-              style="height:14px; width:auto; object-fit:contain;" />
-            <img src="../assets/images/Youtube%20music.png" alt="YouTube Music"
-              style="height:14px; width:auto; object-fit:contain;" />
-            <img src="../assets/images/Tidal.png" alt="Tidal" style="height:12px; width:auto; object-fit:contain;" />
+          <div class="rec-hero-platforms" aria-label="Plataformas disponibles">
+            <span class="rec-hero-platforms-label">Disponible en:</span>
+            <div class="rec-hero-platforms-list">
+              <img src="../assets/images/Spotify.png" alt="Spotify" class="rec-hero-plat-img" />
+              <img src="../assets/images/Appel%20Music.png" alt="Apple Music" class="rec-hero-plat-img" />
+              <img src="../assets/images/Amazon%20Music.png" alt="Amazon Music" class="rec-hero-plat-img" />
+              <img src="../assets/images/Youtube%20music.png" alt="YouTube Music" class="rec-hero-plat-img" />
+              <img src="../assets/images/Tidal.png" alt="Tidal" class="rec-hero-plat-img" />
+            </div>
           </div>
 
           <div>
@@ -1195,9 +1191,9 @@
       </div>
 
       <!-- Bottom CTAs -->
-      <div style="text-align:center; margin-top:48px;" class="reveal">
-        <a href="contacto.html?proyecto=bumsy" class="btn-pill btn-pill-gold"
-          style="font-size:14px; padding:14px 30px; background:linear-gradient(135deg, #ff9f43 0%, #ff5252 100%);">
+      <div style="text-align:center; margin-top:40px; width:100%;" class="reveal">
+        <a href="contacto.html?proyecto=bumsy" class="btn-pill btn-pill-gold bumsy-licencia-btn"
+          style="background:linear-gradient(135deg, #ff9f43 0%, #ff5252 100%);">
           Licenciamiento & Sincronización B2B para Marcas Infantiles →
         </a>
       </div>
