@@ -478,19 +478,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ─── SMOOTH PAGE TRANSITIONS ───────────────────────────── */
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.4s ease';
-  requestAnimationFrame(() => {
+  document.body.style.opacity = '1';
+
+  // Al regresar desde la caché bfcache (botón atrás del navegador o gestos móviles)
+  window.addEventListener('pageshow', (event) => {
     document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity 0.25s ease';
   });
 
   document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
-    if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('tel')) {
+    const target = link.getAttribute('target');
+    // Solo aplicar transición suave si es enlace interno, no abre en nueva pestaña, ni es ancla ni protocolo especial
+    if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('tel') && target !== '_blank') {
       link.addEventListener('click', (e) => {
+        // Permitir comandos de teclado o click secundario
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
         e.preventDefault();
+        document.body.style.transition = 'opacity 0.3s ease';
         document.body.style.opacity = '0';
-        setTimeout(() => { window.location.href = href; }, 380);
+        setTimeout(() => { window.location.href = href; }, 280);
       });
     }
   });

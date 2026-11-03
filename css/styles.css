@@ -4960,6 +4960,167 @@ ul { list-style: none; }
   }
 }
 
+/* ══════════════════════════════════════════════════════════
+   MARCA BLANCA (marca-blanca.html) - RESPONSIVE MOBILE FIXES
+══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* 1. Reset de padding en secciones con padding inline rígido */
+  .page-marca-blanca section[style*="padding:90px"],
+  .page-marca-blanca section[style*="padding: 90px"],
+  .page-marca-blanca section[style*="padding:100px"],
+  .page-marca-blanca section[style*="padding: 100px"],
+  .page-marca-blanca section[style*="padding:80px"],
+  .page-marca-blanca section[style*="padding: 80px"],
+  .page-marca-blanca .cards-section,
+  .page-marca-blanca .problem-solution-section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .page-marca-blanca .page-hero {
+    padding: 110px 18px 60px !important;
+  }
+
+  .page-marca-blanca .hero-title {
+    font-size: 38px !important;
+    line-height: 1.12 !important;
+  }
+
+  .page-marca-blanca .hero-subtitle {
+    font-size: 15px !important;
+    max-width: 100% !important;
+  }
+
+  .page-marca-blanca .hero-ctas {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .page-marca-blanca .hero-ctas .btn-pill {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    padding: 14px 18px !important;
+    font-size: 14px !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  /* 2. Sección Fuga Silenciosa (Dolores Gym) */
+  #dolores-gym [style*="grid-template-columns:repeat(auto-fit, minmax(260px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    margin-top: 32px !important;
+  }
+
+  #dolores-gym article.card {
+    padding: 24px 18px !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  #dolores-gym [style*="margin-top:40px"][style*="border-radius:var(--radius-xl)"] {
+    padding: 24px 18px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 18px !important;
+  }
+
+  #dolores-gym [style*="margin-top:40px"] .btn-pill {
+    width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* 3. Paquetes y Planes */
+  .packages-grid-3 {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    gap: 24px !important;
+    margin-top: 28px !important;
+  }
+
+  .package-card {
+    padding: 28px 18px !important;
+  }
+
+  .pricing-toggle-container {
+    max-width: 100% !important;
+    margin-top: 24px !important;
+  }
+
+  .pricing-toggle-container .card {
+    padding: 24px 18px !important;
+  }
+
+  .urgency-badge-wrap {
+    padding: 12px 16px !important;
+    font-size: 13px !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+  }
+
+  .urgency-card-cta {
+    margin-top: 40px !important;
+  }
+
+  .urgency-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .urgency-cta-grid > div:last-child {
+    padding: 24px 16px !important;
+  }
+
+  /* 4. Simulador ROI & Cuadro de ingresos */
+  #simulador {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+    padding: 50px 18px !important;
+  }
+
+  #calc-roi {
+    padding: 24px 16px !important;
+  }
+
+  #calc-roi [style*="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  #roi-result {
+    font-size: clamp(32px, 8vw, 44px) !important;
+  }
+
+  #simulador [style*="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;"] {
+    flex-direction: column !important;
+  }
+
+  #simulador [style*="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;"] .btn-pill {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-marca-blanca .hero-title {
+    font-size: 32px !important;
+  }
+
+  #roi-result {
+    font-size: 28px !important;
+  }
+}
+
 
 
 
