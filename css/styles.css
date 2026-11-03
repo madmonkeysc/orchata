@@ -334,8 +334,9 @@ ul { list-style: none; }
 
 /* Hero video switcher pills */
 .hero-video-switcher {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: rgba(10, 10, 11, 0.68);
   backdrop-filter: blur(20px);
@@ -343,7 +344,9 @@ ul { list-style: none; }
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-pill);
   padding: 5px;
-  margin-top: 28px;
+  margin: 28px auto 0;
+  width: fit-content;
+  max-width: 100%;
   position: relative;
   z-index: 4;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -441,11 +444,13 @@ ul { list-style: none; }
 }
 
 .hero-scroll-hint {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-top: 36px;
+  margin: 36px auto 0;
+  width: fit-content;
+  clear: both;
   cursor: pointer;
   text-decoration: none;
   opacity: 0;
@@ -4209,7 +4214,7 @@ ul { list-style: none; }
 
   /* Indicador Descubrir en Hero */
   .hero-scroll-hint {
-    margin-top: 24px !important;
+    margin: 24px auto 0 !important;
   }
 }
 
