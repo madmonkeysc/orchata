@@ -37,7 +37,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css?v=2.1" />
+  <link rel="stylesheet" href="../css/styles.css?v=2.5" />
   <style>
     .prod-solution-card {
       padding: 36px 30px;
@@ -82,6 +82,16 @@
       max-width: 1240px;
       margin: 0 auto;
       align-items: stretch;
+    }
+    .prod-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .prod-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
     @media (max-width: 1024px) {
       .prod-solution-grid {
@@ -256,7 +266,7 @@
     }
   </style>
 </head>
-<body>
+<body class="page-comerciales">
 
 <!-- NAVBAR -->
 <nav class="navbar" role="navigation">
@@ -458,7 +468,7 @@
       </p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:28px;">
+    <div class="prod-cases-grid">
       
       <!-- 1. BLEIDY YURAY -->
       <article class="client-case-card reveal reveal-delay-1" id="case-bleidy" style="border-radius:18px;overflow:hidden;background:var(--clr-card-bg);border:1px solid var(--clr-card-border);display:flex;flex-direction:column;">
@@ -590,7 +600,7 @@
       <p class="section-subtitle" style="margin:16px auto 0;">Sabemos que tu tiempo vale. Eliminamos burocracia para que tu contenido esté al aire rápido.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+    <div class="prod-steps-grid">
       <div class="card reveal reveal-delay-1" style="padding:32px;position:relative;">
         <div class="step-number">01</div>
         <h4 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:10px;">Briefing Exprés por WhatsApp</h4>
