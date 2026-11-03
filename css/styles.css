@@ -2785,6 +2785,64 @@ ul { list-style: none; }
   line-height: 1;
 }
 
+/* Manifiesto Tubería vs Equipo Humano */
+.rec-manifiesto-box {
+  background: linear-gradient(135deg, rgba(255, 49, 49, 0.08) 0%, rgba(20, 20, 24, 0.95) 100%);
+  border: 1px solid rgba(255, 49, 49, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  margin-bottom: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rec-manifiesto-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.rec-manifiesto-text {
+  min-width: 0;
+}
+
+.rec-manifiesto-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--clr-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.rec-manifiesto-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.rec-manifiesto-p {
+  font-size: 14px;
+  color: var(--clr-white-60);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.rec-manifiesto-compare {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
 /* Comparison Table */
 .rec-table-wrap {
   margin-top: 64px;
@@ -4585,19 +4643,48 @@ ul { list-style: none; }
     white-space: normal !important;
   }
 
-  /* 7. Sección 'No somos una distribuidora automática' y Manifiesto */
-  .page-records div[style*="La Tubería vs. El Equipo Humano"] {
-    padding: 24px 16px !important;
+  /* 7. Sección 'No somos una distribuidora automática' y Manifiesto Tubería vs Equipo Humano */
+  .rec-manifiesto-box {
+    padding: 22px 14px !important;
     border-radius: var(--radius-lg) !important;
-    margin-bottom: 32px !important;
+    margin-bottom: 28px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
-  .page-records div[style*="La Tubería vs. El Equipo Humano"] h3 {
-    font-size: 19px !important;
+  .rec-manifiesto-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    width: 100% !important;
   }
 
-  .page-records div[style*="La Tubería vs. El Equipo Humano"] p {
+  .rec-manifiesto-title {
+    font-size: 18px !important;
+    line-height: 1.28 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .rec-manifiesto-p {
     font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  .rec-manifiesto-compare {
+    padding: 16px 12px !important;
+    border-radius: var(--radius-md) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .rec-manifiesto-compare strong {
+    font-size: 13px !important;
+  }
+
+  .rec-manifiesto-compare div {
+    font-size: 11.5px !important;
+    line-height: 1.4 !important;
   }
 
   /* 8. Tabla Comparativa */
