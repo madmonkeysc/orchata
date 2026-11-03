@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manual Maestro: Sistema Orchata Conexión 360°</title>
+  <title>Manual Maestro: Metodología Orchata Conexión (1 a 100)</title>
   <style>
     @page {
       size: A4 portrait;
@@ -22,8 +22,8 @@
       background: #08080A;
       color: #E2E8F0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.45;
-      font-size: 11pt;
+      line-height: 1.42;
+      font-size: 10.5pt;
     }
 
     .page {
@@ -31,7 +31,7 @@
       max-width: 210mm;
       min-height: 297mm;
       margin: 0 auto;
-      padding: 18mm 16mm;
+      padding: 16mm 16mm 14mm 16mm;
       background: #0A0A0C;
       position: relative;
       page-break-after: always;
@@ -49,9 +49,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 12px;
+      padding-bottom: 10px;
       border-bottom: 1px solid rgba(252, 242, 0, 0.25);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .header-logo {
@@ -61,12 +61,12 @@
     }
 
     .header-logo img {
-      height: 28px;
+      height: 26px;
       object-fit: contain;
     }
 
     .header-title-text {
-      font-size: 9pt;
+      font-size: 8.5pt;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -98,7 +98,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* PORTADA / HERO TITLE */
+    /* HERO TITLE */
     .hero-badge {
       display: inline-block;
       background: rgba(252, 242, 0, 0.12);
@@ -106,20 +106,20 @@
       color: #FCF200;
       font-size: 7.5pt;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .main-title {
-      font-size: 22pt;
+      font-size: 20pt;
       font-weight: 900;
       line-height: 1.15;
       color: #FFFFFF;
       letter-spacing: -0.5px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .main-title span {
@@ -127,157 +127,319 @@
     }
 
     .subtitle {
-      font-size: 11pt;
+      font-size: 10pt;
       font-weight: 700;
       color: #CBD5E1;
       letter-spacing: 0.5px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       text-transform: uppercase;
     }
 
-    .executive-summary {
+    .intro-banner {
       background: rgba(255, 255, 255, 0.03);
       border-left: 3px solid #FCF200;
-      padding: 12px 14px;
-      border-radius: 0 8px 8px 0;
-      font-size: 9.5pt;
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      font-size: 8.8pt;
       color: #CBD5E1;
-      line-height: 1.5;
-      margin-bottom: 18px;
+      line-height: 1.45;
+      margin-bottom: 14px;
     }
 
-    .executive-summary strong {
-      color: #FFFFFF;
-    }
-
-    /* KPI STATS ROW */
-    .kpi-grid {
+    /* FLUJO 1 A 100 DIAGRAMA HEADER */
+    .flow-overview-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 22px;
+      gap: 8px;
+      margin-bottom: 16px;
     }
 
-    .kpi-card {
+    .flow-step-box {
       background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-      border: 1px solid rgba(252, 242, 0, 0.2);
-      border-radius: 8px;
-      padding: 10px 8px;
-      text-align: center;
+      border: 1px solid rgba(252, 242, 0, 0.25);
+      border-radius: 6px;
+      padding: 8px 10px;
+      position: relative;
     }
 
-    .kpi-num {
-      font-size: 17pt;
+    .flow-step-tag {
+      font-size: 7pt;
       font-weight: 900;
-      color: #FCF200;
-      line-height: 1;
+      color: #0A0A0C;
+      background: #FCF200;
+      padding: 1px 5px;
+      border-radius: 3px;
+      display: inline-block;
+      text-transform: uppercase;
       margin-bottom: 4px;
     }
 
-    .kpi-label {
-      font-size: 7.5pt;
-      font-weight: 600;
-      color: #94A3B8;
-      text-transform: uppercase;
-      line-height: 1.2;
+    .flow-step-title {
+      font-size: 8pt;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.25;
     }
 
-    /* MÓDULOS & SECCIONES */
-    .module-header {
+    .flow-step-sub {
+      font-size: 7pt;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    /* SECCIÓN / MÓDULO BANNER */
+    .module-banner {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: rgba(252, 242, 0, 0.08);
       border-left: 4px solid #FCF200;
-      padding: 8px 12px;
-      margin-bottom: 14px;
+      padding: 7px 12px;
+      margin-bottom: 12px;
       border-radius: 0 6px 6px 0;
     }
 
-    .module-num {
-      font-size: 8pt;
+    .module-tag {
+      font-size: 7.5pt;
       font-weight: 900;
+      color: #0A0A0C;
+      background: #FCF200;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .module-heading {
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* STEP ROWS */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 8.5pt;
+      line-height: 1.35;
+      color: #CBD5E1;
+    }
+
+    .step-pill {
+      font-size: 7.2pt;
+      font-weight: 900;
+      color: #FCF200;
+      background: rgba(252, 242, 0, 0.12);
+      border: 1px solid rgba(252, 242, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 3px;
+      white-space: nowrap;
+      min-width: 58px;
+      text-align: center;
+      margin-top: 1px;
+    }
+
+    .step-text strong {
+      color: #FFFFFF;
+    }
+
+    .step-text .highlight {
+      color: #FCF200;
+      font-weight: 700;
+    }
+
+    /* VISUAL EXAMPLE CALLOUT */
+    .visual-callout {
+      background: linear-gradient(135deg, rgba(255,49,49,0.06) 0%, rgba(252,242,0,0.04) 100%);
+      border: 1px dashed rgba(252, 242, 0, 0.4);
+      border-radius: 6px;
+      padding: 9px 12px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+      font-size: 8pt;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .visual-callout-icon {
+      font-size: 16pt;
+      line-height: 1;
+    }
+
+    .visual-callout-content {
+      flex: 1;
+    }
+
+    .visual-callout-title {
+      font-size: 7.5pt;
+      font-weight: 800;
+      color: #FCF200;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    /* TRIBU CARDS GRID */
+    .tribu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    .tribu-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 9px 11px;
+      font-size: 8.2pt;
+    }
+
+    .tribu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .tribu-tag {
+      font-size: 7.5pt;
+      font-weight: 800;
       color: #0A0A0C;
       background: #FCF200;
       padding: 2px 6px;
       border-radius: 3px;
     }
 
-    .module-title {
-      font-size: 11pt;
-      font-weight: 800;
-      color: #FFFFFF;
+    .tribu-discipline {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #94A3B8;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
-    /* FASES DE 1 A 100 */
-    .phase-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .tribu-desc {
+      color: #CBD5E1;
+      line-height: 1.35;
+      margin-bottom: 5px;
+    }
+
+    .tribu-reward {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 2px solid #FF3131;
+      padding: 4px 8px;
+      font-size: 7.5pt;
+      color: #F8FAFC;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .tribu-reward strong {
+      color: #FCF200;
+    }
+
+    /* FLASH SALE DISPLAY BOX */
+    .flash-sale-box {
+      background: radial-gradient(circle at 10% 20%, rgba(255, 49, 49, 0.18) 0%, rgba(10, 10, 12, 0.95) 70%);
+      border: 2px solid #FF3131;
       border-radius: 8px;
       padding: 12px 14px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 20px rgba(255, 49, 49, 0.15);
     }
 
-    .phase-badge {
-      display: inline-block;
-      font-size: 8pt;
-      font-weight: 800;
-      color: #FCF200;
-      background: rgba(252, 242, 0, 0.1);
-      border: 1px solid rgba(252, 242, 0, 0.25);
+    .flash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .flash-badge {
+      background: #FF3131;
+      color: #FFFFFF;
+      font-size: 7.5pt;
+      font-weight: 900;
       padding: 3px 8px;
       border-radius: 4px;
-      margin-bottom: 8px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
     }
 
-    .step-item {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 8px;
-      font-size: 8.8pt;
-      line-height: 1.4;
-      color: #CBD5E1;
-    }
-
-    .step-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .step-bullet {
-      color: #FCF200;
+    .flash-timer {
+      font-size: 11pt;
       font-weight: 900;
+      color: #FCF200;
+      letter-spacing: 1px;
+      font-family: monospace;
+    }
+
+    .flash-content {
       font-size: 9pt;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
       line-height: 1.3;
     }
 
-    .step-name {
-      font-weight: 700;
-      color: #FFFFFF;
+    .flash-flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 7.5pt;
     }
 
-    /* TABLA TRIBU */
-    .custom-table {
+    .flash-flow-item {
+      text-align: center;
+      color: #CBD5E1;
+    }
+
+    .flash-flow-num {
+      font-weight: 900;
+      color: #FCF200;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* TABLA GAMIFICACIÓN */
+    .gamification-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0 18px 0;
-      font-size: 8.5pt;
+      margin: 10px 0 14px 0;
+      font-size: 8.3pt;
     }
 
-    .custom-table th {
+    .gamification-table th {
       background: rgba(252, 242, 0, 0.15);
       color: #FCF200;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       text-align: left;
-      padding: 8px 10px;
+      padding: 7px 10px;
       border: 1px solid rgba(252, 242, 0, 0.3);
     }
 
-    .custom-table td {
+    .gamification-table td {
       padding: 8px 10px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.02);
@@ -285,141 +447,25 @@
       vertical-align: middle;
     }
 
-    .custom-table tr:nth-child(even) td {
+    .gamification-table tr:nth-child(even) td {
       background: rgba(255, 255, 255, 0.04);
     }
 
-    .custom-table .tag {
-      font-weight: 800;
-      color: #FFFFFF;
-      background: rgba(255, 49, 49, 0.2);
-      border: 1px solid rgba(255, 49, 49, 0.4);
-      padding: 2px 6px;
+    .rank-pill {
+      font-size: 7.5pt;
+      font-weight: 900;
+      padding: 3px 8px;
       border-radius: 4px;
       display: inline-block;
-    }
-
-    /* SCRIPTS Y CAJAS DE PITCH */
-    .pitch-box {
-      background: rgba(0, 0, 0, 0.4);
-      border-left: 3px solid #FCF200;
-      border-radius: 0 6px 6px 0;
-      padding: 10px 14px;
-      margin-bottom: 12px;
-      font-size: 8.8pt;
-      color: #E2E8F0;
-      line-height: 1.45;
-    }
-
-    .pitch-tag {
-      font-size: 7.5pt;
-      font-weight: 800;
-      color: #FCF200;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
     }
 
-    .quote-text {
-      font-style: italic;
-      color: #F8FAFC;
-    }
+    .rank-bronze { background: rgba(205, 127, 50, 0.2); color: #E5A470; border: 1px solid #CD7F32; }
+    .rank-silver { background: rgba(192, 192, 192, 0.2); color: #E2E8F0; border: 1px solid #CBD5E1; }
+    .rank-gold   { background: rgba(252, 242, 0, 0.2); color: #FCF200; border: 1px solid #FCF200; }
+    .rank-legend { background: rgba(255, 49, 49, 0.25); color: #FFA1A1; border: 1px solid #FF3131; }
 
-    /* MATRIZ OBJECIONES */
-    .objection-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin-bottom: 8px;
-    }
-
-    .objection-q {
-      font-size: 8.5pt;
-      font-weight: 800;
-      color: #FF3131;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .objection-a {
-      font-size: 8.5pt;
-      color: #CBD5E1;
-      line-height: 1.35;
-    }
-
-    .objection-a strong {
-      color: #FCF200;
-    }
-
-    /* PROMPT BOX */
-    .code-container {
-      background: #050507;
-      border: 1px solid rgba(252, 242, 0, 0.3);
-      border-radius: 8px;
-      padding: 14px;
-      font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", Courier, monospace;
-      font-size: 7.8pt;
-      line-height: 1.45;
-      color: #A7F3D0;
-      white-space: pre-wrap;
-      overflow-wrap: break-word;
-      margin-top: 10px;
-    }
-
-    .code-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-size: 7.5pt;
-      font-weight: 800;
-      color: #FCF200;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* EMAIL CARDS */
-    .email-flow {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .email-item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 6px;
-      padding: 10px 12px;
-    }
-
-    .email-day {
-      font-size: 7.5pt;
-      font-weight: 800;
-      color: #FCF200;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .email-subject {
-      font-size: 8.5pt;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin-bottom: 4px;
-    }
-
-    .email-desc {
-      font-size: 7.8pt;
-      color: #94A3B8;
-      line-height: 1.35;
-    }
-
-    /* BOTÓN FLOTANTE PARA IMPRIMIR DIRECTO */
+    /* BOTÓN FLOTANTE */
     .print-float-btn {
       position: fixed;
       bottom: 24px;
@@ -449,9 +495,9 @@
     🖨️ Descargar en PDF / Imprimir
   </button>
 
-  <!-- ==========================================
-       PÁGINA 1: PORTADA & MÓDULO 1 (SETUP 1-20)
-       ========================================== -->
+  <!-- ===================================================================
+       PÁGINA 1: FLUJO 1-100 OVERVIEW + MÓDULO 1 (SETUP TÉCNICO PASOS 1-20)
+       =================================================================== -->
   <section class="page">
     <div class="header-bar">
       <div class="header-logo">
@@ -459,92 +505,127 @@
         <span class="header-title-text">Orchata Media House</span>
       </div>
       <div class="header-meta">
-        <div>DOC REF: OM-CONEXION-2026-V3</div>
-        <div style="color:#FCF200;font-weight:700;">DOCUMENTO CONFIDENCIAL B2B</div>
+        <div>DOC REF: OM-CONEXION-METODOLOGIA-1A100</div>
+        <div style="color:#FCF200;font-weight:700;">MANUAL OFICIAL DE EJECUCIÓN POR IA</div>
       </div>
     </div>
 
     <div>
-      <span class="hero-badge">Manual Operativo & Comercial Maestro</span>
-      <h1 class="main-title">SISTEMA <span>ORCHATA CONEXIÓN</span></h1>
-      <div class="subtitle">Implementación Llave en Mano 360° · Señalización DOOH Marca Blanca</div>
+      <span class="hero-badge">Parte 1: Metodología Orchata Conexión</span>
+      <h1 class="main-title">MANUAL OPERATIVO <span>DE 1 A 100</span></h1>
+      <div class="subtitle">Flujo de Automatización Integral para Ejecución por IA & Agentes de WhatsApp</div>
     </div>
 
-    <div class="executive-summary">
-      <strong>Presentación Ejecutiva:</strong> El <strong>Sistema Orchata Conexión</strong> es una arquitectura transaccional creada por <strong>Orchata Media House</strong> para transformar pantallas pasivas de gimnasios en su propio <strong>canal privado de televisión de alto rendimiento</strong>. Resuelve la deserción visual de socios (+80% retención), incrementa ventas en la barra de suplementos (+32% a +35% en ticket promedio) y conecta pantallas con WhatsApp Business e Inteligencia Artificial en menos de 3 segundos vía códigos QR.
+    <div class="intro-banner">
+      Este manual estructura el flujo operativo exacto para que un sistema automatizado (o agente de IA de WhatsApp/CMS) administre la infraestructura, el contenido audiovisual y la conversión transaccional en el gimnasio, conectando pantallas con cajas y reduciendo la deserción al mínimo.
     </div>
 
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-num">+80%</div>
-        <div class="kpi-label">Retención Visual de Socios</div>
+    <!-- TABLA RESUMEN FLUJO 1 A 100 -->
+    <div class="flow-overview-grid">
+      <div class="flow-step-box">
+        <span class="flow-step-tag">Pasos 1 - 20</span>
+        <div class="flow-step-title">Setup Hardware & USB Plug & Play</div>
+        <div class="flow-step-sub">Infraestructura, After Effects y API WhatsApp (&lt;3s).</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-num">+400%</div>
-        <div class="kpi-label">Atención vs Estáticos</div>
+      <div class="flow-step-box">
+        <span class="flow-step-tag">Pasos 21 - 40</span>
+        <div class="flow-step-title">Inventario & Catálogo QR Dinámicos</div>
+        <div class="flow-step-sub">Barra de suplementos, entrenadores y aforos.</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-num">74%</div>
-        <div class="kpi-label">Acción Móvil vía QR</div>
+      <div class="flow-step-box">
+        <span class="flow-step-tag">Pasos 41 - 70</span>
+        <div class="flow-step-title">Agente IA WhatsApp & Subgrupos Tribus</div>
+        <div class="flow-step-sub">Comandas instantáneas, citas y segmentación.</div>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-num">100%</div>
-        <div class="kpi-label">Música & Video Blindados</div>
+      <div class="flow-step-box">
+        <span class="flow-step-tag">Pasos 71 - 100</span>
+        <div class="flow-step-title">Gamificación & Descuentos Flash</div>
+        <div class="flow-step-sub">Dayparting, rangos de atletas y red publicitaria Año 2.</div>
       </div>
     </div>
 
-    <div class="module-header">
-      <span class="module-num">MÓDULO 1</span>
-      <span class="module-title">Estructura Operativa de 1 a 100 (Sistema Llave en Mano)</span>
+    <!-- MÓDULO 1 -->
+    <div class="module-banner">
+      <span class="module-tag">MÓDULO 1</span>
+      <span class="module-heading">Setup Técnico & Hardware Plug & Play (Pasos 1 a 20)</span>
     </div>
 
-    <!-- FASE 1 -->
-    <div class="phase-card">
-      <span class="phase-badge">Fase 1: Infraestructura & Setup Plug & Play (Pasos 1 a 20)</span>
-      
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 1-5 · Auditar Pantallas y Hardware:</span>
-          Levantamiento y censo de pantallas por zonas clave (Peso Libre, Cardio, Recepción, Salones). Verificación de resolución Full HD/4K, puertos HDMI/USB funcionales y configuración de encendido programado automático diario.
-        </div>
+    <div class="steps-container">
+      <div class="step-row">
+        <span class="step-pill">Paso 1</span>
+        <div class="step-text"><strong>Registro de Ficha Técnica:</strong> Registrar la ficha técnica del gimnasio en la base de datos de la IA (ID del cliente, número de pantallas, zonas físicas: peso libre, cardio, recepción y salones).</div>
       </div>
 
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 6-10 · Carga en Memoria USB/SD Plug & Play:</span>
-          Entrega de memoria física preconfigurada con el loop maestro de videos codificados en alta tasa de bits, renderizados con la identidad visual, colores y logotipo del gimnasio. <strong>Cero dependencia de red local o Wi-Fi el Día 1.</strong>
-        </div>
+      <div class="step-row">
+        <span class="step-pill">Paso 2</span>
+        <div class="step-text"><strong>Auditoría de Entradas:</strong> Verificar la compatibilidad de entrada USB/HDMI en los televisores del área de pesas, cardio, recepción y salones.</div>
       </div>
 
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 11-15 · Configuración de WhatsApp Business:</span>
-          Habilitación de línea exclusiva institucional para el gimnasio. Parametrización de perfil verificado, catálogo completo de suplementación (fotos, precios, existencias) y geolocalización.
-        </div>
+      <div class="step-row">
+        <span class="step-pill">Paso 3</span>
+        <div class="step-text"><strong>Automatización de Video:</strong> Generar la primera versión del catálogo de videos personalizados con el logotipo y colores del gimnasio mediante la automatización de <span class="highlight">Adobe After Effects</span> (vía Dataclay Templater o Plainly).</div>
       </div>
 
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 16-20 · Sincronización de API con Inteligencia Artificial:</span>
-          Integración del agente de IA que responde de forma inmediata (&lt; 3 segundos) a los socios que escanean los códigos QR proyectados en pantalla, emitiendo comandas y confirmaciones.
-        </div>
+      <div class="step-row">
+        <span class="step-pill">Paso 4</span>
+        <div class="step-text"><strong>Carga en Memoria Autorizada:</strong> Cargar los archivos MP4 renderizados en la Memoria USB / Tarjeta SD Plug & Play autorizada para <span class="highlight">arranque inmediato sin depender de red Wi-Fi el primer día</span>.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 5</span>
+        <div class="step-text"><strong>Despliegue Físico:</strong> Entregar e insertar la memoria USB en la pantalla o reproductor multimedia del cliente en sitio.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 6</span>
+        <div class="step-text"><strong>Seamless Loop:</strong> Configurar el reproductor en bucle continuo (Seamless Loop) de 15 a 30 segundos por clip para evitar pausas o pantallas negras.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 7</span>
+        <div class="step-text"><strong>Línea Dedicada:</strong> Configurar la línea telefónica receptora para el perfil oficial de WhatsApp Business del gimnasio.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 8</span>
+        <div class="step-text"><strong>Sincronización API / Webhooks:</strong> Sincronizar el número de WhatsApp Business con la plataforma de la IA mediante la API oficial de WhatsApp y Webhooks.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 9</span>
+        <div class="step-text"><strong>Perfil Institucional:</strong> Configurar la foto de perfil, horarios, ubicación en Google Maps y mensaje de bienvenida institucional en WhatsApp.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 10</span>
+        <div class="step-text"><strong>Variables de QR Dinámicos:</strong> Configurar las variables del sistema para el generador de Códigos QR Dinámicos vinculados al número telefónico asignado.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Pasos 11-20</span>
+        <div class="step-text"><strong>Pruebas de Latencia & Tasa de Respuesta:</strong> Verificar la tasa de respuesta automática de la IA: <span class="highlight">&lt; 3 segundos al escanear cualquier QR en pantalla</span>.</div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO VISUAL SETUP -->
+    <div class="visual-callout">
+      <div class="visual-callout-icon">⚡</div>
+      <div class="visual-callout-content">
+        <div class="visual-callout-title">Ejemplo Visual de Implementación Plug & Play (Día 1)</div>
+        Loop MP4 1080p cargado en USB autorizada ➔ Conexión directa al puerto USB trasero de la pantalla ➔ Reproducción infinita sin configuración de red ➔ Teléfono de recepción conectado a API de IA listo para recibir escaneos.
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span>Orchata Media House © 2026-2027 · Metodología Orchata Conexión</span>
       <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
       <span>Página 1 de 4</span>
     </div>
   </section>
 
-  <!-- ==========================================
-       PÁGINA 2: MÓDULO 1 (FASES 2 Y 3) + MÓDULO 2 (LA TRIBU)
-       ========================================== -->
+  <!-- ===================================================================
+       PÁGINA 2: MÓDULO 2 (INVENTARIO 21-40) + MÓDULO 3 (AGENTE IA 41-70)
+       =================================================================== -->
   <section class="page">
     <div class="header-bar">
       <div class="header-logo">
@@ -552,129 +633,126 @@
         <span class="header-title-text">Orchata Media House</span>
       </div>
       <div class="header-meta">
-        <div>Contacto Comercial: +52 442 428 0465</div>
-        <div style="color:#FCF200;">hola@orchata.media</div>
-      </div>
-    </div>
-
-    <!-- FASE 2 -->
-    <div class="phase-card" style="margin-bottom:12px;">
-      <span class="phase-badge">Fase 2: Inventario Activo & Matriz Transaccional (Pasos 21 a 60)</span>
-      
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 21-35 · Barra de Suplementos & Scoops Fríos:</span>
-          Carga de stock físico en el software de recepción (Proteína Whey/Isolatada, Creatina Creapure, Pre-entrenos, BCAA, Bebidas isotónicas). Activación del sistema de preparación al momento: el socio pide desde la máquina y recoge su batido frío al terminar su serie.
-        </div>
-      </div>
-
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 36-50 · Agenda Digital de Personal Trainers & Nutrición:</span>
-          Sincronización de calendarios de los entrenadores de piso y del consultorio nutricional. La pantalla proyecta fichas de entrenadores y valoraciones gratuitas vía QR, eliminando la barrera del abordaje frío.
-        </div>
-      </div>
-
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 51-60 · Control de Aforos & Clases Grupales:</span>
-          Alineación de cupos en tiempo real para salones de alta demanda (Spinning, Zumba, Box, GAP, Cross & Yoga). Reservas instantáneas en WhatsApp con recordatorio automático 1 hora antes de la sesión.
-        </div>
-      </div>
-    </div>
-
-    <!-- FASE 3 -->
-    <div class="phase-card" style="margin-bottom:18px;">
-      <span class="phase-badge">Fase 3: Operación, Retención & Monetización (Pasos 61 a 100)</span>
-      
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 61-75 · Biomecánica Anti-Deserción (Cinematografía Moody Gym):</span>
-          Proyección de clips HD con iluminación cenital 5600K que enseñan la ejecución perfecta sin intimidar. El socio novato aprende sin la pena de preguntar y se siente protegido frente a lesiones.
-        </div>
-      </div>
-
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 76-85 · Ventas Flash de Impulso (Temporizador 180s):</span>
-          Cortinillas dinámicas que aparecen sorpresivamente durante horarios pico con ofertas de 3 minutos (ej. <em>"Batido Post-Entreno 2x1 siguientes 3 min escaneando aquí"</em>). Dispara compras inmediatas no planificadas.
-        </div>
-      </div>
-
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 86-90 · Gamificación de la Tribu:</span>
-          Sistema automatizado de puntos (+50 pts check-in, +100 pts compras en barra, +200 pts renovación semestral). Clasificación en rangos de atletas: <em>Bronce, Plata, Oro y Leyenda</em>.
-        </div>
-      </div>
-
-      <div class="step-item">
-        <span class="step-bullet">▪</span>
-        <div>
-          <span class="step-name">Pasos 91-100 · Transición a Red Publicitaria (Alianza Año 2):</span>
-          Migración de memoria USB a CMS en la nube. Orchata comercializa espacios en pantalla a marcas aliadas locales/nacionales y <strong>reparte utilidades en efectivo directamente con el dueño del gimnasio</strong>.
-        </div>
+        <div>DOC REF: OM-CONEXION-METODOLOGIA-1A100</div>
+        <div style="color:#FCF200;">ARQUITECTURA DE DATOS & COMANDAS</div>
       </div>
     </div>
 
     <!-- MÓDULO 2 -->
-    <div class="module-header">
-      <span class="module-num">MÓDULO 2</span>
-      <span class="module-title">Propuesta Disruptiva — "La Tribu Conexión"</span>
+    <div class="module-banner">
+      <span class="module-tag">MÓDULO 2</span>
+      <span class="module-heading">Arquitectura del Inventario & QR Dinámicos (Pasos 21 a 40)</span>
     </div>
 
-    <p style="font-size:8.8pt;color:#CBD5E1;margin-bottom:8px;">
-      A diferencia de los grupos masivos de WhatsApp que se llenan de spam, <strong>La Tribu Conexión</strong> fragmenta la comunidad en micro-comunidades verticales gestionadas por Inteligencia Artificial:
-    </p>
+    <div class="steps-container">
+      <div class="step-row">
+        <span class="step-pill">Paso 21</span>
+        <div class="step-text"><strong>Carga de Barra de Suplementos:</strong> Cargar en la base de datos el inventario físico de la barra de suplementos (Creatina, Proteína Whey/Isolate, Pre-entrenos, Electrolitos, Batidos).</div>
+      </div>
 
-    <table class="custom-table">
-      <thead>
-        <tr>
-          <th style="width:25%;">Subgrupo Oficial</th>
-          <th style="width:40%;">Enfoque & Dinámica de Contenido</th>
-          <th style="width:35%;">Incentivo / Recompensa Gamificada</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="tag">#Tribu-Spinning</span></td>
-          <td>Retos de kilometraje mensual, playlists de clase y cadencia.</td>
-          <td>Sesión de descarga muscular / Suplemento isotónico gratis.</td>
-        </tr>
-        <tr>
-          <td><span class="tag">#Tribu-Zumba</span></td>
-          <td>Votación de canciones, coreografías y eventos temáticos.</td>
-          <td>Pases VIP de fin de semana para amigas / invitadas.</td>
-        </tr>
-        <tr>
-          <td><span class="tag">#Tribu-GAP-Iron</span></td>
-          <td>Píldoras de técnica en sentadilla, postura y fuerza máxima.</td>
-          <td>Reserva prioritaria de racks y accesorios en horas pico.</td>
-        </tr>
-        <tr>
-          <td><span class="tag">#Tribu-Nutrición</span></td>
-          <td>Recetas fitness, mitos de suplementos y cálculo de macros.</td>
-          <td>Descuentos escalonados en botes de creatina y 2x1 en barra.</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="step-row">
+        <span class="step-pill">Paso 22</span>
+        <div class="step-text"><strong>Estructura Dual de Precios:</strong> Definir el precio por bote cerrado y el precio por scoop/batido servido al instante en recepción.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 23</span>
+        <div class="step-text"><strong>QR Cultura de Nutrición:</strong> Generar la matriz de códigos QR dinámicos para los videos de Cultura de Nutrición.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 24</span>
+        <div class="step-text"><strong>Agendas Digitales PT:</strong> Cargar la agenda digital de los Personal Trainers de piso y del nutriólogo del gimnasio.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 25</span>
+        <div class="step-text"><strong>QR Evaluación & Citas:</strong> Generar los códigos QR dinámicos para Evaluación Física & Citas de Entrenamiento.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 26</span>
+        <div class="step-text"><strong>Horarios de Clases:</strong> Registrar los horarios de clases grupales (Spinning, Yoga, Zumba, GAP, Box, CrossFit).</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 27</span>
+        <div class="step-text"><strong>Control de Aforos:</strong> Establecer los cupos máximos por salón (ejemplo: 20 bicicletas de Spinning) para control automático de reservas.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 28</span>
+        <div class="step-text"><strong>QR Reserva Inmediata:</strong> Generar los códigos QR dinámicos para Reserva de Lugar en Clases.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Pasos 29-40</span>
+        <div class="step-text"><strong>Safe Zones Gráficas:</strong> Sincronizar los campos gráficos de reserva (safe zones) en las plantillas de video para sobreimprimir la información sin obstaculizar la demostración física.</div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3 -->
+    <div class="module-banner" style="margin-top:6px;">
+      <span class="module-tag">MÓDULO 3</span>
+      <span class="module-heading">Automatización del Agente IA de WhatsApp & Tribus (Pasos 41 a 70)</span>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-row">
+        <span class="step-pill">Paso 41</span>
+        <div class="step-text"><strong>Comunidad General:</strong> Crear la Comunidad General en WhatsApp bajo el nombre <em>"Tribu [Nombre del Gym]"</em>.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 42</span>
+        <div class="step-text"><strong>5 Subgrupos Oficiales:</strong> Crear los 5 Subgrupos Oficiales: <strong>#Tribu-Spinning</strong> (Inercia y Kilometraje), <strong>#Tribu-Zumba</strong> (Baile y Ritmo), <strong>#Tribu-GAP-Abs</strong> (Fuerza y Definición), <strong>#Tribu-Iron</strong> (Pesas y Biomecánica) y <strong>#Tribu-Barra-Nutrición</strong> (Ofertas y Recetas).</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 43</span>
+        <div class="step-text"><strong>Detección de Pantalla / QR:</strong> Programar el Bot de IA para detectar de qué pantalla / QR proviene el socio al escanear.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 44</span>
+        <div class="step-text"><strong>Ficha de Atleta:</strong> Al recibir el primer escaneo de un socio, el Bot de IA saluda por su nombre y le asigna su ID de Atleta.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 45</span>
+        <div class="step-text"><strong>Enlace Automático:</strong> La IA envía un enlace de acceso automático para unir al socio al subgrupo de la disciplina que le interesa.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 46</span>
+        <div class="step-text"><strong>Motor de Comandas Automáticas:</strong> Si el socio pide un batido desde el QR de pantalla, la IA genera un ticket instantáneo en la pantalla de recepción: <span class="highlight">"Preparar Batido Proteico para [Socio]"</span>.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Pasos 47-70</span>
+        <div class="step-text"><strong>Notificaciones y Recordatorios:</strong> Enviar notificaciones automáticas de confirmación de cita con nutriólogo y recordatorios exactamente <strong>1 hora antes</strong> de la clase grupal.</div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO VISUAL TICKET -->
+    <div class="visual-callout">
+      <div class="visual-callout-icon">📋</div>
+      <div class="visual-callout-content">
+        <div class="visual-callout-title">Ejemplo Visual de Ticket Automático en Recepción (Paso 46)</div>
+        <em>[Ticket #408] · Socio: Carlos Méndez · Pedido: 1x Batido Proteico Whey Vainilla · Monto: $55 MXN cargado a cuenta · Hora entrega: 08:45 AM (Salida de rutina).</em>
+      </div>
+    </div>
 
     <div class="footer-bar">
-      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span>Orchata Media House © 2026-2027 · Metodología Orchata Conexión</span>
       <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
       <span>Página 2 de 4</span>
     </div>
   </section>
 
-  <!-- ==========================================
-       PÁGINA 3: MÓDULO 3 (VENTAS & OBJECIONES) + MÓDULO 4 (EMAILS)
-       ========================================== -->
+  <!-- ===================================================================
+       PÁGINA 3: MÓDULO 4 (PANTALLAS 71-85) + MÓDULO 5 (GAMIFICACIÓN 86-100)
+       =================================================================== -->
   <section class="page">
     <div class="header-bar">
       <div class="header-logo">
@@ -682,113 +760,101 @@
         <span class="header-title-text">Orchata Media House</span>
       </div>
       <div class="header-meta">
-        <div>DOC REF: OM-CONEXION-2026-V3</div>
-        <div style="color:#FCF200;">GUÍA PARA ASESORES COMERCIALES</div>
-      </div>
-    </div>
-
-    <div class="module-header">
-      <span class="module-num">MÓDULO 3</span>
-      <span class="module-title">Manual de Ventas B2B & Manejo Maestro de Objeciones</span>
-    </div>
-
-    <!-- SCRIPTS -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-      <div class="pitch-box">
-        <div class="pitch-tag">🎙️ Script de Abordaje Presencial (En Sitio)</div>
-        <div class="quote-text">
-          "Hola [Nombre Gerente]. Noté que tienen pantallas excelentes instaladas, pero tenerlas apagadas o en televisión abierta es un costo muerto que proyecta comerciales de su competencia.<br><br>
-          En <strong>Orchata Media House</strong> transformamos esas pantallas en su canal privado con su propio logo: enseña técnica biomecánica para que los novatos no deserten y vende suplementos con códigos QR hacia su WhatsApp.<br><br>
-          <strong>¿Me permites mostrarte un demo de 15 segundos personalizado con el logo de tu gimnasio sin costo?</strong>"
-        </div>
-      </div>
-
-      <div class="pitch-box">
-        <div class="pitch-tag">📱 Script Digital (DM Instagram / LinkedIn / WhatsApp)</div>
-        <div class="quote-text">
-          "Hola equipo de [Gimnasio]. En Querétaro los gimnasios pierden hasta el 30% de sus socios nuevos en el primer mes simplemente por pena a no saber usar las máquinas.<br><br>
-          Desarrollamos el <strong>Sistema Orchata Conexión</strong> para proyectar rutinas cinematográficas con su propia marca y automatizar pedidos de barra.<br><br>
-          Ya les preparé un render de muestra de 15 segundos con su logotipo institucional. <strong>¿A qué número de WhatsApp se los comparto?</strong>"
-        </div>
-      </div>
-    </div>
-
-    <!-- OBJECIONES -->
-    <div style="margin-bottom:14px;">
-      <div style="font-size:9pt;font-weight:800;color:#FCF200;text-transform:uppercase;margin-bottom:6px;letter-spacing:0.5px;">
-        🛡️ Matriz de Manejo de Objeciones B2B
-      </div>
-
-      <div class="objection-card">
-        <div class="objection-q">
-          <span>❌</span> <em>"Ya tengo mis pantallas con canales de televisión por cable o YouTube."</em>
-        </div>
-        <div class="objection-a">
-          <strong>Respuesta:</strong> Transmitir canales tradicionales expone anuncios de marcas rivales en tu propio local. Además, reproducir YouTube o plataformas de streaming personales en recintos comerciales viola la Ley Federal de Derechos de Autor (con multas de hasta $150,000 USD). Orchata incluye <strong>música B2B 100% blindada</strong> y proyecta exclusivamente la identidad de tu negocio.
-        </div>
-      </div>
-
-      <div class="objection-card">
-        <div class="objection-q">
-          <span>❌</span> <em>"Es un gasto que no tenemos contemplado en este momento."</em>
-        </div>
-        <div class="objection-a">
-          <strong>Respuesta:</strong> No representa un gasto porque se autofinancia desde las primeras semanas. Con solo evitar que <strong>4 socios cancelen al mes</strong> ($700 MXN c/u = $2,800) y vender <strong>10 botes de proteína o 18 batidos extra al día</strong> con el QR, el sistema amortiza la producción y genera utilidad neta libre de mensualidades de software obligatorias.
-        </div>
-      </div>
-
-      <div class="objection-card">
-        <div class="objection-q">
-          <span>❌</span> <em>"No tenemos buena conexión a internet ni personal técnico para programar pantallas."</em>
-        </div>
-        <div class="objection-a">
-          <strong>Respuesta:</strong> El modelo inicial es <strong>100% Plug & Play</strong>. Te entregamos una memoria USB preconfigurada en alta definición; tu recepcionista solo la conecta a la pantalla y empieza a funcionar inmediatamente sin configuraciones complejas.
-        </div>
+        <div>DOC REF: OM-CONEXION-METODOLOGIA-1A100</div>
+        <div style="color:#FCF200;">PROGRAMACIÓN & RETENCIÓN VISUAL</div>
       </div>
     </div>
 
     <!-- MÓDULO 4 -->
-    <div class="module-header">
-      <span class="module-num">MÓDULO 4</span>
-      <span class="module-title">Secuencia de Email Marketing & Nutrición B2B</span>
+    <div class="module-banner">
+      <span class="module-tag">MÓDULO 4</span>
+      <span class="module-heading">Protocolo Diario de Contenido & Pantallas (Pasos 71 a 85)</span>
     </div>
 
-    <div class="email-flow">
-      <div class="email-item">
-        <div class="email-day">Email 1 · Día 1 (El Dolor)</div>
-        <div class="email-subject">"Las pantallas de [Gimnasio] te están costando dinero"</div>
-        <div class="email-desc">Diagnóstico de costos ocultos de pantallas apagadas, 30% de deserción por falta de guía y oferta del demo gratuito de 15s.</div>
+    <div class="steps-container">
+      <div class="step-row">
+        <span class="step-pill">Paso 71</span>
+        <div class="step-text"><strong>Cinematografía Moody Gym 5600K:</strong> Las pantallas proyectan videos con estética moody gym, iluminación de 5600K y técnica limpia para educar disimuladamente a los principiantes durante sus descansos, <span class="highlight">evitando la deserción en sus primeros 90 días</span>.</div>
       </div>
 
-      <div class="email-item">
-        <div class="email-day">Email 2 · Día 3 (Prueba Social)</div>
-        <div class="email-subject">"+80% de retención y +35% en ventas de barra"</div>
-        <div class="email-desc">Métricas de la industria: 83% de recordación visual, 74% de intención de compra en pantallas DOOH dinámicas.</div>
+      <div class="step-row">
+        <span class="step-pill">Paso 72</span>
+        <div class="step-text">
+          <strong>Dayparting (Rotación de Contenidos según el Horario):</strong><br>
+          • <em>Mañana (06:00 - 10:00):</em> Activación, café/pre-entreno y clases matutinas.<br>
+          • <em>Tarde (12:00 - 16:00):</em> Biomecánica de fuerza, mitos de nutrición y recuperación.<br>
+          • <em>Noche (17:00 - 22:00):</em> Llenado de clases grupales nocturnas y batidos post-entreno.
+        </div>
       </div>
 
-      <div class="email-item">
-        <div class="email-day">Email 3 · Día 5 (Autofinanciamiento)</div>
-        <div class="email-subject">"¿Cómo se paga solo el Sistema Orchata Conexión?"</div>
-        <div class="email-desc">Corrida financiera matemática: 4 socios retenidos + incremento de consumo en barra = Amortización en 60 días.</div>
+      <div class="step-row">
+        <span class="step-pill">Paso 73</span>
+        <div class="step-text"><strong>Ventas Flash en Pantalla:</strong> El sistema lanza una cortinilla de 60 a 180 segundos anunciando una oferta por tiempo limitado.</div>
       </div>
 
-      <div class="email-item">
-        <div class="email-day">Email 4 · Día 7 (Urgencia & Cierre)</div>
-        <div class="email-subject">"Exclusividad de zona para 5 gimnasios en Querétaro"</div>
-        <div class="email-desc">Cierre de cupos por zona geográfica para evitar que gimnasios competidores de la misma cuadra compartan identidad visual.</div>
+      <div class="step-row">
+        <span class="step-pill">Pasos 74-85</span>
+        <div class="step-text"><strong>Métricas Comprobadas del Sector:</strong> Medir la tasa de conversión en pantalla aprovechando las métricas comprobadas: <span class="highlight">83% de recordación de mensaje</span>, <span class="highlight">+400% de atención visual</span> y <span class="highlight">74% de acción móvil por QR</span>.</div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 5 -->
+    <div class="module-banner" style="margin-top:6px;">
+      <span class="module-tag">MÓDULO 5</span>
+      <span class="module-heading">Gamificación, Recompensas & Red Publicitaria (Pasos 86 a 100)</span>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-row">
+        <span class="step-pill">Paso 86</span>
+        <div class="step-text"><strong>Puntos Orchata Conexión:</strong> Registrar cada escaneo y asistencia a clases como puntos acumulables.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 87</span>
+        <div class="step-text"><strong>Regla 50 / 100 Puntos:</strong> Otorgar <span class="highlight">50 puntos por cada check-in diario</span> y <span class="highlight">100 puntos por pedir suplementos en la barra vía QR</span>.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 88</span>
+        <div class="step-text"><strong>Canje Automático en IA:</strong> Configurar el catálogo de canje automático de puntos en la IA de WhatsApp (ejemplo: 500 puntos = 1 Batido gratis; 1,500 puntos = 1 Shaker de la marca).</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 89</span>
+        <div class="step-text"><strong>Top 5 en Pantalla:</strong> Generar el ranking mensual en pantalla con el <em>"Top 5 de Socios del Mes"</em>.</div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Paso 90</span>
+        <div class="step-text"><strong>Alertas de Rescate (5 Días):</strong> Automatizar el envío de alertas de rescate cuando un socio no escanea un QR o no asiste en 5 días seguidos: <em>"Te extrañamos en el gym. Tienes un cupón de 2x1 en la barra activo hoy."</em></div>
+      </div>
+
+      <div class="step-row">
+        <span class="step-pill">Pasos 91-100</span>
+        <div class="step-text"><strong>Fase 2 - Monetización Publicitaria:</strong> Al integrar patrocinadores locales a la red de la zona, la IA gestiona el canje de la memoria USB por la versión del loop publicitario conectado al CMS, <span class="highlight">liquidando las utilidades del gimnasio a partir del Año 2</span>.</div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO VISUAL ALERTA RESCATE -->
+    <div class="visual-callout">
+      <div class="visual-callout-icon">💬</div>
+      <div class="visual-callout-content">
+        <div class="visual-callout-title">Ejemplo Visual de Mensaje de Rescate Anti-Deserción (Paso 90)</div>
+        <em>"¡Hola Sofía! Notamos que llevas 5 días sin visitarnos. Tu energía hace falta en el gimnasio: hoy tienes activo un cupón 2x1 en tu batido favorito al terminar tu rutina. ¿A qué hora nos vemos?"</em>
       </div>
     </div>
 
     <div class="footer-bar">
-      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span>Orchata Media House © 2026-2027 · Metodología Orchata Conexión</span>
       <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
       <span>Página 3 de 4</span>
     </div>
   </section>
 
-  <!-- ==========================================
-       PÁGINA 4: MÓDULO 5 (SYSTEM PROMPT DE IA WHATSAPP)
-       ========================================== -->
+  <!-- ===================================================================
+       PÁGINA 4: PARTE 2 · PROPUESTA DISRUPTIVA "LA TRIBU CONEXIÓN"
+       =================================================================== -->
   <section class="page">
     <div class="header-bar">
       <div class="header-logo">
@@ -796,77 +862,148 @@
         <span class="header-title-text">Orchata Media House</span>
       </div>
       <div class="header-meta">
-        <div>DOC REF: OM-CONEXION-2026-V3</div>
-        <div style="color:#FCF200;">AUTOMATIZACIÓN & AGENTES DE IA</div>
+        <div>DOC REF: OM-CONEXION-METODOLOGIA-1A100</div>
+        <div style="color:#FCF200;">COMUNIDAD GAMIFICADA & RETENCIÓN</div>
       </div>
     </div>
 
-    <div class="module-header">
-      <span class="module-num">MÓDULO 5</span>
-      <span class="module-title">System Prompt Maestro para IA en WhatsApp Business</span>
+    <div>
+      <span class="hero-badge">Parte 2: Propuesta Disruptiva</span>
+      <h2 class="main-title" style="font-size:16pt;">"LA TRIBU CONEXIÓN" <span>COMUNIDAD GAMIFICADA</span></h2>
+      <div class="subtitle" style="font-size:9pt;margin-bottom:8px;">Red Social Privada en WhatsApp Impulsada por Pantallas DOOH e Inteligencia Artificial</div>
     </div>
 
-    <p style="font-size:8.8pt;color:#CBD5E1;margin-bottom:8px;">
-      Copia e implementa esta instrucción maestra en tu agente inteligente (OpenAI Assistants, Claude, ManyChat o API oficial de WhatsApp) para procesar pedidos de barra, reservas y gamificación en tiempo real:
-    </p>
-
-    <div class="code-container">
-      <div class="code-header">
-        <span>🤖 PROMPT MAESTRO PARA AGENTE DE IA (WHATSAPP BUSINESS)</span>
-        <span style="color:#94A3B8;">COPY-PASTE READY</span>
-      </div>
-SYSTEM PROMPT / INSTRUCCIÓN MAESTRA DE SISTEMA
-NOMBRE DE LA IA: "Asistente Virtual Orchata Conexión"
-ROL: Agente Inteligente de Atención, Ventas en Barra, Reservas y Comunidad Gamificada.
-MARCA BASE: Orchata Media House (Sistema Marca Blanca Orchata Conexión para Gimnasios).
-
-1. OBJETIVO PRINCIPAL:
-Gestionar de manera 100% automatizada el WhatsApp Business del gimnasio cliente. Responder
-instantáneamente (&lt;3s) a los socios que escanean los Códigos QR proyectados en las pantallas DOOH.
-- Registrar e identificar al socio (Creación de Ficha de Atleta).
-- Procesar pedidos de la barra de suplementos (batidos, scoops, creatina) enviando comandas a la recepción.
-- Gestionar reservas de clases grupales (Spinning, Zumba, Box, GAP) con control estricto de aforos.
-- Integrar al socio a la 'Tribu Conexión' (Subgrupos por disciplina: #Tribu-Spinning, #Tribu-Nutrición, etc.).
-- Administrar el sistema de gamificación (+50 pts check-in, +100 pts compras) para evitar la deserción.
-
-2. DETECCIÓN DE CÓDIGOS QR & FLUJOS AUTOMÁTICOS:
-- CASO A (Nutrición / Barra):
-  Al recibir código QR de barra, responder con el menú interactivo de batidos. Una vez confirmado el pedido,
-  generar formato de comanda interna para recepción (Nombre + Producto + Hora de recolección) y sumar +100 pts.
-- CASO B (Reserva de Clases Grupales):
-  Validar cupo disponible en base de datos. Confirmar reserva al socio, enviar link de acceso al subgrupo de la
-  clase y enviar recordatorio 60 minutos antes.
-- CASO C (Comunidad / La Tribu):
-  Saludar con tono enérgico y motivador. Desplegar los 4 subgrupos oficiales y asignar accesos directos.
-- CASO D (Ventas Flash de 180 Segundos):
-  Validar la vigencia del temporizador proyectado en pantalla. Si está activo, aplicar cupón del 20% en barra.
-
-3. PROTOCOLO ANTI-DESERCIÓN & SEGUIMIENTO:
-Si un socio registrado acumula 5 DÍAS CONSECUTIVOS sin registrar check-in o escaneos, activar automáticamente
-alerta de rescate empática:
-"¡Hola [Nombre]! Tus entrenamientos te extrañan. Te dejamos un pase 2x1 en tu batido favorito para tu sesión de hoy. ¿A qué hora nos vemos?"
-
-4. TONO Y REGLAS DE RESPUESTA:
-- Tono: Enérgico, profesional, fitness, motivador y conciso.
-- Nunca mencionar precios o promociones que no estén en la base de datos oficial.
-- Ante dudas médicas o lesiones complejas, transferir de inmediato con el Head Coach de turno.
+    <!-- 1. SUBGRUPOS POR DISCIPLINA -->
+    <div style="font-size:8.8pt;font-weight:800;color:#FCF200;text-transform:uppercase;margin-bottom:6px;letter-spacing:0.5px;">
+      1. Estructura de Subgrupos Especializados (Tribus por Disciplina)
     </div>
 
-    <!-- FIRMA Y SELLO CORPORATIVO -->
-    <div style="margin-top:20px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px 18px;">
-      <div>
-        <div style="font-size:8.5pt;font-weight:800;color:#FCF200;text-transform:uppercase;">Orchata Media House · DOOH Marca Blanca</div>
-        <div style="font-size:7.5pt;color:#94A3B8;margin-top:2px;">Querétaro, Qro. · Tel: +52 442 428 0465 · hola@orchata.media · www.orchatahouse.com</div>
+    <div class="tribu-grid">
+      <div class="tribu-card">
+        <div class="tribu-card-header">
+          <span class="tribu-tag">#Tribu-Spinning</span>
+          <span class="tribu-discipline">Inercia & Cadencia</span>
+        </div>
+        <div class="tribu-desc">
+          La pantalla de Spinning muestra el <em>"Reto de 100 KM del Mes"</em>. Los socios suben foto de la pantalla de su bicicleta al grupo y la IA registra sus kilómetros en la tabla semanal.
+        </div>
+        <div class="tribu-reward">
+          <strong>Recompensa:</strong> Sesión de fisioterapia o suplementos para las piernas.
+        </div>
       </div>
-      <div style="text-align:right;">
-        <span style="display:inline-block;border:1px dashed #FCF200;padding:4px 10px;border-radius:4px;font-size:7pt;font-weight:800;color:#FCF200;text-transform:uppercase;">
-          CERTIFICACIÓN LLAVE EN MANO
-        </span>
+
+      <div class="tribu-card">
+        <div class="tribu-card-header">
+          <span class="tribu-tag">#Tribu-Zumba & Dance</span>
+          <span class="tribu-discipline">Ritmo & Eventos</span>
+        </div>
+        <div class="tribu-desc">
+          Avances exclusivos de las coreografías y votación de canciones para la clase de la semana (utilizando el catálogo libre de reclamos de <em>Orchata Récords</em>).
+        </div>
+        <div class="tribu-reward">
+          <strong>Recompensa:</strong> Pases VIP para acompañantes en eventos especiales del gimnasio.
+        </div>
+      </div>
+
+      <div class="tribu-card">
+        <div class="tribu-card-header">
+          <span class="tribu-tag">#Tribu-GAP & Fuerza</span>
+          <span class="tribu-discipline">Biomecánica & Cero Deserción</span>
+        </div>
+        <div class="tribu-desc">
+          Píldoras en pantalla enseñando la postura exacta en sentadillas y planchas. En el subgrupo, el entrenador de piso resuelve dudas por notas de voz. <strong>El principiante pierde la pena a entrenar mal</strong>.
+        </div>
+        <div class="tribu-reward">
+          <strong>Efecto Anti-Deserción:</strong> Garantiza permanencia continua en los primeros 90 días.
+        </div>
+      </div>
+
+      <div class="tribu-card">
+        <div class="tribu-card-header">
+          <span class="tribu-tag">#Tribu-Barra Nutrición</span>
+          <span class="tribu-discipline">Ofertas & Suplementación</span>
+        </div>
+        <div class="tribu-desc">
+          Recetas rápidas de batidos, mitos de la creatina y avisos de llegada de producto fresco a la recepción para incentivar compras diarias post-entreno.
+        </div>
+        <div class="tribu-reward">
+          <strong>Recompensa:</strong> Descuentos escalonados en botes cerrados y 2x1 en barra.
+        </div>
       </div>
     </div>
+
+    <!-- 2. VENTAS FLASH EN PANTALLA -->
+    <div style="font-size:8.8pt;font-weight:800;color:#FCF200;text-transform:uppercase;margin-bottom:6px;letter-spacing:0.5px;">
+      2. Disparadores de "Ventas Flash" en Pantalla (Interacción en Tiempo Real)
+    </div>
+
+    <div class="flash-sale-box">
+      <div class="flash-header">
+        <span class="flash-badge">⚡ Cortinilla en Pantalla (Duración: 180 Segundos)</span>
+        <span class="flash-timer">⏱️ 02:59</span>
+      </div>
+      <div class="flash-content">
+        "HAPPY HOUR DE PROTEÍNA: Los próximos 10 socios en escanear este QR se llevan su Batido Post-Entreno con 30% de Descuento en la Barra."
+      </div>
+      <div class="flash-flow-steps">
+        <div class="flash-flow-item">
+          <span class="flash-flow-num">1. Visual</span>
+          El socio ve el temporizador corriendo en pantalla (+400% de captura visual).
+        </div>
+        <div class="flash-flow-item">
+          <span class="flash-flow-num">2. Escaneo</span>
+          Escanea el código QR dinámico con su celular (74% de acción móvil).
+        </div>
+        <div class="flash-flow-item">
+          <span class="flash-flow-num">3. Comanda IA</span>
+          La IA de WhatsApp confirma el cupón y manda el ticket a la barra.
+        </div>
+        <div class="flash-flow-item">
+          <span class="flash-flow-num">4. Cobro Inmediato</span>
+          Recoge su batido frío al terminar, impulsando el ticket promedio de la recepción.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. RANGOS Y PREMIOS GAMIFICACIÓN -->
+    <div style="font-size:8.8pt;font-weight:800;color:#FCF200;text-transform:uppercase;margin-bottom:4px;letter-spacing:0.5px;">
+      3. Sistema de Rangos & Premios (El Motor Motivacional)
+    </div>
+
+    <table class="gamification-table">
+      <thead>
+        <tr>
+          <th style="width:22%;">Rango de Atleta</th>
+          <th style="width:30%;">Requisito de Asistencia / QR</th>
+          <th style="width:48%;">Beneficios & Premios Reales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="rank-pill rank-bronze">Rango Bronce</span></td>
+          <td>1 a 10 escaneos / visitas al mes</td>
+          <td>• Acceso a los subgrupos de la Tribu.<br>• 10% desc. en su primer batido.</td>
+        </tr>
+        <tr>
+          <td><span class="rank-pill rank-silver">Rango Plata</span></td>
+          <td>11 a 20 escaneos / visitas al mes</td>
+          <td>• 1 Batido de Proteína Gratis en la barra.<br>• Reserva prioritaria de bicicleta en Spinning.</td>
+        </tr>
+        <tr>
+          <td><span class="rank-pill rank-gold">Rango Oro</span></td>
+          <td>21+ escaneos / visitas al mes</td>
+          <td>• Muestra de Creatina/Pre-entreno Gratis.<br>• Foto destacada en el video "Top 5 Atletas del Mes" en pantalla.</td>
+        </tr>
+        <tr>
+          <td><span class="rank-pill rank-legend">Leyenda Gym</span></td>
+          <td>3 meses consecutivos en Rango Oro</td>
+          <td>• 15% de Descuento en la renovación de su Mensualidad.<br>• Playera / Shaker oficial de la Tribu.</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="footer-bar">
-      <span>Orchata Media House © 2026-2027 · Sistema Orchata Conexión</span>
+      <span>Orchata Media House © 2026-2027 · Metodología Orchata Conexión</span>
       <span class="confidential">CONFIDENCIAL — PROHIBIDA SU DISTRIBUCIÓN EXTERNA</span>
       <span>Página 4 de 4</span>
     </div>
