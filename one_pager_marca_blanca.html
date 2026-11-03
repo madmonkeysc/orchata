@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>One Pager — Marca Blanca DOOH para Gimnasios | Orchata Media House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0A0A0B;
+      color: #FFFFFF;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      line-height: 1.35;
+    }
+    .one-pager {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12mm 14mm 10mm;
+      background: radial-gradient(circle at 85% 15%, rgba(255, 49, 49, 0.08) 0%, #0A0A0B 60%);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 3.5mm;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-logo {
+      height: 22px;
+      width: auto;
+    }
+    .header-tag {
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fcf200;
+      background: rgba(252, 242, 0, 0.1);
+      border: 1px solid rgba(252, 242, 0, 0.3);
+      padding: 2.5px 8px;
+      border-radius: 999px;
+    }
+
+    /* HERO STRIP */
+    .hero-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 5mm;
+      margin-top: 3.5mm;
+    }
+    .hero-strip-left {
+      flex: 1;
+    }
+    .eyebrow {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ff3131;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 1.5mm;
+    }
+    .main-title {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #FFFFFF;
+    }
+    .main-title span {
+      background: linear-gradient(135deg, #fcf200 0%, #ff8800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .lead-p {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.45;
+      margin-top: 2mm;
+      max-width: 125mm;
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      margin-top: 3mm;
+    }
+    .stat-pill {
+      background: rgba(20, 20, 24, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 2.5mm 3mm;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #fcf200;
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 7.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 1.5px;
+    }
+
+    /* SECTION TITLE */
+    .sec-heading {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 2mm;
+      margin-top: 3.5mm;
+    }
+    .sec-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* EL PROBLEMA VS SOLUCIÓN (2 COLS) */
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5mm;
+    }
+    .box-card {
+      background: rgba(20, 20, 24, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 3mm 3.5mm;
+    }
+    .box-card.negative {
+      border-color: rgba(239, 68, 68, 0.25);
+      background: rgba(239, 68, 68, 0.04);
+    }
+    .box-card.positive {
+      border-color: rgba(252, 242, 0, 0.3);
+      background: rgba(252, 242, 0, 0.03);
+    }
+    .box-tag {
+      font-size: 8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1mm;
+    }
+    .box-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 1.5mm;
+    }
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+    .bullet-list li {
+      font-size: 8.5px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.35;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .bullet-list li strong {
+      color: #FFFFFF;
+    }
+
+    /* LOS 3 PAQUETES (3 COLS) */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+    }
+    .pkg-card {
+      background: #121215;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      padding: 3mm 3.2mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pkg-card.highlight {
+      border-color: #fcf200;
+      background: linear-gradient(180deg, rgba(252, 242, 0, 0.06) 0%, #121215 100%);
+    }
+    .pkg-badge {
+      font-size: 7.5px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fcf200;
+      margin-bottom: 1mm;
+    }
+    .pkg-title {
+      font-size: 13px;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 0.8mm;
+    }
+    .pkg-sub {
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 2mm;
+      min-height: 7mm;
+      line-height: 1.3;
+    }
+    .pkg-price {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 4px;
+      padding: 1.5mm 2mm;
+      margin-bottom: 2mm;
+      text-align: center;
+    }
+    .pkg-price-val {
+      font-size: 11px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .pkg-price-sub {
+      font-size: 7.5px;
+      color: #fcf200;
+      font-weight: 600;
+    }
+    .pkg-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3mm;
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.3;
+    }
+    .pkg-features li::before {
+      content: '✓';
+      color: #fcf200;
+      font-weight: 800;
+      margin-right: 3px;
+    }
+
+    /* MOCKUP VISUAL MINI STRIP */
+    .screens-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      margin-top: 1mm;
+    }
+    .screen-item {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      height: 25mm;
+      background: #000;
+    }
+    .screen-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .screen-tag {
+      position: absolute;
+      bottom: 2mm;
+      left: 2mm;
+      right: 2mm;
+      background: rgba(10, 10, 11, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1mm 2mm;
+      border-radius: 4px;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ROI & MONETIZACIÓN CALLOUT */
+    .roi-card {
+      background: linear-gradient(135deg, rgba(255, 49, 49, 0.12) 0%, rgba(20, 20, 24, 0.95) 100%);
+      border: 1px solid rgba(255, 49, 49, 0.35);
+      border-radius: 8px;
+      padding: 3mm 4mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4mm;
+      margin-top: 3.5mm;
+    }
+    .roi-left {
+      flex: 1;
+    }
+    .roi-title {
+      font-size: 11px;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 1mm;
+    }
+    .roi-desc {
+      font-size: 8.5px;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.4;
+    }
+    .roi-metric {
+      text-align: right;
+      padding-left: 4mm;
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .roi-metric-num {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fcf200;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .roi-metric-lbl {
+      font-size: 7.5px;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1px;
+    }
+
+    /* FOOTER & CONTACT BAR */
+    .footer-bar {
+      margin-top: 3.5mm;
+      padding-top: 3mm;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      padding: 2mm 3.5mm;
+      border-radius: 6px;
+    }
+    .contact-num {
+      font-size: 11px;
+      font-weight: 900;
+      color: #25D366;
+      letter-spacing: 0.02em;
+    }
+    .contact-sub {
+      font-size: 7.5px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .meta-brand {
+      text-align: right;
+      font-size: 8px;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.35;
+    }
+    .meta-brand strong {
+      color: #FFFFFF;
+    }
+
+    /* PRINT RULES */
+    @media print {
+      body {
+        background: #0A0A0B !important;
+      }
+      .one-pager {
+        width: 100% !important;
+        height: 100vh !important;
+        padding: 10mm 12mm !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="one-pager">
+  <!-- 1. HEADER -->
+  <header class="header">
+    <img src="assets/images/Logo Orchata.png" alt="Orchata Media House" class="header-logo">
+    <div class="header-tag">Executive One Pager · Redes DOOH 2026</div>
+  </header>
+
+  <!-- 2. HERO STRIP -->
+  <div class="hero-strip">
+    <div class="hero-strip-left">
+      <div class="eyebrow">
+        <span>⚡</span> Ecosistema Inteligente para Gimnasios · Querétaro
+      </div>
+      <h1 class="main-title">
+        Tus Pantallas no son Adornos:<br>
+        Son tu <span>Vendedor 24/7.</span>
+      </h1>
+      <p class="lead-p">
+        Transformamos los televisores de tu gimnasio en un canal automatizado que vende suplementos, promueve a tus coaches y fideliza socios con códigos QR de conversión instantánea. Venta única llave en mano, sin rentas forzosas.
+      </p>
+    </div>
+  </div>
+
+  <!-- 3. STATS STRIP -->
+  <div class="stats-row">
+    <div class="stat-pill">
+      <div class="stat-val">+80%</div>
+      <div class="stat-lbl">Retención en Sala</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-val">74%</div>
+      <div class="stat-lbl">Acción vía QR</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-val">4x</div>
+      <div class="stat-lbl">vs Cartulina / Flyers</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-val">$0</div>
+      <div class="stat-lbl">Rentas Mensuales</div>
+    </div>
+  </div>
+
+  <!-- 4. DIAGNÓSTICO: FUGA VS ACTIVACIÓN -->
+  <div class="sec-heading">01 · Diagnóstico de tu Sala</div>
+  <div class="two-cols">
+    <div class="box-card negative">
+      <div class="box-tag" style="color:#ef4444;">🚨 La Fuga Habitual (90% de Gimnasios)</div>
+      <div class="box-title">Pantallas Apagadas o Transmitiendo TV Abierta</div>
+      <ul class="bullet-list">
+        <li>❌ <strong>Música genérica:</strong> Comerciales de la competencia y noticias que bajan la energía.</li>
+        <li>❌ <strong>Barra de suplementos invisible:</strong> Socios compran sus proteínas en Mercado Libre o Costco.</li>
+        <li>❌ <strong>Salones vacíos:</strong> Clases de cycling y yoga desaprovechadas por falta de comunicación visual.</li>
+      </ul>
+    </div>
+    <div class="box-card positive">
+      <div class="box-tag" style="color:#fcf200;">💡 Con Orchata Marca Blanca DOOH</div>
+      <div class="box-title">Un Canal Exclusivo con la Marca de tu Gym</div>
+      <ul class="bullet-list">
+        <li>✓ <strong>Conversión directa con QR:</strong> Piden su batido o agendan su consulta con un solo escaneo.</li>
+        <li>✓ <strong>Técnica biomecánica guiada:</strong> Videos profesionales de postura que reducen lesiones y dudas.</li>
+        <li>✓ <strong>Ingresos por marcas aliadas:</strong> Posibilidad de monetizar pauta comercial a partir del Año 2.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. VISTA PREVIA VISUAL EN SALA -->
+  <div class="sec-heading">02 · Calidad Cinematográfica en Operación</div>
+  <div class="screens-row">
+    <div class="screen-item">
+      <img src="assets/images/Prote.png" alt="Barra de Suplementos">
+      <div class="screen-tag">
+        <span>🥤 Barra & Suplementos</span>
+        <strong style="color:#fcf200;">QR Activo</strong>
+      </div>
+    </div>
+    <div class="screen-item">
+      <img src="assets/images/Rutina Hombro.png" alt="Rutinas Biomecánicas">
+      <div class="screen-tag">
+        <span>🏋️ Biomecánica & Técnica</span>
+        <strong style="color:#fcf200;">Loop 4K</strong>
+      </div>
+    </div>
+    <div class="screen-item">
+      <img src="assets/images/Balance.png" alt="Nutrición y Coaches">
+      <div class="screen-tag">
+        <span>🥗 Citas con Nutriólogo</span>
+        <strong style="color:#fcf200;">Agenda Directa</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. PAQUETES A LA MEDIDA -->
+  <div class="sec-heading">03 · Ecosistemas Llave en Mano</div>
+  <div class="packages-grid">
+    <!-- P1 -->
+    <div class="pkg-card">
+      <div>
+        <div class="pkg-badge">🟢 Entrada</div>
+        <div class="pkg-title">Core 30™</div>
+        <div class="pkg-sub">Loop de 30 min sin cortes para pesas y cardio.</div>
+        <div class="pkg-price">
+          <div class="pkg-price-val">Plan a la Medida</div>
+          <div class="pkg-price-sub">Evaluado en visita técnica</div>
+        </div>
+        <ul class="pkg-features">
+          <li>Loop 30 min 4K sin pausas</li>
+          <li>Rutinas biomecánicas guiadas</li>
+          <li>Cartelera de promociones y pases</li>
+          <li>Promoción de nutriólogo / citas</li>
+          <li>Manual operativo para recepción</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pkg-card highlight">
+      <div>
+        <div class="pkg-badge">⭐ El Más Elegido</div>
+        <div class="pkg-title">Pro Brand™</div>
+        <div class="pkg-sub">Identidad visual completa y 3 zonas de pantallas.</div>
+        <div class="pkg-price">
+          <div class="pkg-price-val">Plan a la Medida</div>
+          <div class="pkg-price-sub">Autofinanciable con suplementos</div>
+        </div>
+        <ul class="pkg-features">
+          <li>Todo lo del plan Core 30™</li>
+          <li>Animación 3D del logo de tu gym</li>
+          <li>Loops diferenciados (Fuerza vs Cardio)</li>
+          <li>Menú interactivo de barra de batidos</li>
+          <li>Convenio Alianza: utilidades Año 2</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pkg-card">
+      <div>
+        <div class="pkg-badge">👑 Integral</div>
+        <div class="pkg-title">Maximus Bespoke™</div>
+        <div class="pkg-sub">Producción multicámara y rodaje en tus instalaciones.</div>
+        <div class="pkg-price">
+          <div class="pkg-price-val">Plan a la Medida</div>
+          <div class="pkg-price-sub">Para clubes y cadenas premium</div>
+        </div>
+        <ul class="pkg-features">
+          <li>Rodaje con coaches de tu club</li>
+          <li>Loop extendido de 60 minutos</li>
+          <li>Contenido vertical para tus redes</li>
+          <li>Reparto prioritario de pauta DOOH</li>
+          <li>Asesoría bimestral con directores</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. RETORNO PROYECTADO -->
+  <div class="roi-card">
+    <div class="roi-left">
+      <div class="roi-title">📊 Retorno de Inversión Proyectado en tu Club</div>
+      <div class="roi-desc">
+        Con un flujo promedio de 150 socios al día, el incremento en venta de batidos (+18/día), citas de coaching (+5/semana) y retención de membresías genera un <strong>ingreso neto incremental</strong> que amortiza el costo de producción desde el mes 1.
+      </div>
+    </div>
+    <div class="roi-metric">
+      <div class="roi-metric-num">+$62,250</div>
+      <div class="roi-metric-lbl">MXN / Mes Estimado</div>
+    </div>
+  </div>
+
+  <!-- 8. FOOTER / CONTACTO DIRECTO -->
+  <footer class="footer-bar">
+    <div class="contact-badge">
+      <span style="font-size:14px;">💬</span>
+      <div>
+        <div class="contact-num">442 428 0465</div>
+        <div class="contact-sub">WhatsApp Oficial · Respuesta &lt; 15 min</div>
+      </div>
+    </div>
+    <div class="meta-brand">
+      <strong>Orchata Media House</strong> · Marca Blanca DOOH™<br>
+      Querétaro, Qro. · hola@orchatahouse.com · <strong>www.orchatahouse.com</strong>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
