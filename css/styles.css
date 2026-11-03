@@ -441,29 +441,33 @@ ul { list-style: none; }
 }
 
 .hero-scroll-hint {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  margin-top: 36px;
+  cursor: pointer;
+  text-decoration: none;
   opacity: 0;
   animation: fadeIn 1s var(--ease-out) 1.2s forwards;
+  transition: transform 0.25s ease;
+}
+.hero-scroll-hint:hover {
+  transform: translateY(3px);
 }
 .hero-scroll-hint span {
   font-size: 10px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--clr-white-40);
+  color: var(--clr-gold);
+  font-weight: 700;
 }
 .scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--clr-gold), transparent);
+  width: 2px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--clr-gold), rgba(255, 49, 49, 0.2), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
+  border-radius: 2px;
 }
 
 /* ─── SECTION HEADERS ─────────────────────────────────────── */
