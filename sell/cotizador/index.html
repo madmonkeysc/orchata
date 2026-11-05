@@ -1,0 +1,2768 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="carbon">
+  <title>Cotizador DOOH Marca Blanca · Orchata Media House</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts: IBM Plex Sans & IBM Plex Mono (Carbon Style) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+
+  <!-- Chart.js for ROI Projections -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    
+    /* Orchata Brand Enhancements */
+    .brand-symbol img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .hero-total-price {
+      color: var(--primary) !important;
+      text-shadow: 0 0 25px rgba(252, 242, 0, 0.25);
+    }
+    .back-to-sell-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.2s ease;
+    }
+    .back-to-sell-btn:hover {
+      color: #0A0A0C;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* ==========================================================================
+       CARBON DARK DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      color-scheme: dark;
+
+      /* Page and surfaces ramp (Orchata Dark Obsidian / Jet Black) */
+      --background: #08080a;
+      --surface-container-low: #0f0f13;
+      --surface-container: #14141a;
+      --surface-container-high: #1e1e27;
+      --surface-elevated: #181820;
+
+      /* Ink / Typography */
+      --on-surface: #f8fafc;
+      --on-surface-variant: #cbd5e1;
+      --on-surface-muted: #828a99;
+
+      /* Rules and borders */
+      --outline: #475569;
+      --outline-variant: #262633;
+      --outline-light: #333344;
+
+      /* Brand Accents - Orchata Gold & Red */
+      --primary: #fcf200;           /* Orchata Gold Accent */
+      --on-primary: #0a0a0c;        /* High Contrast Black */
+      --primary-container: #fcf200; /* Gold Button */
+      --on-primary-container: #0a0a0c;
+      --secondary: #94a3b8;
+      
+      /* Semantic Status */
+      --tertiary: #10b981;          /* Success / Profit Green */
+      --on-tertiary: #08080a;
+      --tertiary-container: #059669;
+      --warning: #f59e0b;           /* Amber */
+      --on-warning: #08080a;
+      --error: #ff3131;             /* Orchata Red Accent */
+      --on-error: #ffffff;
+
+      /* Fonts */
+      --font-headline: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-label: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+
+      /* Shape & Geometry */
+      --rounded-none: 4px;
+      --rounded: 6px;
+      --rounded-lg: 10px;
+      --rounded-full: 9999px;
+
+      /* Spacing Scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --space-2xl: 3rem;
+      --space-3xl: 4rem;
+
+      /* Print Tokens */
+      --print-bg: #ffffff;
+      --print-ink: #000000;
+      --print-border: #cccccc;
+
+      /* Effects */
+      --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.5);
+      --shadow-2: 0 12px 32px rgba(0, 0, 0, 0.8);
+      --rule: 1px solid var(--outline-variant);
+      --field-rule: 1px solid var(--outline-light);
+      --indicator: 3px solid var(--primary);
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.5;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accessibility Focus Outline */
+    :focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Container Utility */
+    .app-container {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-lg) var(--space-3xl);
+    }
+
+    /* ==========================================================================
+       TOP MASTHEAD / COMMERCIAL APP BAR
+       ========================================================================== */
+    .app-header {
+      border-bottom: 1px solid var(--outline-variant);
+      padding-bottom: var(--space-md);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .brand-symbol {
+      width: 44px;
+      height: 44px;
+      background-color: var(--surface-container-high);
+      border: 1px solid var(--outline-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 700;
+      font-family: var(--font-label);
+      font-size: 1.1rem;
+      letter-spacing: -0.05em;
+    }
+
+    .brand-meta h1 {
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .brand-badge {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background-color: var(--surface-container-high);
+      color: var(--primary);
+      padding: 2px 6px;
+      border: 1px solid var(--outline-variant);
+    }
+
+    .brand-meta p {
+      font-size: 0.82rem;
+      color: var(--on-surface-variant);
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      background-color: var(--surface-container);
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid var(--outline-variant);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta-tag strong {
+      color: var(--on-surface);
+    }
+
+    /* ==========================================================================
+       KEY METRICS & PROVEN SECTOR STATS BAR
+       ========================================================================== */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background-color: var(--outline-variant);
+      border: 1px solid var(--outline-variant);
+      margin-bottom: var(--space-xl);
+    }
+
+    .stat-tile {
+      background-color: var(--surface-container);
+      padding: var(--space-md);
+      position: relative;
+    }
+
+    .stat-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: transparent;
+      transition: background-color 0.2s ease;
+    }
+
+    .stat-tile:hover::before {
+      background-color: var(--primary);
+    }
+
+    .stat-metric {
+      font-family: var(--font-label);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--on-surface);
+      line-height: 1.1;
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .stat-metric.text-primary { color: var(--primary); }
+    .stat-metric.text-tertiary { color: var(--tertiary); }
+
+    .stat-label {
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-muted);
+    }
+
+    .stat-desc {
+      font-size: 0.8rem;
+      color: var(--on-surface-variant);
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    /* ==========================================================================
+       PRIMARY WORKSPACE LAYOUT (2-COLUMN GRID)
+       ========================================================================== */
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Section Cards & Panels */
+    .panel {
+      background-color: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      margin-bottom: var(--space-lg);
+    }
+
+    .panel-header {
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--outline-variant);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--surface-container-low);
+    }
+
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .panel-title i {
+      color: var(--primary);
+      width: 18px;
+      height: 18px;
+    }
+
+    .panel-badge {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      background-color: var(--surface-container-high);
+      border: 1px solid var(--outline-light);
+      color: var(--on-surface-variant);
+    }
+
+    .panel-body {
+      padding: var(--space-lg);
+    }
+
+    /* ==========================================================================
+       QUICK PRESETS (BAR OF SCENARIO SHORTCUTS)
+       ========================================================================== */
+    .presets-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+      padding: var(--space-xs);
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+    }
+
+    .preset-btn {
+      flex: 1 1 calc(25% - var(--space-xs));
+      min-width: 140px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--on-surface-variant);
+      padding: var(--space-sm) var(--space-md);
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.15s ease;
+    }
+
+    .preset-btn:hover {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+      border-color: var(--outline-variant);
+    }
+
+    .preset-btn.active {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+      border-color: var(--primary);
+      border-left-width: 3px;
+    }
+
+    .preset-name {
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+
+    .preset-sub {
+      font-size: 0.68rem;
+      color: var(--on-surface-muted);
+    }
+
+    /* ==========================================================================
+       FORM CONTROLS (CARBON STYLE)
+       ========================================================================== */
+    .form-group {
+      margin-bottom: var(--space-md);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    label {
+      display: block;
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-muted);
+      margin-bottom: var(--space-xs);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .carbon-input, .carbon-select {
+      width: 100%;
+      height: 42px;
+      background-color: var(--surface-container-low);
+      border: none;
+      border-bottom: 2px solid var(--outline-light);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded-none);
+      transition: all 0.15s ease;
+    }
+
+    .carbon-input:focus, .carbon-select:focus {
+      outline: none;
+      border-bottom-color: var(--primary);
+      background-color: var(--surface-container-high);
+    }
+
+    .input-prefix {
+      position: absolute;
+      left: var(--space-md);
+      color: var(--on-surface-muted);
+      font-family: var(--font-label);
+      font-size: 0.85rem;
+      pointer-events: none;
+    }
+
+    .carbon-input.has-prefix {
+      padding-left: calc(var(--space-md) + 18px);
+    }
+
+    .input-suffix {
+      position: absolute;
+      right: var(--space-md);
+      color: var(--on-surface-muted);
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+
+    /* Dual Range + Number Sync */
+    .range-dual-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .carbon-range {
+      flex: 1;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--surface-container-high);
+      border-radius: 0;
+      outline: none;
+    }
+
+    .carbon-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid var(--background);
+      border-radius: 0;
+      transition: transform 0.1s;
+    }
+
+    .carbon-range::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .range-num-box {
+      width: 90px;
+      height: 38px;
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: 0.85rem;
+      padding: 0 var(--space-sm);
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       PACKAGE SELECTOR CARDS (CORE 30, PRO BRAND, MAXIMUS, ENTERPRISE)
+       ========================================================================== */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .package-card {
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .package-card:hover {
+      border-color: var(--outline);
+      background-color: var(--surface-elevated);
+    }
+
+    .package-card.selected {
+      border-color: var(--primary);
+      background-color: var(--surface-elevated);
+      box-shadow: inset 0 3px 0 var(--primary);
+    }
+
+    .pkg-tag {
+      position: absolute;
+      top: -9px;
+      right: 12px;
+      font-family: var(--font-label);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      background-color: var(--surface-container-high);
+      border: 1px solid var(--outline-light);
+      color: var(--on-surface);
+    }
+
+    .package-card.selected .pkg-tag {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      font-weight: 600;
+      border-color: var(--primary);
+    }
+
+    .pkg-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--on-surface);
+      margin-bottom: 2px;
+    }
+
+    .pkg-subtitle {
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-md);
+    }
+
+    .pkg-price-row {
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .pkg-price {
+      font-family: var(--font-label);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+
+    .pkg-fee-note {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      color: var(--tertiary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .pkg-features {
+      list-style: none;
+      margin-bottom: var(--space-md);
+      flex-grow: 1;
+    }
+
+    .pkg-features li {
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.35;
+    }
+
+    .pkg-features li i {
+      color: var(--primary);
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Special Deal Badges inside Cards */
+    .special-badge-box {
+      background-color: var(--surface-container);
+      border: 1px dashed var(--outline-light);
+      padding: 6px 8px;
+      font-size: 0.72rem;
+      margin-top: var(--space-xs);
+    }
+
+    .special-badge-box.green {
+      border-color: var(--tertiary);
+      color: var(--tertiary);
+    }
+
+    .special-badge-box.blue {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       SPECIAL DISCOUNTS & BUSINESS RULES TOGGLE PANEL
+       ========================================================================== */
+    .rules-panel {
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .rule-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .rule-info {
+      flex: 1;
+    }
+
+    .rule-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--on-surface);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .rule-desc {
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      margin-top: 2px;
+      line-height: 1.35;
+    }
+
+    /* Carbon Switch / Toggle */
+    .carbon-toggle {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .carbon-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--surface-container-high);
+      border: 1px solid var(--outline-light);
+      transition: .2s;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: var(--on-surface-variant);
+      transition: .2s;
+    }
+
+    .carbon-toggle input:checked + .toggle-slider {
+      background-color: var(--primary-container);
+      border-color: var(--primary);
+    }
+
+    .carbon-toggle input:checked + .toggle-slider:before {
+      transform: translateX(22px);
+      background-color: var(--on-primary-container);
+    }
+
+    .carbon-toggle input:disabled + .toggle-slider {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ==========================================================================
+       ADD-ONS & MODULAR VARIABLES (EXPANDABLE GRID)
+       ========================================================================== */
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .addon-card {
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .addon-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-xs);
+    }
+
+    .addon-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+
+    .addon-rate {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .addon-desc {
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-sm);
+      line-height: 1.35;
+    }
+
+    .counter-control {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background-color: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      width: fit-content;
+      margin-top: auto;
+    }
+
+    .counter-btn {
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: none;
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.1s;
+    }
+
+    .counter-btn:hover {
+      background-color: var(--surface-container-high);
+      color: var(--primary);
+    }
+
+    .counter-value {
+      font-family: var(--font-label);
+      font-size: 0.88rem;
+      font-weight: 600;
+      min-width: 36px;
+      text-align: center;
+      color: var(--on-surface);
+    }
+
+    /* Disciplines Multi-Checkboxes */
+    .disciplines-block {
+      grid-column: 1 / -1;
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      margin-top: var(--space-xs);
+    }
+
+    .disciplines-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+
+    .check-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--on-surface-variant);
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .check-chip:hover {
+      border-color: var(--outline-light);
+      color: var(--on-surface);
+    }
+
+    .check-chip.checked {
+      background-color: var(--surface-container-high);
+      border-color: var(--primary);
+      color: var(--on-surface);
+    }
+
+    .check-chip input {
+      display: none;
+    }
+
+    .chip-indicator {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--outline-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .check-chip.checked .chip-indicator {
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .check-chip.checked .chip-indicator::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background-color: var(--on-primary);
+    }
+
+    /* ==========================================================================
+       RIGHT COLUMN: FINANCIAL SUMMARY, ROI DASHBOARD & STICKY ACTION PANEL
+       ========================================================================== */
+    .summary-column {
+      position: sticky;
+      top: var(--space-md);
+    }
+
+    .quote-hero-card {
+      background-color: var(--surface-container-high);
+      border: 1px solid var(--outline-light);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      position: relative;
+    }
+
+    .hero-label {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--on-surface-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-badge-zero {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      background-color: var(--tertiary);
+      color: var(--on-tertiary);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-total-price {
+      font-family: var(--font-label);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--on-surface);
+      margin: var(--space-xs) 0 2px;
+      line-height: 1.1;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .hero-currency {
+      font-size: 1rem;
+      color: var(--on-surface-muted);
+      font-weight: 400;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-note i {
+      color: var(--tertiary);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Detailed Breakdown Table */
+    .quote-breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .quote-breakdown-table tr {
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .quote-breakdown-table td {
+      padding: 8px 0;
+      color: var(--on-surface-variant);
+    }
+
+    .quote-breakdown-table td:last-child {
+      text-align: right;
+      font-family: var(--font-label);
+      color: var(--on-surface);
+    }
+
+    .quote-breakdown-table tr.discount-row td {
+      color: var(--tertiary);
+    }
+
+    .quote-breakdown-table tr.discount-row td:last-child {
+      color: var(--tertiary);
+    }
+
+    .quote-breakdown-table tr.total-subrow td {
+      font-weight: 600;
+      color: var(--on-surface);
+      border-top: 2px solid var(--outline-light);
+    }
+
+    /* ROI Projection Box */
+    .roi-kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background-color: var(--outline-variant);
+      border: 1px solid var(--outline-variant);
+      margin-bottom: var(--space-md);
+    }
+
+    .roi-kpi-cell {
+      background-color: var(--surface-container);
+      padding: var(--space-md);
+    }
+
+    .roi-kpi-label {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      color: var(--on-surface-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .roi-kpi-value {
+      font-family: var(--font-label);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--tertiary);
+      margin: 4px 0 2px;
+    }
+
+    .roi-kpi-sub {
+      font-size: 0.72rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Chart Container */
+    .chart-box {
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      margin-bottom: var(--space-md);
+      min-height: 240px;
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-sm);
+    }
+
+    .chart-title {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--on-surface-muted);
+    }
+
+    .chart-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 180px;
+    }
+
+    /* CTA Buttons & Advisor Output Controls */
+    .action-button-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .carbon-btn {
+      width: 100%;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: var(--rounded-none);
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+
+    .carbon-btn-primary {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .carbon-btn-primary:hover {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .carbon-btn-secondary {
+      background-color: var(--surface-container-high);
+      border-color: var(--outline-light);
+      color: var(--on-surface);
+    }
+
+    .carbon-btn-secondary:hover {
+      background-color: var(--outline-light);
+    }
+
+    .carbon-btn-tertiary {
+      background-color: transparent;
+      border-color: var(--outline-variant);
+      color: var(--on-surface-variant);
+    }
+
+    .carbon-btn-tertiary:hover {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      border-color: var(--outline-light);
+    }
+
+    /* ==========================================================================
+       MODAL & PROPOSAL EXPORT VIEWER
+       ========================================================================== */
+    .proposal-preview-box {
+      background-color: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      margin-top: var(--space-md);
+      font-family: var(--font-label);
+      font-size: 0.78rem;
+      color: var(--on-surface-variant);
+      max-height: 240px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+
+    /* Toast Notification for Clipboard Copy */
+    .toast-msg {
+      position: fixed;
+      bottom: var(--space-xl);
+      right: var(--space-xl);
+      background-color: var(--surface-elevated);
+      color: var(--on-surface);
+      border: 1px solid var(--tertiary);
+      border-left: 4px solid var(--tertiary);
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-label);
+      font-size: 0.82rem;
+      box-shadow: var(--shadow-2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .toast-msg.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .app-container {
+        padding: var(--space-sm) var(--space-sm) var(--space-2xl);
+      }
+      .presets-container {
+        flex-direction: column;
+      }
+      .preset-btn {
+        width: 100%;
+      }
+      .hero-total-price {
+        font-size: 1.9rem;
+      }
+      .roi-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print styles for Clean Executive Quotation Export */
+    @media print {
+      body {
+        background-color: var(--print-bg);
+        color: var(--print-ink);
+      }
+      .app-header, .stats-ribbon, .presets-container, .action-button-stack, .counter-control, .carbon-toggle {
+        display: none !important;
+      }
+      .summary-column {
+        position: static;
+      }
+      .calculator-grid {
+        display: block;
+      }
+      .panel, .quote-hero-card, .roi-kpi-cell {
+        background-color: var(--print-bg) !important;
+        border: 1px solid var(--print-border) !important;
+        color: var(--print-ink) !important;
+      }
+      .hero-total-price, .pkg-price, .stat-metric {
+        color: var(--print-ink) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- APP HEADER -->
+    <header class="app-header">
+      <div class="brand-block">
+        <div class="brand-symbol" style="background:transparent;border:none;">
+          <img src="../../assets/images/Isotipo Orchata.png" alt="Orchata Logo">
+        </div>
+        <div class="brand-meta">
+          <h1 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            ORCHATA CONEXIÓN · COTIZADOR COMERCIAL
+            <span class="brand-badge" style="background:rgba(252,242,0,0.15);color:var(--primary);border-color:rgba(252,242,0,0.3);">SISTEMA DOOH MARCA BLANCA</span>
+          </h1>
+          <p>Herramienta Oficial para Asesores Comerciales y Directores de Negocio · Querétaro & Cobertura Nacional</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="../" class="back-to-sell-btn">
+          <i data-lucide="arrow-left" style="width: 14px; height: 14px;"></i>
+          <span>Volver al Hub /sell</span>
+        </a>
+        <div class="meta-tag">
+          <i data-lucide="shield-check" style="width: 14px; height: 14px; color: var(--tertiary);"></i>
+          <span>Modelo: <strong>Venta Única Llave en Mano ($0 Rentas)</strong></span>
+        </div>
+        <div class="meta-tag" style="background:rgba(255,49,49,0.12);border-color:rgba(255,49,49,0.3);color:#ff3131;">
+          <i data-lucide="lock" style="width: 14px; height: 14px; color: #ff3131;"></i>
+          <span style="font-weight:700;">USO INTERNO EXCLUSIVO</span>
+        </div>
+        <div class="meta-tag">
+          <i data-lucide="file-text" style="width: 14px; height: 14px; color: var(--primary);"></i>
+          <span>Folio: <strong id="quoteFolio">OMH-2026-8842</strong></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- PROVEN SECTOR METRICS RIBBON (SOURCE CONTEXT) -->
+    <section class="stats-ribbon" aria-label="Métricas Validadas del Sector DOOH Fitness">
+      <div class="stat-tile">
+        <div class="stat-metric text-tertiary">+80%</div>
+        <div class="stat-label">Retención de Socios</div>
+        <div class="stat-desc">Biomecánica guiada en salas de fuerza: novatos aprenden sin pena y superan los primeros 90 días.</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-metric text-primary">74%</div>
+        <div class="stat-label">Acción Móvil Vía QR</div>
+        <div class="stat-desc">Escaneo instantáneo para pedir suplementos a barra o agendar citas con coaches y nutriólogo.</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-metric">+400%</div>
+        <div class="stat-label">Atención vs Impresos</div>
+        <div class="stat-desc">El dinamismo 4K supera cartulinas, lonas y flyers estáticos que los socios ignoran.</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-metric text-tertiary">+35%</div>
+        <div class="stat-label">Ticket en Barra & Batidos</div>
+        <div class="stat-desc">Comanda automatizada vía WhatsApp: batidos listos al terminar la sesión de entrenamiento.</div>
+      </div>
+    </section>
+
+    <!-- PRESETS BAR (1-CLICK CLIENT CONFIGURATIONS) -->
+    <div class="presets-container" role="group" aria-label="Plantillas Preconfiguradas">
+      <button type="button" class="preset-btn active" id="presetBoutique" onclick="applyPreset('boutique')">
+        <span class="preset-name">Studio Boutique</span>
+        <span class="preset-sub">1 Sede · Core 30™ + Barra QR</span>
+      </button>
+      <button type="button" class="preset-btn" id="presetCommercial" onclick="applyPreset('commercial')">
+        <span class="preset-name">Club Urbano Pro</span>
+        <span class="preset-sub">1 Sede · Pro Brand™ + 3 Clases</span>
+      </button>
+      <button type="button" class="preset-btn" id="presetMultisede" onclick="applyPreset('multisede')">
+        <span class="preset-name">Multi-Sede Regional</span>
+        <span class="preset-sub">3 Sedes · Maximus Bespoke 50% OFF</span>
+      </button>
+      <button type="button" class="preset-btn" id="presetEnterprise" onclick="applyPreset('enterprise')">
+        <span class="preset-name">Cadena Enterprise</span>
+        <span class="preset-sub">8 Sedes · Cloud CMS Sync + SLA</span>
+      </button>
+    </div>
+
+    <!-- MAIN TWO-COLUMN CALCULATOR -->
+    <main class="calculator-grid">
+
+      <!-- LEFT COLUMN: INPUTS & CONFIGURATION -->
+      <section class="config-column" aria-label="Parámetros de Cotización">
+
+        <!-- 1. DATOS DEL CLIENTE / GIMNASIO -->
+        <article class="panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i data-lucide="building-2"></i>
+              1. Identificación del Gimnasio & Sedes
+            </span>
+            <span class="panel-badge">DATOS DE PROSPECTO</span>
+          </div>
+          <div class="panel-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientGymName">Nombre del Gimnasio / Cadena</label>
+                <input type="text" id="clientGymName" class="carbon-input" value="Iron Republic Fitness Club" oninput="handleConfigChange()">
+              </div>
+              <div class="form-group">
+                <label for="clientContactName">Contacto / Director General</label>
+                <input type="text" id="clientContactName" class="carbon-input" value="Ing. Carlos Mendoza" oninput="handleConfigChange()">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientCity">Ciudad / Plaza Comercial</label>
+                <select id="clientCity" class="carbon-select" onchange="handleConfigChange()">
+                  <option value="Querétaro (Zona Bajío)" selected>Querétaro (Zona Bajío · Base Orchata)</option>
+                  <option value="Ciudad de México (CDMX)">Ciudad de México (CDMX)</option>
+                  <option value="Guadalajara (Jalisco)">Guadalajara (Jalisco)</option>
+                  <option value="Monterrey (Nuevo León)">Monterrey (Nuevo León)</option>
+                  <option value="Puebla / Tlaxcala">Puebla / Tlaxcala</option>
+                  <option value="San Luis Potosí">San Luis Potosí</option>
+                  <option value="Otra Plaza Nacional">Otra Plaza Nacional / Internacional</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="clientPhone">WhatsApp de Contacto Directo</label>
+                <input type="text" id="clientPhone" class="carbon-input" value="+52 442 389 1200" oninput="handleConfigChange()">
+              </div>
+            </div>
+
+            <!-- NÚMERO DE SUCURSALES (KEY SELECTOR) -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="branchesCount">Número de Sucursales a Implementar</label>
+              <div class="range-dual-wrap">
+                <input type="range" id="branchesRange" class="carbon-range" min="1" max="25" value="1" oninput="syncBranches('range')">
+                <input type="number" id="branchesCount" class="range-num-box" min="1" max="50" value="1" oninput="syncBranches('number')">
+                <span style="font-family: var(--font-label); font-size: 0.8rem; color: var(--on-surface-variant);">Sedes</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. SELECCIÓN DE PAQUETE BASE -->
+        <article class="panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i data-lucide="layers"></i>
+              2. Selección de Paquete Ecosistema DOOH
+            </span>
+            <span class="panel-badge">VENTA ÚNICA · LLAVE EN MANO</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="packages-grid" role="radiogroup" aria-label="Paquetes Disponibles">
+
+              <!-- CORE 30 -->
+              <div class="package-card" id="pkgCardCore" onclick="selectPackage('core')" role="radio" aria-checked="false" tabindex="0">
+                <span class="pkg-tag">ENTRADA</span>
+                <div>
+                  <h2 class="pkg-title">Core 30™</h2>
+                  <p class="pkg-subtitle">Loop 30 min sin cortes para pesas y cardio.</p>
+                  <div class="pkg-price-row">
+                    <span class="pkg-price">$28,000</span>
+                    <span class="pkg-fee-note">Venta única por sede</span>
+                  </div>
+                  <ul class="pkg-features">
+                    <li><i data-lucide="check"></i> Loop 30 min 4K sin pausas (USB Plug & Play)</li>
+                    <li><i data-lucide="check"></i> Píldoras biomecánicas guiadas (+80% retención)</li>
+                    <li><i data-lucide="check"></i> Cartelera de promociones & citas de nutriólogo</li>
+                    <li><i data-lucide="check"></i> Audio ambiental Orchata Récords sin reclamos</li>
+                    <li><i data-lucide="check"></i> Manual operativo paso a paso para recepción</li>
+                  </ul>
+                </div>
+                <div class="special-badge-box green">
+                  <strong>Regla de Red:</strong> 20% OFF si integras pauta de aliados de la red comercial.
+                </div>
+              </div>
+
+              <!-- PRO BRAND (DEFAULT / MOST POPULAR) -->
+              <div class="package-card selected" id="pkgCardPro" onclick="selectPackage('pro')" role="radio" aria-checked="true" tabindex="0">
+                <span class="pkg-tag">MÁS ELEGIDO</span>
+                <div>
+                  <h2 class="pkg-title">Pro Brand™</h2>
+                  <p class="pkg-subtitle">Identidad total, barra interactiva y 3 zonas.</p>
+                  <div class="pkg-price-row">
+                    <span class="pkg-price">$45,000</span>
+                    <span class="pkg-fee-note">Venta única por sede</span>
+                  </div>
+                  <ul class="pkg-features">
+                    <li><i data-lucide="check"></i> <strong>Todo lo incluido en Core 30™</strong></li>
+                    <li><i data-lucide="check"></i> Animación 3D del logotipo de tu gimnasio</li>
+                    <li><i data-lucide="check"></i> Loops diferenciados: Fuerza vs Cardio vs Funcional</li>
+                    <li><i data-lucide="check"></i> Menú de suplementos & batidos con QR dinámicos</li>
+                    <li><i data-lucide="check"></i> Integración de Tribus de WhatsApp (#Tribu-Gym)</li>
+                    <li><i data-lucide="check"></i> Convenio Alianza: utilidades de pauta Año 2+</li>
+                  </ul>
+                </div>
+                <div class="special-badge-box blue">
+                  <strong>Alta Conversión:</strong> Automatiza pedidos de barra directo a comanda.
+                </div>
+              </div>
+
+              <!-- MAXIMUS BESPOKE -->
+              <div class="package-card" id="pkgCardMaximus" onclick="selectPackage('maximus')" role="radio" aria-checked="false" tabindex="0">
+                <span class="pkg-tag">CINEMA PREMIUM</span>
+                <div>
+                  <h2 class="pkg-title">Maximus Bespoke™</h2>
+                  <p class="pkg-subtitle">Rodaje cinematográfico en tu club con coaches.</p>
+                  <div class="pkg-price-row">
+                    <span class="pkg-price">$75,000</span>
+                    <span class="pkg-fee-note">1ª sede · <strong>50% OFF</strong> en sede 2+</span>
+                  </div>
+                  <ul class="pkg-features">
+                    <li><i data-lucide="check"></i> Rodaje en tus instalaciones con tus propios entrenadores</li>
+                    <li><i data-lucide="check"></i> Formato 4K RAW (ARRI/RED) & color DaVinci Resolve</li>
+                    <li><i data-lucide="check"></i> Loop extendido de 60 minutos multicámara</li>
+                    <li><i data-lucide="check"></i> Adaptación de clips verticales (9:16) para Reels / Ads</li>
+                    <li><i data-lucide="check"></i> Reparto prioritario de pauta DOOH</li>
+                    <li><i data-lucide="check"></i> Asesoría bimestral con directores de Orchata</li>
+                  </ul>
+                </div>
+                <div class="special-badge-box green">
+                  <strong>Regla Multisede:</strong> 50% de descuento en la 2ª sede en adelante.
+                </div>
+              </div>
+
+              <!-- ENTERPRISE MODEL -->
+              <div class="package-card" id="pkgCardEnterprise" onclick="selectPackage('enterprise')" role="radio" aria-checked="false" tabindex="0">
+                <span class="pkg-tag">GRANDES CADENAS</span>
+                <div>
+                  <h2 class="pkg-title">Modelo Enterprise™</h2>
+                  <p class="pkg-subtitle">Cloud CMS Sync para 5+ sucursales consolidadas.</p>
+                  <div class="pkg-price-row">
+                    <span class="pkg-price">$120,000</span>
+                    <span class="pkg-fee-note">Base hasta 5 sedes (+$15k c/u extra)</span>
+                  </div>
+                  <ul class="pkg-features">
+                    <li><i data-lucide="check"></i> Servidor CMS centralizado en la nube (Zero USB)</li>
+                    <li><i data-lucide="check"></i> Dayparting automatizado por IA (horarios y clima)</li>
+                    <li><i data-lucide="check"></i> Dashboard corporativo central de escaneos y analítica</li>
+                    <li><i data-lucide="check"></i> Producción trimestral continua de nuevas píldoras</li>
+                    <li><i data-lucide="check"></i> Soporte dedicado SLA 24/7 y monitoreo activo</li>
+                  </ul>
+                </div>
+                <div class="special-badge-box blue">
+                  <strong>Escalabilidad Total:</strong> Gestión remota de 5 a 100+ pantallas.
+                </div>
+              </div>
+
+            </div>
+
+            <!-- REGLAS DE NEGOCIO Y DESCUENTOS ESPECIALES -->
+            <div class="rules-panel">
+              
+              <!-- REGLA 1: DESCUENTO 20% EN CORE 30 POR RED PUBLICITARIA -->
+              <div class="rule-item" id="ruleAdNetworkBox">
+                <div class="rule-info">
+                  <div class="rule-title">
+                    <i data-lucide="sparkles" style="width: 16px; height: 16px; color: var(--tertiary);"></i>
+                    Descuento del 20% por Integración a Red Publicitaria (Core 30™)
+                  </div>
+                  <div class="rule-desc">
+                    El gimnasio autoriza la rotación de cortinillas de aliados comerciales de la red DOOH Orchata en su zona. A cambio, recibe un 20% de descuento directo en el paquete Core 30™ ($5,600 MXN de ahorro por sede).
+                  </div>
+                </div>
+                <label class="carbon-toggle" aria-label="Activar Descuento 20% Red Publicitaria Core 30">
+                  <input type="checkbox" id="toggleAdDiscount" onchange="handleConfigChange()">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <!-- REGLA 2: MULTISEDE 50% OFF EN MAXIMUS BESPOKE (SEDE 2+) -->
+              <div class="rule-item" id="ruleMultisedeBox">
+                <div class="rule-info">
+                  <div class="rule-title">
+                    <i data-lucide="check-check" style="width: 16px; height: 16px; color: var(--primary);"></i>
+                    Regla Multisede: 50% OFF en Sucursal 2+ (Maximus Bespoke™)
+                  </div>
+                  <div class="rule-desc" id="multisedeRuleDesc">
+                    Aplica automáticamente cuando seleccionas Maximus Bespoke™ y cotizas 2 o más sucursales. La 1ª sede amortiza rodaje y masterización ($75,000 MXN), mientras que las sedes adicionales pagan solo $37,500 MXN c/u.
+                  </div>
+                </div>
+                <div id="multisedeStatusBadge" class="panel-badge" style="background-color: var(--surface-container-high); color: var(--tertiary);">
+                  Activo Automático
+                </div>
+              </div>
+
+              <!-- REGLA 3: CONDICIÓN ENTERPRISE -->
+              <div class="rule-item" id="ruleEnterpriseBox" style="display: none;">
+                <div class="rule-info">
+                  <div class="rule-title">
+                    <i data-lucide="server" style="width: 16px; height: 16px; color: var(--primary);"></i>
+                    Arquitectura Cloud CMS & Tarifa Institucional Enterprise
+                  </div>
+                  <div class="rule-desc">
+                    Tarifa base institucional de $120,000 MXN que ampara hasta 5 sucursales completas con CMS Cloud Sync, dashboard corporativo y SLA 24/7. Cada sucursal adicional (de la 6ª en adelante) suma $15,000 MXN.
+                  </div>
+                </div>
+                <div class="panel-badge" style="background-color: var(--primary-container); color: var(--on-primary-container);">
+                  Enterprise Activo
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </article>
+
+        <!-- 3. VARIABLES ADICIONALES & ADD-ONS COTIZABLES -->
+        <article class="panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i data-lucide="sliders"></i>
+              3. Variables Adicionales & Módulos Extras
+            </span>
+            <span class="panel-badge">PERSONALIZACIÓN POR SEDE</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="addons-grid">
+
+              <!-- ADDON 1: PANTALLAS EXTRA -->
+              <div class="addon-card">
+                <div class="addon-header">
+                  <span class="addon-name">Pantallas / TVs Extra</span>
+                  <span class="addon-rate">+$2,500 MXN c/u</span>
+                </div>
+                <p class="addon-desc">
+                  Por cada televisor adicional a los incluidos base (2 en Core/Pro, 4 en Maximus). Incluye reproductor industrial 4K y calibración.
+                </p>
+                <div class="counter-control">
+                  <button type="button" class="counter-btn" onclick="modifyAddon('extraTvs', -1)" aria-label="Reducir TVs extra">-</button>
+                  <span class="counter-value" id="extraTvsVal">2</span>
+                  <button type="button" class="counter-btn" onclick="modifyAddon('extraTvs', 1)" aria-label="Aumentar TVs extra">+</button>
+                </div>
+              </div>
+
+              <!-- ADDON 2: PRODUCTOS DE BARRA CON QR -->
+              <div class="addon-card">
+                <div class="addon-header">
+                  <span class="addon-name">Carta de Barra & Suplementos</span>
+                  <span class="addon-rate">+$1,200 MXN / bloque</span>
+                </div>
+                <p class="addon-desc">
+                  Digitalización y vinculación con comanda WhatsApp en bloques de 5 productos (Creatina, Whey, Pre-workout, Batidos fríos, Shakers).
+                </p>
+                <div class="counter-control">
+                  <button type="button" class="counter-btn" onclick="modifyAddon('supplementsBlocks', -1)" aria-label="Reducir bloques de suplementos">-</button>
+                  <span class="counter-value" id="supplementsBlocksVal">2</span>
+                  <button type="button" class="counter-btn" onclick="modifyAddon('supplementsBlocks', 1)" aria-label="Aumentar bloques de suplementos">+</button>
+                </div>
+              </div>
+
+              <!-- ADDON 3: CÁPSULAS DE COACHES DE PISO -->
+              <div class="addon-card">
+                <div class="addon-header">
+                  <span class="addon-name">Cápsulas de Coaches del Club</span>
+                  <span class="addon-rate">+$4,000 MXN / coach</span>
+                </div>
+                <p class="addon-desc">
+                  Grabación en set 5600K de tips técnicos con tus entrenadores e inserción de su QR personal para agenda de citas personalizadas.
+                </p>
+                <div class="counter-control">
+                  <button type="button" class="counter-btn" onclick="modifyAddon('coachesCapsules', -1)" aria-label="Reducir coaches">-</button>
+                  <span class="counter-value" id="coachesCapsulesVal">1</span>
+                  <button type="button" class="counter-btn" onclick="modifyAddon('coachesCapsules', 1)" aria-label="Aumentar coaches">+</button>
+                </div>
+              </div>
+
+              <!-- ADDON 4: CORTINILLAS FLASH HAPPY HOUR -->
+              <div class="addon-card">
+                <div class="addon-header">
+                  <span class="addon-name">Cortinillas Flash "Happy Hour"</span>
+                  <span class="addon-rate">+$2,800 MXN c/u</span>
+                </div>
+                <p class="addon-desc">
+                  Cortinilla de urgencia de 60 a 180s con temporizador dinámico en pantalla ("Próximos 10 batidos con 30% OFF") y comanda IA.
+                </p>
+                <div class="counter-control">
+                  <button type="button" class="counter-btn" onclick="modifyAddon('flashCortinillas', -1)" aria-label="Reducir cortinillas flash">-</button>
+                  <span class="counter-value" id="flashCortinillasVal">1</span>
+                  <button type="button" class="counter-btn" onclick="modifyAddon('flashCortinillas', 1)" aria-label="Aumentar cortinillas flash">+</button>
+                </div>
+              </div>
+
+              <!-- ADDON 5: CLASES GRUPALES / DISCIPLINAS ESPECÍFICAS -->
+              <div class="disciplines-block">
+                <div class="addon-header">
+                  <span class="addon-name">Clases Grupales y Disciplinas Específicas</span>
+                  <span class="addon-rate">+$3,500 MXN por disciplina producida</span>
+                </div>
+                <p class="addon-desc">
+                  Selecciona las disciplinas que imparte tu gimnasio para producir clips dedicados con estética monocromática, cadencia y horarios integrados:
+                </p>
+
+                <div class="disciplines-list">
+                  <label class="check-chip checked" id="chipSpinning">
+                    <input type="checkbox" value="Spinning" checked onchange="toggleDisciplineChip('chipSpinning')">
+                    <span class="chip-indicator"></span>
+                    <span>Spinning / Indoor Cycling</span>
+                  </label>
+
+                  <label class="check-chip checked" id="chipYoga">
+                    <input type="checkbox" value="Yoga" checked onchange="toggleDisciplineChip('chipYoga')">
+                    <span class="chip-indicator"></span>
+                    <span>Yoga & Movilidad</span>
+                  </label>
+
+                  <label class="check-chip" id="chipJumping">
+                    <input type="checkbox" value="Jumping" onchange="toggleDisciplineChip('chipJumping')">
+                    <span class="chip-indicator"></span>
+                    <span>Jumping Fitness</span>
+                  </label>
+
+                  <label class="check-chip" id="chipZumba">
+                    <input type="checkbox" value="Zumba" onchange="toggleDisciplineChip('chipZumba')">
+                    <span class="chip-indicator"></span>
+                    <span>Zumba / Dance</span>
+                  </label>
+
+                  <label class="check-chip" id="chipBox">
+                    <input type="checkbox" value="Boxeo" onchange="toggleDisciplineChip('chipBox')">
+                    <span class="chip-indicator"></span>
+                    <span>Boxeo Técnico</span>
+                  </label>
+
+                  <label class="check-chip" id="chipCrossfit">
+                    <input type="checkbox" value="CrossFit" onchange="toggleDisciplineChip('chipCrossfit')">
+                    <span class="chip-indicator"></span>
+                    <span>CrossFit / Funcional</span>
+                  </label>
+
+                  <label class="check-chip checked" id="chipGap">
+                    <input type="checkbox" value="GAP" checked onchange="toggleDisciplineChip('chipGap')">
+                    <span class="chip-indicator"></span>
+                    <span>GAP (Glúteo-Abdomen-Pierna)</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </article>
+
+        <!-- 4. PARÁMETROS REALES DEL GIMNASIO PARA MODELO DE ROI -->
+        <article class="panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i data-lucide="calculator"></i>
+              4. Calibración del Modelo de Retorno de Inversión (ROI)
+            </span>
+            <span class="panel-badge">PARÁMETROS DEL CLUB</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="membersCount">Socios Activos Promedio (por sede)</label>
+                <div class="range-dual-wrap">
+                  <input type="range" id="membersRange" class="carbon-range" min="100" max="3500" step="25" value="450" oninput="syncRoiInputs('members', 'range')">
+                  <input type="number" id="membersCount" class="range-num-box" min="50" max="10000" step="10" value="450" oninput="syncRoiInputs('members', 'number')">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="membershipFee">Cuota Mensual Promedio ($ MXN)</label>
+                <div class="range-dual-wrap">
+                  <input type="range" id="feeRange" class="carbon-range" min="400" max="3000" step="50" value="850" oninput="syncRoiInputs('fee', 'range')">
+                  <input type="number" id="membershipFee" class="range-num-box" min="200" max="8000" step="25" value="850" oninput="syncRoiInputs('fee', 'number')">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row" style="margin-bottom: 0;">
+              <div class="form-group">
+                <label for="snackTicket">Ticket Promedio Actual en Barra / Batido ($ MXN)</label>
+                <div class="range-dual-wrap">
+                  <input type="range" id="ticketRange" class="carbon-range" min="20" max="180" step="5" value="65" oninput="syncRoiInputs('ticket', 'range')">
+                  <input type="number" id="snackTicket" class="range-num-box" min="10" max="500" step="5" value="65" oninput="syncRoiInputs('ticket', 'number')">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="taxRate">Régimen Fiscal / IVA</label>
+                <select id="taxRate" class="carbon-select" onchange="handleConfigChange()">
+                  <option value="0">Precios Netos antes de IVA (Cotización Base)</option>
+                  <option value="0.16" selected>Con IVA 16% (Factura Fiscal Deducible)</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </section>
+
+      <!-- RIGHT COLUMN: FINANCIAL BREAKDOWN, HERO PRICE & ROI PROJECTIONS -->
+      <aside class="summary-column" aria-label="Resumen Financiero y Acciones Comerciales">
+
+        <!-- HERO TOTAL CARD -->
+        <div class="quote-hero-card">
+          <div class="hero-label">
+            <span>INVERSIÓN TOTAL LLAVE EN MANO</span>
+            <span class="hero-badge-zero">$0 RENTAS MENSUALES</span>
+          </div>
+
+          <div class="hero-total-price">
+            <span id="displayTotalPrice">$67,512</span>
+            <span class="hero-currency">MXN</span>
+          </div>
+
+          <div class="hero-note">
+            <i data-lucide="check-circle-2"></i>
+            <span>Venta única definitiva · Se autofinancia desde el Mes 1</span>
+          </div>
+
+          <!-- DETAILED FINANCIAL BREAKDOWN TABLE -->
+          <table class="quote-breakdown-table">
+            <tbody>
+              <tr>
+                <td>Paquete Base (<span id="breakdownPkgName">Pro Brand™</span> × <span id="breakdownBranchesCount">1</span> sede)</td>
+                <td id="breakdownPkgTotal">$45,000</td>
+              </tr>
+              <tr id="rowAdDiscount" style="display: none;" class="discount-row">
+                <td>Convenio Red Publicitaria DOOH (20% OFF Core 30)</td>
+                <td id="breakdownAdDiscount">-$5,600</td>
+              </tr>
+              <tr id="rowMultisedeDiscount" style="display: none;" class="discount-row">
+                <td>Descuento Multisede (50% OFF sede 2+ Maximus)</td>
+                <td id="breakdownMultisedeDiscount">-$0</td>
+              </tr>
+              <tr id="rowAddonsExtraTvs">
+                <td>TVs / Reproductores Adicionales (<span id="breakdownTvCount">2</span>)</td>
+                <td id="breakdownTvTotal">+$5,000</td>
+              </tr>
+              <tr id="rowAddonsDisciplines">
+                <td>Clases Grupales Producidas (<span id="breakdownDisciplinesCount">3</span>)</td>
+                <td id="breakdownDisciplinesTotal">+$10,500</td>
+              </tr>
+              <tr id="rowAddonsSupplements">
+                <td>Módulos Carta Barra & Suplementos QR (<span id="breakdownSupplementsCount">2</span>)</td>
+                <td id="breakdownSupplementsTotal">+$2,400</td>
+              </tr>
+              <tr id="rowAddonsCoaches">
+                <td>Cápsulas de Coaches de Piso (<span id="breakdownCoachesCount">1</span>)</td>
+                <td id="breakdownCoachesTotal">+$4,000</td>
+              </tr>
+              <tr id="rowAddonsFlash">
+                <td>Cortinillas Flash "Happy Hour" (<span id="breakdownFlashCount">1</span>)</td>
+                <td id="breakdownFlashTotal">+$2,800</td>
+              </tr>
+              <tr class="total-subrow">
+                <td>Subtotal Inversión</td>
+                <td id="breakdownSubtotal">$69,700</td>
+              </tr>
+              <tr id="rowTax" class="total-subrow">
+                <td>IVA Estimado (16% Deducible)</td>
+                <td id="breakdownTax">$11,152</td>
+              </tr>
+              <tr class="total-subrow" style="border-top: 2px solid var(--primary); font-size: 0.95rem;">
+                <td style="color: var(--on-surface);">Total de Inversión Final</td>
+                <td id="breakdownNetTotal" style="color: var(--primary); font-weight: 700;">$80,852</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="font-size: 0.73rem; color: var(--on-surface-muted); line-height: 1.35; margin-bottom: var(--space-md);">
+            * Inversión 100% deducible de impuestos bajo el rubro de producción publicitaria y comunicación digital. Sin contratos de renta fija ni costos ocultos.
+          </div>
+
+          <!-- ACTION BUTTONS STACK -->
+          <div class="action-button-stack">
+            <button type="button" class="carbon-btn carbon-btn-primary" onclick="copyWhatsAppQuote()" id="btnCopyWhatsapp">
+              <i data-lucide="message-square"></i>
+              Copiar Cotización para WhatsApp
+            </button>
+            <button type="button" class="carbon-btn carbon-btn-secondary" onclick="exportQuotationSummary()">
+              <i data-lucide="download"></i>
+              Exportar Ficha Técnica (JSON/TXT)
+            </button>
+            <button type="button" class="carbon-btn carbon-btn-tertiary" onclick="printQuotation()">
+              <i data-lucide="printer"></i>
+              Imprimir / Guardar como PDF
+            </button>
+          </div>
+        </div>
+
+        <!-- ROI & CASHFLOW PROJECTIONS PANEL -->
+        <article class="panel">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i data-lucide="trending-up"></i>
+              Retorno de Inversión (ROI) & Payback
+            </span>
+            <span class="panel-badge">PROYECCIÓN FINANCIERA</span>
+          </div>
+          <div class="panel-body">
+
+            <!-- KPI BOXES -->
+            <div class="roi-kpi-grid">
+              <div class="roi-kpi-cell">
+                <div class="roi-kpi-label">Período de Payback</div>
+                <div class="roi-kpi-value" id="kpiPayback">1.3 Meses</div>
+                <div class="roi-kpi-sub">Amortización de la inversión</div>
+              </div>
+              <div class="roi-kpi-cell">
+                <div class="roi-kpi-label">Beneficio Mensual Neto</div>
+                <div class="roi-kpi-value" id="kpiMonthlyGain">+$58,450</div>
+                <div class="roi-kpi-sub">Barra + Retención de socios</div>
+              </div>
+              <div class="roi-kpi-cell">
+                <div class="roi-kpi-label">ROI Anualizado (12 Meses)</div>
+                <div class="roi-kpi-value" id="kpiRoiYear">642%</div>
+                <div class="roi-kpi-sub">Retorno neto sobre capital</div>
+              </div>
+              <div class="roi-kpi-cell">
+                <div class="roi-kpi-label">Utilidad Neta Año 1</div>
+                <div class="roi-kpi-value" id="kpiNetGainYear">+$620,548</div>
+                <div class="roi-kpi-sub">Descontando la inversión</div>
+              </div>
+            </div>
+
+            <!-- CHART: CASHFLOW ACCUMULATION -->
+            <div class="chart-box">
+              <div class="chart-header">
+                <span class="chart-title">Flujo de Caja Acumulado Proyectado (Mes 1 a 12)</span>
+                <span style="font-family: var(--font-label); font-size: 0.7rem; color: var(--tertiary);">Punto de Equilibrio</span>
+              </div>
+              <div class="chart-canvas-wrap">
+                <canvas id="roiChart"></canvas>
+              </div>
+            </div>
+
+            <!-- SUMMARY BULLETS -->
+            <ul style="list-style: none; font-size: 0.78rem; color: var(--on-surface-variant); display: flex; flex-direction: column; gap: 6px;">
+              <li style="display: flex; gap: 6px;">
+                <i data-lucide="arrow-up-right" style="width: 14px; height: 14px; color: var(--tertiary); flex-shrink: 0; margin-top: 2px;"></i>
+                <span><strong>Ingreso Incremental por Barra:</strong> <span id="roiBarGain">+$22,815</span> MXN/mes con 35% de mayor consumo vía QR dinámico.</span>
+              </li>
+              <li style="display: flex; gap: 6px;">
+                <i data-lucide="shield-check" style="width: 14px; height: 14px; color: var(--primary); flex-shrink: 0; margin-top: 2px;"></i>
+                <span><strong>Ingreso Protegido por Menor Deserción:</strong> <span id="roiRetentionGain">+$35,635</span> MXN/mes (socios retenidos con biomecánica).</span>
+              </li>
+              <li style="display: flex; gap: 6px;">
+                <i data-lucide="dollar-sign" style="width: 14px; height: 14px; color: var(--warning); flex-shrink: 0; margin-top: 2px;"></i>
+                <span><strong>Dividendos Publicitarios (Año 2+):</strong> Proyección de <span id="roiAdDividends">+$18,000</span> MXN anuales por pauta de aliados locales.</span>
+              </li>
+            </ul>
+
+          </div>
+        </article>
+
+        <!-- LIVE PROPOSAL TEXT PREVIEW (READY TO AUDIT) -->
+        <article class="panel" style="margin-bottom: 0;">
+          <div class="panel-header">
+            <span class="panel-title">
+              <i data-lucide="terminal"></i>
+              Previsualización de Mensaje Comercial
+            </span>
+            <span class="panel-badge">WHATSAPP READY</span>
+          </div>
+          <div class="panel-body" style="padding: var(--space-md);">
+            <div class="proposal-preview-box" id="proposalTextPreview" aria-live="polite">
+              Generando resumen ejecutivo...
+            </div>
+          </div>
+        </article>
+
+      </aside>
+
+    </main>
+
+  </div>
+
+  <!-- TOAST FEEDBACK NOTIFICATION -->
+  <div class="toast-msg" id="toastNotification" role="status" aria-live="polite">
+    <i data-lucide="check" style="width: 18px; height: 18px; color: var(--tertiary);"></i>
+    <span id="toastText">¡Cotización copiada con éxito al portapapeles!</span>
+  </div>
+
+  <!-- NOTEBOOK SHIM API REQUIREMENT -->
+  <api-shim></api-shim>
+
+  <!-- APPLICATION LOGIC & DEFENSIVE JAVASCRIPT -->
+  <script>
+    // Global Application State (persisted via window.notebookAppApi)
+    let appState = {
+      client: {
+        gymName: "Iron Republic Fitness Club",
+        contactName: "Ing. Carlos Mendoza",
+        city: "Querétaro (Zona Bajío)",
+        phone: "+52 442 389 1200",
+        branches: 1
+      },
+      package: "pro", // "core", "pro", "maximus", "enterprise"
+      rules: {
+        adDiscount: false, // 20% OFF Core 30
+        multisede50: true  // 50% OFF Maximus 2+
+      },
+      addons: {
+        extraTvs: 2,
+        supplementsBlocks: 2,
+        coachesCapsules: 1,
+        flashCortinillas: 1,
+        disciplines: ["Spinning", "Yoga", "GAP"]
+      },
+      roiParams: {
+        members: 450,
+        membershipFee: 850,
+        snackTicket: 65,
+        taxRate: 0.16
+      }
+    };
+
+    // Pricing Matrix (Constants grounded in Orchata Media House source materials)
+    const PRICING = {
+      packages: {
+        core: { name: "Core 30™", basePrice: 28000, baseTvs: 2, multisedeEligible: false },
+        pro: { name: "Pro Brand™", basePrice: 45000, baseTvs: 2, multisedeEligible: false },
+        maximus: { name: "Maximus Bespoke™", basePrice: 75000, baseTvs: 4, multisedeEligible: true },
+        enterprise: { name: "Modelo Enterprise™", basePrice: 120000, baseTvs: 4, baseBranches: 5, extraBranchFee: 15000 }
+      },
+      addons: {
+        tvPrice: 2500,
+        disciplinePrice: 3500,
+        supplementsBlockPrice: 1200,
+        coachCapsulePrice: 4000,
+        flashCortinillaPrice: 2800
+      }
+    };
+
+    let roiChartInstance = null;
+
+    // --- INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', async function() {
+      // 1. Initialize Icons
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+
+      // 2. Restore state from Notebook API if available
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            // Merge deep state gracefully
+            if (saved.client) Object.assign(appState.client, saved.client);
+            if (saved.package) appState.package = saved.package;
+            if (saved.rules) Object.assign(appState.rules, saved.rules);
+            if (saved.addons) Object.assign(appState.addons, saved.addons);
+            if (saved.roiParams) Object.assign(appState.roiParams, saved.roiParams);
+            populateUIFromState();
+          }
+        }
+      } catch (err) {
+        console.warn("Could not retrieve notebookAppApi state:", err);
+      }
+
+      // 3. Initialize Chart
+      initRoiChart();
+
+      // 4. Run calculation & render
+      recalculateQuote();
+
+      // 5. Notify app ready signal
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    });
+
+    // --- UI POPULATION FROM STATE ---
+    function populateUIFromState() {
+      const setVal = function(id, val) {
+        const el = document.getElementById(id);
+        if (el) el.value = val;
+      };
+
+      setVal('clientGymName', appState.client.gymName);
+      setVal('clientContactName', appState.client.contactName);
+      setVal('clientCity', appState.client.city);
+      setVal('clientPhone', appState.client.phone);
+      setVal('branchesRange', appState.client.branches);
+      setVal('branchesCount', appState.client.branches);
+
+      setVal('membersRange', appState.roiParams.members);
+      setVal('membersCount', appState.roiParams.members);
+      setVal('feeRange', appState.roiParams.membershipFee);
+      setVal('membershipFee', appState.roiParams.membershipFee);
+      setVal('ticketRange', appState.roiParams.snackTicket);
+      setVal('snackTicket', appState.roiParams.snackTicket);
+      setVal('taxRate', appState.roiParams.taxRate);
+
+      const toggleAd = document.getElementById('toggleAdDiscount');
+      if (toggleAd) toggleAd.checked = !!appState.rules.adDiscount;
+
+      updateCounterDisplays();
+      updateDisciplineChipsUI();
+      updatePackageCardsUI();
+    }
+
+    // --- BRANCH SELECTOR SYNC ---
+    function syncBranches(source) {
+      const rangeEl = document.getElementById('branchesRange');
+      const numEl = document.getElementById('branchesCount');
+      if (!rangeEl || !numEl) return;
+
+      let val = 1;
+      if (source === 'range') {
+        val = parseInt(rangeEl.value, 10) || 1;
+        numEl.value = val;
+      } else {
+        val = parseInt(numEl.value, 10) || 1;
+        if (val < 1) val = 1;
+        if (val > 50) val = 50;
+        numEl.value = val;
+        rangeEl.value = Math.min(val, 25);
+      }
+
+      appState.client.branches = val;
+
+      // Auto-suggest Enterprise if branches >= 5 and not manually on Maximus
+      if (val >= 5 && appState.package !== 'maximus' && appState.package !== 'enterprise') {
+        // Leave to advisor, but update multisede status
+      }
+
+      handleConfigChange();
+    }
+
+    // --- ROI INPUTS SYNC ---
+    function syncRoiInputs(field, source) {
+      if (field === 'members') {
+        const r = document.getElementById('membersRange');
+        const n = document.getElementById('membersCount');
+        if (!r || !n) return;
+        const val = source === 'range' ? parseInt(r.value, 10) : parseInt(n.value, 10);
+        r.value = val;
+        n.value = val;
+        appState.roiParams.members = val;
+      } else if (field === 'fee') {
+        const r = document.getElementById('feeRange');
+        const num = document.getElementById('membershipFee');
+        if (!r || !num) return;
+        const val = source === 'range' ? parseInt(r.value, 10) : parseInt(num.value, 10);
+        r.value = val;
+        num.value = val;
+        appState.roiParams.membershipFee = val;
+      } else if (field === 'ticket') {
+        const r = document.getElementById('ticketRange');
+        const n = document.getElementById('snackTicket');
+        if (!r || !n) return;
+        const val = source === 'range' ? parseInt(r.value, 10) : parseInt(n.value, 10);
+        r.value = val;
+        n.value = val;
+        appState.roiParams.snackTicket = val;
+      }
+      handleConfigChange();
+    }
+
+    // --- PACKAGE SELECTION ---
+    function selectPackage(pkgKey) {
+      if (!PRICING.packages[pkgKey]) return;
+      appState.package = pkgKey;
+      updatePackageCardsUI();
+      handleConfigChange();
+    }
+
+    function updatePackageCardsUI() {
+      const cards = {
+        core: document.getElementById('pkgCardCore'),
+        pro: document.getElementById('pkgCardPro'),
+        maximus: document.getElementById('pkgCardMaximus'),
+        enterprise: document.getElementById('pkgCardEnterprise')
+      };
+
+      for (const [key, el] of Object.entries(cards)) {
+        if (!el) continue;
+        if (key === appState.package) {
+          el.classList.add('selected');
+          el.setAttribute('aria-checked', 'true');
+        } else {
+          el.classList.remove('selected');
+          el.setAttribute('aria-checked', 'false');
+        }
+      }
+
+      // Visibility & toggle enablement of business rules
+      const ruleAdBox = document.getElementById('ruleAdNetworkBox');
+      const toggleAd = document.getElementById('toggleAdDiscount');
+      const ruleMultisedeBox = document.getElementById('ruleMultisedeBox');
+      const ruleEnterpriseBox = document.getElementById('ruleEnterpriseBox');
+
+      if (appState.package === 'core') {
+        if (ruleAdBox) ruleAdBox.style.display = 'flex';
+        if (toggleAd) toggleAd.disabled = false;
+      } else {
+        if (ruleAdBox) ruleAdBox.style.display = 'none';
+        if (toggleAd) {
+          toggleAd.checked = false;
+          toggleAd.disabled = true;
+          appState.rules.adDiscount = false;
+        }
+      }
+
+      if (appState.package === 'maximus') {
+        if (ruleMultisedeBox) ruleMultisedeBox.style.display = 'flex';
+        const multisedeBadge = document.getElementById('multisedeStatusBadge');
+        if (multisedeBadge) {
+          multisedeBadge.innerText = appState.client.branches > 1 ? "50% OFF Aplicando" : "Activo si Sedes > 1";
+          multisedeBadge.style.color = appState.client.branches > 1 ? "var(--tertiary)" : "var(--on-surface-variant)";
+        }
+      } else {
+        if (ruleMultisedeBox) ruleMultisedeBox.style.display = 'none';
+      }
+
+      if (appState.package === 'enterprise') {
+        if (ruleEnterpriseBox) ruleEnterpriseBox.style.display = 'flex';
+      } else {
+        if (ruleEnterpriseBox) ruleEnterpriseBox.style.display = 'none';
+      }
+    }
+
+    // --- ADDON COUNTERS ---
+    function modifyAddon(addonKey, delta) {
+      if (appState.addons[addonKey] === undefined) return;
+      let next = appState.addons[addonKey] + delta;
+      if (next < 0) next = 0;
+      if (next > 20) next = 20;
+      appState.addons[addonKey] = next;
+      updateCounterDisplays();
+      handleConfigChange();
+    }
+
+    function updateCounterDisplays() {
+      const tvEl = document.getElementById('extraTvsVal');
+      const suppEl = document.getElementById('supplementsBlocksVal');
+      const coachEl = document.getElementById('coachesCapsulesVal');
+      const flashEl = document.getElementById('flashCortinillasVal');
+
+      if (tvEl) tvEl.innerText = appState.addons.extraTvs;
+      if (suppEl) suppEl.innerText = appState.addons.supplementsBlocks;
+      if (coachEl) coachEl.innerText = appState.addons.coachesCapsules;
+      if (flashEl) flashEl.innerText = appState.addons.flashCortinillas;
+    }
+
+    // --- DISCIPLINES CHIPS ---
+    function toggleDisciplineChip(chipId) {
+      const chip = document.getElementById(chipId);
+      if (!chip) return;
+      const input = chip.querySelector('input');
+      if (!input) return;
+
+      const disciplineName = input.value;
+      const isNowChecked = input.checked;
+
+      if (isNowChecked) {
+        chip.classList.add('checked');
+        if (!appState.addons.disciplines.includes(disciplineName)) {
+          appState.addons.disciplines.push(disciplineName);
+        }
+      } else {
+        chip.classList.remove('checked');
+        appState.addons.disciplines = appState.addons.disciplines.filter(d => d !== disciplineName);
+      }
+
+      handleConfigChange();
+    }
+
+    function updateDisciplineChipsUI() {
+      const chipMap = {
+        Spinning: 'chipSpinning',
+        Yoga: 'chipYoga',
+        Jumping: 'chipJumping',
+        Zumba: 'chipZumba',
+        Boxeo: 'chipBox',
+        CrossFit: 'chipCrossfit',
+        GAP: 'chipGap'
+      };
+
+      for (const [name, id] of Object.entries(chipMap)) {
+        const chip = document.getElementById(id);
+        if (!chip) continue;
+        const input = chip.querySelector('input');
+        const shouldBeChecked = appState.addons.disciplines.includes(name);
+        if (input) input.checked = shouldBeChecked;
+        if (shouldBeChecked) {
+          chip.classList.add('checked');
+        } else {
+          chip.classList.remove('checked');
+        }
+      }
+    }
+
+    // --- PRESETS HANDLER ---
+    function applyPreset(presetKey) {
+      // Clear preset button states
+      const presetButtons = ['presetBoutique', 'presetCommercial', 'presetMultisede', 'presetEnterprise'];
+      presetButtons.forEach(btnId => {
+        const el = document.getElementById(btnId);
+        if (el) el.classList.remove('active');
+      });
+
+      if (presetKey === 'boutique') {
+        const btn = document.getElementById('presetBoutique');
+        if (btn) btn.classList.add('active');
+        appState.package = 'core';
+        appState.client.branches = 1;
+        appState.rules.adDiscount = false;
+        appState.addons.extraTvs = 0;
+        appState.addons.supplementsBlocks = 1;
+        appState.addons.coachesCapsules = 0;
+        appState.addons.flashCortinillas = 0;
+        appState.addons.disciplines = ["Spinning", "GAP"];
+        appState.roiParams.members = 280;
+        appState.roiParams.membershipFee = 750;
+        appState.roiParams.snackTicket = 55;
+      } else if (presetKey === 'commercial') {
+        const btn = document.getElementById('presetCommercial');
+        if (btn) btn.classList.add('active');
+        appState.package = 'pro';
+        appState.client.branches = 1;
+        appState.rules.adDiscount = false;
+        appState.addons.extraTvs = 2;
+        appState.addons.supplementsBlocks = 2;
+        appState.addons.coachesCapsules = 1;
+        appState.addons.flashCortinillas = 1;
+        appState.addons.disciplines = ["Spinning", "Yoga", "GAP"];
+        appState.roiParams.members = 520;
+        appState.roiParams.membershipFee = 890;
+        appState.roiParams.snackTicket = 70;
+      } else if (presetKey === 'multisede') {
+        const btn = document.getElementById('presetMultisede');
+        if (btn) btn.classList.add('active');
+        appState.package = 'maximus';
+        appState.client.branches = 3;
+        appState.rules.multisede50 = true;
+        appState.addons.extraTvs = 4;
+        appState.addons.supplementsBlocks = 3;
+        appState.addons.coachesCapsules = 3;
+        appState.addons.flashCortinillas = 2;
+        appState.addons.disciplines = ["Spinning", "Yoga", "CrossFit", "Boxeo", "GAP"];
+        appState.roiParams.members = 1100;
+        appState.roiParams.membershipFee = 1100;
+        appState.roiParams.snackTicket = 85;
+      } else if (presetKey === 'enterprise') {
+        const btn = document.getElementById('presetEnterprise');
+        if (btn) btn.classList.add('active');
+        appState.package = 'enterprise';
+        appState.client.branches = 8;
+        appState.addons.extraTvs = 8;
+        appState.addons.supplementsBlocks = 4;
+        appState.addons.coachesCapsules = 4;
+        appState.addons.flashCortinillas = 3;
+        appState.addons.disciplines = ["Spinning", "Yoga", "Jumping", "Zumba", "Boxeo", "CrossFit", "GAP"];
+        appState.roiParams.members = 4200;
+        appState.roiParams.membershipFee = 950;
+        appState.roiParams.snackTicket = 65;
+      }
+
+      populateUIFromState();
+      handleConfigChange();
+    }
+
+    // --- MAIN REACTIVE CALCULATION & DATA FLOW ---
+    function handleConfigChange() {
+      // Gather inputs
+      const gymNameEl = document.getElementById('clientGymName');
+      const contactEl = document.getElementById('clientContactName');
+      const cityEl = document.getElementById('clientCity');
+      const phoneEl = document.getElementById('clientPhone');
+      const taxRateEl = document.getElementById('taxRate');
+      const toggleAdEl = document.getElementById('toggleAdDiscount');
+
+      if (gymNameEl) appState.client.gymName = gymNameEl.value;
+      if (contactEl) appState.client.contactName = contactEl.value;
+      if (cityEl) appState.client.city = cityEl.value;
+      if (phoneEl) appState.client.phone = phoneEl.value;
+      if (taxRateEl) appState.roiParams.taxRate = parseFloat(taxRateEl.value) || 0;
+      if (toggleAdEl) appState.rules.adDiscount = toggleAdEl.checked && appState.package === 'core';
+
+      recalculateQuote();
+
+      // Persist state silently
+      persistState();
+    }
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+          await window.notebookAppApi.setAppState(appState);
+        }
+      } catch (err) {
+        console.warn("Could not persist state to notebookAppApi:", err);
+      }
+    }
+
+    // Number formatter for Mexican Pesos ($ MXN)
+    function formatMXN(num) {
+      return '$' + Math.round(num).toLocaleString('es-MX');
+    }
+
+    function recalculateQuote() {
+      const branches = appState.client.branches || 1;
+      const pkgKey = appState.package;
+      const pkgInfo = PRICING.packages[pkgKey];
+
+      // 1. Calculate Package Base & Rules
+      let pkgGrossTotal = 0;
+      let adDiscountAmount = 0;
+      let multisedeDiscountAmount = 0;
+
+      if (pkgKey === 'core') {
+        // Core 30 is per branch
+        const singleBranchPrice = pkgInfo.basePrice;
+        pkgGrossTotal = singleBranchPrice * branches;
+
+        // 20% discount on Core 30 if ad network is active
+        if (appState.rules.adDiscount) {
+          adDiscountAmount = pkgGrossTotal * 0.20;
+        }
+      } else if (pkgKey === 'pro') {
+        // Pro Brand is per branch
+        pkgGrossTotal = pkgInfo.basePrice * branches;
+      } else if (pkgKey === 'maximus') {
+        // Maximus Bespoke: Sede 1 full price, Sede 2+ gets 50% OFF
+        const firstBranch = pkgInfo.basePrice;
+        if (branches === 1) {
+          pkgGrossTotal = firstBranch;
+          multisedeDiscountAmount = 0;
+        } else {
+          const additionalBranches = branches - 1;
+          const fullGross = firstBranch * branches;
+          const actualGross = firstBranch + (additionalBranches * (firstBranch * 0.5));
+          pkgGrossTotal = fullGross;
+          multisedeDiscountAmount = fullGross - actualGross; // 50% savings on branch 2+
+        }
+      } else if (pkgKey === 'enterprise') {
+        // Enterprise Model: $120,000 for up to 5 branches, +$15,000 per extra branch
+        const baseBranches = pkgInfo.baseBranches;
+        if (branches <= baseBranches) {
+          pkgGrossTotal = pkgInfo.basePrice;
+        } else {
+          const extraBranches = branches - baseBranches;
+          pkgGrossTotal = pkgInfo.basePrice + (extraBranches * pkgInfo.extraBranchFee);
+        }
+      }
+
+      // Net package investment after core/multisede rules
+      const pkgNetTotal = pkgGrossTotal - adDiscountAmount - multisedeDiscountAmount;
+
+      // 2. Add-ons Calculations
+      const extraTvsCost = appState.addons.extraTvs * PRICING.addons.tvPrice;
+      const disciplinesCost = appState.addons.disciplines.length * PRICING.addons.disciplinePrice;
+      const supplementsCost = appState.addons.supplementsBlocks * PRICING.addons.supplementsBlockPrice;
+      const coachesCost = appState.addons.coachesCapsules * PRICING.addons.coachCapsulePrice;
+      const flashCost = appState.addons.flashCortinillas * PRICING.addons.flashCortinillaPrice;
+
+      const addonsTotal = extraTvsCost + disciplinesCost + supplementsCost + coachesCost + flashCost;
+
+      // 3. Subtotals & Taxes
+      const subtotalInvestment = pkgNetTotal + addonsTotal;
+      const taxAmount = subtotalInvestment * appState.roiParams.taxRate;
+      const totalNetFinal = subtotalInvestment + taxAmount;
+
+      // --- UPDATE UI BREAKDOWN TABLE ---
+      const pkgNameEl = document.getElementById('breakdownPkgName');
+      const branchesCountEl = document.getElementById('breakdownBranchesCount');
+      const pkgTotalEl = document.getElementById('breakdownPkgTotal');
+      const displayTotalEl = document.getElementById('displayTotalPrice');
+
+      if (pkgNameEl) pkgNameEl.innerText = pkgInfo.name;
+      if (branchesCountEl) branchesCountEl.innerText = branches;
+      if (pkgTotalEl) pkgTotalEl.innerText = formatMXN(pkgGrossTotal);
+      if (displayTotalEl) displayTotalEl.innerText = formatMXN(totalNetFinal).replace('$', '');
+
+      // Core Ad Discount Row
+      const rowAdEl = document.getElementById('rowAdDiscount');
+      const adValEl = document.getElementById('breakdownAdDiscount');
+      if (rowAdEl && adValEl) {
+        if (adDiscountAmount > 0) {
+          rowAdEl.style.display = 'table-row';
+          adValEl.innerText = '-' + formatMXN(adDiscountAmount);
+        } else {
+          rowAdEl.style.display = 'none';
+        }
+      }
+
+      // Maximus Multisede Discount Row
+      const rowMultiEl = document.getElementById('rowMultisedeDiscount');
+      const multiValEl = document.getElementById('breakdownMultisedeDiscount');
+      if (rowMultiEl && multiValEl) {
+        if (multisedeDiscountAmount > 0) {
+          rowMultiEl.style.display = 'table-row';
+          multiValEl.innerText = '-' + formatMXN(multisedeDiscountAmount);
+        } else {
+          rowMultiEl.style.display = 'none';
+        }
+      }
+
+      // Add-ons Rows
+      const tvCountEl = document.getElementById('breakdownTvCount');
+      const tvTotalEl = document.getElementById('breakdownTvTotal');
+      if (tvCountEl) tvCountEl.innerText = appState.addons.extraTvs;
+      if (tvTotalEl) tvTotalEl.innerText = '+' + formatMXN(extraTvsCost);
+
+      const discCountEl = document.getElementById('breakdownDisciplinesCount');
+      const discTotalEl = document.getElementById('breakdownDisciplinesTotal');
+      if (discCountEl) discCountEl.innerText = appState.addons.disciplines.length;
+      if (discTotalEl) discTotalEl.innerText = '+' + formatMXN(disciplinesCost);
+
+      const suppCountEl = document.getElementById('breakdownSupplementsCount');
+      const suppTotalEl = document.getElementById('breakdownSupplementsTotal');
+      if (suppCountEl) suppCountEl.innerText = appState.addons.supplementsBlocks * 5;
+      if (suppTotalEl) suppTotalEl.innerText = '+' + formatMXN(supplementsCost);
+
+      const coachCountEl = document.getElementById('breakdownCoachesCount');
+      const coachTotalEl = document.getElementById('breakdownCoachesTotal');
+      if (coachCountEl) coachCountEl.innerText = appState.addons.coachesCapsules;
+      if (coachTotalEl) coachTotalEl.innerText = '+' + formatMXN(coachesCost);
+
+      const flashCountEl = document.getElementById('breakdownFlashCount');
+      const flashTotalEl = document.getElementById('breakdownFlashTotal');
+      if (flashCountEl) flashCountEl.innerText = appState.addons.flashCortinillas;
+      if (flashTotalEl) flashTotalEl.innerText = '+' + formatMXN(flashCost);
+
+      // Totals
+      const subtotalEl = document.getElementById('breakdownSubtotal');
+      const taxEl = document.getElementById('breakdownTax');
+      const rowTaxEl = document.getElementById('rowTax');
+      const netTotalEl = document.getElementById('breakdownNetTotal');
+
+      if (subtotalEl) subtotalEl.innerText = formatMXN(subtotalInvestment);
+      if (rowTaxEl && taxEl) {
+        if (appState.roiParams.taxRate > 0) {
+          rowTaxEl.style.display = 'table-row';
+          taxEl.innerText = '+' + formatMXN(taxAmount);
+        } else {
+          rowTaxEl.style.display = 'none';
+        }
+      }
+      if (netTotalEl) netTotalEl.innerText = formatMXN(totalNetFinal);
+
+      // --- ROI & FINANCIAL MODEL CALCULATIONS ---
+      // Grounded in the source metrics:
+      // +35% in snack/supplement ticket
+      // +80% visual retention / reduction of dropout in first 90 days (est. 18-24% churn reduction)
+      // Reference: 300 members generating ~$62,250 net incremental monthly gain
+      const totalMembers = appState.roiParams.members * branches;
+      const fee = appState.roiParams.membershipFee;
+      const currentSnack = appState.roiParams.snackTicket;
+
+      // 1. Incremental Bar revenue:
+      // ~25% of members buy supplements, DOOH increases conversion by +35% with dynamic QR
+      const activeBarBuyers = totalMembers * 0.28;
+      const barIncrementalPerBuyer = currentSnack * 0.35 * 4; // 4 purchases per month
+      const monthlyBarGain = activeBarBuyers * barIncrementalPerBuyer * 0.55; // 55% average gross margin
+
+      // 2. Churn reduction & Retention value:
+      // Average gym loses 6-8% of members/mo. Biomecánica reduces dropout by ~20%
+      const monthlyChurnedWithoutScreen = totalMembers * 0.07;
+      const savedMembersPerMonth = monthlyChurnedWithoutScreen * 0.22; // 22% rescued by guided biomechanics
+      const monthlyRetentionGain = savedMembersPerMonth * fee;
+
+      // 3. Total Monthly Net Benefit:
+      const totalMonthlyGain = monthlyBarGain + monthlyRetentionGain;
+
+      // 4. Payback Period (Months):
+      let paybackMonths = 0;
+      if (totalMonthlyGain > 0) {
+        paybackMonths = (totalNetFinal / totalMonthlyGain);
+      }
+      const formattedPayback = paybackMonths < 1 ? (Math.round(paybackMonths * 30) + ' Días') : (paybackMonths.toFixed(1) + ' Meses');
+
+      // 5. Year 1 Net Gain & Annual ROI:
+      const annualGrossGain = totalMonthlyGain * 12;
+      const annualNetProfit = annualGrossGain - totalNetFinal;
+      const roiAnnualPct = totalNetFinal > 0 ? Math.round((annualNetProfit / totalNetFinal) * 100) : 0;
+
+      // 6. Year 2+ DOOH Advertising Dividends Projection:
+      const adDividendsYearly = branches * 18000;
+
+      // Update KPI DOM
+      const kpiPaybackEl = document.getElementById('kpiPayback');
+      const kpiMonthlyGainEl = document.getElementById('kpiMonthlyGain');
+      const kpiRoiYearEl = document.getElementById('kpiRoiYear');
+      const kpiNetGainYearEl = document.getElementById('kpiNetGainYear');
+
+      const roiBarGainEl = document.getElementById('roiBarGain');
+      const roiRetentionGainEl = document.getElementById('roiRetentionGain');
+      const roiAdDividendsEl = document.getElementById('roiAdDividends');
+
+      if (kpiPaybackEl) kpiPaybackEl.innerText = formattedPayback;
+      if (kpiMonthlyGainEl) kpiMonthlyGainEl.innerText = '+' + formatMXN(totalMonthlyGain);
+      if (kpiRoiYearEl) kpiRoiYearEl.innerText = roiAnnualPct + '%';
+      if (kpiNetGainYearEl) kpiNetGainYearEl.innerText = '+' + formatMXN(annualNetProfit);
+
+      if (roiBarGainEl) roiBarGainEl.innerText = '+' + formatMXN(monthlyBarGain);
+      if (roiRetentionGainEl) roiRetentionGainEl.innerText = '+' + formatMXN(monthlyRetentionGain);
+      if (roiAdDividendsEl) roiAdDividendsEl.innerText = '+' + formatMXN(adDividendsYearly);
+
+      // Update Chart
+      updateRoiChartData(totalNetFinal, totalMonthlyGain);
+
+      // Generate Live Proposal Preview
+      updateProposalPreview(pkgInfo.name, branches, totalNetFinal, totalMonthlyGain, formattedPayback, roiAnnualPct);
+    }
+
+    // --- CHART.JS ROI VISUALIZATION ---
+    function initRoiChart() {
+      const canvas = document.getElementById('roiChart');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      roiChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Mes 0', 'Mes 1', 'Mes 2', 'Mes 3', 'Mes 4', 'Mes 5', 'Mes 6', 'Mes 7', 'Mes 8', 'Mes 9', 'Mes 10', 'Mes 11', 'Mes 12'],
+          datasets: [
+            {
+              label: 'Flujo Acumulado Neto ($ MXN)',
+              data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              borderColor: '#10b981', // Profit green
+              backgroundColor: 'rgba(16, 185, 129, 0.12)',
+              borderWidth: 2.5,
+              tension: 0.25,
+              fill: true,
+              pointBackgroundColor: '#10b981',
+              pointRadius: 3
+            },
+            {
+              label: 'Punto de Equilibrio ($0)',
+              data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              borderColor: '#8d8d8d',
+              borderWidth: 1.5,
+              borderDash: [5, 5],
+              pointRadius: 0,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              backgroundColor: '#262626',
+              titleColor: '#f4f4f4',
+              bodyColor: '#c6c6c6',
+              borderColor: '#393939',
+              borderWidth: 1,
+              titleFont: { family: "'IBM Plex Mono', monospace", size: 11 },
+              bodyFont: { family: "'IBM Plex Mono', monospace", size: 11 },
+              callbacks: {
+                label: function(context) {
+                  return ' ' + context.dataset.label + ': ' + formatMXN(context.parsed.y);
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: '#262626', drawBorder: false },
+              ticks: { color: '#8d8d8d', font: { family: "'IBM Plex Mono', monospace", size: 9 } }
+            },
+            y: {
+              grid: { color: '#262626', drawBorder: false },
+              ticks: {
+                color: '#8d8d8d',
+                font: { family: "'IBM Plex Mono', monospace", size: 9 },
+                callback: function(val) {
+                  return '$' + (val / 1000) + 'k';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateRoiChartData(initialInvestment, monthlyBenefit) {
+      if (!roiChartInstance) return;
+
+      const monthlyData = [];
+      // Month 0 is negative of total investment
+      monthlyData.push(-initialInvestment);
+
+      for (let m = 1; m <= 12; m++) {
+        const cumulative = -initialInvestment + (monthlyBenefit * m);
+        monthlyData.push(Math.round(cumulative));
+      }
+
+      roiChartInstance.data.datasets[0].data = monthlyData;
+      roiChartInstance.data.datasets[1].data = new Array(13).fill(0);
+      roiChartInstance.update();
+    }
+
+    // --- PROPOSAL TEXT BUILDER (FOR WHATSAPP / EXPORT) ---
+    function generateProposalText(pkgName, branches, totalNet, monthlyBenefit, paybackStr, roiAnnual) {
+      const clientGym = appState.client.gymName || "Gimnasio Aliado";
+      const contact = appState.client.contactName || "Estimado Director";
+      const city = appState.client.city;
+      const disciplinesStr = appState.addons.disciplines.join(", ");
+
+      const proposal = `*ORCHATA MEDIA HOUSE · PROPUESTA EJECUTIVA DOOH 2026*
+*SISTEMA ORCHATA CONEXIÓN · MARCA BLANCA PARA GIMNASIOS*
+--------------------------------------------------
+📍 *Cliente:* ${clientGym}
+👤 *Atención:* ${contact}
+🏙️ *Plaza:* ${city}
+🏢 *Sucursales:* ${branches} sede(s)
+📺 *Paquete Ecosistema:* ${pkgName}
+
+*DIAGNÓSTICO COMERCIAL:*
+Transformación de televisores pasivos en un canal privado 4K automatizado con la identidad de tu gimnasio. Elimina la deserción con rutinas biomecánicas guiadas y automatiza la venta de suplementos en barra mediante códigos QR dinámicos.
+
+*RESUMEN DE CONFIGURACIÓN & ENTREGABLES:*
+• Paquete Base: ${pkgName} (${branches} sucursal/es)
+• Pantallas Extra Calibradas: ${appState.addons.extraTvs} unidad(es)
+• Clases Grupales Producidas: ${disciplinesStr}
+• Módulos Carta Barra & Suplementos QR: ${appState.addons.supplementsBlocks * 5} productos enlazados a WhatsApp
+• Cápsulas de Coaches del Club: ${appState.addons.coachesCapsules} entrenador(es)
+• Cortinillas Flash "Happy Hour" con Temporizador: ${appState.addons.flashCortinillas} campaña(s)
+
+*BENEFICIOS CLAVE COMPROBADOS:*
+✅ +80% de Retención en Sala: Novatos aprenden postura y superan los 90 días críticos.
+✅ +35% de Incremento en Ventas de Barra con Comanda Inmediata vía QR.
+✅ 74% de Tasa de Acción Móvil por Socios frente a Pantallas.
+✅ $0 MXN en Rentas Mensuales Forzosas (Venta Única Definitiva).
+✅ Licenciamiento Sonoro Orchata Récords 100% blindado contra multas de autor.
+${branches > 1 && appState.package === 'maximus' ? '✅ Regla Multisede Aplicada: 50% OFF a partir de la 2ª sucursal.\n' : ''}${appState.rules.adDiscount ? '✅ Descuento de Red Publicitaria: 20% OFF en Core 30 por integración de pauta.\n' : ''}
+*INVERSIÓN & MODELO DE RETORNO (ROI):*
+💰 *Inversión Total Llave en Mano:* ${formatMXN(totalNet)} MXN ${appState.roiParams.taxRate > 0 ? '(IVA incluido)' : '(Precios antes de IVA)'}
+⏱️ *Período de Retorno (Payback):* ${paybackStr}
+📈 *Beneficio Mensual Neto Proyectado:* +${formatMXN(monthlyBenefit)} MXN / mes
+🚀 *ROI Anual Estimado:* ${roiAnnual}% sobre la inversión única
+💎 *Año 2+ Ingresos Pasivos:* Participación en dividendos por pauta de aliados locales.
+
+--------------------------------------------------
+*Humberto Carosilva* · Dirección General & Creativa
+*Orchata Media House* · Querétaro, México
+WhatsApp Directo: +52 442 428 0465 | hola@orchata.media
+_"No llenamos pantallas. Construimos ecosistemas de atención."_`;
+
+      return proposal;
+    }
+
+    function updateProposalPreview(pkgName, branches, totalNet, monthlyBenefit, paybackStr, roiAnnual) {
+      const previewBox = document.getElementById('proposalTextPreview');
+      if (!previewBox) return;
+      const text = generateProposalText(pkgName, branches, totalNet, monthlyBenefit, paybackStr, roiAnnual);
+      previewBox.innerText = text;
+    }
+
+    // --- COPY TO WHATSAPP ACTION ---
+    function copyWhatsAppQuote() {
+      const previewBox = document.getElementById('proposalTextPreview');
+      if (!previewBox) return;
+
+      const text = previewBox.innerText;
+
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard.writeText(text).then(function() {
+          showToast("¡Cotización copiada con éxito! Lista para pegar en WhatsApp.");
+        }).catch(function() {
+          fallbackCopyText(text);
+        });
+      } else {
+        fallbackCopyText(text);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast("¡Cotización copiada al portapapeles!");
+      } catch (err) {
+        showToast("Selecciona el texto de la previsualización para copiar.");
+      }
+      document.body.removeChild(textarea);
+    }
+
+    // --- EXPORT SUMMARY (JSON / TXT) ---
+    function exportQuotationSummary() {
+      const previewBox = document.getElementById('proposalTextPreview');
+      const textContent = previewBox ? previewBox.innerText : "Cotización Orchata DOOH";
+      const filename = `Cotizacion_Orchata_DOOH_${(appState.client.gymName || 'Gym').replace(/\s+/g, '_')}_2026.txt`;
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: textContent,
+          contentType: 'text/plain;charset=utf-8',
+          filename: filename
+        });
+        showToast(`Descargando ${filename}...`);
+      } else {
+        // Fallback for standalone browser preview
+        const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast(`Archivo ${filename} generado.`);
+      }
+    }
+
+    // --- PRINT / PDF EXPORT ---
+    function printQuotation() {
+      window.print();
+    }
+
+    // --- TOAST NOTIFICATION UTILITY ---
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const textEl = document.getElementById('toastText');
+      if (!toast || !textEl) return;
+
+      textEl.innerText = message;
+      toast.classList.add('show');
+
+      setTimeout(function() {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

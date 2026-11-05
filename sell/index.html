@@ -553,9 +553,10 @@
     <!-- Pestañas Rápidas -->
     <div class="sell-tabs-wrap">
       <a href="#dossiers" class="sell-tab-btn active">📑 Documentos & Dossiers</a>
-      <a href="#manual-asesores" class="sell-tab-btn">⚡ Manual para Asesores Comerciales</a>
+      <a href="#cotizador" class="sell-tab-btn">🧮 Calculadora de Cotización</a>
+      <a href="#manual-asesores" class="sell-tab-btn">⚡ Manual para Asesores</a>
       <a href="#pitch" class="sell-tab-btn">🎙️ Pitch Maestro</a>
-      <a href="#guiones" class="sell-tab-btn">✉️ Guiones de Venta (Email / Redes / WhatsApp)</a>
+      <a href="#guiones" class="sell-tab-btn">✉️ Guiones de Venta</a>
     </div>
 
     <!-- SECCIÓN 1: DOSSIERS & ONE PAGER DESCARGABLES/VISUALIZABLES -->
@@ -666,7 +667,79 @@
 
     </div>
 
-    <!-- SECCIÓN 2: MANUAL DE VENTAS PARA ASESORES COMERCIALES -->
+    <!-- SECCIÓN 2: CALCULADORA DE COTIZACIÓN COMERCIAL (TOOL INTERNO) -->
+    <div style="text-align:left;margin-top:60px;margin-bottom:24px;" id="cotizador">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:20px;">🧮</span>
+        <h2 style="font-size:22px;font-weight:800;color:#fff;">Calculadora & Cotizador DOOH Marca Blanca</h2>
+        <span class="sell-card-badge red" style="margin-left:auto;">🔒 Solo Equipo de Ventas</span>
+      </div>
+      <p style="font-size:13.5px;color:rgba(255,255,255,0.6);margin-top:4px;">
+        Herramienta interactiva para cotizar paquetes Core 30™, Pro Brand™, Maximus Bespoke™ y Enterprise, calcular pantallas adicionales, simular ROI a 12 meses y generar propuestas para WhatsApp al instante.
+      </p>
+    </div>
+
+    <div class="sell-grid">
+
+      <!-- CARD COTIZADOR INTERACTIVO -->
+      <article class="sell-card" style="grid-column: 1 / -1; border-color: rgba(252, 242, 0, 0.35); background: linear-gradient(135deg, rgba(20, 20, 26, 0.95) 0%, rgba(10, 10, 12, 0.98) 100%);">
+        <div class="sell-card-header">
+          <div>
+            <span class="sell-card-badge gold">⚡ Herramienta Interactiva en Vivo</span>
+            <span class="sell-card-badge" style="background:rgba(255,49,49,0.15);color:#ff3131;border-color:rgba(255,49,49,0.3);margin-left:6px;">Uso Confidencial</span>
+          </div>
+          <span style="font-size:11px;color:rgba(255,255,255,0.4);">Subpágina Privada · /sell/cotizador/</span>
+        </div>
+        <div class="sell-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;">
+            <div style="max-width:760px;">
+              <h3 class="sell-card-title" style="font-size:20px;color:#fff;">
+                Simulador Dinámico de Propuestas, Add-ons & Retorno de Inversión (ROI)
+              </h3>
+              <p class="sell-card-desc" style="font-size:14px;color:rgba(255,255,255,0.75);margin-top:8px;">
+                Permite configurar cotizaciones a la medida en tiempo real frente al cliente o antes de la llamada: ajusta número de sucursales, pantallas por sede, cápsulas de entrenadores, bloques de suplementos, reglas multisede (-50% en Maximus) y genera el resumen textual listo para copiar y enviar a WhatsApp con un solo clic.
+              </p>
+            </div>
+            <div style="background:rgba(252,242,0,0.06);border:1px solid rgba(252,242,0,0.25);border-radius:12px;padding:16px 22px;text-align:right;">
+              <div style="font-size:11px;font-weight:800;color:var(--gold-accent);text-transform:uppercase;letter-spacing:1px;">Modelo Comercial</div>
+              <div style="font-size:18px;font-weight:900;color:#fff;margin-top:2px;">$0 Rentas Mensuales</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:2px;">Venta Única Llave en Mano</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;margin-top:22px;">
+            <div style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px;">
+              <div style="font-size:12px;font-weight:800;color:var(--gold-accent);margin-bottom:4px;">1. Selección de Paquetes</div>
+              <p style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.4;">Core 30 ($28K), Pro Brand ($45K), Maximus ($75K) y Enterprise ($120K) con cálculo multisede.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px;">
+              <div style="font-size:12px;font-weight:800;color:var(--gold-accent);margin-bottom:4px;">2. Add-ons & Personalización</div>
+              <p style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.4;">Pantallas extra ($2,500), cápsulas de coaches ($4,000), bloques de suplementos ($1,200) y cortinillas flash.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px;">
+              <div style="font-size:12px;font-weight:800;color:var(--gold-accent);margin-bottom:4px;">3. Gráfica de Retorno (ROI)</div>
+              <p style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.4;">Simulador a 12 meses: demuestra el punto de equilibrio en el mes 2 mediante consumo en barra y retención de socios.</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px;">
+              <div style="font-size:12px;font-weight:800;color:var(--gold-accent);margin-bottom:4px;">4. Exportación Instantánea</div>
+              <p style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.4;">Copia la cotización formateada a WhatsApp o descarga el resumen oficial en texto plano para el cliente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sell-card-actions" style="margin-top:16px;">
+          <a href="cotizador/" target="_blank" class="sell-btn-view" style="text-decoration:none;background:var(--gold-accent);color:#0A0A0C;border-color:var(--gold-accent);font-weight:900;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+            Abrir Calculadora de Cotización (Nueva Pestaña)
+          </a>
+          <a href="cotizador/" class="sell-btn-download" style="text-decoration:none;">
+            🔗 Ir al Cotizador
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- SECCIÓN 3: MANUAL DE VENTAS PARA ASESORES COMERCIALES -->
     <div style="text-align:left;margin-top:60px;margin-bottom:24px;" id="manual-asesores">
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="font-size:20px;">⚡</span>
