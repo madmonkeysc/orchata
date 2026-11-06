@@ -1836,8 +1836,8 @@
         background: #ffffff !important;
         color: #0f172a !important;
         font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-        font-size: 8.5pt !important;
-        line-height: 1.35 !important;
+        font-size: 8.2pt !important;
+        line-height: 1.32 !important;
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
@@ -1851,335 +1851,411 @@
         display: none !important;
       }
 
-      /* Contenedor del documento oficial estructurado sobre la hoja membretada real */
+      /* Contenedor del documento oficial estructurado con hoja membretada vectorial */
       #officialQuotePrintDoc {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
         position: relative !important;
         width: 100% !important;
         max-width: 215.9mm !important; /* Ancho estándar Carta */
-        min-height: 279.4mm !important; /* Alto estándar Carta */
+        height: 279.4mm !important; /* Alto exacto Carta 1 sola página */
+        max-height: 279.4mm !important;
         margin: 0 auto !important;
         padding: 0 !important;
         box-sizing: border-box !important;
         background: #ffffff !important;
         overflow: hidden !important;
         page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
         break-inside: avoid !important;
       }
 
-      /* Capa explícita de la hoja membretada original de Orchata */
-      .print-letterhead-layer {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        z-index: 1 !important;
-        pointer-events: none !important;
+      /* ==========================================================================
+         CABECERA INSTITUCIONAL MEMBRETADA (ZONA NEGRA ORIGINAL ORCHATA)
+         ========================================================================== */
+      .print-official-header-banner {
+        background: #000000 !important;
+        color: #ffffff !important;
+        padding: 14px 20mm 12px 20mm !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        border-bottom: 3px solid #fcf200 !important; /* Acento amarillo vibrante Orchata */
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        flex-shrink: 0 !important;
       }
-      .print-letterhead-img {
+      .print-header-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+      }
+      .print-header-logo-img {
+        height: 48px !important;
+        width: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+      }
+      .print-header-titles {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      .print-header-title-main {
+        font-size: 14pt !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.04em !important;
+        color: #ffffff !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+      }
+      .print-header-title-sub {
+        font-size: 7.2pt !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.12em !important;
+        text-transform: uppercase !important;
+        color: #fcf200 !important; /* Amarillo oficial Orchata */
+        margin-top: 3px !important;
+      }
+      .print-header-doc-badge {
+        text-align: right !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+      }
+      .print-badge-tag {
+        background: #fcf200 !important;
+        color: #000000 !important;
+        font-size: 7pt !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        padding: 3px 8px !important;
+        border-radius: 4px !important;
+        margin-bottom: 4px !important;
+      }
+      .print-badge-details {
+        font-size: 7pt !important;
+        color: #94a3b8 !important;
+        line-height: 1.3 !important;
+      }
+      .print-badge-details strong {
+        color: #ffffff !important;
+      }
+
+      /* ==========================================================================
+         CUERPO EDITORIAL PRINCIPAL (FONDO BLANCO Y CONTRASTE CRISTALINO)
+         ========================================================================== */
+      .print-document-body {
+        padding: 10px 18mm 6px 18mm !important;
+        box-sizing: border-box !important;
+        flex-grow: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+
+      /* Ficha ejecutiva del prospecto */
+      .print-client-card {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 6px !important;
+        padding: 6px 12px !important;
+        margin-bottom: 8px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-label {
+        font-size: 6.5pt !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.06em !important;
+        color: #64748b !important;
+        display: block !important;
+        margin-bottom: 1px !important;
+      }
+      .print-client-name {
+        font-size: 11pt !important;
+        font-weight: 900 !important;
+        color: #09090b !important;
+        margin: 0 !important;
+        line-height: 1.15 !important;
+      }
+      .print-client-meta {
+        font-size: 7.4pt !important;
+        color: #475569 !important;
+      }
+      .print-client-col-right {
+        text-align: right !important;
+      }
+      .print-branches-badge {
+        display: inline-block !important;
+        background: #09090b !important;
+        color: #fcf200 !important;
+        padding: 2px 7px !important;
+        border-radius: 4px !important;
+        font-size: 7.2pt !important;
+        font-weight: 800 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Carta de agradecimiento y propósito */
+      .print-letter-section {
+        background: #ffffff !important;
+        border-left: 3.5px solid #09090b !important;
+        padding: 2px 10px !important;
+        margin-bottom: 8px !important;
+        font-size: 7.5pt !important;
+        color: #334155 !important;
+        line-height: 1.36 !important;
+      }
+      .print-letter-p {
+        margin: 0 0 3px 0 !important;
+      }
+      .print-letter-p:last-child {
+        margin-bottom: 0 !important;
+      }
+      .print-letter-p strong {
+        color: #09090b !important;
+      }
+
+      /* Desglose formal de inversión */
+      .print-section-header {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-bottom: 4px !important;
+      }
+      .print-section-num {
+        background: #09090b !important;
+        color: #ffffff !important;
+        font-size: 6.5pt !important;
+        font-weight: 900 !important;
+        padding: 1px 5px !important;
+        border-radius: 3px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-section-title {
+        font-size: 8.5pt !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.04em !important;
+        color: #09090b !important;
+        margin: 0 !important;
+      }
+      .print-table {
         width: 100% !important;
-        height: 100% !important;
-        object-fit: fill !important;
+        border-collapse: collapse !important;
+        font-size: 7.2pt !important;
+        margin-bottom: 8px !important;
+      }
+      .print-table th {
+        background: #f1f5f9 !important;
+        color: #475569 !important;
+        font-size: 6.6pt !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+        padding: 4px 6px !important;
+        border-top: 1px solid #cbd5e1 !important;
+        border-bottom: 1.5px solid #94a3b8 !important;
+        text-align: left !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-table td {
+        padding: 3.5px 6px !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        color: #334155 !important;
+        vertical-align: top !important;
+      }
+      .print-td-desc {
+        font-size: 6.4pt !important;
+        color: #64748b !important;
+        margin-top: 1px !important;
+      }
+      .print-discount-tr td {
+        background: #f0fdf4 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-subtotal-tr td {
+        padding-top: 4px !important;
+        font-weight: 700 !important;
+        color: #475569 !important;
+        border-top: 1.5px solid #cbd5e1 !important;
+        border-bottom: none !important;
+      }
+      .print-tax-tr td {
+        font-size: 6.8pt !important;
+        color: #64748b !important;
+        border-bottom: 1.5px solid #94a3b8 !important;
+      }
+      .print-total-tr td {
+        background: #fafaf9 !important;
+        border-top: 1.8px solid #09090b !important;
+        border-bottom: 1.8px solid #09090b !important;
+        padding: 5px 6px !important;
+        vertical-align: middle !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-hero-price {
+        font-size: 12pt !important;
+        font-weight: 900 !important;
+        color: #09090b !important;
+        margin-right: 2px !important;
+      }
+
+      /* Proyección matemática del ROI */
+      .print-roi-section {
+        margin-bottom: 8px !important;
+      }
+      .print-roi-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        gap: 8px !important;
+        margin-bottom: 4px !important;
+      }
+      .print-roi-card {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 5px !important;
+        padding: 4px 6px !important;
+        text-align: center !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-roi-label {
+        font-size: 6pt !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        color: #64748b !important;
+        display: block !important;
+      }
+      .print-roi-value {
+        font-size: 10pt !important;
+        font-weight: 900 !important;
+        margin: 1px 0 !important;
+        line-height: 1.1 !important;
+      }
+      .print-roi-sub {
+        font-size: 6pt !important;
+        color: #64748b !important;
+        margin: 0 !important;
+      }
+      .print-roi-explanation {
+        background: #fffbeb !important;
+        border: 1px solid #fde68a !important;
+        border-radius: 5px !important;
+        padding: 4px 8px !important;
+        font-size: 6.8pt !important;
+        color: #92400e !important;
+        line-height: 1.3 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Cierre inspiracional & bloque de firmas */
+      .print-closing-section {
+        border-top: 1px solid #e2e8f0 !important;
+        padding-top: 5px !important;
+        margin-bottom: 0 !important;
+      }
+      .print-closing-title {
+        font-size: 7.5pt !important;
+        font-weight: 800 !important;
+        color: #09090b !important;
+        margin: 0 0 1px 0 !important;
+      }
+      .print-closing-text {
+        font-size: 6.8pt !important;
+        color: #475569 !important;
+        margin: 0 0 6px 0 !important;
+        line-height: 1.3 !important;
+      }
+      .print-signatures-wrap {
+        display: flex !important;
+        justify-content: space-between !important;
+        gap: 36px !important;
+        margin-top: 2px !important;
+      }
+      .print-sig-col {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        font-size: 6.8pt !important;
+        color: #475569 !important;
+        line-height: 1.25 !important;
+        position: relative !important;
+      }
+      .print-sig-img-wrap {
+        height: 52px !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        margin-bottom: -6px !important;
+        z-index: 2 !important;
+      }
+      .print-humberto-sig {
+        height: 54px !important;
+        width: auto !important;
+        max-width: 160px !important;
+        object-fit: contain !important;
+        display: block !important;
+        filter: contrast(1.15) !important;
+      }
+      .print-sig-box-client {
+        height: 52px !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        justify-content: center !important;
+        padding-bottom: 2px !important;
+        font-size: 6.5pt !important;
+        color: #94a3b8 !important;
+        font-style: italic !important;
+        margin-bottom: -6px !important;
+        z-index: 2 !important;
+      }
+      .print-sig-line {
+        border-bottom: 1.8px solid #09090b !important;
+        margin-bottom: 4px !important;
+        width: 100% !important;
+        height: 6px !important;
+      }
+      .print-sig-col strong {
+        color: #09090b !important;
+        font-size: 7.5pt !important;
+      }
+      .print-sig-col span {
         display: block !important;
       }
 
-      /* Contenido tipográfico y tablas situado exactamente dentro de los márgenes seguros de la hoja membretada */
-      .print-document-content {
-        position: relative !important;
-        z-index: 5 !important;
-        padding: 27mm 15mm 16mm 15mm !important; /* Libera el header institucional superior y el footer inferior */
-        box-sizing: border-box !important;
+      /* ==========================================================================
+         FOOTER OFICIAL DE HOJA MEMBRETADA (ORCHATA MEDIA HOUSE)
+         ========================================================================== */
+      .print-official-footer-bar {
+        background: #ffffff !important;
+        border-top: 1px solid #cbd5e1 !important;
+        padding: 6px 20mm 8px 20mm !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        font-size: 6.5pt !important;
+        color: #64748b !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.02em !important;
+        flex-shrink: 0 !important;
       }
-
-      /* Header de meta-datos de la propuesta */
-      .print-doc-meta-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 2px solid #09090b;
-        padding-bottom: 5px;
-        margin-bottom: 8px;
-      }
-      .print-meta-badge {
-        font-size: 8.5pt;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #09090b;
-      }
-      .print-meta-details {
-        font-size: 7.5pt;
-        color: #64748b;
-        display: flex;
-        gap: 16px;
-      }
-      .print-meta-details strong {
-        color: #09090b;
-      }
-
-      /* Ficha del cliente */
-      .print-client-card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        padding: 7px 12px;
-        margin-bottom: 8px;
-      }
-      .print-label {
-        font-size: 6.8pt;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        color: #94a3b8;
-        display: block;
-        margin-bottom: 2px;
-      }
-      .print-client-name {
-        font-size: 11pt;
-        font-weight: 900;
-        color: #09090b;
-        margin: 0 0 2px 0;
-        line-height: 1.15;
-      }
-      .print-client-meta {
-        font-size: 7.8pt;
-        color: #475569;
-      }
-      .print-client-col-right {
-        text-align: right;
-      }
-      .print-branches-badge {
-        display: inline-block;
-        background: #09090b;
-        color: #fcf200;
-        padding: 2px 7px;
-        border-radius: 4px;
-        font-size: 7.5pt;
-        font-weight: 800;
-      }
-
-      /* Carta ejecutiva de agradecimiento */
-      .print-letter-section {
-        background: #ffffff;
-        border-left: 3px solid #f59e0b;
-        padding: 2px 10px;
-        margin-bottom: 8px;
-        font-size: 7.6pt;
-        color: #334155;
-        line-height: 1.38;
-      }
-      .print-letter-p {
-        margin: 0 0 4px 0;
-      }
-      .print-letter-p:last-child {
-        margin-bottom: 0;
-      }
-      .print-letter-p strong {
-        color: #09090b;
-      }
-
-      /* Desglose de inversión */
-      .print-section-header {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 5px;
-      }
-      .print-section-num {
-        background: #09090b;
-        color: #fff;
-        font-size: 6.8pt;
-        font-weight: 900;
-        padding: 1.5px 5px;
-        border-radius: 3px;
-      }
-      .print-section-title {
-        font-size: 8.8pt;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        color: #09090b;
-        margin: 0;
-      }
-      .print-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 7.4pt;
-        margin-bottom: 8px;
-      }
-      .print-table th {
-        background: #f1f5f9;
-        color: #475569;
-        font-size: 6.8pt;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        padding: 4px 6px;
-        border-top: 1px solid #cbd5e1;
-        border-bottom: 1.5px solid #94a3b8;
-        text-align: left;
-      }
-      .print-table td {
-        padding: 4px 6px;
-        border-bottom: 1px solid #e2e8f0;
-        color: #334155;
-        vertical-align: top;
-      }
-      .print-td-desc {
-        font-size: 6.6pt;
-        color: #64748b;
-        margin-top: 1px;
-      }
-      .print-discount-tr td {
-        background: #f0fdf4;
-      }
-      .print-subtotal-tr td {
-        padding-top: 5px;
-        font-weight: 700;
-        color: #475569;
-        border-top: 1.5px solid #cbd5e1;
-        border-bottom: none;
-      }
-      .print-tax-tr td {
-        font-size: 7pt;
-        color: #64748b;
-        border-bottom: 1.5px solid #94a3b8;
-      }
-      .print-total-tr td {
-        background: #fafaf9;
-        border-top: 1.8px solid #09090b;
-        border-bottom: 1.8px solid #09090b;
-        padding: 6px 6px;
-        vertical-align: middle;
-      }
-      .print-hero-price {
-        font-size: 12.5pt;
-        font-weight: 900;
-        color: #09090b;
-        margin-right: 2px;
-      }
-
-      /* Sección ROI */
-      .print-roi-section {
-        margin-bottom: 8px;
-      }
-      .print-roi-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 8px;
-        margin-bottom: 5px;
-      }
-      .print-roi-card {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 5px;
-        padding: 5px 8px;
-        text-align: center;
-      }
-      .print-roi-label {
-        font-size: 6.2pt;
-        font-weight: 800;
-        text-transform: uppercase;
-        color: #64748b;
-        display: block;
-      }
-      .print-roi-value {
-        font-size: 10.5pt;
-        font-weight: 900;
-        margin: 1px 0;
-        line-height: 1.1;
-      }
-      .print-roi-sub {
-        font-size: 6.2pt;
-        color: #64748b;
-        margin: 0;
-      }
-      .print-roi-explanation {
-        background: #fffbeb;
-        border: 1px solid #fde68a;
-        border-radius: 5px;
-        padding: 5px 8px;
-        font-size: 7pt;
-        color: #92400e;
-        line-height: 1.32;
-      }
-
-      /* Cierre & Firmas con amplio espacio para cliente */
-      .print-closing-section {
-        border-top: 1px solid #e2e8f0;
-        padding-top: 6px;
-        margin-bottom: 2px;
-      }
-      .print-closing-title {
-        font-size: 7.8pt;
-        font-weight: 800;
-        color: #09090b;
-        margin: 0 0 2px 0;
-      }
-      .print-closing-text {
-        font-size: 7pt;
-        color: #475569;
-        margin: 0 0 8px 0;
-        line-height: 1.32;
-      }
-      .print-signatures-wrap {
-        display: flex;
-        justify-content: space-between;
-        gap: 36px;
-        margin-top: 4px;
-      }
-      .print-sig-col {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        font-size: 7pt;
-        color: #475569;
-        line-height: 1.3;
-        position: relative;
-      }
-      .print-sig-img-wrap {
-        height: 64px;
-        display: flex;
-        align-items: flex-end;
-        margin-bottom: -10px;
-        z-index: 2;
-      }
-      .print-humberto-sig {
-        height: 64px;
-        width: auto;
-        max-width: 170px;
-        object-fit: contain;
-        display: block;
-        filter: contrast(1.15);
-      }
-      .print-sig-box-client {
-        height: 64px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        padding-bottom: 4px;
-        font-size: 6.8pt;
-        color: #94a3b8;
-        font-style: italic;
-        margin-bottom: -10px;
-        z-index: 2;
-      }
-      .print-sig-line {
-        border-bottom: 1.8px solid #09090b;
-        margin-bottom: 5px;
-        width: 100%;
-        height: 8px;
-      }
-      .print-sig-col strong {
-        color: #09090b;
-        font-size: 7.8pt;
-      }
-      .print-sig-col span {
-        display: block;
+      .print-footer-brand-text {
+        color: #09090b !important;
+        font-weight: 800 !important;
       }
     }
   
@@ -3970,24 +4046,28 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
        ========================================================================== -->
   <div id="officialQuotePrintDoc" class="official-print-document">
     
-    <!-- HOJA MEMBRETADA INSTITUCIONAL ORCHATA MEDIA HOUSE (CAPA VISUAL DIRECTA) -->
-    <div class="print-letterhead-layer">
-      <img src="../../assets/images/Hoja_Membretada_HQ.png" alt="Membrete Oficial Orchata Media House" class="print-letterhead-img">
-    </div>
-
-    <!-- CONTENIDO ESTRUCTURADO Y FORMAL DE LA COTIZACIÓN -->
-    <div class="print-document-content">
-      
-      <!-- BARRA DE FOLIO Y FECHA -->
-      <header class="print-doc-meta-bar">
-        <span class="print-meta-badge">PROPUESTA EJECUTIVA & COTIZACIÓN OFICIAL</span>
-        <div class="print-meta-details">
-          <span><strong>Folio:</strong> <span id="printFolio">OMH-2026-8842</span></span>
-          <span><strong>Fecha:</strong> <span id="printDate">Noviembre 2026</span></span>
-          <span><strong>Validez:</strong> 15 días hábiles</span>
+    <!-- CABECERA INSTITUCIONAL MEMBRETADA (ZONA NEGRA OFICIAL ORCHATA MEDIA HOUSE) -->
+    <header class="print-official-header-banner">
+      <div class="print-header-brand">
+        <img src="../../assets/images/Orchata_Membrete_Logo_Vector.png" alt="Orchata Media House" class="print-header-logo-img">
+        <div class="print-header-titles">
+          <h1 class="print-header-title-main">ORCHATA MEDIA HOUSE</h1>
+          <span class="print-header-title-sub">DOOH Marca Blanca · Producción & Conversión para Gimnasios</span>
         </div>
-      </header>
+      </div>
+      <div class="print-header-doc-badge">
+        <span class="print-badge-tag">Propuesta Ejecutiva</span>
+        <div class="print-badge-details">
+          <div><strong>Folio:</strong> <span id="printFolio">OMH-2026-8842</span></div>
+          <div><strong>Fecha:</strong> <span id="printDate">Noviembre 2026</span></div>
+          <div><strong>Validez:</strong> 15 días hábiles</div>
+        </div>
+      </div>
+    </header>
 
+    <!-- CUERPO EDITORIAL DE LA COTIZACIÓN -->
+    <div class="print-document-body">
+      
       <!-- DATOS DEL PROSPECTO -->
       <section class="print-client-card">
         <div class="print-client-col">
@@ -3998,7 +4078,7 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
         <div class="print-client-col print-client-col-right">
           <span class="print-label">Alcance del Ecosistema:</span>
           <div class="print-branches-badge"><strong id="printBranchesCount">1</strong> Sucursal(es) Cobertura</div>
-          <div class="print-client-meta" style="margin-top:3px;"><strong>Modelo:</strong> Llave en Mano ($0 Rentas de Software)</div>
+          <div class="print-client-meta" style="margin-top:2px;"><strong>Modelo:</strong> Llave en Mano (/bin/zsh Rentas de Software)</div>
         </div>
       </section>
 
@@ -4035,7 +4115,7 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <div class="print-td-desc" id="printPkgDesc">Ecosistema integral: Identidad 3D, loops diferenciados por zonas (cardio/fuerza) y menú dinámico de suplementos.</div>
               </td>
               <td id="printPkgSedes"><span id="printPkgBranchesCount">1</span> sede(s) autorizada(s)</td>
-              <td style="text-align:right;" id="printPkgBasePrice">$25,000</td>
+              <td style="text-align:right;" id="printPkgBasePrice">,000</td>
             </tr>
 
             <!-- REGLAS DE DESCUENTO SI APLICAN -->
@@ -4045,7 +4125,7 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <div class="print-td-desc">Pauta controlada y no invasiva de marcas aliadas seleccionadas.</div>
               </td>
               <td>Descuento comercial</td>
-              <td style="text-align:right;color:#059669;" id="printAdDiscountAmount">-$2,400</td>
+              <td style="text-align:right;color:#059669;" id="printAdDiscountAmount">-,400</td>
             </tr>
             <tr id="printRowMultisedeDiscount" style="display:none;" class="print-discount-tr">
               <td>
@@ -4053,7 +4133,7 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <div class="print-td-desc">Tarifa preferencial para cadenas consolidadas.</div>
               </td>
               <td>Bonificación multi-club</td>
-              <td style="text-align:right;color:#059669;" id="printMultisedeDiscountAmount">-$0</td>
+              <td style="text-align:right;color:#059669;" id="printMultisedeDiscountAmount">-/bin/zsh</td>
             </tr>
 
             <!-- EXTRAS & ADDONS -->
@@ -4062,8 +4142,8 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <strong>Pantallas / Reproductores Extra Calibrados</strong>
                 <div class="print-td-desc">Equipamiento y sincronización de televisores adicionales en sala.</div>
               </td>
-              <td><span id="printExtraTvsQty">0</span> pantalla(s) (+$1,500 c/u)</td>
-              <td style="text-align:right;" id="printExtraTvsTotal">$0</td>
+              <td><span id="printExtraTvsQty">0</span> pantalla(s) (+,500 c/u)</td>
+              <td style="text-align:right;" id="printExtraTvsTotal">/bin/zsh</td>
             </tr>
 
             <tr id="printRowSupplements" style="display:none;">
@@ -4071,8 +4151,8 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <strong>Carta Digital de Barra & Suplementación con QR</strong>
                 <div class="print-td-desc">Digitalización de botes y batidos servidos listos con comanda instantánea.</div>
               </td>
-              <td><span id="printSupplementsQty">0</span> productos (+$1,200/bloque)</td>
-              <td style="text-align:right;" id="printSupplementsTotal">$0</td>
+              <td><span id="printSupplementsQty">0</span> productos (+,200/bloque)</td>
+              <td style="text-align:right;" id="printSupplementsTotal">/bin/zsh</td>
             </tr>
 
             <tr id="printRowDisciplines" style="display:none;">
@@ -4080,8 +4160,8 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <strong>Producción de Clases Grupales Específicas</strong>
                 <div class="print-td-desc" id="printDisciplinesNames">Spinning, Yoga, GAP</div>
               </td>
-              <td><span id="printDisciplinesQty">0</span> disciplina(s) (+$1,800 c/u)</td>
-              <td style="text-align:right;" id="printDisciplinesTotal">$0</td>
+              <td><span id="printDisciplinesQty">0</span> disciplina(s) (+,800 c/u)</td>
+              <td style="text-align:right;" id="printDisciplinesTotal">/bin/zsh</td>
             </tr>
 
             <tr id="printRowCoaches" style="display:none;">
@@ -4089,8 +4169,8 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <strong>Cápsulas Técnicas con Coaches de Piso</strong>
                 <div class="print-td-desc">Grabación en set 5600K con código QR personal para agendamiento de citas.</div>
               </td>
-              <td><span id="printCoachesQty">0</span> coach(es) (+$2,500 c/u)</td>
-              <td style="text-align:right;" id="printCoachesTotal">$0</td>
+              <td><span id="printCoachesQty">0</span> coach(es) (+,500 c/u)</td>
+              <td style="text-align:right;" id="printCoachesTotal">/bin/zsh</td>
             </tr>
 
             <tr id="printRowFlash" style="display:none;">
@@ -4098,26 +4178,26 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
                 <strong>Campañas Flash "Happy Hour" en Pantalla</strong>
                 <div class="print-td-desc">Cortinillas de 180s con cuenta regresiva para compras de impulso en barra.</div>
               </td>
-              <td><span id="printFlashQty">0</span> campaña(s) (+$1,500 c/u)</td>
-              <td style="text-align:right;" id="printFlashTotal">$0</td>
+              <td><span id="printFlashQty">0</span> campaña(s) (+,500 c/u)</td>
+              <td style="text-align:right;" id="printFlashTotal">/bin/zsh</td>
             </tr>
           </tbody>
           <tfoot>
             <tr class="print-subtotal-tr">
               <td colspan="2">Subtotal Inversión Llave en Mano:</td>
-              <td style="text-align:right;" id="printSubtotalPrice">$25,000</td>
+              <td style="text-align:right;" id="printSubtotalPrice">,000</td>
             </tr>
             <tr id="printRowTax" class="print-tax-tr">
               <td colspan="2">I.V.A. Trasladado (16% Deducible Fiscal):</td>
-              <td style="text-align:right;" id="printTaxPrice">$4,000</td>
+              <td style="text-align:right;" id="printTaxPrice">,000</td>
             </tr>
             <tr class="print-total-tr">
               <td colspan="2">
                 <div style="font-size:0.95rem;font-weight:900;">INVERSIÓN TOTAL DEFINITIVA:</div>
-                <div style="font-size:0.7rem;font-weight:600;color:#059669;">Pago único llave en mano · Cero mensualidades de licenciamiento</div>
+                <div style="font-size:0.68rem;font-weight:600;color:#059669;">Pago único llave en mano · Cero mensualidades de licenciamiento</div>
               </td>
               <td style="text-align:right;">
-                <span class="print-hero-price" id="printTotalFinalPrice">$29,000</span>
+                <span class="print-hero-price" id="printTotalFinalPrice">,000</span>
                 <span style="font-size:0.75rem;color:#64748b;">MXN</span>
               </td>
             </tr>
@@ -4140,7 +4220,7 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
           </div>
           <div class="print-roi-card">
             <span class="print-roi-label">Beneficio Mensual Neto Generado</span>
-            <div class="print-roi-value" style="color:#059669;" id="printMonthlyGain">+$18,450 MXN</div>
+            <div class="print-roi-value" style="color:#059669;" id="printMonthlyGain">+,450 MXN</div>
             <p class="print-roi-sub">Por retención de socios + incremento en barra con QR.</p>
           </div>
           <div class="print-roi-card">
@@ -4188,13 +4268,24 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
             <strong>Aceptación & Firma de Conformidad</strong>
             <span id="printSignClientName" style="font-weight:700;color:#09090b;">Ing. Carlos Mendoza</span>
             <span id="printSignGymName">Iron Republic Fitness Club</span>
-            <span style="font-size:6.8pt;color:#64748b;margin-top:3px;">Fecha de Aceptación: __________________________________</span>
+            <span style="font-size:6.5pt;color:#64748b;margin-top:2px;">Fecha de Aceptación: __________________________________</span>
           </div>
 
         </div>
       </section>
 
     </div>
+
+    <!-- PIE INSTITUCIONAL MEMBRETADO (ORIGINAL HOJA MEMBRETADA) -->
+    <footer class="print-official-footer-bar">
+      <div>
+        <span class="print-footer-brand-text">Orchata Media House</span>
+        <span>&nbsp;·&nbsp;www.orchatahouse.com&nbsp;·&nbsp;hola@orchatahouse.com</span>
+      </div>
+      <div>
+        <span>Documento Oficial de Cotización Llave en Mano&nbsp;·&nbsp;Página 1 de 1</span>
+      </div>
+    </footer>
 
   </div>
 
