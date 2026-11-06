@@ -1817,29 +1817,335 @@
     }
 
     /* Print styles for Clean Executive Quotation Export */
+    
+    /* ==========================================================================
+       ESTILOS DEL DOCUMENTO FORMAL DE COTIZACIÓN (PRINT / PDF)
+       ========================================================================== */
+    #officialQuotePrintDoc {
+      display: none;
+    }
+
     @media print {
-      body {
-        background-color: var(--print-bg);
-        color: var(--print-ink);
+      /* Reset para impresión perfecta y limpia en papel / PDF */
+      html, body {
+        background: #ffffff !important;
+        color: #1e293b !important;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-size: 9.5pt !important;
+        line-height: 1.4 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
-      .app-header, .stats-ribbon, .presets-container, .action-button-stack, .counter-control, .carbon-toggle {
+
+      /* Ocultar interfaz del cotizador */
+      .app-container, .toast-msg, api-shim, header.app-header, .stats-ribbon, .presets-container {
         display: none !important;
       }
-      .summary-column {
-        position: static;
+
+      /* Mostrar documento formal con diseño editorial */
+      #officialQuotePrintDoc {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 8mm 10mm !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
       }
-      .calculator-grid {
+
+      .print-doc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2.5px solid #09090b;
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+      }
+      .print-doc-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .print-doc-logo {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+      }
+      .print-doc-title {
+        font-size: 15pt;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        color: #09090b;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .print-doc-subtitle {
+        font-size: 7.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #d97706; /* Orchata gold dark for print */
+        letter-spacing: 0.05em;
+        display: block;
+        margin-top: 2px;
+      }
+      .print-doc-meta {
+        text-align: right;
+        font-size: 8pt;
+        color: #64748b;
+        line-height: 1.35;
+      }
+      .print-meta-folio {
+        font-size: 9pt;
+        font-weight: 900;
+        color: #09090b;
+        letter-spacing: 0.04em;
+        margin-bottom: 2px;
+      }
+
+      /* Client Card */
+      .print-client-card {
+        display: flex;
+        justify-content: space-between;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+      }
+      .print-label {
+        font-size: 7.2pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #94a3b8;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .print-client-name {
+        font-size: 12.5pt;
+        font-weight: 900;
+        color: #09090b;
+        margin: 0 0 4px 0;
+        line-height: 1.15;
+      }
+      .print-client-meta {
+        font-size: 8.2pt;
+        color: #475569;
+      }
+      .print-client-col-right {
+        text-align: right;
+      }
+      .print-branches-badge {
+        display: inline-block;
+        background: #09090b;
+        color: #fcf200;
+        padding: 3px 9px;
+        border-radius: 4px;
+        font-size: 8pt;
+        font-weight: 800;
+      }
+
+      /* Letter Section */
+      .print-letter-section {
+        background: #ffffff;
+        border-left: 3.5px solid #d97706;
+        padding: 4px 14px;
+        margin-bottom: 14px;
+        font-size: 8.5pt;
+        color: #334155;
+        line-height: 1.45;
+      }
+      .print-letter-p {
+        margin: 0 0 6px 0;
+      }
+      .print-letter-p:last-child {
+        margin-bottom: 0;
+      }
+      .print-letter-p strong {
+        color: #09090b;
+      }
+
+      /* Pricing Section */
+      .print-section-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .print-section-num {
+        background: #09090b;
+        color: #fff;
+        font-size: 7.5pt;
+        font-weight: 900;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+      .print-section-title {
+        font-size: 10pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #09090b;
+        margin: 0;
+      }
+      .print-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8.2pt;
+        margin-bottom: 14px;
+      }
+      .print-table th {
+        background: #f1f5f9;
+        color: #475569;
+        font-size: 7.2pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 6px 8px;
+        border-top: 1px solid #cbd5e1;
+        border-bottom: 1.5px solid #94a3b8;
+        text-align: left;
+      }
+      .print-table td {
+        padding: 7px 8px;
+        border-bottom: 1px solid #e2e8f0;
+        color: #334155;
+        vertical-align: top;
+      }
+      .print-td-desc {
+        font-size: 7.2pt;
+        color: #64748b;
+        margin-top: 2px;
+      }
+      .print-discount-tr td {
+        background: #f0fdf4;
+      }
+      .print-subtotal-tr td {
+        padding-top: 8px;
+        font-weight: 700;
+        color: #475569;
+        border-top: 1.5px solid #cbd5e1;
+        border-bottom: none;
+      }
+      .print-tax-tr td {
+        font-size: 7.8pt;
+        color: #64748b;
+        border-bottom: 1.5px solid #94a3b8;
+      }
+      .print-total-tr td {
+        background: #fafaf9;
+        border-top: 2px solid #09090b;
+        border-bottom: 2px solid #09090b;
+        padding: 10px 8px;
+        vertical-align: middle;
+      }
+      .print-hero-price {
+        font-size: 14pt;
+        font-weight: 900;
+        color: #09090b;
+        margin-right: 3px;
+      }
+
+      /* ROI Section */
+      .print-roi-section {
+        margin-bottom: 14px;
+      }
+      .print-roi-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .print-roi-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 8px 10px;
+        text-align: center;
+      }
+      .print-roi-label {
+        font-size: 6.8pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #64748b;
         display: block;
       }
-      .panel, .quote-hero-card, .roi-kpi-cell {
-        background-color: var(--print-bg) !important;
-        border: 1px solid var(--print-border) !important;
-        color: var(--print-ink) !important;
+      .print-roi-value {
+        font-size: 13pt;
+        font-weight: 900;
+        margin: 2px 0;
+        line-height: 1.1;
       }
-      .hero-total-price, .pkg-price, .stat-metric {
-        color: var(--print-ink) !important;
+      .print-roi-sub {
+        font-size: 6.8pt;
+        color: #64748b;
+        margin: 0;
+      }
+      .print-roi-explanation {
+        background: #fffbeb;
+        border: 1px solid #fde68a;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-size: 7.8pt;
+        color: #92400e;
+        line-height: 1.35;
+      }
+
+      /* Closing & Signatures */
+      .print-closing-section {
+        border-top: 1px solid #e2e8f0;
+        padding-top: 10px;
+        margin-bottom: 10px;
+      }
+      .print-closing-title {
+        font-size: 9pt;
+        font-weight: 800;
+        color: #09090b;
+        margin: 0 0 3px 0;
+      }
+      .print-closing-text {
+        font-size: 7.8pt;
+        color: #475569;
+        margin: 0 0 16px 0;
+        line-height: 1.35;
+      }
+      .print-signatures-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        margin-top: 20px;
+      }
+      .print-sig-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 7.5pt;
+        color: #475569;
+        line-height: 1.3;
+      }
+      .print-sig-line {
+        border-bottom: 1.5px solid #09090b;
+        margin-bottom: 6px;
+        width: 100%;
+        height: 25px;
+      }
+      .print-sig-col strong {
+        color: #09090b;
+        font-size: 8pt;
+      }
+
+      .print-doc-footer {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #cbd5e1;
+        padding-top: 6px;
+        font-size: 6.8pt;
+        color: #94a3b8;
       }
     }
+
   </style>
 </head>
 <body>
@@ -3241,45 +3547,45 @@
     // --- PROPOSAL TEXT BUILDER (FOR WHATSAPP / EXPORT) ---
     function generateProposalText(pkgName, branches, totalNet, monthlyBenefit, paybackStr, roiAnnual) {
       const clientGym = appState.client.gymName || "Gimnasio Aliado";
-      const contact = appState.client.contactName || "Estimado Director";
+      const contact = appState.client.contactName || "Estimado(a) Director(a)";
       const city = appState.client.city;
-      const disciplinesStr = appState.addons.disciplines.join(", ");
+      const disciplinesStr = appState.addons.disciplines.length > 0 ? appState.addons.disciplines.join(", ") : "Biomecánica de fuerza general";
 
-      const proposal = `*ORCHATA MEDIA HOUSE · PROPUESTA EJECUTIVA DOOH 2026*
+      const proposal = `*ORCHATA MEDIA HOUSE · PROPUESTA EJECUTIVA DOOH*
 *SISTEMA ORCHATA CONEXIÓN · MARCA BLANCA PARA GIMNASIOS*
 --------------------------------------------------
-📍 *Cliente:* ${clientGym}
-👤 *Atención:* ${contact}
-🏙️ *Plaza:* ${city}
-🏢 *Sucursales:* ${branches} sede(s)
-📺 *Paquete Ecosistema:* ${pkgName}
+*Apreciable ${contact} (${clientGym}):*
 
-*DIAGNÓSTICO COMERCIAL:*
-Transformación de televisores pasivos en un canal privado 4K automatizado con la identidad de tu gimnasio. Elimina la deserción con rutinas biomecánicas guiadas y automatiza la venta de suplementos en barra mediante códigos QR dinámicos.
+Ante todo, *muchas gracias por considerarnos* y por el tiempo brindado para analizar la evolución de sus instalaciones. Para nosotros en *Orchata Media House* es un verdadero privilegio y compromiso ser su socio estratégico.
 
-*RESUMEN DE CONFIGURACIÓN & ENTREGABLES:*
-• Paquete Base: ${pkgName} (${branches} sucursal/es)
-• Pantallas Extra Calibradas: ${appState.addons.extraTvs} unidad(es)
-• Clases Grupales Producidas: ${disciplinesStr}
-• Módulos Carta Barra & Suplementos QR: ${appState.addons.supplementsBlocks * 5} productos enlazados a WhatsApp
-• Cápsulas de Coaches del Club: ${appState.addons.coachesCapsules} entrenador(es)
-• Cortinillas Flash "Happy Hour" con Temporizador: ${appState.addons.flashCortinillas} campaña(s)
-
-*BENEFICIOS CLAVE COMPROBADOS:*
-✅ +80% de Retención en Sala: Novatos aprenden postura y superan los 90 días críticos.
-✅ +35% de Incremento en Ventas de Barra con Comanda Inmediata vía QR.
-✅ 74% de Tasa de Acción Móvil por Socios frente a Pantallas.
-✅ $0 MXN en Rentas Mensuales Forzosas (Venta Única Definitiva).
-✅ Licenciamiento Sonoro Orchata Récords 100% blindado contra multas de autor.
-${branches > 1 && appState.package === 'maximus' ? '✅ Regla Multisede Aplicada: 50% OFF a partir de la 2ª sucursal.\n' : ''}${appState.rules.adDiscount ? '✅ Descuento de Red Publicitaria: 20% OFF en Core 30 por integración de pauta.\n' : ''}
-*INVERSIÓN & MODELO DE RETORNO (ROI):*
-💰 *Inversión Total Llave en Mano:* ${formatMXN(totalNet)} MXN ${appState.roiParams.taxRate > 0 ? '(IVA incluido)' : '(Precios antes de IVA)'}
-⏱️ *Período de Retorno (Payback):* ${paybackStr}
-📈 *Beneficio Mensual Neto Proyectado:* +${formatMXN(monthlyBenefit)} MXN / mes
-🚀 *ROI Anual Estimado:* ${roiAnnual}% sobre la inversión única
-💎 *Año 2+ Ingresos Pasivos:* Participación en dividendos por pauta de aliados locales.
+*LO QUE VAMOS A LOGRAR EN SU GIMNASIO:*
+Transformaremos sus televisores pasivos en su propio *Canal Privado 4K de Alto Rendimiento*, diseñado para:
+1. *Eliminar la deserción de socios principiantes* (+80% de retención visual con biomecánica guiada que cuida su técnica y les da confianza).
+2. *Impulsar las ventas en su barra de suplementos y servicios de entrenamiento* (+35% en consumo promedio) mediante códigos QR dinámicos conectados a su WhatsApp en menos de 3 segundos.
+3. *Blindar legalmente su negocio* con música y visuales B2B con derechos 100% cubiertos ($0 riesgo de multas).
 
 --------------------------------------------------
+*DETALLE DE SU CONFIGURACIÓN:*
+• *Paquete Elegido:* ${pkgName} (${branches} sede(s))
+• *Cobertura de Pantallas:* Incluidas + ${appState.addons.extraTvs} TV(s) adicional(es)
+• *Disciplinas Producidas:* ${disciplinesStr}
+• *Carta de Barra con QR:* ${appState.addons.supplementsBlocks * 5} productos sincronizados a comanda
+• *Cápsulas de Coaches:* ${appState.addons.coachesCapsules} entrenador(es) del club
+• *Campañas Flash en Pantalla:* ${appState.addons.flashCortinillas} campaña(s) "Happy Hour"
+${appState.rules.adDiscount ? '• *Convenio Red Publicitaria:* Aceptado (20% de descuento comercial aplicado)\n' : ''}${branches > 1 && appState.package === 'maximus' ? '• *Beneficio Multisede:* 50% de descuento aplicado en sedes 2+\n' : ''}
+--------------------------------------------------
+*INVERSIÓN TOTAL & RETORNO PROYECTADO (ROI):*
+💰 *Inversión Total Llave en Mano:* ${formatMXN(totalNet)} MXN ${appState.roiParams.taxRate > 0 ? '(IVA incluido deducible)' : '(Precios netos)'}
+⭐ *Modelo Comercial:* *Venta Única Definitiva ($0 pesos en rentas de software mensuales)*
+⏱️ *Tiempo Estimado de Retorno (Payback):* *${paybackStr}*
+📈 *Beneficio Mensual Neto Estimado:* *+${formatMXN(monthlyBenefit)} MXN / mes* (por retención y ventas en barra)
+🚀 *Rendimiento Anual Proyectado (Año 1):* *${roiAnnual}%* de retorno neto
+
+--------------------------------------------------
+*¡Iniciemos hoy el crecimiento de su nuevo gimnasio!*
+Estamos listos para comenzar con el levantamiento visual y la calibración de su sistema. Quedamos a sus órdenes para formalizar y agendar la fecha de entrega.
+
+Atentamente,
 *Humberto Carosilva* · Dirección General & Creativa
 *Orchata Media House* · Querétaro, México
 WhatsApp Directo: +52 442 428 0465 | hola@orchata.media
@@ -3358,9 +3664,254 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
     }
 
     // --- PRINT / PDF EXPORT ---
+    
+    // --- SYNCHRONIZE OFFICIAL PRINT DOCUMENT WITH LIVE CALCULATOR ---
+    function syncPrintDocument() {
+      const branches = appState.client.branches || 1;
+      const pkgKey = appState.package;
+      const pkgInfo = PRICING.packages[pkgKey];
+
+      // Folio & Dates
+      const folioEl = document.getElementById('quoteFolio');
+      const printFolio = document.getElementById('printFolio');
+      if (folioEl && printFolio) printFolio.innerText = folioEl.innerText;
+
+      const dateObj = new Date();
+      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      const dateStr = `${dateObj.getDate()} de ${monthNames[dateObj.getMonth()]} de ${dateObj.getFullYear()}`;
+      const printDateEl = document.getElementById('printDate');
+      if (printDateEl) printDateEl.innerText = dateStr;
+
+      // Client Data
+      const gymName = appState.client.gymName || "Gimnasio Aliado";
+      const contactName = appState.client.contactName || "Director General";
+      const city = appState.client.city || "Querétaro, Qro.";
+
+      const printClientGym = document.getElementById('printClientGym');
+      const printClientContact = document.getElementById('printClientContact');
+      const printClientCity = document.getElementById('printClientCity');
+      const printBranchesCount = document.getElementById('printBranchesCount');
+
+      const printSaluteName = document.getElementById('printSaluteName');
+      const printLetterGym = document.getElementById('printLetterGym');
+      const printSignClientName = document.getElementById('printSignClientName');
+      const printSignGymName = document.getElementById('printSignGymName');
+
+      if (printClientGym) printClientGym.innerText = gymName;
+      if (printClientContact) printClientContact.innerText = contactName;
+      if (printClientCity) printClientCity.innerText = city;
+      if (printBranchesCount) printBranchesCount.innerText = branches;
+
+      if (printSaluteName) printSaluteName.innerText = contactName;
+      if (printLetterGym) printLetterGym.innerText = gymName;
+      if (printSignClientName) printSignClientName.innerText = contactName;
+      if (printSignGymName) printSignGymName.innerText = gymName;
+
+      // Package & Description
+      const printPkgName = document.getElementById('printPkgName');
+      const printPkgDesc = document.getElementById('printPkgDesc');
+      const printPkgSedes = document.getElementById('printPkgSedes');
+      const printPkgBasePrice = document.getElementById('printPkgBasePrice');
+
+      if (printPkgName) printPkgName.innerText = pkgInfo.name;
+      if (printPkgSedes) printPkgSedes.innerHTML = `<span>${branches}</span> sede(s) autorizada(s)`;
+
+      const descs = {
+        core: "Loop 30 min 4K sin pausas (USB Plug & Play), píldoras biomecánicas guiadas anti-deserción y licenciamiento musical libre.",
+        pro: "Ecosistema integral: Identidad 3D con logo del club, loops por zonas (cardio/fuerza), carta de suplementos interactiva y Tribus de WhatsApp.",
+        maximus: "Rodaje cinematográfico in situ con tus propios coaches (cámaras de cine ARRI/RED). Loop extendido de 60 min y prioridad en pauta DOOH.",
+        enterprise: "Ecosistema centralizado Cloud CMS para cadenas consolidadas, analítica corporativa de escaneos y soporte 24/7."
+      };
+      if (printPkgDesc) printPkgDesc.innerText = descs[pkgKey] || "Ecosistema DOOH Marca Blanca.";
+
+      // Price calculation
+      let pkgGrossTotal = 0;
+      let adDiscountAmount = 0;
+      let multisedeDiscountAmount = 0;
+
+      if (pkgKey === 'core') {
+        pkgGrossTotal = pkgInfo.basePrice * branches;
+        if (appState.rules.adDiscount) adDiscountAmount = pkgGrossTotal * 0.20;
+      } else if (pkgKey === 'pro') {
+        pkgGrossTotal = pkgInfo.basePrice * branches;
+      } else if (pkgKey === 'maximus') {
+        const first = pkgInfo.basePrice;
+        if (branches === 1) {
+          pkgGrossTotal = first;
+        } else {
+          const extra = branches - 1;
+          const fullGross = first * branches;
+          const actualGross = first + (extra * (first * 0.5));
+          pkgGrossTotal = fullGross;
+          multisedeDiscountAmount = fullGross - actualGross;
+        }
+      } else if (pkgKey === 'enterprise') {
+        if (branches <= pkgInfo.baseBranches) {
+          pkgGrossTotal = pkgInfo.basePrice;
+        } else {
+          pkgGrossTotal = pkgInfo.basePrice + ((branches - pkgInfo.baseBranches) * pkgInfo.extraBranchFee);
+        }
+      }
+
+      if (printPkgBasePrice) printPkgBasePrice.innerText = formatMXN(pkgGrossTotal);
+
+      // Discounts
+      const rowAd = document.getElementById('printRowAdDiscount');
+      const adAmt = document.getElementById('printAdDiscountAmount');
+      if (rowAd && adAmt) {
+        if (adDiscountAmount > 0) {
+          rowAd.style.display = 'table-row';
+          adAmt.innerText = '-' + formatMXN(adDiscountAmount);
+        } else {
+          rowAd.style.display = 'none';
+        }
+      }
+
+      const rowMulti = document.getElementById('printRowMultisedeDiscount');
+      const multiAmt = document.getElementById('printMultisedeDiscountAmount');
+      if (rowMulti && multiAmt) {
+        if (multisedeDiscountAmount > 0) {
+          rowMulti.style.display = 'table-row';
+          multiAmt.innerText = '-' + formatMXN(multisedeDiscountAmount);
+        } else {
+          rowMulti.style.display = 'none';
+        }
+      }
+
+      // Addons in Print
+      const extraTvsCost = appState.addons.extraTvs * PRICING.addons.tvPrice;
+      const rowTvs = document.getElementById('printRowExtraTvs');
+      const tvsQty = document.getElementById('printExtraTvsQty');
+      const tvsTotal = document.getElementById('printExtraTvsTotal');
+      if (rowTvs && tvsQty && tvsTotal) {
+        if (appState.addons.extraTvs > 0) {
+          rowTvs.style.display = 'table-row';
+          tvsQty.innerText = appState.addons.extraTvs;
+          tvsTotal.innerText = '+' + formatMXN(extraTvsCost);
+        } else {
+          rowTvs.style.display = 'none';
+        }
+      }
+
+      const supplementsCost = appState.addons.supplementsBlocks * PRICING.addons.supplementsBlockPrice;
+      const rowSupp = document.getElementById('printRowSupplements');
+      const suppQty = document.getElementById('printSupplementsQty');
+      const suppTotal = document.getElementById('printSupplementsTotal');
+      if (rowSupp && suppQty && suppTotal) {
+        if (appState.addons.supplementsBlocks > 0) {
+          rowSupp.style.display = 'table-row';
+          suppQty.innerText = appState.addons.supplementsBlocks * 5;
+          suppTotal.innerText = '+' + formatMXN(supplementsCost);
+        } else {
+          rowSupp.style.display = 'none';
+        }
+      }
+
+      const disciplinesCost = appState.addons.disciplines.length * PRICING.addons.disciplinePrice;
+      const rowDisc = document.getElementById('printRowDisciplines');
+      const discQty = document.getElementById('printDisciplinesQty');
+      const discNames = document.getElementById('printDisciplinesNames');
+      const discTotal = document.getElementById('printDisciplinesTotal');
+      if (rowDisc && discQty && discTotal) {
+        if (appState.addons.disciplines.length > 0) {
+          rowDisc.style.display = 'table-row';
+          discQty.innerText = appState.addons.disciplines.length;
+          if (discNames) discNames.innerText = appState.addons.disciplines.join(", ");
+          discTotal.innerText = '+' + formatMXN(disciplinesCost);
+        } else {
+          rowDisc.style.display = 'none';
+        }
+      }
+
+      const coachesCost = appState.addons.coachesCapsules * PRICING.addons.coachCapsulePrice;
+      const rowCoaches = document.getElementById('printRowCoaches');
+      const coachesQty = document.getElementById('printCoachesQty');
+      const coachesTotal = document.getElementById('printCoachesTotal');
+      if (rowCoaches && coachesQty && coachesTotal) {
+        if (appState.addons.coachesCapsules > 0) {
+          rowCoaches.style.display = 'table-row';
+          coachesQty.innerText = appState.addons.coachesCapsules;
+          coachesTotal.innerText = '+' + formatMXN(coachesCost);
+        } else {
+          rowCoaches.style.display = 'none';
+        }
+      }
+
+      const flashCost = appState.addons.flashCortinillas * PRICING.addons.flashCortinillaPrice;
+      const rowFlash = document.getElementById('printRowFlash');
+      const flashQty = document.getElementById('printFlashQty');
+      const flashTotal = document.getElementById('printFlashTotal');
+      if (rowFlash && flashQty && flashTotal) {
+        if (appState.addons.flashCortinillas > 0) {
+          rowFlash.style.display = 'table-row';
+          flashQty.innerText = appState.addons.flashCortinillas;
+          flashTotal.innerText = '+' + formatMXN(flashCost);
+        } else {
+          rowFlash.style.display = 'none';
+        }
+      }
+
+      // Totals
+      const pkgNetTotal = pkgGrossTotal - adDiscountAmount - multisedeDiscountAmount;
+      const addonsTotal = extraTvsCost + disciplinesCost + supplementsCost + coachesCost + flashCost;
+      const subtotalInvestment = pkgNetTotal + addonsTotal;
+      const taxAmount = subtotalInvestment * appState.roiParams.taxRate;
+      const totalNetFinal = subtotalInvestment + taxAmount;
+
+      const printSubtotalPrice = document.getElementById('printSubtotalPrice');
+      const printRowTax = document.getElementById('printRowTax');
+      const printTaxPrice = document.getElementById('printTaxPrice');
+      const printTotalFinalPrice = document.getElementById('printTotalFinalPrice');
+
+      if (printSubtotalPrice) printSubtotalPrice.innerText = formatMXN(subtotalInvestment);
+      if (printRowTax && printTaxPrice) {
+        if (appState.roiParams.taxRate > 0) {
+          printRowTax.style.display = 'table-row';
+          printTaxPrice.innerText = '+' + formatMXN(taxAmount);
+        } else {
+          printRowTax.style.display = 'none';
+        }
+      }
+      if (printTotalFinalPrice) printTotalFinalPrice.innerText = formatMXN(totalNetFinal);
+
+      // ROI calculations for Print
+      const totalMembers = appState.roiParams.members * branches;
+      const fee = appState.roiParams.membershipFee;
+      const currentSnack = appState.roiParams.snackTicket;
+
+      const activeBarBuyers = totalMembers * 0.28;
+      const barIncrementalPerBuyer = currentSnack * 0.35 * 4;
+      const monthlyBarGain = activeBarBuyers * barIncrementalPerBuyer * 0.55;
+
+      const monthlyChurnedWithoutScreen = totalMembers * 0.07;
+      const savedMembersPerMonth = monthlyChurnedWithoutScreen * 0.22;
+      const monthlyRetentionGain = savedMembersPerMonth * fee;
+
+      const totalMonthlyGain = monthlyBarGain + monthlyRetentionGain;
+      let paybackMonths = totalMonthlyGain > 0 ? (totalNetFinal / totalMonthlyGain) : 0;
+      const formattedPayback = paybackMonths < 1 ? (Math.round(paybackMonths * 30) + ' Días') : (paybackMonths.toFixed(1) + ' Meses');
+
+      const annualGrossGain = totalMonthlyGain * 12;
+      const annualNetProfit = annualGrossGain - totalNetFinal;
+      const roiAnnualPct = totalNetFinal > 0 ? Math.round((annualNetProfit / totalNetFinal) * 100) : 0;
+
+      const printPaybackTime = document.getElementById('printPaybackTime');
+      const printMonthlyGain = document.getElementById('printMonthlyGain');
+      const printRoiPercent = document.getElementById('printRoiPercent');
+      const printMembersCount = document.getElementById('printMembersCount');
+
+      if (printPaybackTime) printPaybackTime.innerText = formattedPayback;
+      if (printMonthlyGain) printMonthlyGain.innerText = '+' + formatMXN(totalMonthlyGain) + ' MXN';
+      if (printRoiPercent) printRoiPercent.innerText = roiAnnualPct + '%';
+      if (printMembersCount) printMembersCount.innerText = totalMembers;
+    }
+
+    // Override printQuotation to sync print data first
     function printQuotation() {
+      syncPrintDocument();
       window.print();
     }
+
 
     // --- TOAST NOTIFICATION UTILITY ---
     function showToast(message) {
@@ -3376,5 +3927,236 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
       }, 3500);
     }
   </script>
+
+  <!-- ==========================================================================
+       DOCUMENTO FORMAL DE COTIZACIÓN PARA CLIENTE (PRINT / PDF EXCLUSIVO)
+       ========================================================================== -->
+  <div id="officialQuotePrintDoc" class="official-print-document">
+    
+    <!-- HEADER FORMAL CON MEMBRETE -->
+    <header class="print-doc-header">
+      <div class="print-doc-brand">
+        <img src="assets/images/Isotipo Orchata.png" alt="Orchata Media House" class="print-doc-logo">
+        <div>
+          <h1 class="print-doc-title">ORCHATA MEDIA HOUSE</h1>
+          <span class="print-doc-subtitle">DOOH Marca Blanca · Producción & Conversión para Gimnasios</span>
+        </div>
+      </div>
+      <div class="print-doc-meta">
+        <div class="print-meta-folio">PROPUESTA EJECUTIVA</div>
+        <div class="print-meta-item"><strong>Folio:</strong> <span id="printFolio">OMH-2026-8842</span></div>
+        <div class="print-meta-item"><strong>Fecha:</strong> <span id="printDate">Noviembre 2026</span></div>
+        <div class="print-meta-item"><strong>Validez:</strong> 15 días hábiles</div>
+      </div>
+    </header>
+
+    <!-- DATOS DEL PROSPECTO -->
+    <section class="print-client-card">
+      <div class="print-client-col">
+        <span class="print-label">Preparado especialmente para:</span>
+        <h2 class="print-client-name" id="printClientGym">Iron Republic Fitness Club</h2>
+        <div class="print-client-meta"><strong>Atención:</strong> <span id="printClientContact">Ing. Carlos Mendoza</span></div>
+        <div class="print-client-meta"><strong>Plaza / Ubicación:</strong> <span id="printClientCity">Querétaro (Zona Bajío)</span></div>
+      </div>
+      <div class="print-client-col print-client-col-right">
+        <span class="print-label">Alcance del Ecosistema:</span>
+        <div class="print-branches-badge"><strong id="printBranchesCount">1</strong> Sucursal(es) Cobertura</div>
+        <div class="print-client-meta" style="margin-top:6px;"><strong>Modelo:</strong> Venta Única Llave en Mano</div>
+        <div class="print-client-meta" style="color:#059669;font-weight:700;">$0 Rentas Mensuales de Software</div>
+      </div>
+    </section>
+
+    <!-- CARTA DE AGRADECIMIENTO & PROPÓSITO -->
+    <section class="print-letter-section">
+      <p class="print-letter-p">
+        <strong>Estimado(a) <span id="printSaluteName">Director(a)</span>:</strong>
+      </p>
+      <p class="print-letter-p">
+        En nombre de todo el equipo de <strong>Orchata Media House</strong>, queremos agradecerle sinceramente por abrirnos las puertas de <strong><span id="printLetterGym">su gimnasio</span></strong> y considerarnos para acompañar la evolución tecnológica de sus instalaciones. Para nosotros es un honor y una gran responsabilidad ser su socio estratégico.
+      </p>
+      <p class="print-letter-p">
+        Nuestro compromiso no es colocar pantallas ni vender videos genéricos; nuestra labor consiste en <strong>transformar sus televisores en un canal privado 4K con la identidad de su propia marca</strong>, diseñado con psicología deportiva e iluminación cinematográfica para resolver los dos mayores desafíos de su negocio: <strong>eliminar la deserción de socios principiantes</strong> (+80% de retención en sus primeros 90 días) y <strong>multiplicar el consumo en su barra de suplementos y servicios de entrenamiento</strong> (+35% de incremento en ventas) mediante códigos QR dinámicos enlazados directamente a su WhatsApp en menos de 3 segundos.
+      </p>
+    </section>
+
+    <!-- DESGLOSE ECONÓMICO DE LA COTIZACIÓN -->
+    <section class="print-pricing-section">
+      <div class="print-section-header">
+        <span class="print-section-num">01</span>
+        <h3 class="print-section-title">Desglose de Inversión Llave en Mano</h3>
+      </div>
+
+      <table class="print-table">
+        <thead>
+          <tr>
+            <th>Concepto / Módulo del Ecosistema</th>
+            <th>Detalle de Configuración</th>
+            <th style="text-align:right;">Importe (MXN)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- PAQUETE BASE -->
+          <tr>
+            <td>
+              <strong id="printPkgName">Pro Brand™</strong>
+              <div class="print-td-desc" id="printPkgDesc">Ecosistema integral: Identidad 3D, loops diferenciados por zonas (cardio/fuerza) y menú dinámico de suplementos.</div>
+            </td>
+            <td id="printPkgSedes"><span id="printPkgBranchesCount">1</span> sede(s) autorizada(s)</td>
+            <td style="text-align:right;" id="printPkgBasePrice">$25,000</td>
+          </tr>
+
+          <!-- REGLAS DE DESCUENTO SI APLICAN -->
+          <tr id="printRowAdDiscount" style="display:none;" class="print-discount-tr">
+            <td>
+              <strong style="color:#059669;">Convenio Red Publicitaria DOOH (20% OFF Core 30)</strong>
+              <div class="print-td-desc">Pauta controlada y no invasiva de marcas aliadas seleccionadas.</div>
+            </td>
+            <td>Descuento comercial</td>
+            <td style="text-align:right;color:#059669;" id="printAdDiscountAmount">-$2,400</td>
+          </tr>
+          <tr id="printRowMultisedeDiscount" style="display:none;" class="print-discount-tr">
+            <td>
+              <strong style="color:#059669;">Descuento Multisede (50% OFF en sedes adicionales Maximus)</strong>
+              <div class="print-td-desc">Tarifa preferencial para cadenas consolidadas.</div>
+            </td>
+            <td>Bonificación multi-club</td>
+            <td style="text-align:right;color:#059669;" id="printMultisedeDiscountAmount">-$0</td>
+          </tr>
+
+          <!-- EXTRAS & ADDONS -->
+          <tr id="printRowExtraTvs" style="display:none;">
+            <td>
+              <strong>Pantallas / Reproductores Extra Calibrados</strong>
+              <div class="print-td-desc">Equipamiento y sincronización de televisores adicionales en sala.</div>
+            </td>
+            <td><span id="printExtraTvsQty">0</span> pantalla(s) (+$1,500 c/u)</td>
+            <td style="text-align:right;" id="printExtraTvsTotal">$0</td>
+          </tr>
+
+          <tr id="printRowSupplements" style="display:none;">
+            <td>
+              <strong>Carta Digital de Barra & Suplementación con QR</strong>
+              <div class="print-td-desc">Digitalización de botes y batidos servidos listos con comanda instantánea.</div>
+            </td>
+            <td><span id="printSupplementsQty">0</span> productos (+$1,200/bloque)</td>
+            <td style="text-align:right;" id="printSupplementsTotal">$0</td>
+          </tr>
+
+          <tr id="printRowDisciplines" style="display:none;">
+            <td>
+              <strong>Producción de Clases Grupales Específicas</strong>
+              <div class="print-td-desc" id="printDisciplinesNames">Spinning, Yoga, GAP</div>
+            </td>
+            <td><span id="printDisciplinesQty">0</span> disciplina(s) (+$1,800 c/u)</td>
+            <td style="text-align:right;" id="printDisciplinesTotal">$0</td>
+          </tr>
+
+          <tr id="printRowCoaches" style="display:none;">
+            <td>
+              <strong>Cápsulas Técnicas con Coaches de Piso</strong>
+              <div class="print-td-desc">Grabación en set 5600K con código QR personal para agendamiento de citas.</div>
+            </td>
+            <td><span id="printCoachesQty">0</span> coach(es) (+$2,500 c/u)</td>
+            <td style="text-align:right;" id="printCoachesTotal">$0</td>
+          </tr>
+
+          <tr id="printRowFlash" style="display:none;">
+            <td>
+              <strong>Campañas Flash "Happy Hour" en Pantalla</strong>
+              <div class="print-td-desc">Cortinillas de 180s con cuenta regresiva para compras de impulso en barra.</div>
+            </td>
+            <td><span id="printFlashQty">0</span> campaña(s) (+$1,500 c/u)</td>
+            <td style="text-align:right;" id="printFlashTotal">$0</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="print-subtotal-tr">
+            <td colspan="2">Subtotal Inversión Llave en Mano:</td>
+            <td style="text-align:right;" id="printSubtotalPrice">$25,000</td>
+          </tr>
+          <tr id="printRowTax" class="print-tax-tr">
+            <td colspan="2">I.V.A. Trasladado (16% Deducible Fiscal):</td>
+            <td style="text-align:right;" id="printTaxPrice">$4,000</td>
+          </tr>
+          <tr class="print-total-tr">
+            <td colspan="2">
+              <div style="font-size:1.05rem;font-weight:900;">INVERSIÓN TOTAL DEFINITIVA:</div>
+              <div style="font-size:0.75rem;font-weight:600;color:#059669;">Pago único llave en mano · Cero mensualidades de licenciamiento</div>
+            </td>
+            <td style="text-align:right;">
+              <span class="print-hero-price" id="printTotalFinalPrice">$29,000</span>
+              <span style="font-size:0.8rem;color:#64748b;">MXN</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- PROYECCIÓN MATEMÁTICA DEL ROI & BENEFICIO -->
+    <section class="print-roi-section">
+      <div class="print-section-header">
+        <span class="print-section-num">02</span>
+        <h3 class="print-section-title">Proyección de Retorno de Inversión (ROI) & Payback</h3>
+      </div>
+
+      <div class="print-roi-grid">
+        <div class="print-roi-card">
+          <span class="print-roi-label">Tiempo Estimado de Recuperación</span>
+          <div class="print-roi-value" style="color:#d97706;" id="printPaybackTime">1.8 Meses</div>
+          <p class="print-roi-sub">El sistema se amortiza completamente con los nuevos ingresos.</p>
+        </div>
+        <div class="print-roi-card">
+          <span class="print-roi-label">Beneficio Mensual Neto Generado</span>
+          <div class="print-roi-value" style="color:#059669;" id="printMonthlyGain">+$18,450 MXN</div>
+          <p class="print-roi-sub">Por retención de socios + incremento en barra con QR.</p>
+        </div>
+        <div class="print-roi-card">
+          <span class="print-roi-label">Retorno Anual Estimado (Año 1)</span>
+          <div class="print-roi-value" style="color:#2563eb;" id="printRoiPercent">245%</div>
+          <p class="print-roi-sub">Utilidad neta adicional tras recuperar el costo total del sistema.</p>
+        </div>
+      </div>
+
+      <div class="print-roi-explanation">
+        <strong>¿Cómo se paga sola esta inversión?</strong> Con una afluencia estimada de <strong><span id="printMembersCount">450</span> socios activos</strong>, basta con que el contenido guiado evite la deserción de apenas <strong>4 socios al mes</strong> y se sirvan <strong>12 a 15 batidos extras al día</strong> mediante el escaneo directo en pantalla para que la inversión se pague sola en las primeras semanas. Todo lo que genere el sistema a partir del segundo mes es <strong>utilidad líquida directa</strong> para su caja.
+      </div>
+    </section>
+
+    <!-- CIERRE INSPIRACIONAL Y LLAMADO A LA ACCIÓN (CTA) -->
+    <section class="print-closing-section">
+      <div class="print-closing-content">
+        <h4 class="print-closing-title">Iniciemos hoy la transformación visual de su gimnasio</h4>
+        <p class="print-closing-text">
+          Las pantallas de su club pueden seguir siendo un televisor que gasta energía y muestra comerciales ajenos, o pueden convertirse en el motor transaccional más rentable y respetuoso de sus instalaciones. En <strong>Orchata Media House</strong> estamos listos para iniciar el rodaje y calibración técnica inmediatamente para su entrega llave en mano.
+        </p>
+      </div>
+
+      <div class="print-signatures-wrap">
+        <div class="print-sig-col">
+          <div class="print-sig-line"></div>
+          <strong>Humberto Carosilva</strong>
+          <span>Director General & Creativo</span>
+          <span>Orchata Media House · Querétaro, México</span>
+          <span>hola@orchata.media · Tel: +52 442 428 0465</span>
+        </div>
+        <div class="print-sig-col">
+          <div class="print-sig-line"></div>
+          <strong>Aceptación & Firma de Conformidad</strong>
+          <span id="printSignClientName">Ing. Carlos Mendoza</span>
+          <span id="printSignGymName">Iron Republic Fitness Club</span>
+          <span>Fecha de Aceptación: ____________________</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER DE PÁGINA -->
+    <footer class="print-doc-footer">
+      <span>Orchata Media House © 2026-2027 · Documento Oficial de Cotización</span>
+      <span>www.orchatahouse.com · Querétaro, Qro.</span>
+      <span>Página 1 de 1</span>
+    </footer>
+
+  </div>
+
 </body>
 </html>
