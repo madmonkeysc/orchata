@@ -4043,7 +4043,12 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
         : 'sell/contrato-estandar/';
 
       const fullUrl = `${targetPath}?gym=${gym}&contact=${contact}&city=${city}&folio=${folio}`;
-      window.open(fullUrl, '_blank');
+      
+      if (window.OrchataSecurity) {
+        window.OrchataSecurity.checkAccess(fullUrl);
+      } else {
+        window.open(fullUrl, '_blank');
+      }
     }
 
 
@@ -4310,5 +4315,7 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
 
   </div>
 
+  <!-- SISTEMA DE SEGURIDAD PARA CONTRATOS -->
+  <script src="sell/contratos-auth.js"></script>
 </body>
 </html>

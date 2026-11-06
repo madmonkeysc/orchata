@@ -889,5 +889,16 @@
     });
   </script>
 
+  <!-- SISTEMA DE SEGURIDAD Y POP-UP DE AUTORIZACIÓN ORCHATA -->
+  <script src="../contratos-auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Bloquear visualización de este contrato si no se ha validado el código de seguridad
+      if (window.OrchataSecurity) {
+        window.OrchataSecurity.protectCurrentPage();
+      }
+    });
+  </script>
 </body>
 </html>
+
