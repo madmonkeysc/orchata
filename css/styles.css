@@ -5125,3 +5125,343 @@ ul { list-style: none; }
 
 
 
+
+
+/* ==========================================================================
+   HERO MASTER SLIDER (5 SLIDES FULL BLEED 4K)
+   ========================================================================== */
+.hero-slider-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  background-color: #050508;
+  z-index: 10;
+}
+
+.hero-slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), visibility 1s ease;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* Background video & poster container */
+.hero-slide-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-slide-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-slide.active .hero-slide-poster {
+  transform: scale(1);
+}
+
+.hero-slide-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero-slide.active .hero-slide-video.loaded {
+  opacity: 1;
+}
+
+/* Cinematic high-contrast overlay */
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at 60% 45%, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.75) 65%, #050508 100%),
+              linear-gradient(to bottom, rgba(5,5,8,0.6) 0%, rgba(5,5,8,0.15) 35%, rgba(5,5,8,0.85) 80%, #050508 100%);
+  pointer-events: none;
+}
+
+/* Slide Content */
+.hero-slide-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero-slide-content {
+    padding: 0 24px;
+    justify-content: center;
+  }
+}
+
+.hero-slide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(252, 242, 0, 0.12);
+  border: 1px solid rgba(252, 242, 0, 0.35);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, opacity 0.6s ease 0.15s;
+}
+
+.hero-slide.active .hero-slide-eyebrow {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-slide-title {
+  font-size: clamp(34px, 5.8vw, 76px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  max-width: 920px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  transform: translateY(25px);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s, opacity 0.7s ease 0.25s;
+}
+
+.hero-slide-title .gold-text {
+  color: var(--clr-gold);
+  text-shadow: 0 0 35px rgba(252, 242, 0, 0.35);
+}
+
+.hero-slide.active .hero-slide-title {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-slide-subtitle {
+  font-size: clamp(14px, 1.8vw, 19px);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
+  max-width: 680px;
+  margin-bottom: 32px;
+  font-weight: 400;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s, opacity 0.8s ease 0.35s;
+}
+
+.hero-slide.active .hero-slide-subtitle {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-slide-ctas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s, opacity 0.8s ease 0.45s;
+}
+
+.hero-slide.active .hero-slide-ctas {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Indicador Paginador Lateral Discreto (01 al 05) */
+.hero-slider-pagination {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .hero-slider-pagination {
+    right: 18px;
+    gap: 12px;
+  }
+}
+
+.slider-pag-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 6px 0;
+  outline: none;
+  opacity: 0.4;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slider-pag-btn:hover {
+  opacity: 0.85;
+  transform: translateX(-3px);
+}
+
+.slider-pag-btn.active {
+  opacity: 1;
+}
+
+.pag-btn-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: block;
+  text-align: right;
+  transition: color 0.3s;
+}
+
+@media (max-width: 900px) {
+  .pag-btn-label {
+    display: none;
+  }
+}
+
+.slider-pag-btn.active .pag-btn-label {
+  color: var(--clr-gold);
+}
+
+.pag-btn-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.slider-pag-btn.active .pag-btn-num {
+  color: var(--clr-gold);
+}
+
+.pag-btn-bar {
+  width: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-pag-btn.active .pag-btn-bar {
+  width: 48px;
+  background: var(--clr-gold);
+  box-shadow: 0 0 12px rgba(252, 242, 0, 0.6);
+}
+
+/* Flechas de navegación inferior sutiles */
+.hero-slider-arrows {
+  position: absolute;
+  bottom: 40px;
+  right: 48px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .hero-slider-arrows {
+    right: 24px;
+    bottom: 24px;
+  }
+}
+
+.slider-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(18, 18, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.slider-arrow-btn:hover {
+  background: var(--clr-gold);
+  color: #000000;
+  border-color: var(--clr-gold);
+  transform: scale(1.06);
+}
+
+/* Indicador de barra de progreso de autoplay */
+.hero-slider-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 20;
+}
+
+.hero-slider-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--clr-gold);
+  box-shadow: 0 0 10px rgba(252, 242, 0, 0.8);
+  transition: width 0.1s linear;
+}

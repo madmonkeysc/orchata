@@ -134,83 +134,223 @@
 
 
 <!-- ═══════════════════════════════════════════════
-     HERO 1 — PRINCIPAL INSIGNIA (FULL BLEED VIDEO CINEMÁTICO)
+     HERO MASTER SLIDER — 5 SLIDES 4K CINEMATOGRÁFICO
 ═══════════════════════════════════════════════ -->
-<section class="hero" id="hero-main" aria-label="Orchata Media House — Hero principal">
-  <!-- Video container with seamless loop & end screen trim -->
-  <div class="hero-video-container">
-    <video 
-      id="hero-video-f1" 
-      class="hero-video active" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-      poster="assets/images/F1 Orcharta.png">
-      <source src="assets/images/F1.mp4" type="video/mp4">
-    </video>
-    <video 
-      id="hero-video-rocket" 
-      class="hero-video" 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-      poster="assets/images/videoframe_0 (1).png">
-      <source src="assets/images/Cohete orcha.mp4" type="video/mp4">
-    </video>
+<section class="hero-slider-section" id="hero-main" aria-label="Orchata Media House — Hero Slider Principal">
+  
+  <div class="hero-slider-track" id="heroSliderTrack">
+    
+    <!-- ─────────────────────────────────────────────
+         SLIDE 1: UNIVERSO ORCHATA (EL MANIFIESTO & SHOWREEL)
+    ───────────────────────────────────────────── -->
+    <article class="hero-slide active" data-slide="0" id="slide-universo" aria-label="Slide 1: Universo Orchata">
+      <div class="hero-slide-media">
+        <div class="hero-slide-poster" style="background-image: url('assets/images/F1 Orcharta.png');"></div>
+        <video class="hero-slide-video" muted loop playsinline preload="auto" poster="assets/images/F1 Orcharta.png" data-src="assets/videos/slide1_universo.mp4">
+          <source src="assets/videos/slide1_universo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-slide-overlay"></div>
+
+      <div class="hero-slide-content">
+        <span class="hero-slide-eyebrow">
+          <span>🎬</span> Universo Orchata · Showreel Master
+        </span>
+        <h1 class="hero-slide-title">
+          No creamos videos.<br><span class="gold-text">Creamos autoridad visual.</span>
+        </h1>
+        <p class="hero-slide-subtitle">
+          Estudio cinematográfico, tecnología DOOH y desarrollo de propiedad intelectual de clase mundial.
+        </p>
+        <div class="hero-slide-ctas">
+          <a href="#hero-dooh" class="btn-pill btn-pill-gold" id="cta-slide1-explore">
+            Explorar el Universo Orchata ➔
+          </a>
+          <a href="assets/docs/Dossier_Orchata_Media_House.pdf" target="_blank" download="Dossier_Orchata_Media_House.pdf" class="btn-pill btn-pill-outline" style="gap:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            Dossier General (PDF)
+          </a>
+          <a href="https://wa.me/524424280465?text=Hola%20Orchata%20Media%20House,%20quiero%20conocer%20mas%20del%20Universo%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-ghost">
+            💬 Hablar con un Productor
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─────────────────────────────────────────────
+         SLIDE 2: MARCA BLANCA DOOH (GIMNASIOS & RETENCIÓN)
+    ───────────────────────────────────────────── -->
+    <article class="hero-slide" data-slide="1" id="slide-dooh" aria-label="Slide 2: Marca Blanca DOOH">
+      <div class="hero-slide-media">
+        <div class="hero-slide-poster" style="background-image: url('assets/images/Rutina.png');"></div>
+        <video class="hero-slide-video" muted loop playsinline preload="none" poster="assets/images/Rutina.png" data-src="assets/videos/slide2_dooh.mp4"></video>
+      </div>
+      <div class="hero-slide-overlay"></div>
+
+      <div class="hero-slide-content">
+        <span class="hero-slide-eyebrow" style="border-color:rgba(255,49,49,0.4);background:rgba(255,49,49,0.14);">
+          <span>⚡</span> Marca Blanca DOOH · Ecosistema Gyms
+        </span>
+        <h2 class="hero-slide-title">
+          Transformamos pantallas pasivas en <span class="gold-text">motores de venta y retención.</span>
+        </h2>
+        <p class="hero-slide-subtitle">
+          Ecosistema audiovisual para gimnasios: +80% retención de socios y ventas de suplementos por código QR.
+        </p>
+        <div class="hero-slide-ctas">
+          <a href="pages/marca-blanca.html" class="btn-pill btn-pill-gold" id="cta-slide2-dooh">
+            Ir a la Landing de Marca Blanca DOOH ➔
+          </a>
+          <a href="sell/cotizador/" target="_blank" class="btn-pill btn-pill-outline">
+            🧮 Calculadora de Cotización
+          </a>
+          <a href="#hero-dooh" class="btn-pill btn-pill-ghost">
+            Ver Ecosistema ↓
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─────────────────────────────────────────────
+         SLIDE 3: ORIGINALS (CINE, DOCUMENTALES & IP)
+    ───────────────────────────────────────────── -->
+    <article class="hero-slide" data-slide="2" id="slide-originals" aria-label="Slide 3: Orchata Originals">
+      <div class="hero-slide-media">
+        <div class="hero-slide-poster" style="background-image: url('assets/images/10.png');"></div>
+        <video class="hero-slide-video" muted loop playsinline preload="none" poster="assets/images/10.png" data-src="assets/videos/slide3_originals.mp4"></video>
+      </div>
+      <div class="hero-slide-overlay"></div>
+
+      <div class="hero-slide-content">
+        <span class="hero-slide-eyebrow">
+          <span>📽️</span> Orchata Originals · Cine & Docs IP
+        </span>
+        <h2 class="hero-slide-title">
+          Historias que trascienden.<br><span class="gold-text">Propiedad Intelectual de clase mundial.</span>
+        </h2>
+        <p class="hero-slide-subtitle">
+          Producción y coproducción de contenido cinematográfico para plataformas globales (Canelo, Checo Pérez, Frida Kahlo, Hugo Sánchez, Chávez).
+        </p>
+        <div class="hero-slide-ctas">
+          <a href="pages/originales.html" class="btn-pill btn-pill-gold" id="cta-slide3-originals">
+            Ver Catálogo Originals ➔
+          </a>
+          <a href="#documentales-slate" class="btn-pill btn-pill-outline">
+            🎬 Próximos Documentales
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─────────────────────────────────────────────
+         SLIDE 4: PRODUCCIONES & ADS (PODCASTS 4K & BRAND CONTENT)
+    ───────────────────────────────────────────── -->
+    <article class="hero-slide" data-slide="3" id="slide-producciones" aria-label="Slide 4: Producciones & Ads">
+      <div class="hero-slide-media">
+        <div class="hero-slide-poster" style="background-image: url('assets/images/commercial-shoot.jpg');"></div>
+        <video class="hero-slide-video" muted loop playsinline preload="none" poster="assets/images/commercial-shoot.jpg" data-src="assets/videos/slide4_producciones.mp4"></video>
+      </div>
+      <div class="hero-slide-overlay"></div>
+
+      <div class="hero-slide-content">
+        <span class="hero-slide-eyebrow">
+          <span>🎙️</span> Producciones & Ads · Podcasts & Studio
+        </span>
+        <h2 class="hero-slide-title">
+          Contenido de alto impacto para <span class="gold-text">marcas y creadores.</span>
+        </h2>
+        <p class="hero-slide-subtitle">
+          Estudio de grabación, estrategia de contenido audiovisual y comerciales de conversión en sets 4K de iluminación profesional.
+        </p>
+        <div class="hero-slide-ctas">
+          <a href="pages/comerciales.html" class="btn-pill btn-pill-gold" id="cta-slide4-producciones">
+            Ver Servicios de Producción ➔
+          </a>
+          <a href="https://wa.me/524424280465?text=Hola,%20quiero%20cotizar%20un%20podcast%20o%20comercial%20con%20Orchata" target="_blank" rel="noopener" class="btn-pill btn-pill-outline">
+            💬 Cotizar con Studio
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ─────────────────────────────────────────────
+         SLIDE 5: ORCHATA RÉCORDS (SELLO & AUDIO B2B)
+    ───────────────────────────────────────────── -->
+    <article class="hero-slide" data-slide="4" id="slide-records" aria-label="Slide 5: Orchata Récords">
+      <div class="hero-slide-media">
+        <div class="hero-slide-poster" style="background-image: url('assets/images/records-studio.jpg');"></div>
+        <video class="hero-slide-video" muted loop playsinline preload="none" poster="assets/images/records-studio.jpg" data-src="assets/videos/slide5_records.mp4"></video>
+      </div>
+      <div class="hero-slide-overlay"></div>
+
+      <div class="hero-slide-content">
+        <span class="hero-slide-eyebrow" style="border-color:rgba(252,242,0,0.5);">
+          <span>🎵</span> Orchata Récords · Sello Sonoro & Audio B2B
+        </span>
+        <h2 class="hero-slide-title">
+          El sonido que define la <span class="gold-text">identidad de tu marca.</span>
+        </h2>
+        <p class="hero-slide-subtitle">
+          Ambientación musical B2B libre de derechos de autor y producción sonora envolvente. <strong style="color:#fcf200;">[PRÓXIMAMENTE]</strong>
+        </p>
+        <div class="hero-slide-ctas">
+          <a href="pages/records.html" class="btn-pill btn-pill-gold" id="cta-slide5-records">
+            Conocer Más de Orchata Récords ➔
+          </a>
+          <a href="https://wa.me/524424280465?text=Hola,%20quiero%20información%20sobre%20las%20licencias%20de%20audio%20B2B%20de%20Orchata%20Records" target="_blank" rel="noopener" class="btn-pill btn-pill-outline">
+            📻 Solicitar Información
+          </a>
+        </div>
+      </div>
+    </article>
+
   </div>
 
-  <!-- Máscara de alto contraste cinematográfico para legibilidad de textos -->
-  <div class="hero-mask"></div>
+  <!-- PAGINADOR LATERAL DISCRETO (01 AL 05) -->
+  <nav class="hero-slider-pagination" aria-label="Navegación del slider">
+    <button class="slider-pag-btn active" data-index="0" aria-label="Slide 1: Universo Orchata">
+      <span class="pag-btn-label">Universo Orchata</span>
+      <span class="pag-btn-num">01</span>
+      <span class="pag-btn-bar"></span>
+    </button>
+    <button class="slider-pag-btn" data-index="1" aria-label="Slide 2: Marca Blanca DOOH">
+      <span class="pag-btn-label">Marca Blanca DOOH</span>
+      <span class="pag-btn-num">02</span>
+      <span class="pag-btn-bar"></span>
+    </button>
+    <button class="slider-pag-btn" data-index="2" aria-label="Slide 3: Originals">
+      <span class="pag-btn-label">Originals</span>
+      <span class="pag-btn-num">03</span>
+      <span class="pag-btn-bar"></span>
+    </button>
+    <button class="slider-pag-btn" data-index="3" aria-label="Slide 4: Producciones & Ads">
+      <span class="pag-btn-label">Producciones</span>
+      <span class="pag-btn-num">04</span>
+      <span class="pag-btn-bar"></span>
+    </button>
+    <button class="slider-pag-btn" data-index="4" aria-label="Slide 5: Orchata Récords">
+      <span class="pag-btn-label">Orchata Récords</span>
+      <span class="pag-btn-num">05</span>
+      <span class="pag-btn-bar"></span>
+    </button>
+  </nav>
 
-  <!-- Animated particles -->
-  <div id="hero-particles" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2;"></div>
-
-  <div class="hero-content">
-    <span class="hero-eyebrow">Potencia Visual de Alto Rendimiento · Media House 360°</span>
-    <h1 class="hero-title">
-      NO CREAMOS VIDEOS.<br><span class="highlight">CREAMOS AUTORIDAD VISUAL.</span>
-    </h1>
-    <p class="hero-subtitle">
-      Contenido cinematográfico de clase mundial diseñado para retener atención, dominar audiencias y multiplicar las ventas de tu negocio.
-    </p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/524424280465?text=Hola%20Orchata%20Media%20House,%20quiero%20hablar%20con%20un%20productor%20para%20un%20proyecto" target="_blank" rel="noopener" class="btn-pill btn-pill-gold cta-shake" id="hero-cta-primary">
-        💬 Hablar con un Productor (WhatsApp)
-      </a>
-      <a href="assets/docs/Dossier_Orchata_Media_House.pdf" target="_blank" download="Dossier_Orchata_Media_House.pdf" class="btn-pill btn-pill-gold" id="hero-cta-dossier" style="gap:8px;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-        </svg>
-        Dossier General (PDF)
-      </a>
-      <a href="#hero-dooh" class="btn-pill btn-pill-ghost" id="hero-cta-producciones">
-        Explorar Soluciones 360° ↓
-      </a>
-    </div>
-
-    <!-- Video Switcher Controls (F1 vs Rocket) -->
-    <div class="hero-video-switcher" role="group" aria-label="Seleccionar video">
-      <button class="hero-switcher-btn active" id="btn-vid-f1" data-target="hero-video-f1">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 17h14v-4H5v4zm1-8h12l-2-4H8L6 9z"/></svg>
-        <span>F1 Showreel</span>
-      </button>
-      <button class="hero-switcher-btn" id="btn-vid-rocket" data-target="hero-video-rocket">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3m0 0l8.5-8.5a2.12 2.12 0 113 3L12 15z"/></svg>
-        <span>Lanzamiento Cohete</span>
-      </button>
-    </div>
-
-    <!-- Indicador de Scroll / Descubrir -->
-    <a href="#hero-dooh" class="hero-scroll-hint" aria-label="Bajar a la siguiente sección">
-      <span>Descubrir</span>
-      <div class="scroll-line"></div>
-    </a>
+  <!-- FLECHAS INFERIORES DE NAVEGACIÓN -->
+  <div class="hero-slider-arrows">
+    <button class="slider-arrow-btn" id="heroSliderPrev" aria-label="Slide anterior">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="slider-arrow-btn" id="heroSliderNext" aria-label="Slide siguiente">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
+
+  <!-- BARRA DE PROGRESO DE AUTOPLAY -->
+  <div class="hero-slider-progress">
+    <div class="hero-slider-progress-bar" id="heroProgressBar"></div>
+  </div>
+
 </section>
-
 
 <!-- ═══════════════════════════════════════════════
      HERO 2 — MARCA BLANCA PARA GIMNASIOS (REDES DOOH)

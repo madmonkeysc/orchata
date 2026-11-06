@@ -841,3 +841,167 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
+/* ══════════════════════════════════════════════════════════════════
+   HERO MASTER SLIDER (5 SLIDES FULL BLEED 4K UX ENGINE)
+══════════════════════════════════════════════════════════════════ */
+function initHeroMasterSlider() {
+  const slider = document.getElementById('hero-main');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.hero-slide');
+  const pagBtns = slider.querySelectorAll('.slider-pag-btn');
+  const prevBtn = document.getElementById('heroSliderPrev');
+  const nextBtn = document.getElementById('heroSliderNext');
+  const progressBar = document.getElementById('heroProgressBar');
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  const slideDuration = 8000; // 8 segundos por slide
+  let slideTimer = null;
+  let progressTimer = null;
+  let progressStart = 0;
+
+  // Lazy loading de videos: solo carga y reproduce el video del slide activo
+  function loadAndPlaySlideVideo(slide) {
+    if (!slide) return;
+    const video = slide.querySelector('.hero-slide-video');
+    if (!video) return;
+
+    if (!video.src && video.getAttribute('data-src')) {
+      video.src = video.getAttribute('data-src');
+      video.load();
+    }
+
+    video.play().then(() => {
+      video.classList.add('loaded');
+    }).catch(() => {
+      // Si el navegador bloquea autoplay, se mantiene el poster visual de alta resolución
+    });
+  }
+
+  function pauseSlideVideo(slide) {
+    if (!slide) return;
+    const video = slide.querySelector('.hero-slide-video');
+    if (video) {
+      video.pause();
+    }
+  }
+
+  function startProgressBar() {
+    if (!progressBar) return;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    progressStart = Date.now();
+
+    clearInterval(progressTimer);
+    progressTimer = setInterval(() => {
+      const elapsed = Date.now() - progressStart;
+      const pct = Math.min((elapsed / slideDuration) * 100, 100);
+      progressBar.style.width = pct + '%';
+      if (pct >= 100) {
+        clearInterval(progressTimer);
+      }
+    }, 50);
+  }
+
+  function goToSlide(index, manual = false) {
+    if (index === currentIndex && slides[index].classList.contains('active')) return;
+
+    const previousSlide = slides[currentIndex];
+    pauseSlideVideo(previousSlide);
+
+    currentIndex = (index + totalSlides) % totalSlides;
+    const nextSlide = slides[currentIndex];
+
+    // Actualizar clases de slides
+    slides.forEach((s, i) => {
+      if (i === currentIndex) {
+        s.classList.add('active');
+      } else {
+        s.classList.remove('active');
+      }
+    });
+
+    // Actualizar paginador lateral
+    pagBtns.forEach((btn, i) => {
+      if (i === currentIndex) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Cargar y reproducir el video correspondiente
+    loadAndPlaySlideVideo(nextSlide);
+
+    // Reiniciar autoplay si fue manual
+    resetAutoplay();
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  function resetAutoplay() {
+    clearTimeout(slideTimer);
+    clearInterval(progressTimer);
+    startProgressBar();
+    slideTimer = setTimeout(() => {
+      nextSlide();
+    }, slideDuration);
+  }
+
+  // Event Listeners del Paginador Lateral
+  pagBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetIdx = parseInt(btn.getAttribute('data-index'), 10);
+      if (!isNaN(targetIdx)) {
+        goToSlide(targetIdx, true);
+      }
+    });
+  });
+
+  // Event Listeners de Flechas
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); });
+
+  // Pausar autoplay al pasar el mouse por encima para lectura cómoda
+  slider.addEventListener('mouseenter', () => {
+    clearTimeout(slideTimer);
+    clearInterval(progressTimer);
+  });
+  slider.addEventListener('mouseleave', () => {
+    resetAutoplay();
+  });
+
+  // Soporte para gestos táctiles (Swipe izquierda / derecha en móviles)
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  slider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      nextSlide();
+    } else if (touchEndX - touchStartX > 50) {
+      prevSlide();
+    }
+  }, { passive: true });
+
+  // Inicializar Slide 1
+  loadAndPlaySlideVideo(slides[0]);
+  resetAutoplay();
+}
+
+document.addEventListener('DOMContentLoaded', initHeroMasterSlider);
