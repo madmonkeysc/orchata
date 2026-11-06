@@ -1825,119 +1825,128 @@
       display: none;
     }
 
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+
     @media print {
-      /* Reset para impresión perfecta y limpia en papel / PDF */
+      /* Reset integral para impresión y guardado como PDF en 1 sola página perfecta */
       html, body {
         background: #ffffff !important;
-        color: #1e293b !important;
-        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
-        font-size: 9.5pt !important;
-        line-height: 1.4 !important;
+        color: #0f172a !important;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        font-size: 8.5pt !important;
+        line-height: 1.35 !important;
         margin: 0 !important;
         padding: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
 
-      /* Ocultar interfaz del cotizador */
+      /* Ocultar interfaz interactiva del cotizador */
       .app-container, .toast-msg, api-shim, header.app-header, .stats-ribbon, .presets-container {
         display: none !important;
       }
 
-      /* Mostrar documento formal con diseño editorial sobre hoja membretada Orchata */
+      /* Contenedor del documento oficial estructurado sobre la hoja membretada real */
       #officialQuotePrintDoc {
         display: block !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 297mm !important;
-        margin: 0 auto !important;
-        padding: 14mm 14mm 16mm 14mm !important;
-        box-sizing: border-box !important;
-        background-color: #ffffff !important;
-        background-image: url('../../assets/images/Hoja_Membretada_Base.png') !important;
-        background-repeat: no-repeat !important;
-        background-size: 100% 100% !important;
-        background-position: center top !important;
         position: relative !important;
+        width: 100% !important;
+        max-width: 215.9mm !important; /* Ancho estándar Carta */
+        min-height: 279.4mm !important; /* Alto estándar Carta */
+        margin: 0 auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        background: #ffffff !important;
+        overflow: hidden !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
       }
 
-      .print-doc-header {
+      /* Capa explícita de la hoja membretada original de Orchata */
+      .print-letterhead-layer {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+      }
+      .print-letterhead-img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: fill !important;
+        display: block !important;
+      }
+
+      /* Contenido tipográfico y tablas situado exactamente dentro de los márgenes seguros de la hoja membretada */
+      .print-document-content {
+        position: relative !important;
+        z-index: 5 !important;
+        padding: 27mm 15mm 16mm 15mm !important; /* Libera el header institucional superior y el footer inferior */
+        box-sizing: border-box !important;
+      }
+
+      /* Header de meta-datos de la propuesta */
+      .print-doc-meta-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 2.5px solid #09090b;
-        padding-bottom: 12px;
-        margin-bottom: 14px;
+        border-bottom: 2px solid #09090b;
+        padding-bottom: 5px;
+        margin-bottom: 8px;
       }
-      .print-doc-brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .print-doc-logo {
-        width: 42px;
-        height: 42px;
-        object-fit: contain;
-      }
-      .print-doc-title {
-        font-size: 15pt;
+      .print-meta-badge {
+        font-size: 8.5pt;
         font-weight: 900;
-        letter-spacing: -0.02em;
-        color: #09090b;
-        margin: 0;
-        line-height: 1.1;
-      }
-      .print-doc-subtitle {
-        font-size: 7.5pt;
-        font-weight: 700;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: #d97706; /* Orchata gold dark for print */
-        letter-spacing: 0.05em;
-        display: block;
-        margin-top: 2px;
-      }
-      .print-doc-meta {
-        text-align: right;
-        font-size: 8pt;
-        color: #64748b;
-        line-height: 1.35;
-      }
-      .print-meta-folio {
-        font-size: 9pt;
-        font-weight: 900;
         color: #09090b;
-        letter-spacing: 0.04em;
-        margin-bottom: 2px;
+      }
+      .print-meta-details {
+        font-size: 7.5pt;
+        color: #64748b;
+        display: flex;
+        gap: 16px;
+      }
+      .print-meta-details strong {
+        color: #09090b;
       }
 
-      /* Client Card */
+      /* Ficha del cliente */
       .print-client-card {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         background: #f8fafc;
         border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        padding: 12px 16px;
-        margin-bottom: 14px;
+        border-radius: 6px;
+        padding: 7px 12px;
+        margin-bottom: 8px;
       }
       .print-label {
-        font-size: 7.2pt;
+        font-size: 6.8pt;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: #94a3b8;
         display: block;
-        margin-bottom: 3px;
+        margin-bottom: 2px;
       }
       .print-client-name {
-        font-size: 12.5pt;
+        font-size: 11pt;
         font-weight: 900;
         color: #09090b;
-        margin: 0 0 4px 0;
+        margin: 0 0 2px 0;
         line-height: 1.15;
       }
       .print-client-meta {
-        font-size: 8.2pt;
+        font-size: 7.8pt;
         color: #475569;
       }
       .print-client-col-right {
@@ -1947,24 +1956,24 @@
         display: inline-block;
         background: #09090b;
         color: #fcf200;
-        padding: 3px 9px;
+        padding: 2px 7px;
         border-radius: 4px;
-        font-size: 8pt;
+        font-size: 7.5pt;
         font-weight: 800;
       }
 
-      /* Letter Section */
+      /* Carta ejecutiva de agradecimiento */
       .print-letter-section {
         background: #ffffff;
-        border-left: 3.5px solid #d97706;
-        padding: 4px 14px;
-        margin-bottom: 14px;
-        font-size: 8.5pt;
+        border-left: 3px solid #f59e0b;
+        padding: 2px 10px;
+        margin-bottom: 8px;
+        font-size: 7.6pt;
         color: #334155;
-        line-height: 1.45;
+        line-height: 1.38;
       }
       .print-letter-p {
-        margin: 0 0 6px 0;
+        margin: 0 0 4px 0;
       }
       .print-letter-p:last-child {
         margin-bottom: 0;
@@ -1973,23 +1982,23 @@
         color: #09090b;
       }
 
-      /* Pricing Section */
+      /* Desglose de inversión */
       .print-section-header {
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 6px;
+        margin-bottom: 5px;
       }
       .print-section-num {
         background: #09090b;
         color: #fff;
-        font-size: 7.5pt;
+        font-size: 6.8pt;
         font-weight: 900;
-        padding: 2px 6px;
+        padding: 1.5px 5px;
         border-radius: 3px;
       }
       .print-section-title {
-        font-size: 10pt;
+        font-size: 8.8pt;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.04em;
@@ -1999,174 +2008,181 @@
       .print-table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 8.2pt;
-        margin-bottom: 14px;
+        font-size: 7.4pt;
+        margin-bottom: 8px;
       }
       .print-table th {
         background: #f1f5f9;
         color: #475569;
-        font-size: 7.2pt;
+        font-size: 6.8pt;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        padding: 6px 8px;
+        padding: 4px 6px;
         border-top: 1px solid #cbd5e1;
         border-bottom: 1.5px solid #94a3b8;
         text-align: left;
       }
       .print-table td {
-        padding: 7px 8px;
+        padding: 4px 6px;
         border-bottom: 1px solid #e2e8f0;
         color: #334155;
         vertical-align: top;
       }
       .print-td-desc {
-        font-size: 7.2pt;
+        font-size: 6.6pt;
         color: #64748b;
-        margin-top: 2px;
+        margin-top: 1px;
       }
       .print-discount-tr td {
         background: #f0fdf4;
       }
       .print-subtotal-tr td {
-        padding-top: 8px;
+        padding-top: 5px;
         font-weight: 700;
         color: #475569;
         border-top: 1.5px solid #cbd5e1;
         border-bottom: none;
       }
       .print-tax-tr td {
-        font-size: 7.8pt;
+        font-size: 7pt;
         color: #64748b;
         border-bottom: 1.5px solid #94a3b8;
       }
       .print-total-tr td {
         background: #fafaf9;
-        border-top: 2px solid #09090b;
-        border-bottom: 2px solid #09090b;
-        padding: 10px 8px;
+        border-top: 1.8px solid #09090b;
+        border-bottom: 1.8px solid #09090b;
+        padding: 6px 6px;
         vertical-align: middle;
       }
       .print-hero-price {
-        font-size: 14pt;
+        font-size: 12.5pt;
         font-weight: 900;
         color: #09090b;
-        margin-right: 3px;
+        margin-right: 2px;
       }
 
-      /* ROI Section */
+      /* Sección ROI */
       .print-roi-section {
-        margin-bottom: 14px;
+        margin-bottom: 8px;
       }
       .print-roi-grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 10px;
-        margin-bottom: 8px;
+        gap: 8px;
+        margin-bottom: 5px;
       }
       .print-roi-card {
         background: #f8fafc;
         border: 1px solid #e2e8f0;
-        border-radius: 6px;
-        padding: 8px 10px;
+        border-radius: 5px;
+        padding: 5px 8px;
         text-align: center;
       }
       .print-roi-label {
-        font-size: 6.8pt;
+        font-size: 6.2pt;
         font-weight: 800;
         text-transform: uppercase;
         color: #64748b;
         display: block;
       }
       .print-roi-value {
-        font-size: 13pt;
+        font-size: 10.5pt;
         font-weight: 900;
-        margin: 2px 0;
+        margin: 1px 0;
         line-height: 1.1;
       }
       .print-roi-sub {
-        font-size: 6.8pt;
+        font-size: 6.2pt;
         color: #64748b;
         margin: 0;
       }
       .print-roi-explanation {
         background: #fffbeb;
         border: 1px solid #fde68a;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 7.8pt;
+        border-radius: 5px;
+        padding: 5px 8px;
+        font-size: 7pt;
         color: #92400e;
-        line-height: 1.35;
+        line-height: 1.32;
       }
 
-      /* Closing & Signatures */
+      /* Cierre & Firmas con amplio espacio para cliente */
       .print-closing-section {
         border-top: 1px solid #e2e8f0;
-        padding-top: 10px;
-        margin-bottom: 10px;
+        padding-top: 6px;
+        margin-bottom: 2px;
       }
       .print-closing-title {
-        font-size: 9pt;
+        font-size: 7.8pt;
         font-weight: 800;
         color: #09090b;
-        margin: 0 0 3px 0;
+        margin: 0 0 2px 0;
       }
       .print-closing-text {
-        font-size: 7.8pt;
+        font-size: 7pt;
         color: #475569;
-        margin: 0 0 16px 0;
-        line-height: 1.35;
+        margin: 0 0 8px 0;
+        line-height: 1.32;
       }
       .print-signatures-wrap {
         display: flex;
         justify-content: space-between;
-        gap: 40px;
-        margin-top: 20px;
+        gap: 36px;
+        margin-top: 4px;
       }
       .print-sig-col {
         flex: 1;
         display: flex;
         flex-direction: column;
-        font-size: 7.5pt;
+        font-size: 7pt;
         color: #475569;
         line-height: 1.3;
         position: relative;
       }
       .print-sig-img-wrap {
-        height: 48px;
+        height: 64px;
         display: flex;
         align-items: flex-end;
-        margin-bottom: -8px;
+        margin-bottom: -10px;
         z-index: 2;
       }
       .print-humberto-sig {
-        height: 52px;
+        height: 64px;
         width: auto;
+        max-width: 170px;
         object-fit: contain;
         display: block;
         filter: contrast(1.15);
       }
+      .print-sig-box-client {
+        height: 64px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 4px;
+        font-size: 6.8pt;
+        color: #94a3b8;
+        font-style: italic;
+        margin-bottom: -10px;
+        z-index: 2;
+      }
       .print-sig-line {
-        border-bottom: 1.5px solid #09090b;
-        margin-bottom: 6px;
+        border-bottom: 1.8px solid #09090b;
+        margin-bottom: 5px;
         width: 100%;
-        height: 6px;
+        height: 8px;
       }
       .print-sig-col strong {
         color: #09090b;
-        font-size: 8pt;
+        font-size: 7.8pt;
       }
-
-      .print-doc-footer {
-        display: flex;
-        justify-content: space-between;
-        border-top: 1px solid #cbd5e1;
-        padding-top: 6px;
-        font-size: 6.8pt;
-        color: #94a3b8;
+      .print-sig-col span {
+        display: block;
       }
     }
-
+  
   </style>
 </head>
 <body>
@@ -3954,231 +3970,231 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
        ========================================================================== -->
   <div id="officialQuotePrintDoc" class="official-print-document">
     
-    <!-- HEADER FORMAL CON MEMBRETE -->
-    <header class="print-doc-header">
-      <div class="print-doc-brand">
-        <img src="../../assets/images/Isotipo Orchata.png" alt="Orchata Media House" class="print-doc-logo">
-        <div>
-          <h1 class="print-doc-title">ORCHATA MEDIA HOUSE</h1>
-          <span class="print-doc-subtitle">DOOH Marca Blanca · Producción & Conversión para Gimnasios</span>
+    <!-- HOJA MEMBRETADA INSTITUCIONAL ORCHATA MEDIA HOUSE (CAPA VISUAL DIRECTA) -->
+    <div class="print-letterhead-layer">
+      <img src="../../assets/images/Hoja_Membretada_HQ.png" alt="Membrete Oficial Orchata Media House" class="print-letterhead-img">
+    </div>
+
+    <!-- CONTENIDO ESTRUCTURADO Y FORMAL DE LA COTIZACIÓN -->
+    <div class="print-document-content">
+      
+      <!-- BARRA DE FOLIO Y FECHA -->
+      <header class="print-doc-meta-bar">
+        <span class="print-meta-badge">PROPUESTA EJECUTIVA & COTIZACIÓN OFICIAL</span>
+        <div class="print-meta-details">
+          <span><strong>Folio:</strong> <span id="printFolio">OMH-2026-8842</span></span>
+          <span><strong>Fecha:</strong> <span id="printDate">Noviembre 2026</span></span>
+          <span><strong>Validez:</strong> 15 días hábiles</span>
         </div>
-      </div>
-      <div class="print-doc-meta">
-        <div class="print-meta-folio">PROPUESTA EJECUTIVA</div>
-        <div class="print-meta-item"><strong>Folio:</strong> <span id="printFolio">OMH-2026-8842</span></div>
-        <div class="print-meta-item"><strong>Fecha:</strong> <span id="printDate">Noviembre 2026</span></div>
-        <div class="print-meta-item"><strong>Validez:</strong> 15 días hábiles</div>
-      </div>
-    </header>
+      </header>
 
-    <!-- DATOS DEL PROSPECTO -->
-    <section class="print-client-card">
-      <div class="print-client-col">
-        <span class="print-label">Preparado especialmente para:</span>
-        <h2 class="print-client-name" id="printClientGym">Iron Republic Fitness Club</h2>
-        <div class="print-client-meta"><strong>Atención:</strong> <span id="printClientContact">Ing. Carlos Mendoza</span></div>
-        <div class="print-client-meta"><strong>Plaza / Ubicación:</strong> <span id="printClientCity">Querétaro (Zona Bajío)</span></div>
-      </div>
-      <div class="print-client-col print-client-col-right">
-        <span class="print-label">Alcance del Ecosistema:</span>
-        <div class="print-branches-badge"><strong id="printBranchesCount">1</strong> Sucursal(es) Cobertura</div>
-        <div class="print-client-meta" style="margin-top:6px;"><strong>Modelo:</strong> Venta Única Llave en Mano</div>
-        <div class="print-client-meta" style="color:#059669;font-weight:700;">$0 Rentas Mensuales de Software</div>
-      </div>
-    </section>
-
-    <!-- CARTA DE AGRADECIMIENTO & PROPÓSITO -->
-    <section class="print-letter-section">
-      <p class="print-letter-p">
-        <strong>Estimado(a) <span id="printSaluteName">Director(a)</span>:</strong>
-      </p>
-      <p class="print-letter-p">
-        En nombre de todo el equipo de <strong>Orchata Media House</strong>, queremos agradecerle sinceramente por abrirnos las puertas de <strong><span id="printLetterGym">su gimnasio</span></strong> y considerarnos para acompañar la evolución tecnológica de sus instalaciones. Para nosotros es un honor y una gran responsabilidad ser su socio estratégico.
-      </p>
-      <p class="print-letter-p">
-        Nuestro compromiso no es colocar pantallas ni vender videos genéricos; nuestra labor consiste en <strong>transformar sus televisores en un canal privado 4K con la identidad de su propia marca</strong>, diseñado con psicología deportiva e iluminación cinematográfica para resolver los dos mayores desafíos de su negocio: <strong>eliminar la deserción de socios principiantes</strong> (+80% de retención en sus primeros 90 días) y <strong>multiplicar el consumo en su barra de suplementos y servicios de entrenamiento</strong> (+35% de incremento en ventas) mediante códigos QR dinámicos enlazados directamente a su WhatsApp en menos de 3 segundos.
-      </p>
-    </section>
-
-    <!-- DESGLOSE ECONÓMICO DE LA COTIZACIÓN -->
-    <section class="print-pricing-section">
-      <div class="print-section-header">
-        <span class="print-section-num">01</span>
-        <h3 class="print-section-title">Desglose de Inversión Llave en Mano</h3>
-      </div>
-
-      <table class="print-table">
-        <thead>
-          <tr>
-            <th>Concepto / Módulo del Ecosistema</th>
-            <th>Detalle de Configuración</th>
-            <th style="text-align:right;">Importe (MXN)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- PAQUETE BASE -->
-          <tr>
-            <td>
-              <strong id="printPkgName">Pro Brand™</strong>
-              <div class="print-td-desc" id="printPkgDesc">Ecosistema integral: Identidad 3D, loops diferenciados por zonas (cardio/fuerza) y menú dinámico de suplementos.</div>
-            </td>
-            <td id="printPkgSedes"><span id="printPkgBranchesCount">1</span> sede(s) autorizada(s)</td>
-            <td style="text-align:right;" id="printPkgBasePrice">$25,000</td>
-          </tr>
-
-          <!-- REGLAS DE DESCUENTO SI APLICAN -->
-          <tr id="printRowAdDiscount" style="display:none;" class="print-discount-tr">
-            <td>
-              <strong style="color:#059669;">Convenio Red Publicitaria DOOH (20% OFF Core 30)</strong>
-              <div class="print-td-desc">Pauta controlada y no invasiva de marcas aliadas seleccionadas.</div>
-            </td>
-            <td>Descuento comercial</td>
-            <td style="text-align:right;color:#059669;" id="printAdDiscountAmount">-$2,400</td>
-          </tr>
-          <tr id="printRowMultisedeDiscount" style="display:none;" class="print-discount-tr">
-            <td>
-              <strong style="color:#059669;">Descuento Multisede (50% OFF en sedes adicionales Maximus)</strong>
-              <div class="print-td-desc">Tarifa preferencial para cadenas consolidadas.</div>
-            </td>
-            <td>Bonificación multi-club</td>
-            <td style="text-align:right;color:#059669;" id="printMultisedeDiscountAmount">-$0</td>
-          </tr>
-
-          <!-- EXTRAS & ADDONS -->
-          <tr id="printRowExtraTvs" style="display:none;">
-            <td>
-              <strong>Pantallas / Reproductores Extra Calibrados</strong>
-              <div class="print-td-desc">Equipamiento y sincronización de televisores adicionales en sala.</div>
-            </td>
-            <td><span id="printExtraTvsQty">0</span> pantalla(s) (+$1,500 c/u)</td>
-            <td style="text-align:right;" id="printExtraTvsTotal">$0</td>
-          </tr>
-
-          <tr id="printRowSupplements" style="display:none;">
-            <td>
-              <strong>Carta Digital de Barra & Suplementación con QR</strong>
-              <div class="print-td-desc">Digitalización de botes y batidos servidos listos con comanda instantánea.</div>
-            </td>
-            <td><span id="printSupplementsQty">0</span> productos (+$1,200/bloque)</td>
-            <td style="text-align:right;" id="printSupplementsTotal">$0</td>
-          </tr>
-
-          <tr id="printRowDisciplines" style="display:none;">
-            <td>
-              <strong>Producción de Clases Grupales Específicas</strong>
-              <div class="print-td-desc" id="printDisciplinesNames">Spinning, Yoga, GAP</div>
-            </td>
-            <td><span id="printDisciplinesQty">0</span> disciplina(s) (+$1,800 c/u)</td>
-            <td style="text-align:right;" id="printDisciplinesTotal">$0</td>
-          </tr>
-
-          <tr id="printRowCoaches" style="display:none;">
-            <td>
-              <strong>Cápsulas Técnicas con Coaches de Piso</strong>
-              <div class="print-td-desc">Grabación en set 5600K con código QR personal para agendamiento de citas.</div>
-            </td>
-            <td><span id="printCoachesQty">0</span> coach(es) (+$2,500 c/u)</td>
-            <td style="text-align:right;" id="printCoachesTotal">$0</td>
-          </tr>
-
-          <tr id="printRowFlash" style="display:none;">
-            <td>
-              <strong>Campañas Flash "Happy Hour" en Pantalla</strong>
-              <div class="print-td-desc">Cortinillas de 180s con cuenta regresiva para compras de impulso en barra.</div>
-            </td>
-            <td><span id="printFlashQty">0</span> campaña(s) (+$1,500 c/u)</td>
-            <td style="text-align:right;" id="printFlashTotal">$0</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr class="print-subtotal-tr">
-            <td colspan="2">Subtotal Inversión Llave en Mano:</td>
-            <td style="text-align:right;" id="printSubtotalPrice">$25,000</td>
-          </tr>
-          <tr id="printRowTax" class="print-tax-tr">
-            <td colspan="2">I.V.A. Trasladado (16% Deducible Fiscal):</td>
-            <td style="text-align:right;" id="printTaxPrice">$4,000</td>
-          </tr>
-          <tr class="print-total-tr">
-            <td colspan="2">
-              <div style="font-size:1.05rem;font-weight:900;">INVERSIÓN TOTAL DEFINITIVA:</div>
-              <div style="font-size:0.75rem;font-weight:600;color:#059669;">Pago único llave en mano · Cero mensualidades de licenciamiento</div>
-            </td>
-            <td style="text-align:right;">
-              <span class="print-hero-price" id="printTotalFinalPrice">$29,000</span>
-              <span style="font-size:0.8rem;color:#64748b;">MXN</span>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </section>
-
-    <!-- PROYECCIÓN MATEMÁTICA DEL ROI & BENEFICIO -->
-    <section class="print-roi-section">
-      <div class="print-section-header">
-        <span class="print-section-num">02</span>
-        <h3 class="print-section-title">Proyección de Retorno de Inversión (ROI) & Payback</h3>
-      </div>
-
-      <div class="print-roi-grid">
-        <div class="print-roi-card">
-          <span class="print-roi-label">Tiempo Estimado de Recuperación</span>
-          <div class="print-roi-value" style="color:#d97706;" id="printPaybackTime">1.8 Meses</div>
-          <p class="print-roi-sub">El sistema se amortiza completamente con los nuevos ingresos.</p>
+      <!-- DATOS DEL PROSPECTO -->
+      <section class="print-client-card">
+        <div class="print-client-col">
+          <span class="print-label">Preparado especialmente para:</span>
+          <h2 class="print-client-name" id="printClientGym">Iron Republic Fitness Club</h2>
+          <div class="print-client-meta"><strong>Atención:</strong> <span id="printClientContact">Ing. Carlos Mendoza</span> &nbsp;|&nbsp; <strong>Plaza:</strong> <span id="printClientCity">Querétaro (Zona Bajío)</span></div>
         </div>
-        <div class="print-roi-card">
-          <span class="print-roi-label">Beneficio Mensual Neto Generado</span>
-          <div class="print-roi-value" style="color:#059669;" id="printMonthlyGain">+$18,450 MXN</div>
-          <p class="print-roi-sub">Por retención de socios + incremento en barra con QR.</p>
+        <div class="print-client-col print-client-col-right">
+          <span class="print-label">Alcance del Ecosistema:</span>
+          <div class="print-branches-badge"><strong id="printBranchesCount">1</strong> Sucursal(es) Cobertura</div>
+          <div class="print-client-meta" style="margin-top:3px;"><strong>Modelo:</strong> Llave en Mano ($0 Rentas de Software)</div>
         </div>
-        <div class="print-roi-card">
-          <span class="print-roi-label">Retorno Anual Estimado (Año 1)</span>
-          <div class="print-roi-value" style="color:#2563eb;" id="printRoiPercent">245%</div>
-          <p class="print-roi-sub">Utilidad neta adicional tras recuperar el costo total del sistema.</p>
-        </div>
-      </div>
+      </section>
 
-      <div class="print-roi-explanation">
-        <strong>¿Cómo se paga sola esta inversión?</strong> Con una afluencia estimada de <strong><span id="printMembersCount">450</span> socios activos</strong>, basta con que el contenido guiado evite la deserción de apenas <strong>4 socios al mes</strong> y se sirvan <strong>12 a 15 batidos extras al día</strong> mediante el escaneo directo en pantalla para que la inversión se pague sola en las primeras semanas. Todo lo que genere el sistema a partir del segundo mes es <strong>utilidad líquida directa</strong> para su caja.
-      </div>
-    </section>
-
-    <!-- CIERRE INSPIRACIONAL Y LLAMADO A LA ACCIÓN (CTA) -->
-    <section class="print-closing-section">
-      <div class="print-closing-content">
-        <h4 class="print-closing-title">Iniciemos hoy la transformación visual de su gimnasio</h4>
-        <p class="print-closing-text">
-          Las pantallas de su club pueden seguir siendo un televisor que gasta energía y muestra comerciales ajenos, o pueden convertirse en el motor transaccional más rentable y respetuoso de sus instalaciones. En <strong>Orchata Media House</strong> estamos listos para iniciar el rodaje y calibración técnica inmediatamente para su entrega llave en mano.
+      <!-- CARTA DE AGRADECIMIENTO & PROPÓSITO -->
+      <section class="print-letter-section">
+        <p class="print-letter-p">
+          <strong>Estimado(a) <span id="printSaluteName">Director(a)</span>:</strong> En nombre de todo el equipo de <strong>Orchata Media House</strong>, queremos agradecerle sinceramente por considerarnos para transformar las instalaciones de <strong><span id="printLetterGym">su gimnasio</span></strong>. Para nosotros es un honor y una gran responsabilidad acompañar la evolución tecnológica y visual de su marca.
         </p>
-      </div>
+        <p class="print-letter-p">
+          Nuestro compromiso consiste en <strong>convertir sus televisores en un canal privado 4K con la identidad de su propia marca</strong>, diseñado con psicología deportiva e iluminación cinematográfica para <strong>eliminar la deserción de socios en sus primeros 90 días</strong> y <strong>multiplicar el consumo en su barra de suplementos y servicios</strong> mediante códigos QR dinámicos directos a WhatsApp en menos de 3 segundos.
+        </p>
+      </section>
 
-      <div class="print-signatures-wrap">
-        <div class="print-sig-col">
-          <div class="print-sig-img-wrap">
-            <img src="../../assets/images/Firma_H.png" alt="Firma Humberto Carosilva" class="print-humberto-sig">
+      <!-- DESGLOSE ECONÓMICO DE LA COTIZACIÓN -->
+      <section class="print-pricing-section">
+        <div class="print-section-header">
+          <span class="print-section-num">01</span>
+          <h3 class="print-section-title">Desglose de Inversión Llave en Mano</h3>
+        </div>
+
+        <table class="print-table">
+          <thead>
+            <tr>
+              <th>Concepto / Módulo del Ecosistema</th>
+              <th>Detalle de Configuración</th>
+              <th style="text-align:right;">Importe (MXN)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- PAQUETE BASE -->
+            <tr>
+              <td>
+                <strong id="printPkgName">Pro Brand™</strong>
+                <div class="print-td-desc" id="printPkgDesc">Ecosistema integral: Identidad 3D, loops diferenciados por zonas (cardio/fuerza) y menú dinámico de suplementos.</div>
+              </td>
+              <td id="printPkgSedes"><span id="printPkgBranchesCount">1</span> sede(s) autorizada(s)</td>
+              <td style="text-align:right;" id="printPkgBasePrice">$25,000</td>
+            </tr>
+
+            <!-- REGLAS DE DESCUENTO SI APLICAN -->
+            <tr id="printRowAdDiscount" style="display:none;" class="print-discount-tr">
+              <td>
+                <strong style="color:#059669;">Convenio Red Publicitaria DOOH (20% OFF Core 30)</strong>
+                <div class="print-td-desc">Pauta controlada y no invasiva de marcas aliadas seleccionadas.</div>
+              </td>
+              <td>Descuento comercial</td>
+              <td style="text-align:right;color:#059669;" id="printAdDiscountAmount">-$2,400</td>
+            </tr>
+            <tr id="printRowMultisedeDiscount" style="display:none;" class="print-discount-tr">
+              <td>
+                <strong style="color:#059669;">Descuento Multisede (50% OFF en sedes adicionales Maximus)</strong>
+                <div class="print-td-desc">Tarifa preferencial para cadenas consolidadas.</div>
+              </td>
+              <td>Bonificación multi-club</td>
+              <td style="text-align:right;color:#059669;" id="printMultisedeDiscountAmount">-$0</td>
+            </tr>
+
+            <!-- EXTRAS & ADDONS -->
+            <tr id="printRowExtraTvs" style="display:none;">
+              <td>
+                <strong>Pantallas / Reproductores Extra Calibrados</strong>
+                <div class="print-td-desc">Equipamiento y sincronización de televisores adicionales en sala.</div>
+              </td>
+              <td><span id="printExtraTvsQty">0</span> pantalla(s) (+$1,500 c/u)</td>
+              <td style="text-align:right;" id="printExtraTvsTotal">$0</td>
+            </tr>
+
+            <tr id="printRowSupplements" style="display:none;">
+              <td>
+                <strong>Carta Digital de Barra & Suplementación con QR</strong>
+                <div class="print-td-desc">Digitalización de botes y batidos servidos listos con comanda instantánea.</div>
+              </td>
+              <td><span id="printSupplementsQty">0</span> productos (+$1,200/bloque)</td>
+              <td style="text-align:right;" id="printSupplementsTotal">$0</td>
+            </tr>
+
+            <tr id="printRowDisciplines" style="display:none;">
+              <td>
+                <strong>Producción de Clases Grupales Específicas</strong>
+                <div class="print-td-desc" id="printDisciplinesNames">Spinning, Yoga, GAP</div>
+              </td>
+              <td><span id="printDisciplinesQty">0</span> disciplina(s) (+$1,800 c/u)</td>
+              <td style="text-align:right;" id="printDisciplinesTotal">$0</td>
+            </tr>
+
+            <tr id="printRowCoaches" style="display:none;">
+              <td>
+                <strong>Cápsulas Técnicas con Coaches de Piso</strong>
+                <div class="print-td-desc">Grabación en set 5600K con código QR personal para agendamiento de citas.</div>
+              </td>
+              <td><span id="printCoachesQty">0</span> coach(es) (+$2,500 c/u)</td>
+              <td style="text-align:right;" id="printCoachesTotal">$0</td>
+            </tr>
+
+            <tr id="printRowFlash" style="display:none;">
+              <td>
+                <strong>Campañas Flash "Happy Hour" en Pantalla</strong>
+                <div class="print-td-desc">Cortinillas de 180s con cuenta regresiva para compras de impulso en barra.</div>
+              </td>
+              <td><span id="printFlashQty">0</span> campaña(s) (+$1,500 c/u)</td>
+              <td style="text-align:right;" id="printFlashTotal">$0</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="print-subtotal-tr">
+              <td colspan="2">Subtotal Inversión Llave en Mano:</td>
+              <td style="text-align:right;" id="printSubtotalPrice">$25,000</td>
+            </tr>
+            <tr id="printRowTax" class="print-tax-tr">
+              <td colspan="2">I.V.A. Trasladado (16% Deducible Fiscal):</td>
+              <td style="text-align:right;" id="printTaxPrice">$4,000</td>
+            </tr>
+            <tr class="print-total-tr">
+              <td colspan="2">
+                <div style="font-size:0.95rem;font-weight:900;">INVERSIÓN TOTAL DEFINITIVA:</div>
+                <div style="font-size:0.7rem;font-weight:600;color:#059669;">Pago único llave en mano · Cero mensualidades de licenciamiento</div>
+              </td>
+              <td style="text-align:right;">
+                <span class="print-hero-price" id="printTotalFinalPrice">$29,000</span>
+                <span style="font-size:0.75rem;color:#64748b;">MXN</span>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+
+      <!-- PROYECCIÓN MATEMÁTICA DEL ROI & BENEFICIO -->
+      <section class="print-roi-section">
+        <div class="print-section-header">
+          <span class="print-section-num">02</span>
+          <h3 class="print-section-title">Proyección de Retorno de Inversión (ROI) & Payback</h3>
+        </div>
+
+        <div class="print-roi-grid">
+          <div class="print-roi-card">
+            <span class="print-roi-label">Tiempo Estimado de Recuperación</span>
+            <div class="print-roi-value" style="color:#d97706;" id="printPaybackTime">1.8 Meses</div>
+            <p class="print-roi-sub">El sistema se amortiza completamente con los nuevos ingresos.</p>
           </div>
-          <div class="print-sig-line"></div>
-          <strong>Humberto Carosilva</strong>
-          <span>Director General & Creativo</span>
-          <span>Orchata Media House · Querétaro, México</span>
-          <span>hola@orchata.media · Tel: +52 442 428 0465</span>
+          <div class="print-roi-card">
+            <span class="print-roi-label">Beneficio Mensual Neto Generado</span>
+            <div class="print-roi-value" style="color:#059669;" id="printMonthlyGain">+$18,450 MXN</div>
+            <p class="print-roi-sub">Por retención de socios + incremento en barra con QR.</p>
+          </div>
+          <div class="print-roi-card">
+            <span class="print-roi-label">Retorno Anual Estimado (Año 1)</span>
+            <div class="print-roi-value" style="color:#2563eb;" id="printRoiPercent">245%</div>
+            <p class="print-roi-sub">Utilidad neta adicional tras recuperar el costo total del sistema.</p>
+          </div>
         </div>
-        <div class="print-sig-col">
-          <div class="print-sig-line"></div>
-          <strong>Aceptación & Firma de Conformidad</strong>
-          <span id="printSignClientName">Ing. Carlos Mendoza</span>
-          <span id="printSignGymName">Iron Republic Fitness Club</span>
-          <span>Fecha de Aceptación: ____________________</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- FOOTER DE PÁGINA -->
-    <footer class="print-doc-footer">
-      <span>Orchata Media House © 2026-2027 · Documento Oficial de Cotización</span>
-      <span>www.orchatahouse.com · Querétaro, Qro.</span>
-      <span>Página 1 de 1</span>
-    </footer>
+        <div class="print-roi-explanation">
+          <strong>¿Cómo se paga sola esta inversión?</strong> Con una afluencia estimada de <strong><span id="printMembersCount">450</span> socios activos</strong>, basta con que el contenido guiado evite la deserción de apenas <strong>4 socios al mes</strong> y se sirvan <strong>12 a 15 batidos extras al día</strong> mediante el escaneo directo en pantalla para que la inversión se recupere íntegramente en las primeras semanas. Todo lo que genere el sistema en adelante es <strong>utilidad líquida directa</strong> para su caja.
+        </div>
+      </section>
+
+      <!-- CIERRE INSPIRACIONAL Y LLAMADO A LA ACCIÓN (CTA) -->
+      <section class="print-closing-section">
+        <div class="print-closing-content">
+          <h4 class="print-closing-title">Iniciemos hoy la transformación visual de su gimnasio</h4>
+          <p class="print-closing-text">
+            Las pantallas de su club pueden ser un televisor que gasta energía y muestra anuncios ajenos, o pueden convertirse en el motor transaccional más rentable de sus instalaciones. En <strong>Orchata Media House</strong> estamos listos para iniciar la producción y calibración técnica inmediatamente para su entrega llave en mano.
+          </p>
+        </div>
+
+        <!-- BLOQUE DE FIRMAS CON AMPLIO ESPACIO -->
+        <div class="print-signatures-wrap">
+          
+          <!-- FIRMA ORCHATA (HUMBERTO CAROSILVA) -->
+          <div class="print-sig-col">
+            <div class="print-sig-img-wrap">
+              <img src="../../assets/images/Firma_H.png" alt="Firma Humberto Carosilva" class="print-humberto-sig">
+            </div>
+            <div class="print-sig-line"></div>
+            <strong>Humberto Carosilva</strong>
+            <span>Director General & Creativo</span>
+            <span>Orchata Media House · Querétaro, México</span>
+            <span>hola@orchata.media · Tel: +52 442 428 0465</span>
+          </div>
+
+          <!-- ESPACIO AMPLIO DE FIRMA PARA EL CLIENTE -->
+          <div class="print-sig-col">
+            <div class="print-sig-box-client">
+              <span>(Firma autógrafa / sello de la empresa)</span>
+            </div>
+            <div class="print-sig-line"></div>
+            <strong>Aceptación & Firma de Conformidad</strong>
+            <span id="printSignClientName" style="font-weight:700;color:#09090b;">Ing. Carlos Mendoza</span>
+            <span id="printSignGymName">Iron Republic Fitness Club</span>
+            <span style="font-size:6.8pt;color:#64748b;margin-top:3px;">Fecha de Aceptación: __________________________________</span>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
 
   </div>
 
