@@ -1844,15 +1844,21 @@
         display: none !important;
       }
 
-      /* Mostrar documento formal con diseño editorial */
+      /* Mostrar documento formal con diseño editorial sobre hoja membretada Orchata */
       #officialQuotePrintDoc {
         display: block !important;
         width: 100% !important;
         max-width: 100% !important;
+        min-height: 297mm !important;
         margin: 0 auto !important;
-        padding: 8mm 10mm !important;
+        padding: 14mm 14mm 16mm 14mm !important;
         box-sizing: border-box !important;
-        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: url('assets/images/Hoja_Membretada_Base.png') !important;
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
+        background-position: center top !important;
+        position: relative !important;
       }
 
       .print-doc-header {
@@ -2124,12 +2130,27 @@
         font-size: 7.5pt;
         color: #475569;
         line-height: 1.3;
+        position: relative;
+      }
+      .print-sig-img-wrap {
+        height: 48px;
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: -8px;
+        z-index: 2;
+      }
+      .print-humberto-sig {
+        height: 52px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+        filter: contrast(1.15);
       }
       .print-sig-line {
         border-bottom: 1.5px solid #09090b;
         margin-bottom: 6px;
         width: 100%;
-        height: 25px;
+        height: 6px;
       }
       .print-sig-col strong {
         color: #09090b;
@@ -4133,6 +4154,9 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
 
       <div class="print-signatures-wrap">
         <div class="print-sig-col">
+          <div class="print-sig-img-wrap">
+            <img src="assets/images/Firma_H.png" alt="Firma Humberto Carosilva" class="print-humberto-sig">
+          </div>
           <div class="print-sig-line"></div>
           <strong>Humberto Carosilva</strong>
           <span>Director General & Creativo</span>
