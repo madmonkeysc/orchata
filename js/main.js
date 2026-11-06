@@ -844,19 +844,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ══════════════════════════════════════════════════════════════════
-   HERO MASTER SLIDER (5 SLIDES FULL BLEED 4K UX ENGINE)
+   HERO MASTER SLIDER (HORIZONTAL SLIDE TRANSLATE UX ENGINE)
 ══════════════════════════════════════════════════════════════════ */
 function initHeroMasterSlider() {
   const slider = document.getElementById('hero-main');
   if (!slider) return;
 
+  const strip = document.getElementById('heroSliderStrip');
   const slides = slider.querySelectorAll('.hero-slide');
   const pagBtns = slider.querySelectorAll('.slider-pag-btn');
   const prevBtn = document.getElementById('heroSliderPrev');
   const nextBtn = document.getElementById('heroSliderNext');
   const progressBar = document.getElementById('heroProgressBar');
 
-  if (!slides.length) return;
+  if (!slides.length || !strip) return;
 
   let currentIndex = 0;
   const totalSlides = slides.length;
@@ -865,7 +866,7 @@ function initHeroMasterSlider() {
   let progressTimer = null;
   let progressStart = 0;
 
-  // Lazy loading de videos: solo carga y reproduce el video del slide activo
+  // Lazy loading de video del slide
   function loadAndPlaySlideVideo(slide) {
     if (!slide) return;
     const video = slide.querySelector('.hero-slide-video');
@@ -879,7 +880,7 @@ function initHeroMasterSlider() {
     video.play().then(() => {
       video.classList.add('loaded');
     }).catch(() => {
-      // Si el navegador bloquea autoplay, se mantiene el poster visual de alta resolución
+      // Si el navegador bloquea autoplay, se mantiene el poster visual
     });
   }
 
@@ -909,15 +910,18 @@ function initHeroMasterSlider() {
   }
 
   function goToSlide(index, manual = false) {
-    if (index === currentIndex && slides[index].classList.contains('active')) return;
-
     const previousSlide = slides[currentIndex];
     pauseSlideVideo(previousSlide);
 
     currentIndex = (index + totalSlides) % totalSlides;
     const nextSlide = slides[currentIndex];
 
-    // Actualizar clases de slides
+    // ANIMACIÓN HORIZONTAL DE DESPLAZAMIENTO (SLIDE EFECTIVO)
+    // Cada slide ocupa 20% del strip de 500%
+    const translateX = -(currentIndex * 20);
+    strip.style.transform = `translateX(${translateX}%)`;
+
+    // Actualizar clases activas
     slides.forEach((s, i) => {
       if (i === currentIndex) {
         s.classList.add('active');
@@ -938,7 +942,7 @@ function initHeroMasterSlider() {
     // Cargar y reproducir el video correspondiente
     loadAndPlaySlideVideo(nextSlide);
 
-    // Reiniciar autoplay si fue manual
+    // Reiniciar autoplay
     resetAutoplay();
   }
 
@@ -982,7 +986,7 @@ function initHeroMasterSlider() {
     resetAutoplay();
   });
 
-  // Soporte para gestos táctiles (Swipe izquierda / derecha en móviles)
+  // Gestos táctiles (Swipe en móviles)
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -1004,4 +1008,9 @@ function initHeroMasterSlider() {
   resetAutoplay();
 }
 
-document.addEventListener('DOMContentLoaded', initHeroMasterSlider);
+// Inicializar inmediatamente y en DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeroMasterSlider);
+} else {
+  initHeroMasterSlider();
+}
