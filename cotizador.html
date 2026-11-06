@@ -11,7 +11,7 @@
   <!-- Google Fonts: IBM Plex Sans & IBM Plex Mono (Carbon Style) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
@@ -57,43 +57,45 @@
     :root {
       color-scheme: dark;
 
-      /* Page and surfaces ramp (Orchata Dark Obsidian / Jet Black) */
-      --background: #08080a;
-      --surface-container-low: #0f0f13;
-      --surface-container: #14141a;
-      --surface-container-high: #1e1e27;
-      --surface-elevated: #181820;
+      /* Page and surfaces ramp (Orchata Luxury Obsidian & Velvet Glass) */
+      --background: #09090b;
+      --surface-container-low: #0f1015;
+      --surface-container: #161720;
+      --surface-container-high: #222432;
+      --surface-elevated: #1c1d29;
+      --glass-surface: rgba(22, 23, 32, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
 
-      /* Ink / Typography */
+      /* Typography */
       --on-surface: #f8fafc;
-      --on-surface-variant: #cbd5e1;
-      --on-surface-muted: #828a99;
+      --on-surface-variant: #94a3b8;
+      --on-surface-muted: #64748b;
 
-      /* Rules and borders */
-      --outline: #475569;
-      --outline-variant: #262633;
-      --outline-light: #333344;
+      /* Rules & Borders */
+      --outline: #334155;
+      --outline-variant: rgba(255, 255, 255, 0.07);
+      --outline-light: rgba(255, 255, 255, 0.12);
 
       /* Brand Accents - Orchata Gold & Red */
       --primary: #fcf200;           /* Orchata Gold Accent */
-      --on-primary: #0a0a0c;        /* High Contrast Black */
-      --primary-container: #fcf200; /* Gold Button */
-      --on-primary-container: #0a0a0c;
-      --secondary: #94a3b8;
+      --on-primary: #09090b;        /* Deep Black */
+      --primary-container: #fcf200; 
+      --on-primary-container: #09090b;
+      --secondary: #38bdf8;         /* Cyan Tech */
       
       /* Semantic Status */
-      --tertiary: #10b981;          /* Success / Profit Green */
-      --on-tertiary: #08080a;
+      --tertiary: #10b981;          /* Emerald Profit */
+      --on-tertiary: #09090b;
       --tertiary-container: #059669;
-      --warning: #f59e0b;           /* Amber */
-      --on-warning: #08080a;
+      --warning: #f59e0b;
+      --on-warning: #09090b;
       --error: #ff3131;             /* Orchata Red Accent */
       --on-error: #ffffff;
 
-      /* Fonts */
-      --font-headline: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      --font-label: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+      /* Luxury Fonts */
+      --font-headline: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-label: 'JetBrains Mono', monospace;
 
       /* Shape & Geometry */
       --rounded-none: 4px;
@@ -1185,6 +1187,390 @@
       opacity: 1;
     }
 
+    
+    /* Premium UI Architecture */
+    body {
+      background: #08080a !important;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(252, 242, 0, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(255, 49, 49, 0.03) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+    
+    .app-container {
+      max-width: 1360px !important;
+      padding: var(--space-xl) var(--space-xl) var(--space-3xl) !important;
+    }
+
+    .panel {
+      background: rgba(18, 19, 26, 0.82) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07) !important;
+      border-radius: 14px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      margin-bottom: var(--space-xl) !important;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+    .panel:hover {
+      border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .panel-header {
+      background: rgba(15, 16, 21, 0.95) !important;
+      padding: 18px 24px !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    }
+    .panel-title {
+      font-size: 1.05rem !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+      letter-spacing: -0.01em;
+    }
+    .panel-badge {
+      border-radius: 999px !important;
+      padding: 4px 10px !important;
+      font-size: 0.68rem !important;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      background: rgba(255, 255, 255, 0.04) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      color: var(--on-surface-variant) !important;
+    }
+    .panel-body {
+      padding: 24px !important;
+    }
+
+    /* Package Cards: Luxury Boutique Gym Aesthetic */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+      gap: 16px !important;
+      margin-bottom: 24px !important;
+    }
+    .package-card {
+      background: rgba(14, 15, 20, 0.9) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 14px !important;
+      padding: 22px 18px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .package-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(252, 242, 0, 0.4) !important;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    }
+    .package-card.selected {
+      background: linear-gradient(180deg, rgba(26, 27, 36, 0.95) 0%, rgba(18, 19, 26, 0.98) 100%) !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 0 1px var(--primary), 0 12px 32px rgba(252, 242, 0, 0.12) !important;
+    }
+    .package-card .pkg-tag {
+      top: -10px !important;
+      right: 14px !important;
+      border-radius: 999px !important;
+      padding: 3px 10px !important;
+      font-size: 0.65rem !important;
+      font-weight: 800 !important;
+      background: #1e202b !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      color: #cbd5e1 !important;
+    }
+    .package-card.selected .pkg-tag {
+      background: var(--primary) !important;
+      color: #09090b !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 2px 8px rgba(252, 242, 0, 0.4);
+    }
+    .pkg-title {
+      font-size: 1.25rem !important;
+      font-weight: 800 !important;
+      color: #fff !important;
+      letter-spacing: -0.02em;
+    }
+    .pkg-subtitle {
+      font-size: 0.8rem !important;
+      color: #94a3b8 !important;
+      margin-bottom: 16px !important;
+      line-height: 1.4;
+    }
+    .pkg-price-row {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      padding-bottom: 12px !important;
+      margin-bottom: 16px !important;
+    }
+    .pkg-price {
+      font-size: 1.7rem !important;
+      font-weight: 900 !important;
+      color: #fff !important;
+      letter-spacing: -0.03em;
+    }
+    .package-card.selected .pkg-price {
+      color: var(--primary) !important;
+      text-shadow: 0 0 20px rgba(252, 242, 0, 0.3);
+    }
+    .pkg-fee-note {
+      font-size: 0.72rem !important;
+      color: #10b981 !important;
+      font-weight: 600;
+      margin-top: 4px !important;
+    }
+    .pkg-features li {
+      font-size: 0.8rem !important;
+      color: #cbd5e1 !important;
+      margin-bottom: 8px !important;
+      gap: 8px !important;
+      line-height: 1.4 !important;
+    }
+    .special-badge-box {
+      border-radius: 8px !important;
+      padding: 8px 10px !important;
+      font-size: 0.72rem !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px dashed rgba(255, 255, 255, 0.12) !important;
+    }
+    .special-badge-box.green {
+      border-color: rgba(16, 185, 129, 0.4) !important;
+      background: rgba(16, 185, 129, 0.06) !important;
+      color: #34d399 !important;
+    }
+    .special-badge-box.blue {
+      border-color: rgba(252, 242, 0, 0.3) !important;
+      background: rgba(252, 242, 0, 0.05) !important;
+      color: var(--primary) !important;
+    }
+
+    /* Addons Cards Styling */
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+      gap: 16px !important;
+    }
+    .addon-card {
+      background: rgba(14, 15, 20, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.07) !important;
+      border-radius: 12px !important;
+      padding: 18px !important;
+      transition: all 0.2s ease;
+    }
+    .addon-card:hover {
+      border-color: rgba(255, 255, 255, 0.14) !important;
+      background: rgba(20, 21, 28, 0.95) !important;
+    }
+    .addon-name {
+      font-size: 0.92rem !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+    }
+    .addon-rate {
+      color: var(--primary) !important;
+      font-size: 0.75rem !important;
+      font-weight: 700 !important;
+      background: rgba(252, 242, 0, 0.1) !important;
+      padding: 3px 8px !important;
+      border-radius: 999px !important;
+      border: 1px solid rgba(252, 242, 0, 0.25) !important;
+    }
+    .addon-desc {
+      font-size: 0.78rem !important;
+      color: #94a3b8 !important;
+      line-height: 1.45 !important;
+      margin: 8px 0 14px !important;
+    }
+    .counter-control {
+      background: rgba(8, 8, 10, 0.8) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 8px !important;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+    }
+    .counter-btn {
+      width: 38px !important;
+      height: 38px !important;
+      color: #fff !important;
+      font-size: 1.1rem !important;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .counter-btn:hover {
+      background: var(--primary) !important;
+      color: #09090b !important;
+    }
+    .counter-value {
+      min-width: 44px !important;
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      color: var(--primary) !important;
+    }
+
+    /* Disciplinas Block */
+    .disciplines-block {
+      background: rgba(14, 15, 20, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.07) !important;
+      border-radius: 12px !important;
+      padding: 20px !important;
+      margin-top: 16px;
+    }
+    .disciplines-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+      gap: 10px !important;
+      margin-top: 12px;
+    }
+    .check-chip {
+      background: rgba(22, 23, 30, 0.7) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 8px !important;
+      padding: 10px 12px !important;
+      font-size: 0.8rem !important;
+      color: #cbd5e1 !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .check-chip:hover {
+      border-color: rgba(252, 242, 0, 0.3) !important;
+      background: rgba(26, 27, 36, 0.9) !important;
+    }
+    .check-chip.checked {
+      background: rgba(252, 242, 0, 0.1) !important;
+      border-color: var(--primary) !important;
+      color: #fff !important;
+      font-weight: 600;
+    }
+    .chip-indicator {
+      border-radius: 4px !important;
+    }
+
+    /* Summary Card (Right Column) */
+    .quote-hero-card {
+      background: linear-gradient(145deg, rgba(24, 25, 34, 0.95) 0%, rgba(14, 15, 21, 0.98) 100%) !important;
+      border: 1px solid rgba(252, 242, 0, 0.35) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(252, 242, 0, 0.08) !important;
+      padding: 24px !important;
+      margin-bottom: var(--space-xl) !important;
+    }
+    .hero-label {
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+    }
+    .hero-badge-zero {
+      border-radius: 999px !important;
+      background: rgba(16, 185, 129, 0.15) !important;
+      border: 1px solid rgba(16, 185, 129, 0.4) !important;
+      color: #34d399 !important;
+      font-size: 0.68rem !important;
+      font-weight: 800;
+      padding: 3px 9px !important;
+    }
+    .hero-total-price {
+      font-size: 2.8rem !important;
+      font-weight: 900 !important;
+      color: var(--primary) !important;
+      text-shadow: 0 0 35px rgba(252, 242, 0, 0.3) !important;
+      margin: 10px 0 !important;
+    }
+    .hero-currency {
+      font-size: 1.1rem !important;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .hero-note {
+      font-size: 0.82rem !important;
+      color: #cbd5e1;
+      gap: 8px !important;
+    }
+    .hero-note i {
+      color: #10b981 !important;
+    }
+
+    /* Breakdown Table */
+    .quote-breakdown-table {
+      margin-top: 18px !important;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .quote-breakdown-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .quote-breakdown-table td {
+      padding: 10px 4px !important;
+      font-size: 0.82rem !important;
+      color: #94a3b8;
+    }
+    .quote-breakdown-table td:last-child {
+      text-align: right;
+      color: #fff;
+      font-weight: 700;
+      font-family: var(--font-label);
+    }
+    .quote-breakdown-table tr.total-row td {
+      padding-top: 14px !important;
+      font-size: 0.95rem !important;
+      color: #fff !important;
+      font-weight: 800;
+    }
+    .quote-breakdown-table tr.total-row td:last-child {
+      color: var(--primary) !important;
+      font-size: 1.15rem !important;
+    }
+
+    /* Buttons */
+    .carbon-btn {
+      height: 48px !important;
+      border-radius: 10px !important;
+      font-size: 0.9rem !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.01em;
+      transition: all 0.22s ease !important;
+    }
+    .carbon-btn-primary {
+      background: var(--primary) !important;
+      color: #09090b !important;
+      box-shadow: 0 4px 16px rgba(252, 242, 0, 0.3) !important;
+    }
+    .carbon-btn-primary:hover {
+      background: #fff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(252, 242, 0, 0.45) !important;
+    }
+    .carbon-btn-secondary {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: #fff !important;
+    }
+    .carbon-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* Form Inputs */
+    .carbon-input, .carbon-select {
+      background: rgba(10, 11, 15, 0.8) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 8px !important;
+      height: 44px !important;
+      font-size: 0.88rem !important;
+      color: #fff !important;
+      transition: all 0.2s ease !important;
+    }
+    .carbon-input:focus, .carbon-select:focus {
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 0 3px rgba(252, 242, 0, 0.12) !important;
+      background: rgba(14, 15, 20, 0.95) !important;
+    }
+
     /* ==========================================================================
        RESPONSIVE DESIGN (TABLET & MOBILE ULTRA-OPTIMIZADO)
        ========================================================================== */
@@ -1615,7 +2001,7 @@
                   <h2 class="pkg-title">Core 30™</h2>
                   <p class="pkg-subtitle">Loop 30 min sin cortes para pesas y cardio.</p>
                   <div class="pkg-price-row">
-                    <span class="pkg-price">$28,000</span>
+                    <span class="pkg-price">$12,000</span>
                     <span class="pkg-fee-note">Venta única por sede</span>
                   </div>
                   <ul class="pkg-features">
@@ -1638,7 +2024,7 @@
                   <h2 class="pkg-title">Pro Brand™</h2>
                   <p class="pkg-subtitle">Identidad total, barra interactiva y 3 zonas.</p>
                   <div class="pkg-price-row">
-                    <span class="pkg-price">$45,000</span>
+                    <span class="pkg-price">$25,000</span>
                     <span class="pkg-fee-note">Venta única por sede</span>
                   </div>
                   <ul class="pkg-features">
@@ -1662,8 +2048,8 @@
                   <h2 class="pkg-title">Maximus Bespoke™</h2>
                   <p class="pkg-subtitle">Rodaje cinematográfico en tu club con coaches.</p>
                   <div class="pkg-price-row">
-                    <span class="pkg-price">$75,000</span>
-                    <span class="pkg-fee-note">1ª sede · <strong>50% OFF</strong> en sede 2+</span>
+                    <span class="pkg-price">$50,000</span>
+                    <span class="pkg-fee-note">1ª sede · <strong>50% OFF ($25,000)</strong> en sedes extra</span>
                   </div>
                   <ul class="pkg-features">
                     <li><i data-lucide="check"></i> Rodaje en tus instalaciones con tus propios entrenadores</li>
@@ -1686,8 +2072,8 @@
                   <h2 class="pkg-title">Modelo Enterprise™</h2>
                   <p class="pkg-subtitle">Cloud CMS Sync para 5+ sucursales consolidadas.</p>
                   <div class="pkg-price-row">
-                    <span class="pkg-price">$120,000</span>
-                    <span class="pkg-fee-note">Base hasta 5 sedes (+$15k c/u extra)</span>
+                    <span class="pkg-price">$75,000</span>
+                    <span class="pkg-fee-note">Base 5 sedes ($15k/sede extra) · Cloud CMS</span>
                   </div>
                   <ul class="pkg-features">
                     <li><i data-lucide="check"></i> Servidor CMS centralizado en la nube (Zero USB)</li>
@@ -1778,7 +2164,7 @@
               <div class="addon-card">
                 <div class="addon-header">
                   <span class="addon-name">Pantallas / TVs Extra</span>
-                  <span class="addon-rate">+$2,500 MXN c/u</span>
+                  <span class="addon-rate">+$1,500 MXN c/u</span>
                 </div>
                 <p class="addon-desc">
                   Por cada televisor adicional a los incluidos base (2 en Core/Pro, 4 en Maximus). Incluye reproductor industrial 4K y calibración.
@@ -1810,7 +2196,7 @@
               <div class="addon-card">
                 <div class="addon-header">
                   <span class="addon-name">Cápsulas de Coaches del Club</span>
-                  <span class="addon-rate">+$4,000 MXN / coach</span>
+                  <span class="addon-rate">+$2,500 MXN / coach</span>
                 </div>
                 <p class="addon-desc">
                   Grabación en set 5600K de tips técnicos con tus entrenadores e inserción de su QR personal para agenda de citas personalizadas.
@@ -1826,7 +2212,7 @@
               <div class="addon-card">
                 <div class="addon-header">
                   <span class="addon-name">Cortinillas Flash "Happy Hour"</span>
-                  <span class="addon-rate">+$2,800 MXN c/u</span>
+                  <span class="addon-rate">+$1,500 MXN c/u</span>
                 </div>
                 <p class="addon-desc">
                   Cortinilla de urgencia de 60 a 180s con temporizador dinámico en pantalla ("Próximos 10 batidos con 30% OFF") y comanda IA.
@@ -1842,7 +2228,7 @@
               <div class="disciplines-block">
                 <div class="addon-header">
                   <span class="addon-name">Clases Grupales y Disciplinas Específicas</span>
-                  <span class="addon-rate">+$3,500 MXN por disciplina producida</span>
+                  <span class="addon-rate">+$1,800 MXN por disciplina producida</span>
                 </div>
                 <p class="addon-desc">
                   Selecciona las disciplinas que imparte tu gimnasio para producir clips dedicados con estética monocromática, cadencia y horarios integrados:
@@ -1976,7 +2362,7 @@
                 <td id="breakdownPkgTotal">$45,000</td>
               </tr>
               <tr id="rowAdDiscount" style="display: none;" class="discount-row">
-                <td>Convenio Red Publicitaria DOOH (20% OFF Core 30)</td>
+                <td>Convenio Red Publicitaria DOOH (20% OFF ($9,600 neto))</td>
                 <td id="breakdownAdDiscount">-$5,600</td>
               </tr>
               <tr id="rowMultisedeDiscount" style="display: none;" class="discount-row">
@@ -2148,7 +2534,7 @@
       },
       package: "pro", // "core", "pro", "maximus", "enterprise"
       rules: {
-        adDiscount: false, // 20% OFF Core 30
+        adDiscount: false, // 20% OFF ($9,600 neto)
         multisede50: true  // 50% OFF Maximus 2+
       },
       addons: {
@@ -2169,17 +2555,17 @@
     // Pricing Matrix (Constants grounded in Orchata Media House source materials)
     const PRICING = {
       packages: {
-        core: { name: "Core 30™", basePrice: 28000, baseTvs: 2, multisedeEligible: false },
-        pro: { name: "Pro Brand™", basePrice: 45000, baseTvs: 2, multisedeEligible: false },
-        maximus: { name: "Maximus Bespoke™", basePrice: 75000, baseTvs: 4, multisedeEligible: true },
-        enterprise: { name: "Modelo Enterprise™", basePrice: 120000, baseTvs: 4, baseBranches: 5, extraBranchFee: 15000 }
+        core: { name: "Core 30™", basePrice: 12000, baseTvs: 2, multisedeEligible: false },
+        pro: { name: "Pro Brand™", basePrice: 25000, baseTvs: 2, multisedeEligible: false },
+        maximus: { name: "Maximus Bespoke™", basePrice: 50000, baseTvs: 4, multisedeEligible: true },
+        enterprise: { name: "Modelo Enterprise™", basePrice: 75000, baseTvs: 4, baseBranches: 5, extraBranchFee: 15000 }
       },
       addons: {
-        tvPrice: 2500,
-        disciplinePrice: 3500,
-        supplementsBlockPrice: 1200,
-        coachCapsulePrice: 4000,
-        flashCortinillaPrice: 2800
+        tvPrice: 1500,               // $1,500 MXN por pantalla extra calibrada
+        disciplinePrice: 1800,       // $1,800 MXN por disciplina producida
+        supplementsBlockPrice: 1200, // $1,200 MXN por bloque de 5 suplementos con QR
+        coachCapsulePrice: 2500,     // $2,500 MXN por cápsula de coach
+        flashCortinillaPrice: 1500   // $1,500 MXN por cortinilla de venta flash
       }
     };
 
@@ -2464,9 +2850,9 @@
         appState.addons.coachesCapsules = 0;
         appState.addons.flashCortinillas = 0;
         appState.addons.disciplines = ["Spinning", "GAP"];
-        appState.roiParams.members = 280;
-        appState.roiParams.membershipFee = 750;
-        appState.roiParams.snackTicket = 55;
+        appState.roiParams.members = 250;
+        appState.roiParams.membershipFee = 700;
+        appState.roiParams.snackTicket = 50;
       } else if (presetKey === 'commercial') {
         const btn = document.getElementById('presetCommercial');
         if (btn) btn.classList.add('active');
@@ -2478,35 +2864,35 @@
         appState.addons.coachesCapsules = 1;
         appState.addons.flashCortinillas = 1;
         appState.addons.disciplines = ["Spinning", "Yoga", "GAP"];
-        appState.roiParams.members = 520;
-        appState.roiParams.membershipFee = 890;
-        appState.roiParams.snackTicket = 70;
+        appState.roiParams.members = 450;
+        appState.roiParams.membershipFee = 850;
+        appState.roiParams.snackTicket = 65;
       } else if (presetKey === 'multisede') {
         const btn = document.getElementById('presetMultisede');
         if (btn) btn.classList.add('active');
         appState.package = 'maximus';
         appState.client.branches = 3;
         appState.rules.multisede50 = true;
-        appState.addons.extraTvs = 4;
+        appState.addons.extraTvs = 3;
         appState.addons.supplementsBlocks = 3;
-        appState.addons.coachesCapsules = 3;
+        appState.addons.coachesCapsules = 2;
         appState.addons.flashCortinillas = 2;
         appState.addons.disciplines = ["Spinning", "Yoga", "CrossFit", "Boxeo", "GAP"];
-        appState.roiParams.members = 1100;
-        appState.roiParams.membershipFee = 1100;
-        appState.roiParams.snackTicket = 85;
+        appState.roiParams.members = 950;
+        appState.roiParams.membershipFee = 950;
+        appState.roiParams.snackTicket = 75;
       } else if (presetKey === 'enterprise') {
         const btn = document.getElementById('presetEnterprise');
         if (btn) btn.classList.add('active');
         appState.package = 'enterprise';
         appState.client.branches = 8;
-        appState.addons.extraTvs = 8;
+        appState.addons.extraTvs = 6;
         appState.addons.supplementsBlocks = 4;
-        appState.addons.coachesCapsules = 4;
-        appState.addons.flashCortinillas = 3;
+        appState.addons.coachesCapsules = 3;
+        appState.addons.flashCortinillas = 2;
         appState.addons.disciplines = ["Spinning", "Yoga", "Jumping", "Zumba", "Boxeo", "CrossFit", "GAP"];
-        appState.roiParams.members = 4200;
-        appState.roiParams.membershipFee = 950;
+        appState.roiParams.members = 3200;
+        appState.roiParams.membershipFee = 900;
         appState.roiParams.snackTicket = 65;
       }
 
