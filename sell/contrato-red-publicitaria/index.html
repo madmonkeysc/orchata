@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contrato de Prestación de Servicios DOOH & Convenio de Cesión de Espacios Publicitarios (5 Años) | Orchata Media House</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?v=2" />
+  <link rel="shortcut icon" href="../../favicon.ico?v=2" />
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y RESET
+       ========================================================================== */
+    :root {
+      --clr-bg: #09090b;
+      --clr-card: #121217;
+      --clr-card-border: #27272a;
+      --clr-gold: #fcf200;
+      --clr-gold-dark: #d97706;
+      --clr-red: #ff3131;
+      --clr-text: #e4e4e7;
+      --clr-text-muted: #a1a1aa;
+      --clr-white: #ffffff;
+      --clr-green: #10b981;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* BARRA SUPERIOR DE HERRAMIENTAS Y NAVEGACIÓN */
+    .contract-top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--clr-card-border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contract-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--clr-white);
+    }
+
+    .contract-nav-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .contract-nav-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--clr-white);
+    }
+
+    .contract-nav-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--clr-gold);
+      display: block;
+    }
+
+    .contract-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      font-family: var(--font-sans);
+    }
+
+    .btn-print {
+      background: var(--clr-gold);
+      color: #000;
+    }
+    .btn-print:hover {
+      background: #e5dc00;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #27272a;
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: #3f3f46;
+    }
+
+    .btn-alt-version {
+      background: rgba(255, 49, 49, 0.15);
+      color: #ff8080;
+      border: 1px solid rgba(255, 49, 49, 0.3);
+    }
+    .btn-alt-version:hover {
+      background: rgba(255, 49, 49, 0.25);
+    }
+
+    /* CONTENEDOR EN PANTALLA */
+    .screen-wrapper {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .contract-notice-box {
+      background: rgba(252, 242, 0, 0.06);
+      border: 1px solid rgba(252, 242, 0, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .notice-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+    .notice-content h4 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--clr-gold);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .notice-content p {
+      font-size: 12px;
+      color: #d4d4d8;
+      line-height: 1.5;
+    }
+
+    /* HOJA DE CONTRATO (VISTA EDITORIAL) */
+    .contract-paper {
+      background: #ffffff;
+      color: #09090b;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      padding: 40px 48px;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    /* CABECERA DE LA HOJA */
+    .contract-doc-header {
+      background: #000000;
+      color: #ffffff;
+      padding: 18px 24px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3.5px solid var(--clr-gold);
+      margin-bottom: 24px;
+    }
+    .contract-doc-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contract-doc-logo {
+      height: 48px;
+      width: auto;
+    }
+    .contract-doc-title-main {
+      font-size: 15pt;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+    .contract-doc-title-sub {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      margin-top: 3px;
+      display: block;
+    }
+    .contract-doc-meta-badge {
+      text-align: right;
+    }
+    .contract-tag-gold {
+      background: var(--clr-gold);
+      color: #000000;
+      font-size: 7.5pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .contract-meta-line {
+      font-size: 7pt;
+      color: #a1a1aa;
+      line-height: 1.3;
+    }
+    .contract-meta-line strong {
+      color: #ffffff;
+    }
+
+    /* TITULOS DE SECCIÓN */
+    .contract-main-title {
+      font-size: 13pt;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #09090b;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .contract-main-subtitle {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-align: center;
+      color: #d97706;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 22px;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 12px;
+    }
+
+    /* TABLA RESUMEN DE LAS PARTES */
+    .contract-parties-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 8pt;
+    }
+    .contract-parties-table th {
+      background: #09090b;
+      color: #ffffff;
+      padding: 6px 10px;
+      text-align: left;
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid #09090b;
+    }
+    .contract-parties-table td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      background: #f8fafc;
+      vertical-align: top;
+      color: #334155;
+      line-height: 1.45;
+    }
+    .party-name {
+      font-weight: 800;
+      color: #09090b;
+      font-size: 8.5pt;
+      margin-bottom: 3px;
+    }
+
+    /* PROSE JURÍDICO */
+    .prose-section {
+      margin-bottom: 18px;
+    }
+    .prose-title {
+      font-size: 9pt;
+      font-weight: 900;
+      color: #09090b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1.5px solid #09090b;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .prose-title span.sec-num {
+      background: #09090b;
+      color: #fff;
+      font-size: 7pt;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .contract-p {
+      font-size: 8pt;
+      color: #1e293b;
+      line-height: 1.48;
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+    .contract-p strong {
+      color: #09090b;
+      font-weight: 800;
+    }
+
+    /* HIGHLIGHT CLAUSE BOX */
+    .clause-highlight-box {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-left: 4px solid #d97706;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 7.8pt;
+      line-height: 1.45;
+      color: #92400e;
+    }
+    .clause-highlight-box strong {
+      color: #78350f;
+    }
+
+    .clause-red-box {
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+      border-left: 4px solid #dc2626;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 7.8pt;
+      line-height: 1.45;
+      color: #991b1b;
+    }
+
+    /* TABLAS INTERNAS */
+    .inner-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.6pt;
+      margin: 10px 0;
+    }
+    .inner-table th {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 5px 8px;
+      text-align: left;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 6.8pt;
+    }
+    .inner-table td {
+      border: 1px solid #e2e8f0;
+      padding: 5px 8px;
+      color: #334155;
+    }
+
+    /* ÁREA DE FIRMAS */
+    .signatures-block {
+      margin-top: 28px;
+      border-top: 2px solid #09090b;
+      padding-top: 14px;
+    }
+    .signatures-lead {
+      font-size: 7.5pt;
+      color: #475569;
+      margin-bottom: 20px;
+      text-align: center;
+      font-style: italic;
+    }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 20px;
+    }
+    .sig-col {
+      display: flex;
+      flex-direction: column;
+      font-size: 7.2pt;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .sig-box-img {
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: -6px;
+    }
+    .sig-img {
+      height: 60px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      filter: contrast(1.15);
+    }
+    .sig-box-client {
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      font-size: 6.8pt;
+      color: #94a3b8;
+      font-style: italic;
+      padding-bottom: 4px;
+    }
+    .sig-line {
+      border-bottom: 1.8px solid #09090b;
+      margin-bottom: 6px;
+      width: 100%;
+    }
+    .sig-col strong {
+      color: #09090b;
+      font-size: 8pt;
+      font-weight: 800;
+    }
+
+    .witness-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 14px;
+    }
+
+    /* FOOTER EDITORIAL */
+    .contract-doc-footer {
+      margin-top: 24px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 6.8pt;
+      color: #64748b;
+    }
+    .contract-doc-footer strong {
+      color: #09090b;
+    }
+
+    /* ==========================================================================
+       MEDIA PRINT (IMPRESIÓN / EXPORTACIÓN PERFECTA A PDF)
+       ========================================================================== */
+    @page {
+      size: letter portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #09090b !important;
+        padding: 0 !important;
+      }
+      .contract-top-bar, .contract-notice-box {
+        display: none !important;
+      }
+      .screen-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .contract-paper {
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+      }
+      .contract-doc-header {
+        background: #000000 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contract-tag-gold {
+        background: #fcf200 !important;
+        color: #000000 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .clause-highlight-box {
+        background: #fffbeb !important;
+        border-left: 4px solid #d97706 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .clause-red-box {
+        background: #fef2f2 !important;
+        border-left: 4px solid #dc2626 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contract-parties-table th, .prose-title span.sec-num {
+        background: #09090b !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contract-parties-table td {
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      .avoid-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE ACCIONES (SOLO PANTALLA) -->
+  <header class="contract-top-bar">
+    <a href="../index.html" class="contract-nav-brand">
+      <img src="../../assets/images/Isotipo Orchata.png" alt="Orchata Logo" class="contract-nav-logo" />
+      <div>
+        <span class="contract-nav-title">Orchata Media House</span>
+        <span class="contract-nav-sub">Legal & Sales Vault · Versión Red Publicitaria (5 Años)</span>
+      </div>
+    </a>
+    <div class="contract-actions">
+      <a href="../contrato-estandar/" class="btn-action btn-alt-version">
+        📄 Ver Versión Estándar (Sin Red)
+      </a>
+      <a href="../cotizador/" class="btn-action btn-secondary">
+        🧮 Abrir Cotizador
+      </a>
+      <button class="btn-action btn-print" onclick="window.print()">
+        🖨️ Imprimir / Guardar PDF Oficial
+      </button>
+    </div>
+  </header>
+
+  <div class="screen-wrapper">
+    
+    <!-- NOTICIA INFORMATIVA PARA EL ASESOR / CLIENTE -->
+    <div class="contract-notice-box">
+      <div class="notice-icon">⚖️</div>
+      <div class="notice-content">
+        <h4>Versión 01: Contrato de Prestación de Servicios DOOH con Convenio de Red Publicitaria</h4>
+        <p>
+          Este contrato incluye la venta llave en mano del canal privado marca blanca, entrega técnica garantizada en <strong>15 días hábiles</strong> y el <strong>Convenio de Cesión de Espacios en Pantalla a 5 Años</strong> para medios educacionales y marcas aliadas. El cliente goza de un beneficio comercial inicial y participa formalmente en la <strong>liquidación de utilidades líquidas a partir del Año 2 (Mes 13)</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- DOCUMENTO FORMAL -->
+    <main class="contract-paper">
+      
+      <!-- CABECERA INSTITUCIONAL MEMBRETADA -->
+      <header class="contract-doc-header">
+        <div class="contract-doc-brand">
+          <img src="../../assets/images/Orchata_Membrete_Logo_Vector.png" alt="Orchata Media House" class="contract-doc-logo" />
+          <div>
+            <h1 class="contract-doc-title-main">ORCHATA MEDIA HOUSE</h1>
+            <span class="contract-doc-title-sub">DOOH Marca Blanca · Producción & Conversión para Gimnasios</span>
+          </div>
+        </div>
+        <div class="contract-doc-meta-badge">
+          <span class="contract-tag-gold">Instrumento Público Mercantil</span>
+          <div class="contract-meta-line"><strong>Contrato Marco:</strong> OMH-DOOH-5Y-2026</div>
+          <div class="contract-meta-line"><strong>Régimen:</strong> Código de Comercio de México</div>
+          <div class="contract-meta-line"><strong>Jurisdicción:</strong> Querétaro, Qro.</div>
+        </div>
+      </header>
+
+      <!-- TÍTULO DEL CONTRATO -->
+      <h2 class="contract-main-title">CONTRATO MERCANTIL DE PRESTACIÓN DE SERVICIOS AUDIOVISUALES, IMPLEMENTACIÓN DE CANAL PRIVADO DOOH EN MARCA BLANCA Y CONVENIO DE CESIÓN DE ESPACIOS PUBLICITARIOS A 5 AÑOS</h2>
+      <div class="contract-main-subtitle">CONVENIO BILATERAL VINCULANTE CON PROGRAMA DE PARTICIPACIÓN EN UTILIDADES A PARTIR DEL AÑO 2</div>
+
+      <!-- CUADRO DE LAS PARTES -->
+      <table class="contract-parties-table">
+        <thead>
+          <tr>
+            <th style="width: 50%;">EL PRESTADOR / OPERADOR DE RED</th>
+            <th style="width: 50%;">EL CLIENTE / CENTRO DEPORTIVO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="party-name">ORCHATA MEDIA HOUSE S.A. DE C.V.</div>
+              <div><strong>Representante Legal:</strong> Humberto Carosilva (Director General & Creativo)</div>
+              <div><strong>Domicilio Fiscal:</strong> Querétaro, Estado de Querétaro, México.</div>
+              <div><strong>Contacto Operativo:</strong> hola@orchata.media · Tel: +52 442 428 0465</div>
+              <div><strong>Objeto Especializado:</strong> Producción cinematográfica 4K, arquitectura DOOH y operación de redes dinámicas de señalización digital y monetización.</div>
+            </td>
+            <td>
+              <div class="party-name" id="contractClientGym">[NOMBRE COMERCIAL DEL GIMNASIO / RAZÓN SOCIAL]</div>
+              <div><strong>Representante Legal:</strong> <span id="contractClientRep">[NOMBRE DEL DIRECTOR / REPRESENTANTE LEGAL]</span></div>
+              <div><strong>Domicilio del Inmueble:</strong> <span id="contractClientAddress">[DOMICILIO COMPLETO DE LA SEDE / SUCURSALES]</span></div>
+              <div><strong>Plaza / Ciudad:</strong> <span id="contractClientCity">[CIUDAD, ESTADO, MÉXICO]</span></div>
+              <div><strong>Contacto / RFC:</strong> <span id="contractClientRFC">[TELÉFONO / CORREO ELECTRÓNICO / RFC]</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- DECLARACIONES -->
+      <section class="prose-section">
+        <h3 class="prose-title"><span class="sec-num">I</span> DECLARACIONES</h3>
+        
+        <p class="contract-p">
+          <strong>I.1. Declara "EL PRESTADOR" (ORCHATA MEDIA HOUSE), por conducto de su representante legal:</strong><br />
+          a) Que es una persona moral debidamente constituida conforme a las leyes de los Estados Unidos Mexicanos, con plena capacidad técnica, económica y jurídica para obligarse en los términos del presente instrumento.<br />
+          b) Que cuenta con la infraestructura tecnológica de Inteligencia Artificial, estaciones de postproducción de video cinematográfico a 5600K, bancos de código QR dinámico de alta velocidad (&lt;3 segundos) y el know-how patentado para la configuración y operación de redes DOOH (Digital Out Of Home) en marca blanca.<br />
+          c) Que su representante legal goza de facultades de representación amplias y cumplidas que no le han sido revocadas, limitadas ni modificadas en forma alguna.
+        </p>
+
+        <p class="contract-p">
+          <strong>I.2. Declara "EL CLIENTE", por conducto de su representante legal:</strong><br />
+          a) Que es una persona física o moral debidamente registrada bajo la legislación mexicana, en pleno ejercicio de sus derechos civiles y mercantiles, con legítima posesión, arrendamiento o propiedad del inmueble o centros deportivos objeto de la intervención.<br />
+          b) Que es su libre voluntad contratar la producción del canal privado audiovisual para sus pantallas, así como suscribir el presente Convenio de Cesión de Espacios Publicitarios a 5 Años para integrarse a la Red de Medios DOOH de "EL PRESTADOR".<br />
+          c) Que sus facultades legales son suficientes para obligarse a sí mismo y a sus causahabientes comerciales respecto a la operación física de los televisores y exhibición de contenidos en sus instalaciones.
+        </p>
+
+        <p class="contract-p">
+          <strong>I.3. Declaran conjuntamente AMBAS PARTES:</strong><br />
+          Que se reconocen recíprocamente la personalidad jurídica con la que comparecen, que actúan de buena fe, libres de coacción, error, dolo, violencia o cualquier otro vicio del consentimiento, pactando las siguientes:
+        </p>
+      </section>
+
+      <!-- CLÁUSULAS -->
+      <section class="prose-section">
+        <h3 class="prose-title"><span class="sec-num">II</span> CLÁUSULAS CONTRACTUALES</h3>
+
+        <!-- PRIMERA -->
+        <p class="contract-p">
+          <strong>PRIMERA. OBJETO PRINCIPAL DEL CONTRATO.</strong> "EL PRESTADOR" se obliga a prestar a favor de "EL CLIENTE" sus servicios profesionales llave en mano consistentes en: (i) Producción cinematográfica y adaptación de identidad visual corporativa en marca blanca en calidad 4K Ultra HD; (ii) Configuración de loops de video sin pausas (Seamless Loop) de 15 a 30 segundos por clip para exhibición en salas de pesas, cardio, recepción y salones; (iii) Arquitectura y entrega de matrices de códigos QR dinámicos enlazados al canal transaccional de WhatsApp Business del gimnasio (&lt;3s de respuesta) para menú de suplementos, entrenamientos personales y agenda; y (iv) Entrega del hardware configurado Plug & Play (Memoria USB Industrial / Reproductor multimedia optimizado) listo para despliegue sin depender obligatoriamente de conexión a internet el primer día.
+        </p>
+
+        <!-- SEGUNDA -->
+        <p class="contract-p">
+          <strong>SEGUNDA. PLAZO FATAL DE ENTREGA (15 DÍAS HÁBILES).</strong> "EL PRESTADOR" se compromete y obliga a entregar la totalidad del material audiovisual renderizado, los códigos QR dinámicos validados y los dispositivos físicos Plug & Play en un plazo no mayor a <strong>15 (quince) días hábiles</strong>, contados a partir del cumplimiento de dos condiciones suspensivas indispensables: (a) La liquidación del anticipo pactado o pago único acordado en la cotización oficial; y (b) La recepción formal de los activos de marca de "EL CLIENTE" (logotipos en vectores, paleta de colores, catálogo de suplementos con precios y lista de servicios de piso).
+        </p>
+
+        <!-- TERCERA -->
+        <p class="contract-p">
+          <strong>TERCERA. CONTRAPRESTACIÓN Y ESQUEMA COMERCIAL ($ MXN).</strong> "EL CLIENTE" cubrirá a "EL PRESTADOR" el importe definitivo pactado en la Cotización Oficial vinculada con folio <span id="contractFolioRef">OMH-2026-8842</span>, expresado en Pesos Mexicanos (MXN) más el correspondiente Impuesto al Valor Agregado (I.V.A.) del 16% en estricto apego al Artículo 7 y 7 BIS de la Ley Federal de Protección al Consumidor. Ambas partes reconocen que se trata de un modelo de <strong>Venta Única Llave en Mano con $0 (cero pesos) en rentas o cuotas mensuales de licenciamiento de software</strong> por la operación básica del canal de marca.
+        </p>
+
+        <!-- CUARTA (BLINDAJE DE LA RED PUBLICITARIA) -->
+        <div class="clause-highlight-box">
+          <p style="margin: 0 0 6px 0;">
+            <strong>CUARTA. CONVENIO VINCULANTE DE CESIÓN DE ESPACIOS EN PANTALLA Y RED PUBLICITARIA DOOH (5 AÑOS).</strong><br />
+            En virtud de los descuentos, tarifas preferenciales o beneficios integrales otorgados por "EL PRESTADOR" en el precio de producción, "EL CLIENTE" otorga a favor de "EL PRESTADOR" la <strong>cesión y derecho exclusivo de comercialización publicitaria no invasiva</strong> sobre una porción controlada de la pauta de sus pantallas durante un plazo improrrogable de <strong>5 (cinco) años</strong> contados a partir de la entrega física del sistema.
+          </p>
+          <p style="margin: 0 0 6px 0;">
+            <strong>4.1. Estructura de la Pauta Permitida:</strong> "EL PRESTADOR" se compromete a que los contenidos de terceros incorporados consistirán exclusivamente en: (i) Medios educacionales deportivos, píldoras técnicas avaladas, prevención de lesiones y nutrición avalada; (ii) Marcas aliadas, marcas de ropa técnica, calzado, suplementación de prestigio o patrocinadores institucionales. <strong>Queda estrictamente prohibida la proyección de publicidad de gimnasios competidores en un radio de 5 kilómetros</strong> o cualquier contenido que denigre, afecte la moral o vulnere el prestigio de "EL CLIENTE".
+          </p>
+          <p style="margin: 0;">
+            <strong>4.2. Porcentaje de Pauta:</strong> Los anuncios publicitarios de la red ocuparán un máximo de <strong>10% a 15% del tiempo total del loop por hora</strong> (equivalente a 6 a 9 minutos por hora divididos en cortes breves de 15 a 30 segundos), garantizando que el 85% a 90% restante sea de exhibición exclusiva de la marca, coaches, clases y productos del gimnasio de "EL CLIENTE".
+          </p>
+        </div>
+
+        <!-- QUINTA (REVENUE SHARE A PARTIR DE AÑO 2) -->
+        <div class="clause-highlight-box" style="border-left-color: #10b981; background: #ecfdf5; border-color: #a7f3d0; color: #065f46;">
+          <p style="margin: 0 0 6px 0;">
+            <strong>QUINTA. RÉGIMEN FINANCIERO Y PARTICIPACIÓN DE UTILIDADES (REVENUE SHARE A PARTIR DEL AÑO 2).</strong><br />
+            Las partes estipulan de común acuerdo la siguiente mecánica económica respecto a los ingresos netos generados por la pauta de marcas aliadas y patrocinadores gestionados por "EL PRESTADOR" para las pantallas de "EL CLIENTE":
+          </p>
+          <table class="inner-table" style="margin: 6px 0 8px 0;">
+            <thead>
+              <tr>
+                <th>Periodo de Operación</th>
+                <th>Porcentaje para El Prestador (OMH)</th>
+                <th>Porcentaje para El Cliente (Gimnasio)</th>
+                <th>Concepto / Destino del Recurso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Año 1 (Meses 01 al 12)</strong></td>
+                <td><strong>100%</strong></td>
+                <td><strong>0%</strong> (Retorno Amortización)</td>
+                <td>Amortización de costos de producción, subsidio en hardware, mantenimiento de servidores QR y gestión de red.</td>
+              </tr>
+              <tr>
+                <td><strong>Año 2 (Meses 13 al 24)</strong></td>
+                <td><strong>70%</strong></td>
+                <td><strong>30% de Utilidad Líquida Neta</strong></td>
+                <td>Primer reparto de utilidades directas bimestrales o trimestrales para la caja de "EL CLIENTE".</td>
+              </tr>
+              <tr>
+                <td><strong>Años 3 al 5 (Meses 25 al 60)</strong></td>
+                <td><strong>60%</strong></td>
+                <td><strong>40% de Utilidad Líquida Neta</strong></td>
+                <td>Consolidación de red madura con liquidación de pautas corporativas y patrocinadores recurrentes.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin: 0;">
+            <strong>5.1. Liquidación y Transparencia:</strong> A partir del Mes 13 de vigencia, "EL PRESTADOR" emitirá a "EL CLIENTE" un reporte financiero con el desglose de anunciantes contratados, liquidando las participaciones correspondientes vía transferencia bancaria dentro de los primeros 10 (diez) días naturales posteriores a cada cierre bimestral, previa entrega de la factura o comprobante fiscal correspondiente.
+          </p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- CONTINUACIÓN CABECERA EN PÁGINA 2 PARA IMPRESIÓN -->
+        <header class="contract-doc-header" style="margin-top: 10px;">
+          <div class="contract-doc-brand">
+            <img src="../../assets/images/Orchata_Membrete_Logo_Vector.png" alt="Orchata Media House" class="contract-doc-logo" />
+            <div>
+              <h2 class="contract-doc-title-main" style="font-size: 13pt;">ORCHATA MEDIA HOUSE</h2>
+              <span class="contract-doc-title-sub">Contrato Marco OMH-DOOH-5Y-2026 · Página 2 de 2</span>
+            </div>
+          </div>
+          <div class="contract-doc-meta-badge">
+            <span class="contract-tag-gold">Convenio 5 Años</span>
+          </div>
+        </header>
+
+        <!-- SEXTA (OBLIGACIÓN DE TRANSMISIÓN Y PERMANENCIA) -->
+        <p class="contract-p">
+          <strong>SEXTA. OBLIGACIONES DE EXHIBICIÓN Y CONTINUIDAD OPERATIVA.</strong> Durante la vigencia de los 5 (cinco) años del Convenio de Red Publicitaria, "EL CLIENTE" se obliga incondicionalmente a: (a) Mantener encendidas las pantallas intervenidas durante el horario operativo habitual del gimnasio (mínimo 12 a 16 horas diarias); (b) Mantener conectada la memoria USB industrial o reproductor multimedia con la programación activa de "EL PRESTADOR"; (c) No apagar, pausar, desviar ni sustituir la señal por canales de televisión abierta, por cable o plataformas domésticas ajenas que rompan el bucle comercial pactado; y (d) Reportar a "EL PRESTADOR" cualquier falla técnica, daño en pantalla o corte eléctrico en un lapso no mayor a 24 horas para su restablecimiento inmediato.
+        </p>
+
+        <!-- SÉPTIMA (BLINDAJE DE RESCISIÓN ANTICIPADA Y PENA CONVENCIONAL) -->
+        <div class="clause-red-box">
+          <p style="margin: 0 0 5px 0;">
+            <strong>SÉPTIMA. BLINDAJE JURÍDICO, RESCISIÓN ANTICIPADA Y PENA CONVENCIONAL.</strong><br />
+            Dado que "EL PRESTADOR" realiza inversiones directas de capital humano, equipamiento y descuentos comerciales sustanciales en base a la proyección quinquenal de la red publicitaria, se pacta expresamente que:
+          </p>
+          <p style="margin: 0 0 5px 0;">
+            a) <strong>Prohibición de Cancelación Unilateral:</strong> "EL CLIENTE" no podrá rescindir unilateralmente el presente convenio durante los primeros 24 (veinticuatro) meses de vigencia sin causa legal justificada imputable y probada a "EL PRESTADOR".<br />
+            b) <strong>Pena Convencional Compensatoria:</strong> Si "EL CLIENTE" desconecta permanentemente los dispositivos, retira el contenido publicitario, impide la exhibición de marcas autorizadas o cede las pantallas a una empresa de medios competidora antes del cumplimiento de los 5 años, deberá pagar a "EL PRESTADOR", en términos del Artículo 1840 del Código Civil Federal y Código de Comercio, una <strong>pena convencional equivalente al 100% del valor comercial regular de la producción (sin descuento de red publicitaria) más el valor residual estimado de las pautas comerciales perdidas</strong>, calculadas a razón de $3,500.00 MXN mensuales por pantalla por el número de meses faltantes para completar el plazo de 5 años.<br />
+            c) <strong>Cambio de Domicilio o Traspaso:</strong> En caso de venta, traspaso, cambio de razón social o reubicación del gimnasio, "EL CLIENTE" se obliga a subrogar los derechos y obligaciones del presente contrato al nuevo adquirente o reinstalar la red en el nuevo domicilio en un plazo no mayor a 30 días naturales.
+          </p>
+        </div>
+
+        <!-- OCTAVA (PROPIEDAD INTELECTUAL) -->
+        <p class="contract-p">
+          <strong>OCTAVA. PROPIEDAD INTELECTUAL Y LICENCIA DE USO.</strong> Todas las marcas registradas, logotipos y elementos de identidad visual de "EL CLIENTE" seguirán siendo propiedad exclusiva de éste, concediendo a "EL PRESTADOR" únicamente una licencia de uso temporal para su renderizado y montaje audiovisual. Por su parte, la metodología técnica, diseño de plantillas After Effects, algoritmos de render automatizado y la titularidad sobre la arquitectura DOOH pertenecen exclusivamente a "EL PRESTADOR" bajo la Ley Federal del Derecho de Autor.
+        </p>
+
+        <!-- NOVENA (CONFIDENCIALIDAD) -->
+        <p class="contract-p">
+          <strong>NOVENA. ESTRICTA CONFIDENCIALIDAD.</strong> Ambas partes se obligan a guardar estricta confidencialidad sobre los términos económicos, métricas de escaneo de códigos QR, comisiones comerciales y secretos industriales revelados con motivo del presente contrato, subsistiendo esta obligación de secrecía durante la vigencia del contrato y por 3 (tres) años posteriores a su terminación.
+        </p>
+
+        <!-- DÉCIMA (JURISDICCIÓN) -->
+        <p class="contract-p">
+          <strong>DÉCIMA. JURISDICCIÓN, LEGISLACIÓN APLICABLE Y RESOLUCIÓN DE CONTROVERSIAS.</strong> Para todo lo relativo a la interpretación, cumplimiento y ejecución del presente Contrato, las partes se someten expresamente a la legislación mercantil aplicable de los Estados Unidos Mexicanos y a la competencia de los <strong>Tribunales Civiles y Mercantiles de la Ciudad de Querétaro, Estado de Querétaro</strong>, renunciando irrevocablemente a cualquier otro fuero que por razón de sus domicilios presentes o futuros pudiera corresponderles.
+        </p>
+      </section>
+
+      <!-- SECCIÓN DE FIRMAS -->
+      <section class="signatures-block avoid-break">
+        <p class="signatures-lead">
+          Leído que fue el presente Contrato y enteradas las partes de su exacto valor, alcance y fuerza legal, lo firman de entera conformidad por duplicado en la Ciudad de Querétaro, Qro., el día <span id="contractSignDate">6 de Noviembre de 2026</span>.
+        </p>
+
+        <div class="sig-grid">
+          
+          <!-- FIRMA PRESTADOR (HUMBERTO CAROSILVA) -->
+          <div class="sig-col">
+            <div class="sig-box-img">
+              <img src="../../assets/images/Firma_H.png" alt="Firma Humberto Carosilva" class="sig-img" />
+            </div>
+            <div class="sig-line"></div>
+            <strong>ORCHATA MEDIA HOUSE S.A. DE C.V.</strong>
+            <span>Representado por: <strong>Humberto Carosilva</strong></span>
+            <span>Director General & Creativo</span>
+            <span>RFC: OMH240101XYZ · Querétaro, Qro.</span>
+          </div>
+
+          <!-- FIRMA CLIENTE -->
+          <div class="sig-col">
+            <div class="sig-box-client">
+              <span>(Firma autógrafa del Representante Legal o Apoderado)</span>
+            </div>
+            <div class="sig-line"></div>
+            <strong>EL CLIENTE / CENTRO DEPORTIVO</strong>
+            <span id="sigClientRepText">Representado por: <strong>Ing. Carlos Mendoza</strong></span>
+            <span id="sigClientGymText">Razón Social / Club: <strong>Iron Republic Fitness Club</strong></span>
+            <span>Aceptación de Términos & Convenio de Red Publicitaria (5 Años)</span>
+          </div>
+
+        </div>
+
+        <!-- TESTIGOS -->
+        <div class="witness-grid">
+          <div class="sig-col">
+            <div style="height: 36px;"></div>
+            <div class="sig-line"></div>
+            <strong>TESTIGO TÉCNICO ORCHATA</strong>
+            <span>Dirección de Operaciones & Redes DOOH</span>
+          </div>
+          <div class="sig-col">
+            <div style="height: 36px;"></div>
+            <div class="sig-line"></div>
+            <strong>TESTIGO OPERATIVO CLIENTE</strong>
+            <span>Gerencia de Instalaciones / Administrador de Sede</span>
+          </div>
+        </div>
+
+        <footer class="contract-doc-footer">
+          <div>
+            <strong>Orchata Media House © 2026-2027</strong> · www.orchatahouse.com · hola@orchata.media
+          </div>
+          <div>
+            Contrato Marco Red Publicitaria (5 Años) · 15 Días Hábiles de Entrega · Folio <span id="contractFooterFolio">OMH-2026-8842</span>
+          </div>
+        </footer>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- SCRIPT PARA CARGAR DATOS SI VIENE DESDE EL COTIZADOR O URL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const gym = urlParams.get('gym');
+        const contact = urlParams.get('contact');
+        const city = urlParams.get('city');
+        const folio = urlParams.get('folio');
+
+        if (gym) {
+          const el = document.getElementById('contractClientGym');
+          const elSig = document.getElementById('sigClientGymText');
+          if (el) el.innerText = gym.toUpperCase();
+          if (elSig) elSig.innerHTML = `Razón Social / Club: <strong>${gym}</strong>`;
+        }
+        if (contact) {
+          const el = document.getElementById('contractClientRep');
+          const elSig = document.getElementById('sigClientRepText');
+          if (el) el.innerText = contact;
+          if (elSig) elSig.innerHTML = `Representado por: <strong>${contact}</strong>`;
+        }
+        if (city) {
+          const el = document.getElementById('contractClientCity');
+          if (el) el.innerText = city;
+        }
+        if (folio) {
+          const el = document.getElementById('contractFolioRef');
+          const elFoot = document.getElementById('contractFooterFolio');
+          if (el) el.innerText = folio;
+          if (elFoot) elFoot.innerText = folio;
+        }
+
+        // Fecha en español
+        const dateObj = new Date();
+        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const dateStr = `${dateObj.getDate()} de ${monthNames[dateObj.getMonth()]} de ${dateObj.getFullYear()}`;
+        const dateEl = document.getElementById('contractSignDate');
+        if (dateEl) dateEl.innerText = dateStr;
+
+      } catch (err) {
+        console.error('Error parsing params:', err);
+      }
+    });
+  </script>
+
+</body>
+</html>

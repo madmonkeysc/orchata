@@ -2841,6 +2841,10 @@
               <i data-lucide="printer"></i>
               Imprimir / Guardar como PDF
             </button>
+            <button type="button" class="carbon-btn" style="background:#18181b;color:#fcf200;border:1px solid rgba(252,242,0,0.3);margin-top:4px;" onclick="openLinkedContract()">
+              <i data-lucide="file-check"></i>
+              Abrir Contrato de Servicio para Firma ➔
+            </button>
           </div>
         </div>
 
@@ -4023,6 +4027,23 @@ _"No llenamos pantallas. Construimos ecosistemas de atención."_`;
     function printQuotation() {
       syncPrintDocument();
       window.print();
+    }
+
+    // Navegar automáticamente al contrato correspondiente pasando los datos del cliente
+    function openLinkedContract() {
+      const gym = encodeURIComponent(appState.client.gymName || "Gimnasio Aliado");
+      const contact = encodeURIComponent(appState.client.contactName || "Director General");
+      const city = encodeURIComponent(appState.client.city || "Querétaro, Qro.");
+      const folio = encodeURIComponent(document.getElementById('quoteFolio')?.innerText || "OMH-2026-8842");
+
+      // Si tiene activa la red publicitaria (o plan que la incluya), abrir versión con Red Publicitaria (5 Años)
+      const isAdNetwork = appState.acceptAdNetwork;
+      const targetPath = isAdNetwork 
+        ? '../contrato-red-publicitaria/' 
+        : '../contrato-estandar/';
+
+      const fullUrl = `${targetPath}?gym=${gym}&contact=${contact}&city=${city}&folio=${folio}`;
+      window.open(fullUrl, '_blank');
     }
 
 

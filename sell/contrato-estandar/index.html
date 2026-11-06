@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contrato de Prestación de Servicios DOOH Marca Blanca (Versión Estándar Sin Red Publicitaria) | Orchata Media House</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?v=2" />
+  <link rel="shortcut icon" href="../../favicon.ico?v=2" />
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y RESET
+       ========================================================================== */
+    :root {
+      --clr-bg: #09090b;
+      --clr-card: #121217;
+      --clr-card-border: #27272a;
+      --clr-gold: #fcf200;
+      --clr-gold-dark: #d97706;
+      --clr-red: #ff3131;
+      --clr-text: #e4e4e7;
+      --clr-text-muted: #a1a1aa;
+      --clr-white: #ffffff;
+      --clr-blue: #3b82f6;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* BARRA SUPERIOR DE HERRAMIENTAS Y NAVEGACIÓN */
+    .contract-top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--clr-card-border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contract-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--clr-white);
+    }
+
+    .contract-nav-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .contract-nav-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--clr-white);
+    }
+
+    .contract-nav-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--clr-gold);
+      display: block;
+    }
+
+    .contract-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      font-family: var(--font-sans);
+    }
+
+    .btn-print {
+      background: var(--clr-gold);
+      color: #000;
+    }
+    .btn-print:hover {
+      background: #e5dc00;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #27272a;
+      color: #fff;
+    }
+    .btn-secondary:hover {
+      background: #3f3f46;
+    }
+
+    .btn-alt-version {
+      background: rgba(252, 242, 0, 0.12);
+      color: #fef08a;
+      border: 1px solid rgba(252, 242, 0, 0.3);
+    }
+    .btn-alt-version:hover {
+      background: rgba(252, 242, 0, 0.22);
+    }
+
+    /* CONTENEDOR EN PANTALLA */
+    .screen-wrapper {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .contract-notice-box {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .notice-icon {
+      font-size: 24px;
+      line-height: 1;
+    }
+    .notice-content h4 {
+      font-size: 13px;
+      font-weight: 800;
+      color: #60a5fa;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .notice-content p {
+      font-size: 12px;
+      color: #d4d4d8;
+      line-height: 1.5;
+    }
+
+    /* HOJA DE CONTRATO (VISTA EDITORIAL) */
+    .contract-paper {
+      background: #ffffff;
+      color: #09090b;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      padding: 40px 48px;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    /* CABECERA DE LA HOJA */
+    .contract-doc-header {
+      background: #000000;
+      color: #ffffff;
+      padding: 18px 24px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3.5px solid var(--clr-gold);
+      margin-bottom: 24px;
+    }
+    .contract-doc-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contract-doc-logo {
+      height: 48px;
+      width: auto;
+    }
+    .contract-doc-title-main {
+      font-size: 15pt;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+    .contract-doc-title-sub {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-gold);
+      margin-top: 3px;
+      display: block;
+    }
+    .contract-doc-meta-badge {
+      text-align: right;
+    }
+    .contract-tag-gold {
+      background: var(--clr-gold);
+      color: #000000;
+      font-size: 7.5pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .contract-meta-line {
+      font-size: 7pt;
+      color: #a1a1aa;
+      line-height: 1.3;
+    }
+    .contract-meta-line strong {
+      color: #ffffff;
+    }
+
+    /* TITULOS DE SECCIÓN */
+    .contract-main-title {
+      font-size: 13pt;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: #09090b;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .contract-main-subtitle {
+      font-size: 8.5pt;
+      font-weight: 700;
+      text-align: center;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 22px;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 12px;
+    }
+
+    /* TABLA RESUMEN DE LAS PARTES */
+    .contract-parties-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 8pt;
+    }
+    .contract-parties-table th {
+      background: #09090b;
+      color: #ffffff;
+      padding: 6px 10px;
+      text-align: left;
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid #09090b;
+    }
+    .contract-parties-table td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 10px;
+      background: #f8fafc;
+      vertical-align: top;
+      color: #334155;
+      line-height: 1.45;
+    }
+    .party-name {
+      font-weight: 800;
+      color: #09090b;
+      font-size: 8.5pt;
+      margin-bottom: 3px;
+    }
+
+    /* PROSE JURÍDICO */
+    .prose-section {
+      margin-bottom: 18px;
+    }
+    .prose-title {
+      font-size: 9pt;
+      font-weight: 900;
+      color: #09090b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1.5px solid #09090b;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .prose-title span.sec-num {
+      background: #09090b;
+      color: #fff;
+      font-size: 7pt;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .contract-p {
+      font-size: 8pt;
+      color: #1e293b;
+      line-height: 1.48;
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+    .contract-p strong {
+      color: #09090b;
+      font-weight: 800;
+    }
+
+    /* HIGHLIGHT CLAUSE BOX */
+    .clause-highlight-box {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-left: 4px solid #2563eb;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 7.8pt;
+      line-height: 1.45;
+      color: #1e40af;
+    }
+    .clause-highlight-box strong {
+      color: #1e3a8a;
+    }
+
+    /* ÁREA DE FIRMAS */
+    .signatures-block {
+      margin-top: 28px;
+      border-top: 2px solid #09090b;
+      padding-top: 14px;
+    }
+    .signatures-lead {
+      font-size: 7.5pt;
+      color: #475569;
+      margin-bottom: 20px;
+      text-align: center;
+      font-style: italic;
+    }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 20px;
+    }
+    .sig-col {
+      display: flex;
+      flex-direction: column;
+      font-size: 7.2pt;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .sig-box-img {
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: -6px;
+    }
+    .sig-img {
+      height: 60px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      filter: contrast(1.15);
+    }
+    .sig-box-client {
+      height: 60px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      font-size: 6.8pt;
+      color: #94a3b8;
+      font-style: italic;
+      padding-bottom: 4px;
+    }
+    .sig-line {
+      border-bottom: 1.8px solid #09090b;
+      margin-bottom: 6px;
+      width: 100%;
+    }
+    .sig-col strong {
+      color: #09090b;
+      font-size: 8pt;
+      font-weight: 800;
+    }
+
+    .witness-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 14px;
+    }
+
+    /* FOOTER EDITORIAL */
+    .contract-doc-footer {
+      margin-top: 24px;
+      border-top: 1px solid #cbd5e1;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 6.8pt;
+      color: #64748b;
+    }
+    .contract-doc-footer strong {
+      color: #09090b;
+    }
+
+    /* ==========================================================================
+       MEDIA PRINT (IMPRESIÓN / EXPORTACIÓN PERFECTA A PDF)
+       ========================================================================== */
+    @page {
+      size: letter portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #09090b !important;
+        padding: 0 !important;
+      }
+      .contract-top-bar, .contract-notice-box {
+        display: none !important;
+      }
+      .screen-wrapper {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .contract-paper {
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+      }
+      .contract-doc-header {
+        background: #000000 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contract-tag-gold {
+        background: #fcf200 !important;
+        color: #000000 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .clause-highlight-box {
+        background: #eff6ff !important;
+        border-left: 4px solid #2563eb !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contract-parties-table th, .prose-title span.sec-num {
+        background: #09090b !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .contract-parties-table td {
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      .avoid-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE ACCIONES (SOLO PANTALLA) -->
+  <header class="contract-top-bar">
+    <a href="../index.html" class="contract-nav-brand">
+      <img src="../../assets/images/Isotipo Orchata.png" alt="Orchata Logo" class="contract-nav-logo" />
+      <div>
+        <span class="contract-nav-title">Orchata Media House</span>
+        <span class="contract-nav-sub">Legal & Sales Vault · Versión Estándar (Sin Red Publicitaria)</span>
+      </div>
+    </a>
+    <div class="contract-actions">
+      <a href="../contrato-red-publicitaria/" class="btn-action btn-alt-version">
+        ⚡ Ver Versión con Red Publicitaria (5 Años)
+      </a>
+      <a href="../cotizador/" class="btn-action btn-secondary">
+        🧮 Abrir Cotizador
+      </a>
+      <button class="btn-action btn-print" onclick="window.print()">
+        🖨️ Imprimir / Guardar PDF Oficial
+      </button>
+    </div>
+  </header>
+
+  <div class="screen-wrapper">
+    
+    <!-- NOTICIA INFORMATIVA -->
+    <div class="contract-notice-box">
+      <div class="notice-icon">🛡️</div>
+      <div class="notice-content">
+        <h4>Versión 02: Contrato de Prestación de Servicios DOOH Marca Blanca (Exclusividad 100% Privada)</h4>
+        <p>
+          Este contrato aplica cuando el cliente <strong>NO desea ceder espacios publicitarios a terceros</strong> y adquiere la producción y digitalización al precio de tarifa regular. Las pantallas se programan con el 100% del tiempo dedicado exclusivamente a la identidad, coaches, clases grupales y barra de suplementos del gimnasio. El plazo de entrega técnica garantizada es de <strong>15 días hábiles</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- DOCUMENTO FORMAL -->
+    <main class="contract-paper">
+      
+      <!-- CABECERA INSTITUCIONAL MEMBRETADA -->
+      <header class="contract-doc-header">
+        <div class="contract-doc-brand">
+          <img src="../../assets/images/Orchata_Membrete_Logo_Vector.png" alt="Orchata Media House" class="contract-doc-logo" />
+          <div>
+            <h1 class="contract-doc-title-main">ORCHATA MEDIA HOUSE</h1>
+            <span class="contract-doc-title-sub">DOOH Marca Blanca · Producción & Conversión para Gimnasios</span>
+          </div>
+        </div>
+        <div class="contract-doc-meta-badge">
+          <span class="contract-tag-gold">Instrumento Mercantil Privado</span>
+          <div class="contract-meta-line"><strong>Contrato Marco:</strong> OMH-DOOH-STD-2026</div>
+          <div class="contract-meta-line"><strong>Régimen:</strong> Código de Comercio de México</div>
+          <div class="contract-meta-line"><strong>Modalidad:</strong> 100% Marca Blanca Privada</div>
+        </div>
+      </header>
+
+      <!-- TÍTULO DEL CONTRATO -->
+      <h2 class="contract-main-title">CONTRATO MERCANTIL DE PRESTACIÓN DE SERVICIOS AUDIOVISUALES, IMPLEMENTACIÓN DE CANAL PRIVADO DOOH EN MARCA BLANCA Y DIGITALIZACIÓN TRANSACCIONAL</h2>
+      <div class="contract-main-subtitle">CONVENIO DE PRODUCCIÓN EXCLUSIVA LLAVE EN MANO ($0 RENTAS MENSUALES DE SOFTWARE)</div>
+
+      <!-- CUADRO DE LAS PARTES -->
+      <table class="contract-parties-table">
+        <thead>
+          <tr>
+            <th style="width: 50%;">EL PRESTADOR DEL SERVICIO</th>
+            <th style="width: 50%;">EL CLIENTE / CENTRO DEPORTIVO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="party-name">ORCHATA MEDIA HOUSE S.A. DE C.V.</div>
+              <div><strong>Representante Legal:</strong> Humberto Carosilva (Director General & Creativo)</div>
+              <div><strong>Domicilio Fiscal:</strong> Querétaro, Estado de Querétaro, México.</div>
+              <div><strong>Contacto Operativo:</strong> hola@orchata.media · Tel: +52 442 428 0465</div>
+              <div><strong>Especialidad:</strong> Producción cinematográfica 4K, arquitectura DOOH y conversión transaccional en pantallas mediante códigos QR dinámicos.</div>
+            </td>
+            <td>
+              <div class="party-name" id="contractClientGym">[NOMBRE COMERCIAL DEL GIMNASIO / RAZÓN SOCIAL]</div>
+              <div><strong>Representante Legal:</strong> <span id="contractClientRep">[NOMBRE DEL DIRECTOR / REPRESENTANTE LEGAL]</span></div>
+              <div><strong>Domicilio del Inmueble:</strong> <span id="contractClientAddress">[DOMICILIO COMPLETO DE LA SEDE / SUCURSALES]</span></div>
+              <div><strong>Plaza / Ciudad:</strong> <span id="contractClientCity">[CIUDAD, ESTADO, MÉXICO]</span></div>
+              <div><strong>Contacto / RFC:</strong> <span id="contractClientRFC">[TELÉFONO / CORREO ELECTRÓNICO / RFC]</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- DECLARACIONES -->
+      <section class="prose-section">
+        <h3 class="prose-title"><span class="sec-num">I</span> DECLARACIONES</h3>
+        
+        <p class="contract-p">
+          <strong>I.1. Declara "EL PRESTADOR" (ORCHATA MEDIA HOUSE), por conducto de su representante legal:</strong><br />
+          a) Que es una persona moral legalmente constituida bajo las leyes mexicanas, solvente y capacitada técnica y jurídicamente para prestar los servicios de diseño, desarrollo, postproducción y entrega de infraestructura audiovisual para canales cerrados de televisión en gimnasios.<br />
+          b) Que cuenta con el equipo cinematográfico, licencias de postproducción automatizada y generadores dinámicos de códigos QR de alta velocidad (&lt;3 segundos) requeridos para el cumplimiento de este objeto.<br />
+          c) Que su representante legal cuenta con facultades legales bastantes y no revocadas para suscribir el presente instrumento.
+        </p>
+
+        <p class="contract-p">
+          <strong>I.2. Declara "EL CLIENTE", por conducto de su representante legal:</strong><br />
+          a) Que es una persona física o moral debidamente registrada ante el Servicio de Administración Tributaria (SAT), con plenas facultades para celebrar actos de comercio y contratar servicios para sus instalaciones deportivas.<br />
+          b) Que desea adquirir un sistema 100% privado de señalización digital con la identidad visual única de su propia marca, sin inclusión de publicidad comercial de terceras empresas o marcas ajenas.<br />
+          c) Que cuenta con la legítima posesión o administración de los centros deportivos donde operarán las pantallas intervenidas.
+        </p>
+
+        <p class="contract-p">
+          <strong>I.3. Declaran conjuntamente AMBAS PARTES:</strong><br />
+          Que comparecen libres de cualquier vicio en el consentimiento, sujetando sus derechos y obligaciones al tenor de las siguientes:
+        </p>
+      </section>
+
+      <!-- CLÁUSULAS -->
+      <section class="prose-section">
+        <h3 class="prose-title"><span class="sec-num">II</span> CLÁUSULAS CONTRACTUALES</h3>
+
+        <!-- PRIMERA -->
+        <p class="contract-p">
+          <strong>PRIMERA. OBJETO DE LA PRESTACIÓN DEL SERVICIO.</strong> "EL PRESTADOR" se obliga a prestar a favor de "EL CLIENTE" sus servicios profesionales llave en mano para el desarrollo, renderizado y calibración de un canal privado de televisión deportiva en resolución 4K Ultra HD en modalidad Marca Blanca exclusiva, consistente en: (i) Animación y adaptación de la identidad corporativa y logotipos del club; (ii) Renderizado de clips de video de 15 a 30 segundos en bucle continuo (Seamless Loop) para salones, zona de pesas y cardio; (iii) Matriz de códigos QR dinámicos interactivos conectados a la línea oficial de WhatsApp del gimnasio para catálogo de suplementos, valoraciones con nutriólogo y citas con entrenadores; y (iv) Suministro y calibración del Hardware Plug & Play (Memorias USB Industriales / Reproductores multimedia de arranque autónomo) para operación inmediata.
+        </p>
+
+        <!-- SEGUNDA -->
+        <p class="contract-p">
+          <strong>SEGUNDA. PLAZO FATAL DE ENTREGA TÉCNICA (15 DÍAS HÁBILES).</strong> "EL PRESTADOR" se compromete a entregar la totalidad del canal audiovisual, los loops configurados y el hardware Plug & Play en un plazo máximo e improrrogable de <strong>15 (quince) días hábiles</strong>, contados formalmente a partir del día hábil siguiente a aquel en que se verifique el cumplimiento conjunto de: (a) El pago del anticipo correspondiente conforme a la cotización aprobada; y (b) La entrega de todos los elementos gráficos e inventarios requeridos de "EL CLIENTE" (logotipos en vectores, precios de suplementación y catálogo de clases).
+        </p>
+
+        <!-- TERCERA -->
+        <div class="clause-highlight-box">
+          <p style="margin: 0 0 5px 0;">
+            <strong>TERCERA. EXCLUSIVIDAD 100% PRIVADA EN PANTALLA (SIN RED PUBLICITARIA).</strong><br />
+            Bajo esta modalidad comercial estándar, "EL CLIENTE" conserva el <strong>control absoluto y exclusivo del 100% del tiempo de transmisión en sus pantallas</strong>. "EL PRESTADOR" se compromete a NO insertar menciones, cortinillas, patrocinios ni pauta publicitaria de terceros anunciantes.
+          </p>
+          <p style="margin: 0;">
+            La totalidad de la parrilla visual estará dedicada única y exclusivamente a proyectar: (i) La imagen institucional de "EL CLIENTE"; (ii) Cápsulas técnicas biomecánicas para sus socios; (iii) Clases grupales y servicios de entrenamiento; y (iv) Promociones y ventas de su propia barra de suplementos y cafetería mediante QR directo a recepción.
+          </p>
+        </div>
+
+        <!-- CUARTA -->
+        <p class="contract-p">
+          <strong>CUARTA. PRECIO, CONDICIONES DE PAGO Y FACTURACIÓN ($ MXN).</strong> "EL CLIENTE" se obliga a pagar a "EL PRESTADOR" el monto total establecido en la Cotización Oficial con folio <span id="contractFolioRef">OMH-2026-8842</span>, expresado en moneda nacional (MXN), más el 16% correspondiente al Impuesto al Valor Agregado (I.V.A.), deducible al 100% fiscalmente bajo el concepto de producción audiovisual y publicidad. Dicho importe cubre la entrega definitiva del sistema llave en mano, <strong>sin que existan cobros posteriores por licenciamiento mensual de software</strong>.
+        </p>
+
+        <div class="page-break"></div>
+
+        <!-- CONTINUACIÓN CABECERA EN PÁGINA 2 PARA IMPRESIÓN -->
+        <header class="contract-doc-header" style="margin-top: 10px;">
+          <div class="contract-doc-brand">
+            <img src="../../assets/images/Orchata_Membrete_Logo_Vector.png" alt="Orchata Media House" class="contract-doc-logo" />
+            <div>
+              <h2 class="contract-doc-title-main" style="font-size: 13pt;">ORCHATA MEDIA HOUSE</h2>
+              <span class="contract-doc-title-sub">Contrato Estándar Marca Blanca OMH-DOOH-STD-2026 · Página 2 de 2</span>
+            </div>
+          </div>
+          <div class="contract-doc-meta-badge">
+            <span class="contract-tag-gold">100% Privado</span>
+          </div>
+        </header>
+
+        <!-- QUINTA -->
+        <p class="contract-p">
+          <strong>QUINTA. GARANTÍA DE SATISFACCIÓN Y SOPORTE TÉCNICO.</strong> "EL PRESTADOR" otorga una garantía de <strong>90 (noventa) días naturales</strong> contados a partir de la entrega física, que cubre: (a) Corrección sin costo de cualquier error tipográfico, de precios o ajustes en enlaces de códigos QR dinámicos; (b) Reemplazo de hardware Plug & Play en caso de defecto de fábrica; y (c) Asesoría remota al personal de recepción y staff del gimnasio para la correcta reproducción y comanda de pedidos recibidos por WhatsApp.
+        </p>
+
+        <!-- SEXTA -->
+        <p class="contract-p">
+          <strong>SEXTA. PROPIEDAD INTELECTUAL Y DERECHOS DE AUTOR.</strong> Los archivos finales renderizados con la marca del club son entregados para el uso exclusivo y perpetuo de "EL CLIENTE" en las sucursales autorizadas en la cotización. Las plantillas maestras, scripts de automatización de After Effects y algoritmos de generación son propiedad intelectual exclusiva de "EL PRESTADOR", protegidos bajo la Ley Federal del Derecho de Autor y tratados internacionales aplicables.
+        </p>
+
+        <!-- SÉPTIMA -->
+        <p class="contract-p">
+          <strong>SÉPTIMA. INDEPENDENCIA LABORAL Y FISCAL.</strong> Las partes reconocen que la relación que las une es estrictamente de naturaleza mercantil. Ninguna de las partes podrá ser considerada patrón, intermediario o patrón sustituto respecto al personal empleado por la otra parte, deslindándose mutuamente de cualquier responsabilidad laboral o de seguridad social (IMSS, INFONAVIT).
+        </p>
+
+        <!-- OCTAVA -->
+        <p class="contract-p">
+          <strong>OCTAVA. CONFIDENCIALIDAD COMERCIAL.</strong> "EL PRESTADOR" guardará absoluta secrecía respecto al volumen de ventas en barra, precios internos y padrón de socios que pudieran ser conocidos con motivo de la integración técnica de los códigos QR dinámicos.
+        </p>
+
+        <!-- NOVENA -->
+        <p class="contract-p">
+          <strong>NOVENA. JURISDICCIÓN Y LEYES APLICABLES.</strong> Para la interpretación, validez y cumplimiento de las obligaciones emanadas del presente Contrato, las partes se someten voluntariamente a las leyes mercantiles de los Estados Unidos Mexicanos y a los <strong>Tribunales Competentes con residencia en la Ciudad de Querétaro, Estado de Querétaro</strong>, renunciando de manera expresa a cualquier fuero que pudiera corresponderles por virtud de su domicilio presente o futuro.
+        </p>
+      </section>
+
+      <!-- SECCIÓN DE FIRMAS -->
+      <section class="signatures-block avoid-break">
+        <p class="signatures-lead">
+          Enteradas las partes del contenido y fuerza jurídica de todas y cada una de las cláusulas del presente contrato, lo ratifican y firman por duplicado en la Ciudad de Querétaro, Qro., el día <span id="contractSignDate">6 de Noviembre de 2026</span>.
+        </p>
+
+        <div class="sig-grid">
+          
+          <!-- FIRMA PRESTADOR (HUMBERTO CAROSILVA) -->
+          <div class="sig-col">
+            <div class="sig-box-img">
+              <img src="../../assets/images/Firma_H.png" alt="Firma Humberto Carosilva" class="sig-img" />
+            </div>
+            <div class="sig-line"></div>
+            <strong>ORCHATA MEDIA HOUSE S.A. DE C.V.</strong>
+            <span>Representado por: <strong>Humberto Carosilva</strong></span>
+            <span>Director General & Creativo</span>
+            <span>RFC: OMH240101XYZ · Querétaro, Qro.</span>
+          </div>
+
+          <!-- FIRMA CLIENTE -->
+          <div class="sig-col">
+            <div class="sig-box-client">
+              <span>(Firma autógrafa del Representante Legal o Apoderado)</span>
+            </div>
+            <div class="sig-line"></div>
+            <strong>EL CLIENTE / CENTRO DEPORTIVO</strong>
+            <span id="sigClientRepText">Representado por: <strong>Ing. Carlos Mendoza</strong></span>
+            <span id="sigClientGymText">Razón Social / Club: <strong>Iron Republic Fitness Club</strong></span>
+            <span>Aceptación de Prestación de Servicios Llave en Mano</span>
+          </div>
+
+        </div>
+
+        <!-- TESTIGOS -->
+        <div class="witness-grid">
+          <div class="sig-col">
+            <div style="height: 36px;"></div>
+            <div class="sig-line"></div>
+            <strong>TESTIGO DE PRODUCCIÓN ORCHATA</strong>
+            <span>Coordinación de Render & Postproducción 4K</span>
+          </div>
+          <div class="sig-col">
+            <div style="height: 36px;"></div>
+            <div class="sig-line"></div>
+            <strong>TESTIGO DE RECEPCIÓN CLIENTE</strong>
+            <span>Gerente Administrativo / Operaciones</span>
+          </div>
+        </div>
+
+        <footer class="contract-doc-footer">
+          <div>
+            <strong>Orchata Media House © 2026-2027</strong> · www.orchatahouse.com · hola@orchata.media
+          </div>
+          <div>
+            Contrato Estándar Marca Blanca · 15 Días Hábiles de Entrega · Folio <span id="contractFooterFolio">OMH-2026-8842</span>
+          </div>
+        </footer>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- SCRIPT PARA CARGAR DATOS SI VIENE DESDE EL COTIZADOR O URL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const gym = urlParams.get('gym');
+        const contact = urlParams.get('contact');
+        const city = urlParams.get('city');
+        const folio = urlParams.get('folio');
+
+        if (gym) {
+          const el = document.getElementById('contractClientGym');
+          const elSig = document.getElementById('sigClientGymText');
+          if (el) el.innerText = gym.toUpperCase();
+          if (elSig) elSig.innerHTML = `Razón Social / Club: <strong>${gym}</strong>`;
+        }
+        if (contact) {
+          const el = document.getElementById('contractClientRep');
+          const elSig = document.getElementById('sigClientRepText');
+          if (el) el.innerText = contact;
+          if (elSig) elSig.innerHTML = `Representado por: <strong>${contact}</strong>`;
+        }
+        if (city) {
+          const el = document.getElementById('contractClientCity');
+          if (el) el.innerText = city;
+        }
+        if (folio) {
+          const el = document.getElementById('contractFolioRef');
+          const elFoot = document.getElementById('contractFooterFolio');
+          if (el) el.innerText = folio;
+          if (elFoot) elFoot.innerText = folio;
+        }
+
+        // Fecha en español
+        const dateObj = new Date();
+        const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const dateStr = `${dateObj.getDate()} de ${monthNames[dateObj.getMonth()]} de ${dateObj.getFullYear()}`;
+        const dateEl = document.getElementById('contractSignDate');
+        if (dateEl) dateEl.innerText = dateStr;
+
+      } catch (err) {
+        console.error('Error parsing params:', err);
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bóveda de Contratos & Convenios Legales DOOH | Orchata Media House</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png?v=2" />
+  <link rel="shortcut icon" href="../../favicon.ico?v=2" />
+
+  <style>
+    :root {
+      --clr-bg: #09090b;
+      --clr-card: #121217;
+      --clr-card-border: #27272a;
+      --clr-gold: #fcf200;
+      --clr-gold-dark: #d97706;
+      --clr-red: #ff3131;
+      --clr-text: #e4e4e7;
+      --clr-text-muted: #a1a1aa;
+      --clr-white: #ffffff;
+      --clr-green: #10b981;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--clr-bg);
+      color: var(--clr-text);
+      font-family: var(--font-sans);
+      padding: 0 0 60px 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-nav {
+      background: rgba(18, 18, 23, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--clr-card-border);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .nav-brand img { height: 32px; width: auto; }
+    .nav-brand-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-brand-sub { font-size: 10px; color: var(--clr-gold); font-weight: 600; }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav {
+      background: #27272a;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-nav:hover { background: #3f3f46; }
+
+    .hub-hero {
+      max-width: 1080px;
+      margin: 40px auto 30px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .hub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(252, 242, 0, 0.1);
+      border: 1px solid rgba(252, 242, 0, 0.3);
+      color: var(--clr-gold);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .hub-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .hub-desc {
+      font-size: 15px;
+      color: var(--clr-text-muted);
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .contracts-grid {
+      max-width: 1080px;
+      margin: 30px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 768px) {
+      .contracts-grid { grid-template-columns: 1fr; }
+    }
+
+    .contract-card {
+      background: var(--clr-card);
+      border: 1px solid var(--clr-card-border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .contract-card:hover {
+      border-color: #52525b;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
+    }
+    .contract-card.featured {
+      border-color: rgba(252, 242, 0, 0.4);
+      background: linear-gradient(180deg, rgba(252, 242, 0, 0.03) 0%, rgba(18, 18, 23, 1) 100%);
+    }
+
+    .card-ribbon {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .ribbon-gold {
+      background: var(--clr-gold);
+      color: #000;
+    }
+    .ribbon-blue {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .card-header-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .card-badge-model {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--clr-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--clr-text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 16px;
+    }
+    .feature-list li {
+      font-size: 12.5px;
+      color: #d4d4d8;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .feature-list li strong { color: #fff; }
+
+    .card-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .btn-card-primary {
+      background: var(--clr-gold);
+      color: #000;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-card-primary:hover {
+      background: #e5dc00;
+      transform: translateY(-1px);
+    }
+    .btn-card-blue {
+      background: #2563eb;
+      color: #fff;
+    }
+    .btn-card-blue:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-card-secondary {
+      background: #27272a;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-card-secondary:hover {
+      background: #3f3f46;
+    }
+
+    .legal-guarantee-strip {
+      max-width: 1080px;
+      margin: 40px auto;
+      padding: 24px;
+      background: rgba(18, 18, 23, 0.7);
+      border: 1px solid var(--clr-card-border);
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .legal-guarantee-strip { grid-template-columns: 1fr; }
+    }
+    .strip-item h5 {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .strip-item p {
+      font-size: 11.5px;
+      color: var(--clr-text-muted);
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="top-nav">
+    <a href="../index.html" class="nav-brand">
+      <img src="../../assets/images/Isotipo Orchata.png" alt="Orchata Logo" />
+      <div>
+        <span class="nav-brand-title">Orchata Media House</span>
+        <span class="nav-brand-sub">Bóveda Legal & Instrumentos Mercantiles</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../cotizador/" class="btn-nav">🧮 Ir al Cotizador</a>
+      <a href="../index.html" class="btn-nav">← Regresar a Sales Hub</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hub-hero">
+    <div class="hub-badge">⚖️ Marco Jurídico Blindado · Estados Unidos Mexicanos</div>
+    <h1 class="hub-title">Contratos Oficiales de Prestación de Servicios DOOH</h1>
+    <p class="hub-desc">
+      Instrumentos mercantiles redactados bajo el Código de Comercio de México, Ley Federal del Derecho de Autor y Ley Federal de Protección al Consumidor. Selecciona la modalidad acordada con el cliente para imprimir o generar el PDF oficial listo para firma.
+    </p>
+  </section>
+
+  <!-- CARDS DE CONTRATO -->
+  <section class="contracts-grid">
+    
+    <!-- CONTRATO 01: CONVENIO RED PUBLICITARIA (5 AÑOS) -->
+    <div class="contract-card featured">
+      <div class="card-ribbon ribbon-gold">Más Contratado</div>
+      <div>
+        <div class="card-header-icon">⚡</div>
+        <h2 class="card-title">Versión 01: Con Convenio de Red Publicitaria</h2>
+        <span class="card-badge-model">Cesión de Pantallas a 5 Años · Participación en Utilidades a partir de Año 2</span>
+        <p class="card-desc">
+          El cliente recibe un descuento comercial o paquete preferencial a cambio de ceder un bloque controlado (10% a 15%) de sus pantallas para contenidos educativos y marcas aliadas durante 5 años. 
+        </p>
+
+        <ul class="feature-list">
+          <li>⏱️ <strong>Entrega técnica garantizada:</strong> 15 días hábiles llave en mano.</li>
+          <li>📺 <strong>Contenido protegido:</strong> Solo medios educativos y marcas de prestigio (prohibida competencia en 5km).</li>
+          <li>💰 <strong>Revenue Share a partir de Año 2:</strong> 30% en Año 2 y 40% en Años 3 al 5 en utilidades directas.</li>
+          <li>🔒 <strong>Blindaje contractual:</strong> Cláusula de permanencia, no desconexión y pena convencional compensatoria.</li>
+          <li>💵 <strong>Cero rentas mensuales:</strong> $0 cuotas de licenciamiento básico de software.</li>
+        </ul>
+      </div>
+
+      <div class="card-actions">
+        <a href="../contrato-red-publicitaria/" class="btn-card-primary">
+          📄 Abrir Contrato con Red Publicitaria (5 Años)
+        </a>
+        <a href="../cotizador/" class="btn-card-secondary">
+          🧮 Generar Cotización Vinculada
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTRATO 02: ESTÁNDAR PRIVADO (SIN RED) -->
+    <div class="contract-card">
+      <div class="card-ribbon ribbon-blue">100% Exclusivo</div>
+      <div>
+        <div class="card-header-icon">🛡️</div>
+        <h2 class="card-title">Versión 02: Estándar (Sin Red Publicitaria)</h2>
+        <span class="card-badge-model" style="color: #60a5fa;">Canal Cerrado 100% Privado · Tarifa Regular</span>
+        <p class="card-desc">
+          Para gimnasios o directores que desean exclusividad absoluta. Ninguna marca externa ni cortinillas ajenas se proyectarán en sus televisores; el 100% del tiempo de pantalla pertenece a la marca del cliente.
+        </p>
+
+        <ul class="feature-list">
+          <li>⏱️ <strong>Entrega técnica garantizada:</strong> 15 días hábiles llave en mano.</li>
+          <li>🛑 <strong>Cero anuncios ajenos:</strong> 100% de la pauta dedicada a la identidad del gimnasio y suplementos.</li>
+          <li>📱 <strong>Catálogo transaccional QR:</strong> Matriz completa a WhatsApp (&lt;3 seg) para venta de suplementación.</li>
+          <li>🛡️ <strong>Garantía de satisfacción:</strong> 90 días naturales de cobertura en hardware y calibración.</li>
+          <li>💵 <strong>Pago único llave en mano:</strong> Factura deducible al 100% fiscalmente (Pesos Mexicanos + IVA).</li>
+        </ul>
+      </div>
+
+      <div class="card-actions">
+        <a href="../contrato-estandar/" class="btn-card-primary btn-card-blue">
+          📄 Abrir Contrato Estándar (Sin Red)
+        </a>
+        <a href="../cotizador/" class="btn-card-secondary">
+          🧮 Generar Cotización Vinculada
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GARANTÍAS LEGALES -->
+  <section class="legal-guarantee-strip">
+    <div class="strip-item">
+      <h5>⚖️ Jurisdicción Mexicana</h5>
+      <p>Sometido expresamente a las Leyes Mercantiles y Tribunales de la Ciudad de Querétaro, Qro., garantizando certidumbre bilateral.</p>
+    </div>
+    <div class="strip-item">
+      <h5>⏱️ 15 Días Hábiles</h5>
+      <p>Plazo fatal estipulado por contrato tras anticipo y entrega de activos gráficos para entrega y calibración en sala.</p>
+    </div>
+    <div class="strip-item">
+      <h5>🔒 Blindaje Quinquenal</h5>
+      <p>Cláusula penal y prohibición de cancelación unilateral en la versión de red publicitaria para proteger la inversión.</p>
+    </div>
+  </section>
+
+</body>
+</html>
