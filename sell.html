@@ -488,35 +488,78 @@
 
     @media (max-width: 768px) {
       .sell-nav {
-        padding: 0 18px;
+        padding: 0 16px;
       }
       .sell-hero {
-        padding: 105px 16px 40px;
+        padding: 95px 14px 35px;
+      }
+      .sell-title {
+        font-size: 32px;
+      }
+      .sell-subtitle {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .sell-tabs-wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+        gap: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .sell-tabs-wrap::-webkit-scrollbar {
+        display: none;
+      }
+      .sell-tab-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 8px 14px;
+        font-size: 12px;
       }
       .sell-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
+      }
+      .sell-card {
+        padding: 18px 16px;
       }
       .sell-card-actions {
         flex-direction: column;
+        gap: 10px;
+      }
+      .sell-card-actions button,
+      .sell-card-actions a {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
       }
       .viewer-modal {
         padding: 0;
       }
       .viewer-topbar {
         border-radius: 0;
+        padding: 12px 16px;
       }
       .viewer-body {
         border-radius: 0;
       }
       .viewer-text-content {
-        padding: 20px 16px;
+        padding: 20px 14px;
+        font-size: 13.5px;
       }
       .sales-support-strip {
-        padding: 24px 20px;
+        padding: 20px 16px;
         flex-direction: column;
         align-items: stretch;
         text-align: center;
+        gap: 16px;
+      }
+      .sales-support-strip a {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>

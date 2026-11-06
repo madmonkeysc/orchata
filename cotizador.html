@@ -1185,21 +1185,247 @@
       opacity: 1;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
+    /* ==========================================================================
+       RESPONSIVE DESIGN (TABLET & MOBILE ULTRA-OPTIMIZADO)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+      .summary-column {
+        position: static;
+      }
+      .stats-ribbon {
+        grid-template-columns: 1fr 1fr;
+      }
+      .packages-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .addons-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
       .app-container {
-        padding: var(--space-sm) var(--space-sm) var(--space-2xl);
+        padding: var(--space-sm) var(--space-sm) var(--space-3xl);
+        max-width: 100%;
+        overflow-x: hidden;
       }
-      .presets-container {
+
+      /* Header móvil limpio y apilado */
+      .app-header {
         flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+        padding-bottom: var(--space-md);
       }
-      .preset-btn {
+      .brand-block {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
         width: 100%;
       }
-      .hero-total-price {
-        font-size: 1.9rem;
+      .brand-meta h1 {
+        font-size: 1.05rem !important;
+        line-height: 1.25;
       }
+      .brand-meta p {
+        font-size: 0.75rem;
+      }
+      .header-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+      .header-actions .back-to-sell-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+      .header-actions .meta-tag {
+        width: 100%;
+        justify-content: center;
+        padding: 7px 10px;
+        font-size: 0.72rem;
+      }
+
+      /* Ribbon de estadísticas en 2 columnas compactas */
+      .stats-ribbon {
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        margin-bottom: var(--space-md);
+      }
+      .stat-tile {
+        padding: 10px 12px;
+      }
+      .stat-metric {
+        font-size: 1.35rem;
+      }
+      .stat-label {
+        font-size: 0.68rem;
+      }
+      .stat-desc {
+        display: none; /* Ahorra espacio vertical en pantallas móviles */
+      }
+
+      /* Paneles y formularios */
+      .panel {
+        margin-bottom: var(--space-md);
+        border-radius: 8px;
+      }
+      .panel-header {
+        padding: 12px 14px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .panel-title {
+        font-size: 0.88rem;
+      }
+      .panel-body {
+        padding: 14px 12px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Presets apilables o scroll */
+      .presets-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+      .preset-btn {
+        min-width: unset;
+        width: 100%;
+        padding: 8px 10px;
+      }
+      .preset-name {
+        font-size: 0.75rem;
+      }
+      .preset-sub {
+        font-size: 0.62rem;
+      }
+
+      /* Paquetes en 1 sola columna para visualización clara sin scroll horizontal */
+      .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: var(--space-md);
+      }
+      .package-card {
+        padding: 14px;
+        border-radius: 8px;
+      }
+      .pkg-price {
+        font-size: 1.3rem;
+      }
+
+      /* Add-ons en 1 sola columna */
+      .addons-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .addon-card {
+        padding: 14px;
+        border-radius: 8px;
+      }
+
+      /* Sliders y contadores */
+      .range-dual-wrap {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .range-num-box {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Disciplinas chips flexibles */
+      .disciplines-chips {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+      .discipline-chip {
+        width: 100%;
+        padding: 8px 10px;
+        justify-content: flex-start;
+      }
+
+      /* Resumen y Cotización */
+      .hero-total-price {
+        font-size: 1.8rem !important;
+        flex-wrap: wrap;
+      }
+      .quote-breakdown-table th, 
+      .quote-breakdown-table td {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+      }
+
+      /* KPIs del ROI */
       .roi-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      .roi-kpi-cell {
+        padding: 10px 12px;
+      }
+      .roi-kpi-value {
+        font-size: 1.25rem;
+      }
+
+      /* Gráfica responsiva */
+      .chart-box {
+        padding: 10px;
+      }
+      .chart-canvas-wrap {
+        height: 190px;
+      }
+
+      /* Botones de acción fáciles de tocar con pulgar (Touch Friendly 48px) */
+      .carbon-btn {
+        height: 48px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+      }
+      .action-button-stack {
+        gap: 10px;
+      }
+
+      /* Proposal Preview Box */
+      .proposal-preview-box {
+        font-size: 0.72rem;
+        max-height: 200px;
+        padding: 10px;
+        word-break: break-word;
+      }
+
+      /* Toast Notification */
+      .toast-msg {
+        left: 12px;
+        right: 12px;
+        bottom: 16px;
+        padding: 12px 14px;
+        font-size: 0.78rem;
+        border-radius: 8px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .stats-ribbon {
+        grid-template-columns: 1fr;
+      }
+      .stat-desc {
+        display: block;
+      }
+      .presets-container {
         grid-template-columns: 1fr;
       }
     }
