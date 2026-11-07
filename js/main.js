@@ -954,17 +954,7 @@ function initHeroMasterSlider() {
     goToSlide(currentIndex - 1);
   }
 
-  function resetAutoplay() {
-    if (isUserPausedByClick) return;
-    clearTimeout(slideTimer);
-    clearInterval(progressTimer);
-    startProgressBar();
-    slideTimer = setTimeout(() => {
-      nextSlide();
-    }, slideDuration);
-  }
-
-  // Variable de estado para pausar permanentemente si el usuario hace clic
+  // Variable de estado para pausar si el usuario hace clic
   let isUserPausedByClick = false;
 
   function stopAutoplayPermanent() {
@@ -976,9 +966,20 @@ function initHeroMasterSlider() {
     }
   }
 
-  // Event Listeners del Paginador Lateral (si hace click, navega y se detiene si fue manual o reinicia si se desea)
+  function resetAutoplay() {
+    if (isUserPausedByClick) return;
+    clearTimeout(slideTimer);
+    clearInterval(progressTimer);
+    startProgressBar();
+    slideTimer = setTimeout(() => {
+      nextSlide();
+    }, slideDuration);
+  }
+
+  // Al hacer clic en los botones del paginador, pausar para permitir lectura del slide seleccionado
   pagBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const targetIdx = parseInt(btn.getAttribute('data-index'), 10);
       if (!isNaN(targetIdx)) {
         stopAutoplayPermanent();
@@ -987,20 +988,16 @@ function initHeroMasterSlider() {
     });
   });
 
-  // Event Listeners de Flechas
-  if (prevBtn) prevBtn.addEventListener('click', () => {
+  // Al hacer clic en flechas prev / next, pausar
+  if (prevBtn) prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     stopAutoplayPermanent();
     prevSlide();
   });
-  if (nextBtn) nextBtn.addEventListener('click', () => {
+  if (nextBtn) nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     stopAutoplayPermanent();
     nextSlide();
-  });
-
-  // Pausar solo si se hace clic dentro del hero slider
-  slider.addEventListener('click', (e) => {
-    // Si se hizo click en un enlace o botón se detiene la secuencia automática para que no cambie mientras interactúa
-    stopAutoplayPermanent();
   });
 
   // Gestos táctiles (Swipe en móviles)
