@@ -955,6 +955,7 @@ function initHeroMasterSlider() {
   }
 
   function resetAutoplay() {
+    if (isUserPausedByClick) return;
     clearTimeout(slideTimer);
     clearInterval(progressTimer);
     startProgressBar();
@@ -963,27 +964,43 @@ function initHeroMasterSlider() {
     }, slideDuration);
   }
 
-  // Event Listeners del Paginador Lateral
+  // Variable de estado para pausar permanentemente si el usuario hace clic
+  let isUserPausedByClick = false;
+
+  function stopAutoplayPermanent() {
+    isUserPausedByClick = true;
+    clearTimeout(slideTimer);
+    clearInterval(progressTimer);
+    if (progressBar) {
+      progressBar.style.width = '100%';
+    }
+  }
+
+  // Event Listeners del Paginador Lateral (si hace click, navega y se detiene si fue manual o reinicia si se desea)
   pagBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetIdx = parseInt(btn.getAttribute('data-index'), 10);
       if (!isNaN(targetIdx)) {
+        stopAutoplayPermanent();
         goToSlide(targetIdx, true);
       }
     });
   });
 
   // Event Listeners de Flechas
-  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); });
-
-  // Pausar autoplay al pasar el mouse por encima para lectura cómoda
-  slider.addEventListener('mouseenter', () => {
-    clearTimeout(slideTimer);
-    clearInterval(progressTimer);
+  if (prevBtn) prevBtn.addEventListener('click', () => {
+    stopAutoplayPermanent();
+    prevSlide();
   });
-  slider.addEventListener('mouseleave', () => {
-    resetAutoplay();
+  if (nextBtn) nextBtn.addEventListener('click', () => {
+    stopAutoplayPermanent();
+    nextSlide();
+  });
+
+  // Pausar solo si se hace clic dentro del hero slider
+  slider.addEventListener('click', (e) => {
+    // Si se hizo click en un enlace o botón se detiene la secuencia automática para que no cambie mientras interactúa
+    stopAutoplayPermanent();
   });
 
   // Gestos táctiles (Swipe en móviles)
