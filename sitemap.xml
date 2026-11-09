@@ -3,7 +3,7 @@
   <!-- PÁGINA PRINCIPAL -->
   <url>
     <loc>https://www.orchatahouse.com/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- MARCA BLANCA / REDES DOOH GIMNASIOS -->
   <url>
     <loc>https://www.orchatahouse.com/pages/marca-blanca.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -19,7 +19,7 @@
   <!-- PRODUCCIONES A LA MEDIDA / COMERCIALES & PODCASTS -->
   <url>
     <loc>https://www.orchatahouse.com/pages/comerciales.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -27,7 +27,7 @@
   <!-- ORCHATA RÉCORDS / SELLO DISCOGRÁFICO -->
   <url>
     <loc>https://www.orchatahouse.com/pages/records.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -35,7 +35,7 @@
   <!-- ORCHATA ORIGINALS / DOCUMENTALES & SERIES -->
   <url>
     <loc>https://www.orchatahouse.com/pages/originales.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -43,7 +43,7 @@
   <!-- CONTACTO & COTIZACIONES -->
   <url>
     <loc>https://www.orchatahouse.com/pages/contacto.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,33 +51,45 @@
   <!-- NOSOTROS / EQUIPO & VISIÓN -->
   <url>
     <loc>https://www.orchatahouse.com/pages/nosotros.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- TÉRMINOS LEGALES Y MARCA BLANCA -->
   <url>
+    <loc>https://www.orchatahouse.com/pages/test-records.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.orchatahouse.com/pages/terminos.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.orchatahouse.com/pages/terminos-marca-blanca.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.orchatahouse.com/pages/terminos-producciones.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.orchatahouse.com/pages/terminos-records.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.orchatahouse.com/pages/privacidad.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

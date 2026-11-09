@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# Rutas privadas / kits comerciales confidenciales
+Disallow: /sell/
+Disallow: /sell.html
+Disallow: /cotizador.html
+Disallow: /docs/
+
 # Sitemap oficial de Orchata Media House
 Sitemap: https://www.orchatahouse.com/sitemap.xml
 

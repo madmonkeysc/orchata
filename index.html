@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orchata Media House</title>
-  <meta name="description" content="Orchata Media House: Productora audiovisual 360° en Querétaro y México. Circuitos de pantallas DOOH Marca Blanca para gimnasios, documentales originales, producción de podcasts y sello discográfico Orchata Récords." />
-  <meta name="keywords" content="Orchata Media House, productora audiovisual Querétaro, pantallas DOOH gimnasios, marca blanca pantallas gym, documentales originales, sello discografico independiente, producción de podcast 4K, comerciales cinematograficos" />
+  <title>Orchata Media House — Productora Audiovisual, Pantallas DOOH Gimnasios & Récords</title>
+  <meta name="description" content="Orchata Media House: Productora audiovisual 360° en Querétaro y México. Circuitos de pantallas DOOH Marca Blanca para gimnasios, documentales originales, producción de podcasts 4K y sello discográfico Orchata Récords." />
+  <meta name="keywords" content="Orchata Media House, productora audiovisual Querétaro, productora de video Querétaro, pantallas para gimnasios, DOOH gimnasios, marca blanca pantallas gym, producción de podcasts Querétaro, documentales originales, sello discográfico independiente México, comerciales cinematográficos" />
   <meta name="author" content="Orchata Media House" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://www.orchatahouse.com/" />
@@ -40,20 +40,63 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Orchata Media House",
-    "url": "https://www.orchatahouse.com",
-    "logo": "https://www.orchatahouse.com/assets/images/Logo%20Orchata.png",
-    "description": "Productora audiovisual 360°, redes DOOH inteligentes para gimnasios, series originales y sello discográfico.",
-    "telephone": "+524424280465",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Querétaro",
-      "addressRegion": "Qro",
-      "addressCountry": "MX"
-    },
-    "sameAs": [
-      "https://wa.me/524424280465"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.orchatahouse.com/#organization",
+        "name": "Orchata Media House",
+        "url": "https://www.orchatahouse.com",
+        "logo": "https://www.orchatahouse.com/assets/images/Logo%20Orchata.png",
+        "description": "Productora audiovisual 360°, redes DOOH inteligentes para gimnasios, cine documental independiente y sello discográfico Orchata Récords.",
+        "telephone": "+524424280465",
+        "email": "hola@orchatahouse.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Querétaro",
+          "addressRegion": "Qro",
+          "addressCountry": "MX"
+        },
+        "sameAs": [
+          "https://wa.me/524424280465",
+          "https://www.youtube.com/@OrchataOriginals",
+          "https://www.instagram.com/orchatahouse"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.orchatahouse.com/#website",
+        "url": "https://www.orchatahouse.com/",
+        "name": "Orchata Media House",
+        "publisher": {
+          "@id": "https://www.orchatahouse.com/#organization"
+        },
+        "inLanguage": "es-MX"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.orchatahouse.com/#localbusiness",
+        "name": "Orchata Media House — Productora Audiovisual & Pantallas DOOH",
+        "url": "https://www.orchatahouse.com",
+        "telephone": "+524424280465",
+        "priceRange": "$$",
+        "image": "https://www.orchatahouse.com/assets/images/F1%20Orcharta.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Querétaro",
+          "addressRegion": "Querétaro",
+          "addressCountry": "MX"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Querétaro"
+          },
+          {
+            "@type": "Country",
+            "name": "México"
+          }
+        ]
+      }
     ]
   }
   </script>
