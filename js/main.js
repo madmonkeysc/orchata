@@ -1028,3 +1028,88 @@ if (document.readyState === 'loading') {
 } else {
   initHeroMasterSlider();
 }
+
+/* ============================================================
+   GESTIÓN DE COOKIES & PRIVACIDAD (GDPR / LFPDPPP)
+   ============================================================ */
+function initCookieConsent() {
+  const CONSENT_KEY = 'orchata_cookie_consent';
+  const savedConsent = localStorage.getItem(CONSENT_KEY);
+
+  // Si el usuario ya aceptó o rechazó previamente, no mostramos nada
+  if (savedConsent) {
+    if (savedConsent === 'accepted') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'cookie_consent_granted' });
+    }
+    return;
+  }
+
+  // Detectar ruta base relativa para el enlace de privacidad
+  const isPagesDir = window.location.pathname.includes('/pages/');
+  const privacyLink = isPagesDir ? 'privacidad.html' : 'pages/privacidad.html';
+
+  // Crear elemento del banner
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner-wrap';
+  banner.id = 'orchata-cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Gestión de cookies y privacidad');
+  banner.innerHTML = `
+    <div class="cookie-banner-header">
+      <span class="cookie-banner-icon">🍪</span>
+      <h3 class="cookie-banner-title">Gestión de Cookies & Privacidad</h3>
+    </div>
+    <p class="cookie-banner-text">
+      Utilizamos cookies técnicas y de análisis para optimizar tu experiencia de navegación, recordar tus preferencias y medir el rendimiento del sitio. Puedes consultar los detalles en nuestro <a href="${privacyLink}">Aviso de Privacidad</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="cookie-btn-accept" id="cookie-accept-btn">
+        Aceptar todas las cookies
+      </button>
+      <button type="button" class="cookie-btn-reject" id="cookie-reject-btn">
+        Solo esenciales
+      </button>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+
+  // Animar entrada tras 1 segundo
+  setTimeout(() => {
+    banner.classList.add('show');
+  }, 1000);
+
+  // Manejadores de botones
+  const acceptBtn = document.getElementById('cookie-accept-btn');
+  const rejectBtn = document.getElementById('cookie-reject-btn');
+
+  function closeBanner(status) {
+    localStorage.setItem(CONSENT_KEY, status);
+    banner.classList.remove('show');
+    setTimeout(() => {
+      if (banner.parentNode) banner.parentNode.removeChild(banner);
+    }, 600);
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'cookie_consent_granted' });
+      closeBanner('accepted');
+    });
+  }
+
+  if (rejectBtn) {
+    rejectBtn.addEventListener('click', () => {
+      closeBanner('essential_only');
+    });
+  }
+}
+
+// Inicializar banner de cookies cuando cargue el DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCookieConsent);
+} else {
+  initCookieConsent();
+}
