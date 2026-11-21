@@ -10,3 +10,20 @@ Disallow: /docs/
 # Sitemap oficial de Orchata Media House
 Sitemap: https://www.orchatahouse.com/sitemap.xml
 
+# AI & Answer Engine Context
+# llms.txt standard for Claude, ChatGPT, Perplexity, and search engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
